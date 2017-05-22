@@ -21,9 +21,9 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Τι είναι οι Μη Φαρμακευτικές Παρεμβάσεις', component: 'InfoPage'},
-      { title: 'Σκοπός', component: ListPage },
-      { title: 'Αξία', component: ListPage },
-      { title: 'Τι να προσέξω', component: ListPage },
+      { title: 'Σκοπός', component: 'GoalPage' },
+      { title: 'Αξία', component: 'ValuePage' },
+      { title: 'Τι να προσέξω', component: 'TipsListPage' },
       { title: 'Μ.Φ.Π.', component: ListPage },
       { title: 'Ιστορικό Ασκήσεων/Δραστηριοτήτων', component: ListPage },
       { title: 'Ρυθμίσεις ειδοποιήσεων', component: ListPage },
@@ -42,14 +42,7 @@ export class MyApp {
   }
 
   openPage(page) {
-    switch (page.component) {
-      case 'InfoPage' :
-        this.nav.push('InfoPage', {page: page});
-        break;
-      default:
-        this.nav.setRoot('HomePage');
-        break;
+    this.nav.push(page.component, {page: page});
 
-    }
   }
 }

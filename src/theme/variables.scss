@@ -28,9 +28,11 @@ $colors: (
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
-  dark:       #222
+  dark:       #222,
+  success:   #32db64
 );
-
+$success:   #32db64;
+$page-background-color: #f8f8f8;
 
 // App iOS Variables
 // --------------------------------------------------
