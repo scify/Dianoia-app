@@ -1,5 +1,6 @@
 
 ##Dianoia - Ionic 3 Mobile app
+
 ### Non-pharmaceutical activities for people with dementia.
 
 
