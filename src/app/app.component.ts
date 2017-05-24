@@ -24,7 +24,7 @@ export class MyApp {
       { title: 'Σκοπός', component: 'InfoListPage', data: {pageCode: "page_goal", pageFile: 'goal.json'} },
       { title: 'Αξία', component: 'InfoListPage', data: {pageCode: "page_value", pageFile: 'value.json'} },
       { title: 'Τι να προσέξω', component: 'CardsListPage', data: {pageCode: "page_tips_list", pageFile: 'tips_list.json'} },
-      { title: 'Μ.Φ.Π.', component: 'ActivityCategoriesPage' },
+      { title: 'Μ.Φ.Π.', component: 'ButtonsListPage', data: {pageCode: "page_activity_categories", pageFile: 'activity_categories.json'} },
       { title: 'Ιστορικό Ασκήσεων/Δραστηριοτήτων', component: ListPage },
       { title: 'Ρυθμίσεις ειδοποιήσεων', component: ListPage },
       { title: 'Βοήθεια', component: ListPage }
