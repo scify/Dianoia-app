@@ -1,0 +1,16 @@
+page-common-activities {
+
+  ion-content {
+    background-color: $page-background-color !important;
+
+    .title {
+      margin-left: 12px;
+      margin-bottom: 15px;
+    }
+
+    ion-card-header {
+      font-weight: bold;
+    }
+  }
+
+}

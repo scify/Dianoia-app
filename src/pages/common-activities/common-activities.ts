@@ -2,23 +2,23 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the GoalPage page.
+ * Generated class for the CommonActivitiesPage page.
  *
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
 @IonicPage()
 @Component({
-  selector: 'page-goal',
-  templateUrl: 'goal.html',
+  selector: 'page-common-activities',
+  templateUrl: 'common-activities.html',
 })
-export class GoalPage {
+export class CommonActivitiesPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad GoalPage');
+    console.log('ionViewDidLoad CommonActivitiesPage');
   }
 
 }

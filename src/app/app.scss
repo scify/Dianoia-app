@@ -29,35 +29,3 @@ ion-content { font-size: 1.6rem;}
     }
   }
 }
-
-.imgContainer {
-  text-align: center;
-  margin-bottom: 20px;
-  height: 40%;
-
-  img {
-    height:100%;
-  }
-}
-
-.aboutList {
-  margin-top: 20px;
-
-  .item {
-    padding-left: 0;
-
-    .icon {
-      margin-right: 5px;
-      font-size: 200% !important;
-      color: $success;
-    }
-
-    .item-inner {
-      margin-left: 0 !important;
-
-      .label {
-        font-size: 1.6rem !important;
-      }
-    }
-  }
-}

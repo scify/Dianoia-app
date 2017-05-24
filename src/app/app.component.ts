@@ -20,11 +20,11 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Τι είναι οι Μη Φαρμακευτικές Παρεμβάσεις', component: 'InfoPage'},
-      { title: 'Σκοπός', component: 'GoalPage' },
-      { title: 'Αξία', component: 'ValuePage' },
+      { title: 'Τι είναι οι Μη Φαρμακευτικές Παρεμβάσεις', component: 'InfoListPage', data: {pageCode: "page_info", pageFile: 'info.json'} },
+      { title: 'Σκοπός', component: 'InfoListPage', data: {pageCode: "page_goal", pageFile: 'goal.json'} },
+      { title: 'Αξία', component: 'InfoListPage', data: {pageCode: "page_value", pageFile: 'value.json'} },
       { title: 'Τι να προσέξω', component: 'TipsListPage' },
-      { title: 'Μ.Φ.Π.', component: ListPage },
+      { title: 'Μ.Φ.Π.', component: 'ActivityCategoriesPage' },
       { title: 'Ιστορικό Ασκήσεων/Δραστηριοτήτων', component: ListPage },
       { title: 'Ρυθμίσεις ειδοποιήσεων', component: ListPage },
       { title: 'Βοήθεια', component: ListPage }
@@ -42,7 +42,7 @@ export class MyApp {
   }
 
   openPage(page) {
-    this.nav.push(page.component, {page: page});
+    this.nav.push(page.component, {pageCode: page.data.pageCode, pageFile: page.data.pageFile});
 
   }
 }

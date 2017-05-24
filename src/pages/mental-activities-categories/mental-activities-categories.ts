@@ -2,24 +2,23 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the InfoPage page.
+ * Generated class for the MentalActivitiesCategoriesPage page.
  *
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
 @IonicPage()
 @Component({
-  selector: 'page-info',
-  templateUrl: 'info.html',
+  selector: 'page-mental-activities-categories',
+  templateUrl: 'mental-activities-categories.html',
 })
-export class InfoPage {
+export class MentalActivitiesCategoriesPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad InfoPage');
+    console.log('ionViewDidLoad MentalActivitiesCategoriesPage');
   }
 
 }
