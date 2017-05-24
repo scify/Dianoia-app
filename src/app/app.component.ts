@@ -23,7 +23,7 @@ export class MyApp {
       { title: 'Τι είναι οι Μη Φαρμακευτικές Παρεμβάσεις', component: 'InfoListPage', data: {pageCode: "page_info", pageFile: 'info.json'} },
       { title: 'Σκοπός', component: 'InfoListPage', data: {pageCode: "page_goal", pageFile: 'goal.json'} },
       { title: 'Αξία', component: 'InfoListPage', data: {pageCode: "page_value", pageFile: 'value.json'} },
-      { title: 'Τι να προσέξω', component: 'TipsListPage' },
+      { title: 'Τι να προσέξω', component: 'CardsListPage', data: {pageCode: "page_tips_list", pageFile: 'tips_list.json'} },
       { title: 'Μ.Φ.Π.', component: 'ActivityCategoriesPage' },
       { title: 'Ιστορικό Ασκήσεων/Δραστηριοτήτων', component: ListPage },
       { title: 'Ρυθμίσεις ειδοποιήσεων', component: ListPage },
