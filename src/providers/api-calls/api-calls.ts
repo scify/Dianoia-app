@@ -4,12 +4,6 @@ import 'rxjs/add/operator/map';
 import {Observable} from "rxjs/Observable";
 import {AppStorageProvider} from "../app-storage/app-storage";
 
-/*
-  Generated class for the ApiCallsProvider provider.
-
-  See https://angular.io/docs/ts/latest/guide/dependency-injection.html
-  for more info on providers and Angular 2 DI.
-*/
 @Injectable()
 export class ApiCallsProvider {
 
