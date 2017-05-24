@@ -8,7 +8,7 @@ export class PageProvider {
   endPoint: string;
 
   constructor(public http: Http, private apiCalls: ApiCallsProvider) {
-    this.endPoint = "/assets/pages/";
+    this.endPoint = "/assets/";
   }
 
   getDataForPage(pageCode, pageFile) {

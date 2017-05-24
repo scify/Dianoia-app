@@ -4,10 +4,18 @@
   "description": "",
   "buttons" : [
     {
-      "title": "Νοητικές Ασκήσεις"
+      "title": "Νοητικές Ασκήσεις",
+      "category": "page",
+      "type": "buttons_list",
+      "file": "pages/mental_activities_categories.json",
+      "code": "mental_activities_categories"
     },
     {
-      "title": "Κοινές δραστηριότητες"
+      "title": "Κοινές δραστηριότητες",
+      "category": "page",
+      "type": "cards_list",
+      "file": "pages/common_activities.json",
+      "code": "common_activities"
     }
   ]
 }

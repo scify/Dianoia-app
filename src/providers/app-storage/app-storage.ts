@@ -6,7 +6,6 @@ import {Storage} from "@ionic/storage";
 export class AppStorageProvider {
 
   constructor(public storage: Storage) {
-    console.log('Hello AppStorageProvider Provider');
   }
 
   set(dataKey, data) {

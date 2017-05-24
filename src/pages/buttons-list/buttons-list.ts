@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {PageProvider} from "../../providers/page/page";
+import {Page} from "../../models/page";
 
 /**
  * Generated class for the ButtonsListPage page.
@@ -35,4 +36,29 @@ export class ButtonsListPage {
       });
   }
 
+  navigate(button: any):void {
+
+    switch (button.category) {
+      case "page":
+        this.navigateToPage(button);
+        break;
+      default:
+        break;
+    }
+  }
+
+  private navigateToPage(button: any):void {
+    let pageData;
+    switch (button.type) {
+      case "cards_list":
+        pageData = new Page('CardsListPage', button.code, button.file)
+        break;
+      case "buttons_list":
+        pageData = new Page('ButtonsListPage', button.code, button.file)
+        break;
+      default:
+        return;
+    }
+   this.navCtrl.push(pageData.component, {pageCode: pageData.code, pageFile: pageData.file})
+  }
 }

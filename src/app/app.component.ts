@@ -4,6 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { ListPage } from '../pages/list/list';
+import {Page} from "../models/page";
 
 @Component({
   templateUrl: 'app.html'
@@ -13,18 +14,17 @@ export class MyApp {
 
   rootPage: any = 'HomePage';
 
-  pages: Array<{title: string, component: any, data?: any}>;
+  pages: Array<{title: string, component?: any, data?: Page}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
-
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Τι είναι οι Μη Φαρμακευτικές Παρεμβάσεις', component: 'InfoListPage', data: {pageCode: "page_info", pageFile: 'info.json'} },
-      { title: 'Σκοπός', component: 'InfoListPage', data: {pageCode: "page_goal", pageFile: 'goal.json'} },
-      { title: 'Αξία', component: 'InfoListPage', data: {pageCode: "page_value", pageFile: 'value.json'} },
-      { title: 'Τι να προσέξω', component: 'CardsListPage', data: {pageCode: "page_tips_list", pageFile: 'tips_list.json'} },
-      { title: 'Μ.Φ.Π.', component: 'ButtonsListPage', data: {pageCode: "page_activity_categories", pageFile: 'activity_categories.json'} },
+      { title: 'Τι είναι οι Μη Φαρμακευτικές Παρεμβάσεις', data: new Page("InfoListPage", "page_info", "pages/info.json") },
+      { title: 'Σκοπός', data: new Page("InfoListPage", "page_goal", "pages/goal.json") },
+      { title: 'Αξία', data: new Page("InfoListPage", "page_value", "pages/value.json") },
+      { title: 'Τι να προσέξω', data: new Page("CardsListPage", "page_tips_list", "pages/tips_list.json") },
+      { title: 'Μ.Φ.Π.', data: new Page("ButtonsListPage", "page_activity_categories", "pages/activity_categories.json") },
       { title: 'Ιστορικό Ασκήσεων/Δραστηριοτήτων', component: ListPage },
       { title: 'Ρυθμίσεις ειδοποιήσεων', component: ListPage },
       { title: 'Βοήθεια', component: ListPage }
@@ -42,7 +42,6 @@ export class MyApp {
   }
 
   openPage(page) {
-    this.nav.push(page.component, {pageCode: page.data.pageCode, pageFile: page.data.pageFile});
-
+    this.nav.push(page.data.component, {pageCode: page.data.code, pageFile: page.data.file});
   }
 }
