@@ -1,0 +1,8 @@
+<!-- Generated template for the ButtonsListComponent component -->
+<div>
+  <div class="buttonsContainer">
+    <p *ngFor="let button of buttons">
+      <button mode="ios" ion-button full (click)="onButtonClick(button)">{{ button.title }}</button>
+    </p>
+  </div>
+</div>

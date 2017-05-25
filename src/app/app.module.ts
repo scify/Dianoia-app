@@ -12,6 +12,8 @@ import {HttpModule} from "@angular/http";
 import { PageProvider } from '../providers/page/page';
 import { IonicStorageModule } from '@ionic/storage';
 import { AppStorageProvider } from '../providers/app-storage/app-storage';
+import { ActivityCategoryProvider } from '../providers/activity-category/activity-category';
+import { ActivityProvider } from '../providers/activity/activity';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { AppStorageProvider } from '../providers/app-storage/app-storage';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ApiCallsProvider,
     PageProvider,
-    AppStorageProvider
+    AppStorageProvider,
+    ActivityCategoryProvider,
+    ActivityProvider
   ]
 })
 export class AppModule {}

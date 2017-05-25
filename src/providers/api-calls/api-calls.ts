@@ -14,7 +14,6 @@ export class ApiCallsProvider {
     return Observable.create(observer => {
       // if value on local storage exists call observer next.
       this.storage.get(cacheKey).then((response) => {
-        console.log("response", response);
         let data = JSON.parse(response);
         if (data != null)
           observer.next(data);

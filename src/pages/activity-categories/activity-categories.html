@@ -1,0 +1,16 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Κατηγορίες ασκήσεων</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div class="description">Select a category</div>
+
+  <buttons-list *ngIf='categories?.length > 0' [buttons]="categories" (buttonClick)="selectCategory($event)"></buttons-list>
+
+</ion-content>
