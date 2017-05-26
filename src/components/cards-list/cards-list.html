@@ -1,10 +1,15 @@
 <ion-card mode="ios" *ngFor="let card of cards" (click)="onCardClick(card)">
-  <ion-card-header text-wrap>
-    {{ card.id }}
-  </ion-card-header>
-  <ion-card-content>
-    <p>
-      {{ card.id }}
-    </p>
-  </ion-card-content>
+  <button ion-item no-padding>
+    <ion-item no-padding style="background: rgba(0,0,0,0);">
+      <ion-card-header text-wrap>
+        {{ card.id }}
+      </ion-card-header>
+      <ion-card-content>
+        <p>
+          {{ card.id }}
+        </p>
+      </ion-card-content>
+    </ion-item>
+  </button>
+
 </ion-card>

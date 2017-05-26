@@ -24,8 +24,10 @@ export class InfoListPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               private pageProvider: PageProvider) {
-    this.pageFile = this.navParams.get("pageFile");
-    this.pageCode = this.navParams.get("pageCode");
+    let pageData = this.navParams.get("pageData");
+    console.log(pageData);
+    this.pageFile = pageData.pageFile;
+    this.pageCode = pageData.pageCode;
   }
 
   ionViewDidLoad() {

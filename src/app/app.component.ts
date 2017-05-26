@@ -14,17 +14,17 @@ export class MyApp {
 
   rootPage: any = 'HomePage';
 
-  pages: Array<{title: string, component?: any, data?: Page}>;
+  pages: Array<{title: string, component?: any, pageFile?: string, pageCode?: string}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Τι είναι οι Μη Φαρμακευτικές Παρεμβάσεις', component: "TopActivityCategories", data: new Page("InfoListPage", "page_info", "pages/info.json") },
-      { title: 'Σκοπός', data: new Page("InfoListPage", "page_goal", "pages/goal.json") },
-      { title: 'Αξία', data: new Page("InfoListPage", "page_value", "pages/value.json") },
-      { title: 'Τι να προσέξω', data: new Page("CardsListPage", "page_tips_list", "pages/tips_list.json") },
-      { title: 'Μ.Φ.Π.', component: "ActivityCategoriesPage" , data: new Page("ButtonsListPage", "page_activity_categories", "pages/activity_categories.json") },
+      { title: 'Τι είναι οι Μη Φαρμακευτικές Παρεμβάσεις', component: "InfoListPage", pageCode: "page_info", pageFile: "pages/info.json"},
+      { title: 'Σκοπός', component: "InfoListPage", pageCode: "page_goal", pageFile: "pages/goal.json" },
+      { title: 'Αξία', component: "InfoListPage", pageCode: "page_value", pageFile: "pages/value.json" },
+      { title: 'Τι να προσέξω', component: "InfoListPage", pageCode: "page_tips_list", pageFile: "pages/tips_list.json" },
+      { title: 'Μ.Φ.Π.', component: "ActivityCategoriesPage"},
       { title: 'Ιστορικό Ασκήσεων/Δραστηριοτήτων', component: ListPage },
       { title: 'Ρυθμίσεις ειδοποιήσεων', component: ListPage },
       { title: 'Βοήθεια', component: ListPage }
@@ -42,6 +42,6 @@ export class MyApp {
   }
 
   openPage(page) {
-    this.nav.push(page.component, {pageData: page.data});
+    this.nav.push(page.component, {pageData: page});
   }
 }
