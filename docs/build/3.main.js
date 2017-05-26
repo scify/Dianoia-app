@@ -75,7 +75,6 @@ var InfoListPage = (function () {
         this.pageFile = "";
         this.pageCode = "";
         var pageData = this.navParams.get("pageData");
-        console.log(pageData);
         this.pageFile = pageData.pageFile;
         this.pageCode = pageData.pageCode;
     }
@@ -83,6 +82,7 @@ var InfoListPage = (function () {
         var _this = this;
         if (this.pageCode != null && this.pageFile != null)
             this.pageProvider.getDataForPage(this.pageCode, this.pageFile).subscribe(function (pageData) {
+                console.log("pageData", pageData);
                 _this.title = pageData.title;
                 _this.description = pageData.description;
                 _this.image = pageData.image;

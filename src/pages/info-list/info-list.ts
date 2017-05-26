@@ -25,7 +25,6 @@ export class InfoListPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,
               private pageProvider: PageProvider) {
     let pageData = this.navParams.get("pageData");
-    console.log(pageData);
     this.pageFile = pageData.pageFile;
     this.pageCode = pageData.pageCode;
   }
@@ -33,6 +32,7 @@ export class InfoListPage {
   ionViewDidLoad() {
     if(this.pageCode != null && this.pageFile != null)
       this.pageProvider.getDataForPage(this.pageCode, this.pageFile).subscribe(pageData => {
+        console.log("pageData", pageData);
         this.title = pageData.title;
         this.description = pageData.description;
         this.image = pageData.image;
