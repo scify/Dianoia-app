@@ -61,4 +61,16 @@ export class ActivityProvider {
       observer.complete();
     });
   }
+
+  public getActivitiesByIdsSimple(activityIds: [string]) {
+    let activities = [];
+    for (let activityId of activityIds) {
+      this.getActivityById(activityId).then(activity => {
+        console.log(activity);
+        activities.push(activity);
+      });
+    }
+    console.log("activities", activities);
+    return activities;
+  }
 }

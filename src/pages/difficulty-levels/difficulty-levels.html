@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>difficultyLevels</ion-title>
+    <ion-title> {{ getPageTitle() }}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,8 +15,10 @@
 
 <ion-content padding>
 
-  <div class="description">Select a difficulty level</div>
+  <div class="description">Επιλέξτε επίπεδο δυσκολίας</div>
 
   <buttons-list *ngIf='levels?.length > 0' [buttons]="levels" (buttonClick)="selectLevel($event)"></buttons-list>
+
+  <cards-list *ngIf='activities?.length > 0' [cards]="activities" (cardClick)="selectActivity($event)"></cards-list>
 
 </ion-content>

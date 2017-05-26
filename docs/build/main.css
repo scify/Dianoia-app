@@ -27041,23 +27041,6 @@ ion-content {
   font-size: 140%;
 }
 
-page-cards-list ion-content {
-  background-color: #f8f8f8 !important;
-}
-
-page-cards-list ion-content .title {
-  margin-left: 12px;
-  margin-bottom: 15px;
-}
-
-page-cards-list ion-content ion-card-header {
-  font-weight: bold;
-}
-
-page-cards-list ion-content ion-card {
-  margin-bottom: 20px !important;
-}
-
 page-info-list .imgContainer {
   text-align: center;
   margin-bottom: 20px;

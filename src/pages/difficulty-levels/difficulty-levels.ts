@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {ActivityCategoryProvider} from "../../providers/activity-category/activity-category";
 
 /**
  * Generated class for the DifficultyLevelsPage page.
@@ -14,20 +15,48 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class DifficultyLevelsPage {
   levels: any[];
+  allActivities: any[];
+  activities: any[];
+  categoryId: string;
+  category: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+              private categoryProvider: ActivityCategoryProvider) {
     this.levels = this.navParams.get("levels");
-    console.log(this.levels);
+    this.categoryId = this.navParams.get("categoryId");
+    this.allActivities = this.navParams.get("activities");
+    this.activities = this.allActivities;
+
     if(this.levels == null) {
       this.navCtrl.setRoot("HomePage");
+    } else {
+      this.levels.unshift({id: "0", title: "Όλα τα επίπεδα"});
     }
+    this.categoryProvider.getCategoryById(this.categoryId).subscribe(category => {
+      this.category = category;
+    });
   }
 
-  ionViewDidLoad() {
+  getPageTitle() {
+    return this.category != null ?  this.category.title : "Δραστηριότητες";
   }
 
   selectLevel(levelButton: any):any {
-    console.log(levelButton);
+    if(levelButton.id == 0) {
+      this.activities = this.allActivities;
+    } else {
+      this.activities = [];
+      for(let activity of this.allActivities) {
+        if(activity.difficulty_level_id == levelButton.id) {
+          this.activities.push(activity);
+        }
+      }
+    }
+
+  }
+
+  selectActivity(activity: any) {
+    console.log(activity);
   }
 
 }

@@ -7,8 +7,8 @@ webpackJsonp([1],{
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__activity_categories__ = __webpack_require__(280);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_buttons_list_buttons_list_module__ = __webpack_require__(278);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__activity_categories__ = __webpack_require__(281);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_buttons_list_buttons_list_module__ = __webpack_require__(277);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TopActivityCategoriesPageModule", function() { return TopActivityCategoriesPageModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -44,13 +44,13 @@ TopActivityCategoriesPageModule = __decorate([
 
 /***/ }),
 
-/***/ 278:
+/***/ 277:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__buttons_list__ = __webpack_require__(279);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__buttons_list__ = __webpack_require__(278);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ButtonsListComponentModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -84,7 +84,7 @@ ButtonsListComponentModule = __decorate([
 
 /***/ }),
 
-/***/ 279:
+/***/ 278:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -134,15 +134,15 @@ ButtonsListComponent = __decorate([
 
 /***/ }),
 
-/***/ 280:
+/***/ 281:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_activity_category_activity_category__ = __webpack_require__(202);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_activity_activity__ = __webpack_require__(203);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_difficulty_level_difficulty_level__ = __webpack_require__(204);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_activity_category_activity_category__ = __webpack_require__(201);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_activity_activity__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_difficulty_level_difficulty_level__ = __webpack_require__(203);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ActivityCategoriesPage; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -173,7 +173,16 @@ var ActivityCategoriesPage = (function () {
                 _this.categories = categories;
             });
         }
+        else {
+            this.parentCategoryId = this.navParams.get("parentCategoryId");
+            this.activityCategoryProvider.getCategoryById(this.parentCategoryId).subscribe(function (category) {
+                _this.parentCategory = category;
+            });
+        }
     }
+    ActivityCategoriesPage.prototype.getPageTitle = function () {
+        return this.parentCategory != null ? this.parentCategory.title : "Κατηγορίες δραστηριοτήτων";
+    };
     ActivityCategoriesPage.prototype.selectCategory = function (categoryButton) {
         var _this = this;
         // if the selected category has subcategories, get the subcategories and load the page again
@@ -193,17 +202,17 @@ var ActivityCategoriesPage = (function () {
                 _this.activityProvider.getActivitiesByIds(activitiesIds).subscribe(function (activities) {
                     _this.tests = activities;
                     setTimeout(function () {
-                        _this.getDifficultyLevelsForActivitiesAndLoadPage(activities);
+                        _this.getDifficultyLevelsForActivitiesAndLoadPage(activities, categoryId);
                     }, 10);
                 });
             }
         });
     };
-    ActivityCategoriesPage.prototype.getDifficultyLevelsForActivitiesAndLoadPage = function (activities) {
+    ActivityCategoriesPage.prototype.getDifficultyLevelsForActivitiesAndLoadPage = function (activities, categoryId) {
         var _this = this;
         this.difficultyLevelProvider.getDifficultyLevelsForActivities(activities).subscribe(function (difficultyLevels) {
             console.log("difficultyLevels", difficultyLevels);
-            _this.navCtrl.push("DifficultyLevelsPage", { levels: difficultyLevels });
+            _this.navCtrl.push("DifficultyLevelsPage", { levels: difficultyLevels, categoryId: categoryId, activities: activities });
         });
     };
     ActivityCategoriesPage.prototype.getActivitiesAndLoadPage = function (categoryId) {
@@ -220,7 +229,7 @@ var ActivityCategoriesPage = (function () {
         this.activityCategoryProvider.getSubcategoriesForCategory(categoryId).subscribe(function (subcategoriesIds) {
             if (subcategoriesIds != null) {
                 _this.activityCategoryProvider.getCategoriesByIds(subcategoriesIds).subscribe(function (subcategories) {
-                    _this.navCtrl.push("ActivityCategoriesPage", { categories: subcategories });
+                    _this.navCtrl.push("ActivityCategoriesPage", { categories: subcategories, parentCategoryId: categoryId });
                 });
             }
         });
@@ -230,7 +239,7 @@ var ActivityCategoriesPage = (function () {
 ActivityCategoriesPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-        selector: 'page-activity-categories',template:/*ion-inline-start:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/activity-categories/activity-categories.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Κατηγορίες ασκήσεων</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <div class="description">Select a category</div>\n\n  <div *ngFor="let test of tests">\n    <p>{{ test.id }}</p>\n  </div>\n\n  <buttons-list *ngIf=\'categories?.length > 0\' [buttons]="categories" (buttonClick)="selectCategory($event)"></buttons-list>\n\n</ion-content>\n'/*ion-inline-end:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/activity-categories/activity-categories.html"*/,
+        selector: 'page-activity-categories',template:/*ion-inline-start:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/activity-categories/activity-categories.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{ getPageTitle() }}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <div class="description">Επιλέξτε μια κατηγορία</div>\n\n  <!--<div *ngFor="let test of tests">-->\n    <!--<p>{{ test.id }}</p>-->\n  <!--</div>-->\n\n  <buttons-list *ngIf=\'categories?.length > 0\' [buttons]="categories" (buttonClick)="selectCategory($event)"></buttons-list>\n\n</ion-content>\n'/*ion-inline-end:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/activity-categories/activity-categories.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
         __WEBPACK_IMPORTED_MODULE_2__providers_activity_category_activity_category__["a" /* ActivityCategoryProvider */],

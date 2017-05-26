@@ -13,6 +13,8 @@ import {Observable} from "rxjs/Observable";
 export class ActivityCategoriesPage {
   categories: any;
   tests: any[];
+  parentCategoryId: string;
+  parentCategory: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               private activityCategoryProvider: ActivityCategoryProvider,
@@ -24,7 +26,16 @@ export class ActivityCategoriesPage {
       this.activityCategoryProvider.getTopLevelCategories().then(categories => {
         this.categories = categories;
       });
+    } else {
+      this.parentCategoryId = this.navParams.get("parentCategoryId");
+      this.activityCategoryProvider.getCategoryById(this.parentCategoryId).subscribe(category => {
+        this.parentCategory = category;
+      });
     }
+  }
+
+  getPageTitle() {
+    return this.parentCategory != null ?  this.parentCategory.title : "Κατηγορίες δραστηριοτήτων";
   }
 
 
@@ -47,17 +58,17 @@ export class ActivityCategoriesPage {
         this.activityProvider.getActivitiesByIds(activitiesIds).subscribe(activities => {
           this.tests = activities;
           setTimeout(() => { // <===
-            this.getDifficultyLevelsForActivitiesAndLoadPage(activities);
+            this.getDifficultyLevelsForActivitiesAndLoadPage(activities, categoryId);
           }, 10);
         });
       }
     });
   }
 
-  getDifficultyLevelsForActivitiesAndLoadPage(activities: Observable<any>) {
+  getDifficultyLevelsForActivitiesAndLoadPage(activities: Observable<any>, categoryId) {
     this.difficultyLevelProvider.getDifficultyLevelsForActivities(activities).subscribe(difficultyLevels => {
       console.log("difficultyLevels", difficultyLevels);
-      this.navCtrl.push("DifficultyLevelsPage", {levels: difficultyLevels});
+      this.navCtrl.push("DifficultyLevelsPage", {levels: difficultyLevels, categoryId: categoryId, activities: activities});
     });
   }
 
@@ -74,7 +85,7 @@ export class ActivityCategoriesPage {
     this.activityCategoryProvider.getSubcategoriesForCategory(categoryId).subscribe(subcategoriesIds => {
       if(subcategoriesIds != null) {
         this.activityCategoryProvider.getCategoriesByIds(subcategoriesIds).subscribe(subcategories => {
-          this.navCtrl.push("ActivityCategoriesPage", {categories: subcategories})
+          this.navCtrl.push("ActivityCategoriesPage", {categories: subcategories, parentCategoryId: categoryId})
         });
       }
     });

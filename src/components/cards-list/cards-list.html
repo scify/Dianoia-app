@@ -1,0 +1,10 @@
+<ion-card mode="ios" *ngFor="let card of cards" (click)="onCardClick(card)">
+  <ion-card-header text-wrap>
+    {{ card.id }}
+  </ion-card-header>
+  <ion-card-content>
+    <p>
+      {{ card.id }}
+    </p>
+  </ion-card-content>
+</ion-card>
