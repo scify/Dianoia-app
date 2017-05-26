@@ -3,18 +3,35 @@
     "id": "activity_1",
     "description": "",
     "full_text": "",
-    "video_link": ""
+    "link": "",
+    "difficulty_level_id": "difficulty_level_1"
   },
   {
     "id": "activity_2",
     "description": "",
     "full_text": "",
-    "video_link": ""
+    "ink": "",
+    "difficulty_level_id": "difficulty_level_1"
   },
   {
     "id": "activity_3",
     "description": "",
     "full_text": "",
-    "video_link": ""
+    "link": "",
+    "difficulty_level_id": "difficulty_level_2"
+  },
+  {
+    "id": "activity_4",
+    "description": "",
+    "full_text": "",
+    "link": "",
+    "difficulty_level_id": "difficulty_level_1"
+  },
+  {
+    "id": "activity_4",
+    "description": "",
+    "full_text": "",
+    "link": "",
+    "difficulty_level_id": "difficulty_level_2"
   }
 ]

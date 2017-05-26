@@ -18,10 +18,6 @@ export class ButtonsListComponent {
   constructor() {
   }
 
-  ngAfterViewInit() {
-    console.log("buttons", this.buttons);
-  }
-
   onButtonClick(button) {
     this.buttonClick.emit(button)
   }

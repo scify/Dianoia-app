@@ -9,13 +9,13 @@
     "parent_category_id": "common_activities",
     "subcategories": [],
     "is_root": true,
-    "activities": ["activity_1", "activity_2", "activity_2"]
+    "activities": ["activity_1", "activity_2", "activity_3"]
   },
   {
     "parent_category_id": "focus_activities",
     "subcategories": [],
     "is_root": false,
-    "activities": ["activity_1", "activity_2", "activity_2"]
+    "activities": ["activity_1", "activity_2", "activity_3", "activity_4"]
   },
   {
     "parent_category_id": "memory_activities",

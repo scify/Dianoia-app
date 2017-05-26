@@ -1,20 +1,19 @@
 import { NgModule } from '@angular/core';
-import { IonicPageModule } from 'ionic-angular';
-import { ActivityCategoriesPage } from './activity-categories';
+import {IonicPageModule} from 'ionic-angular';
+import { DifficultyLevelsPage } from './difficulty-levels';
 import {ButtonsListComponent} from "../../components/buttons-list/buttons-list";
 import {ButtonsListComponentModule} from "../../components/buttons-list/buttons-list.module";
 
-
 @NgModule({
   declarations: [
-    ActivityCategoriesPage
+    DifficultyLevelsPage
   ],
   imports: [
-    IonicPageModule.forChild(ActivityCategoriesPage),
+    IonicPageModule.forChild(DifficultyLevelsPage),
     ButtonsListComponentModule
   ],
   exports: [
-    ActivityCategoriesPage
+    DifficultyLevelsPage
   ]
 })
-export class TopActivityCategoriesPageModule {}
+export class DifficultyLevelsPageModule {}

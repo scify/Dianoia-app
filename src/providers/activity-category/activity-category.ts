@@ -33,12 +33,10 @@ export class ActivityCategoryProvider {
   public getTopLevelCategories(): Promise<any> {
       return new Promise((resolve, reject) => {
         this.getAllCategoryRelationships().subscribe(categories => {
-          console.log(categories);
           let topLevelCategories = [];
           for(let category of categories) {
             if(category.is_root) {
               this.getCategoryById(category.parent_category_id).subscribe(topLevelCategory => {
-                console.log(topLevelCategory);
                 topLevelCategories.push(topLevelCategory);
               });
             }

@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {ActivityCategoryProvider} from "../../providers/activity-category/activity-category";
 import {ActivityProvider} from "../../providers/activity/activity";
+import {DifficultyLevelProvider} from "../../providers/difficulty-level/difficulty-level";
+import {Observable} from "rxjs/Observable";
 
 @IonicPage()
 @Component({
@@ -10,11 +12,14 @@ import {ActivityProvider} from "../../providers/activity/activity";
 })
 export class ActivityCategoriesPage {
   categories: any;
+  tests: any[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-              private activityCategoryProvider: ActivityCategoryProvider, private activityProvider: ActivityProvider) {
+              private activityCategoryProvider: ActivityCategoryProvider,
+              private activityProvider: ActivityProvider,
+              private difficultyLevelProvider: DifficultyLevelProvider) {
     this.categories = this.navParams.get("categories");
-    // if no categories passed as parameter, load top-level categories
+    // if no categories passed as parameter, load top-level categories by default
     if(this.categories == null) {
       this.activityCategoryProvider.getTopLevelCategories().then(categories => {
         this.categories = categories;
@@ -23,7 +28,7 @@ export class ActivityCategoriesPage {
   }
 
 
-  selectCategory(categoryButton: any) {
+  selectCategory(categoryButton: any):any {
     // if the selected category has subcategories, get the subcategories and load the page again
     this.activityCategoryProvider.getRelationshipsForCategory(categoryButton.category_id).subscribe(categoryRelationships => {
       if(categoryRelationships.subcategories.length > 0) {
@@ -31,26 +36,44 @@ export class ActivityCategoriesPage {
       }
       // else, if the selected has activities, get the activities and load the activities page
       else if(categoryRelationships.activities.length > 0) {
-        this.getActivitiesAndLoadPage(categoryButton.category_id);
+        this.getDifficultyLevelsForCategoryAndLoadPage(categoryButton.category_id);
       }
     });
   }
 
-  getActivitiesAndLoadPage(categoryId: string) {
+  getDifficultyLevelsForCategoryAndLoadPage(categoryId: string):any {
     this.activityCategoryProvider.getActivitiesForCategory(categoryId).subscribe(activitiesIds => {
       if(activitiesIds != null) {
         this.activityProvider.getActivitiesByIds(activitiesIds).subscribe(activities => {
-          console.log("activities", activities);
+          this.tests = activities;
+          setTimeout(() => { // <===
+            this.getDifficultyLevelsForActivitiesAndLoadPage(activities);
+          }, 10);
         });
       }
     });
   }
 
-  private getSubcategoriesAndLoadPage(categoryId: string) {
+  getDifficultyLevelsForActivitiesAndLoadPage(activities: Observable<any>) {
+    this.difficultyLevelProvider.getDifficultyLevelsForActivities(activities).subscribe(difficultyLevels => {
+      console.log("difficultyLevels", difficultyLevels);
+      this.navCtrl.push("DifficultyLevelsPage", {levels: difficultyLevels});
+    });
+  }
+
+  getActivitiesAndLoadPage(categoryId: string):any {
+    this.activityCategoryProvider.getActivitiesForCategory(categoryId).subscribe(activitiesIds => {
+      if(activitiesIds != null) {
+        this.activityProvider.getActivitiesByIds(activitiesIds).subscribe(activities => {
+        });
+      }
+    });
+  }
+
+  private getSubcategoriesAndLoadPage(categoryId: string):any {
     this.activityCategoryProvider.getSubcategoriesForCategory(categoryId).subscribe(subcategoriesIds => {
       if(subcategoriesIds != null) {
         this.activityCategoryProvider.getCategoriesByIds(subcategoriesIds).subscribe(subcategories => {
-          console.log("subcategories", subcategories);
           this.navCtrl.push("ActivityCategoriesPage", {categories: subcategories})
         });
       }

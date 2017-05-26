@@ -16,7 +16,6 @@ export class ActivityProvider {
   activities: [any];
 
   constructor(public http: Http, private apiCalls: ApiCallsProvider) {
-    console.log('Hello ActivityProvider Provider');
     this.getAllActivities().subscribe(data => {
       this.activities = data;
     });
@@ -29,16 +28,24 @@ export class ActivityProvider {
     });
   }
 
-  public getActivityById(activityId): Observable<any> {
-    return Observable.create(observer => {
-      this.getAllActivities().subscribe(activities => {
-        for(let activity of activities) {
+  public getActivityById(activityId): Promise<any> {
+    return new Promise((resolve, reject) => {
+      if(this.activities.length == 0) {
+        console.log("get new");
+        this.getAllActivities().subscribe(activities => {
+          for(let activity of activities) {
+            if(activity.id == activityId) {
+              resolve(activity);
+            }
+          }
+        });
+      } else {
+        for(let activity of this.activities) {
           if(activity.id == activityId) {
-            observer.next(activity);
+            resolve(activity);
           }
         }
-        observer.complete();
-      });
+      }
     });
   }
 
@@ -46,12 +53,10 @@ export class ActivityProvider {
     let activities = [];
     return Observable.create(observer => {
       for (let activityId of activityIds) {
-        console.log(activityId);
-        this.getActivityById(activityId).subscribe(activity => {
+        this.getActivityById(activityId).then(activity => {
           activities.push(activity);
         });
       }
-      console.log("activities" , activities);
       observer.next(activities);
       observer.complete();
     });
