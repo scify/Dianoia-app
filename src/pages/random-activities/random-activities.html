@@ -1,0 +1,7 @@
+
+<ion-content padding>
+
+
+  <cards-list *ngIf='activities?.length > 0' [cards]="activities" (cardClick)="selectActivity($event)"></cards-list>
+
+</ion-content>
