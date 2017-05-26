@@ -15,8 +15,6 @@ import { AppStorageProvider } from '../providers/app-storage/app-storage';
 import { ActivityCategoryProvider } from '../providers/activity-category/activity-category';
 import { ActivityProvider } from '../providers/activity/activity';
 import { DifficultyLevelProvider } from '../providers/difficulty-level/difficulty-level';
-import {ButtonsListComponent} from "../components/buttons-list/buttons-list";
-import {ButtonsListComponentModule} from "../components/buttons-list/buttons-list.module";
 
 @NgModule({
   declarations: [

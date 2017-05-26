@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { ActivityCategoriesPage } from './activity-categories';
-import {ButtonsListComponent} from "../../components/buttons-list/buttons-list";
 import {ButtonsListComponentModule} from "../../components/buttons-list/buttons-list.module";
 
 

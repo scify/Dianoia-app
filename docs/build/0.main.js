@@ -1,15 +1,15 @@
 webpackJsonp([0],{
 
-/***/ 272:
+/***/ 275:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__activity_categories__ = __webpack_require__(277);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_buttons_list_buttons_list__ = __webpack_require__(276);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TopActivityCategoriesPageModule", function() { return TopActivityCategoriesPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__difficulty_levels__ = __webpack_require__(282);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_buttons_list_buttons_list_module__ = __webpack_require__(278);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DifficultyLevelsPageModule", function() { return DifficultyLevelsPageModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -20,31 +20,71 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var TopActivityCategoriesPageModule = (function () {
-    function TopActivityCategoriesPageModule() {
+var DifficultyLevelsPageModule = (function () {
+    function DifficultyLevelsPageModule() {
     }
-    return TopActivityCategoriesPageModule;
+    return DifficultyLevelsPageModule;
 }());
-TopActivityCategoriesPageModule = __decorate([
+DifficultyLevelsPageModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__activity_categories__["a" /* ActivityCategoriesPage */],
-            __WEBPACK_IMPORTED_MODULE_3__components_buttons_list_buttons_list__["a" /* ButtonsListComponent */]
+            __WEBPACK_IMPORTED_MODULE_2__difficulty_levels__["a" /* DifficultyLevelsPage */]
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__activity_categories__["a" /* ActivityCategoriesPage */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__difficulty_levels__["a" /* DifficultyLevelsPage */]),
+            __WEBPACK_IMPORTED_MODULE_3__components_buttons_list_buttons_list_module__["a" /* ButtonsListComponentModule */]
         ],
         exports: [
-            __WEBPACK_IMPORTED_MODULE_2__activity_categories__["a" /* ActivityCategoriesPage */]
+            __WEBPACK_IMPORTED_MODULE_2__difficulty_levels__["a" /* DifficultyLevelsPage */]
         ]
     })
-], TopActivityCategoriesPageModule);
+], DifficultyLevelsPageModule);
 
-//# sourceMappingURL=activity-categories.module.js.map
+//# sourceMappingURL=difficulty-levels.module.js.map
 
 /***/ }),
 
-/***/ 276:
+/***/ 278:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__buttons_list__ = __webpack_require__(279);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ButtonsListComponentModule; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var ButtonsListComponentModule = (function () {
+    function ButtonsListComponentModule() {
+    }
+    return ButtonsListComponentModule;
+}());
+ButtonsListComponentModule = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* NgModule */])({
+        declarations: [
+            __WEBPACK_IMPORTED_MODULE_2__buttons_list__["a" /* ButtonsListComponent */],
+        ],
+        imports: [
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__buttons_list__["a" /* ButtonsListComponent */]),
+        ],
+        exports: [
+            __WEBPACK_IMPORTED_MODULE_2__buttons_list__["a" /* ButtonsListComponent */]
+        ]
+    })
+], ButtonsListComponentModule);
+
+//# sourceMappingURL=buttons-list.module.js.map
+
+/***/ }),
+
+/***/ 279:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -70,9 +110,6 @@ var ButtonsListComponent = (function () {
     function ButtonsListComponent() {
         this.buttonClick = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* EventEmitter */]();
     }
-    ButtonsListComponent.prototype.ngAfterViewInit = function () {
-        console.log("buttons", this.buttons);
-    };
     ButtonsListComponent.prototype.onButtonClick = function (button) {
         this.buttonClick.emit(button);
     };
@@ -97,15 +134,13 @@ ButtonsListComponent = __decorate([
 
 /***/ }),
 
-/***/ 277:
+/***/ 282:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_activity_category_activity_category__ = __webpack_require__(202);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_activity_activity__ = __webpack_require__(203);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ActivityCategoriesPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DifficultyLevelsPage; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -117,68 +152,38 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-
-
-var ActivityCategoriesPage = (function () {
-    function ActivityCategoriesPage(navCtrl, navParams, activityCategoryProvider, activityProvider) {
-        var _this = this;
+/**
+ * Generated class for the DifficultyLevelsPage page.
+ *
+ * See http://ionicframework.com/docs/components/#navigation for more info
+ * on Ionic pages and navigation.
+ */
+var DifficultyLevelsPage = (function () {
+    function DifficultyLevelsPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.activityCategoryProvider = activityCategoryProvider;
-        this.activityProvider = activityProvider;
-        this.categories = this.navParams.get("categories");
-        // if no categories passed as parameter, load top-level categories
-        if (this.categories == null) {
-            this.activityCategoryProvider.getTopLevelCategories().then(function (categories) {
-                _this.categories = categories;
-            });
+        this.levels = this.navParams.get("levels");
+        console.log(this.levels);
+        if (this.levels == null) {
+            this.navCtrl.setRoot("HomePage");
         }
     }
-    ActivityCategoriesPage.prototype.selectCategory = function (categoryButton) {
-        var _this = this;
-        // if the selected category has subcategories, get the subcategories and load the page again
-        this.activityCategoryProvider.getRelationshipsForCategory(categoryButton.category_id).subscribe(function (categoryRelationships) {
-            if (categoryRelationships.subcategories.length > 0) {
-                _this.getSubcategoriesAndLoadPage(categoryButton.category_id);
-            }
-            else if (categoryRelationships.activities.length > 0) {
-                _this.getActivitiesAndLoadPage(categoryButton.category_id);
-            }
-        });
+    DifficultyLevelsPage.prototype.ionViewDidLoad = function () {
     };
-    ActivityCategoriesPage.prototype.getActivitiesAndLoadPage = function (categoryId) {
-        var _this = this;
-        this.activityCategoryProvider.getActivitiesForCategory(categoryId).subscribe(function (activitiesIds) {
-            if (activitiesIds != null) {
-                _this.activityProvider.getActivitiesByIds(activitiesIds).subscribe(function (activities) {
-                    console.log("activities", activities);
-                });
-            }
-        });
+    DifficultyLevelsPage.prototype.selectLevel = function (levelButton) {
+        console.log(levelButton);
     };
-    ActivityCategoriesPage.prototype.getSubcategoriesAndLoadPage = function (categoryId) {
-        var _this = this;
-        this.activityCategoryProvider.getSubcategoriesForCategory(categoryId).subscribe(function (subcategoriesIds) {
-            if (subcategoriesIds != null) {
-                _this.activityCategoryProvider.getCategoriesByIds(subcategoriesIds).subscribe(function (subcategories) {
-                    console.log("subcategories", subcategories);
-                    _this.navCtrl.push("ActivityCategoriesPage", { categories: subcategories });
-                });
-            }
-        });
-    };
-    return ActivityCategoriesPage;
+    return DifficultyLevelsPage;
 }());
-ActivityCategoriesPage = __decorate([
+DifficultyLevelsPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-        selector: 'page-activity-categories',template:/*ion-inline-start:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/activity-categories/activity-categories.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Κατηγορίες ασκήσεων</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <div class="description">Select a category</div>\n\n  <buttons-list *ngIf=\'categories?.length > 0\' [buttons]="categories" (buttonClick)="selectCategory($event)"></buttons-list>\n\n</ion-content>\n'/*ion-inline-end:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/activity-categories/activity-categories.html"*/,
+        selector: 'page-difficulty-levels',template:/*ion-inline-start:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/difficulty-levels/difficulty-levels.html"*/'<!--\n  Generated template for the DifficultyLevelsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>difficultyLevels</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <div class="description">Select a difficulty level</div>\n\n  <buttons-list *ngIf=\'levels?.length > 0\' [buttons]="levels" (buttonClick)="selectLevel($event)"></buttons-list>\n\n</ion-content>\n'/*ion-inline-end:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/difficulty-levels/difficulty-levels.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_2__providers_activity_category_activity_category__["a" /* ActivityCategoryProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_activity_activity__["a" /* ActivityProvider */]])
-], ActivityCategoriesPage);
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
+], DifficultyLevelsPage);
 
-//# sourceMappingURL=activity-categories.js.map
+//# sourceMappingURL=difficulty-levels.js.map
 
 /***/ })
 
