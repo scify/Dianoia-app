@@ -27045,6 +27045,12 @@ cards-list ion-label {
   margin: 0 !important;
 }
 
+page-difficulty-levels .activitiesContainer {
+  background-color: #eeeeee;
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
 page-info-list .imgContainer {
   text-align: center;
   margin-bottom: 20px;
@@ -27075,4 +27081,12 @@ page-info-list .aboutList .item .item-inner {
 
 page-info-list .aboutList .item .item-inner .label {
   font-size: 1.6rem !important;
+}
+
+page-random-activities ion-content {
+  background-color: #eeeeee !important;
+}
+
+page-random-activities .scroll-content {
+  padding: 5px !important;
 }

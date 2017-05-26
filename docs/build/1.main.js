@@ -177,7 +177,7 @@ var RandomActivitiesPage = (function () {
 RandomActivitiesPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-        selector: 'page-random-activities',template:/*ion-inline-start:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/random-activities/random-activities.html"*/'\n<ion-content padding>\n\n\n  <cards-list *ngIf=\'activities?.length > 0\' [cards]="activities" (cardClick)="selectActivity($event)"></cards-list>\n\n</ion-content>\n'/*ion-inline-end:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/random-activities/random-activities.html"*/,
+        selector: 'page-random-activities',template:/*ion-inline-start:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/random-activities/random-activities.html"*/'\n<ion-content no-padding>\n\n\n  <cards-list *ngIf=\'activities?.length > 0\' [cards]="activities" (cardClick)="selectActivity($event)"></cards-list>\n\n</ion-content>\n'/*ion-inline-end:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/random-activities/random-activities.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_activity_activity__["a" /* ActivityProvider */]])
 ], RandomActivitiesPage);
