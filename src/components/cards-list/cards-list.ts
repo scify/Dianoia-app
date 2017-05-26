@@ -18,6 +18,11 @@ export class CardsListComponent {
   constructor() {
   }
 
+  getCardsListTitle() {
+    let title = this.cards.length;
+    return this.cards.length == 1 ? title + " δραστηριότητα" : title + " δραστηριότητες";
+  }
+
   onCardClick(card) {
     this.cardClick.emit(card)
   }

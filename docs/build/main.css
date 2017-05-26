@@ -27045,6 +27045,11 @@ cards-list ion-label {
   margin: 0 !important;
 }
 
+cards-list .title {
+  margin: 12px;
+  font-style: italic;
+}
+
 page-difficulty-levels .activitiesContainer {
   background-color: #eeeeee;
   padding-top: 1px;
