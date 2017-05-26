@@ -11,9 +11,9 @@
 
   <div class="description">Select a category</div>
 
-  <div *ngFor="let test of tests">
-    <p>{{ test.id }}</p>
-  </div>
+  <!--<div *ngFor="let test of tests">-->
+    <!--<p>{{ test.id }}</p>-->
+  <!--</div>-->
 
   <buttons-list *ngIf='categories?.length > 0' [buttons]="categories" (buttonClick)="selectCategory($event)"></buttons-list>
 
