@@ -3,10 +3,14 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title>Δι-Άνοια</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+  <ion-tabs>
+    <ion-tab [root]="tab1Root" tabTitle="Δραστηριότητες" tabIcon="ios-list-outline"></ion-tab>
+    <ion-tab [root]="tab2Root" tabTitle="Σχετικά" tabIcon="information-circle"></ion-tab>
+  </ion-tabs>
 
 </ion-content>

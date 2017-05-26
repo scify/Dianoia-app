@@ -1,15 +1,15 @@
 webpackJsonp([1],{
 
-/***/ 273:
+/***/ 276:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__activity_categories__ = __webpack_require__(281);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_buttons_list_buttons_list_module__ = __webpack_require__(277);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TopActivityCategoriesPageModule", function() { return TopActivityCategoriesPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__random_activities__ = __webpack_require__(285);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_cards_list_cards_list_module__ = __webpack_require__(279);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RandomActivitiesPageModule", function() { return RandomActivitiesPageModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -20,38 +20,38 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var TopActivityCategoriesPageModule = (function () {
-    function TopActivityCategoriesPageModule() {
+var RandomActivitiesPageModule = (function () {
+    function RandomActivitiesPageModule() {
     }
-    return TopActivityCategoriesPageModule;
+    return RandomActivitiesPageModule;
 }());
-TopActivityCategoriesPageModule = __decorate([
+RandomActivitiesPageModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__activity_categories__["a" /* ActivityCategoriesPage */]
+            __WEBPACK_IMPORTED_MODULE_2__random_activities__["a" /* RandomActivitiesPage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__activity_categories__["a" /* ActivityCategoriesPage */]),
-            __WEBPACK_IMPORTED_MODULE_3__components_buttons_list_buttons_list_module__["a" /* ButtonsListComponentModule */]
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__random_activities__["a" /* RandomActivitiesPage */]),
+            __WEBPACK_IMPORTED_MODULE_3__components_cards_list_cards_list_module__["a" /* CardsListComponentModule */]
         ],
         exports: [
-            __WEBPACK_IMPORTED_MODULE_2__activity_categories__["a" /* ActivityCategoriesPage */]
+            __WEBPACK_IMPORTED_MODULE_2__random_activities__["a" /* RandomActivitiesPage */]
         ]
     })
-], TopActivityCategoriesPageModule);
+], RandomActivitiesPageModule);
 
-//# sourceMappingURL=activity-categories.module.js.map
+//# sourceMappingURL=random-activities.module.js.map
 
 /***/ }),
 
-/***/ 277:
+/***/ 279:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__buttons_list__ = __webpack_require__(278);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ButtonsListComponentModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cards_list__ = __webpack_require__(280);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CardsListComponentModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -61,35 +61,35 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var ButtonsListComponentModule = (function () {
-    function ButtonsListComponentModule() {
+var CardsListComponentModule = (function () {
+    function CardsListComponentModule() {
     }
-    return ButtonsListComponentModule;
+    return CardsListComponentModule;
 }());
-ButtonsListComponentModule = __decorate([
+CardsListComponentModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__buttons_list__["a" /* ButtonsListComponent */],
+            __WEBPACK_IMPORTED_MODULE_2__cards_list__["a" /* CardsListComponent */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__buttons_list__["a" /* ButtonsListComponent */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__cards_list__["a" /* CardsListComponent */]),
         ],
         exports: [
-            __WEBPACK_IMPORTED_MODULE_2__buttons_list__["a" /* ButtonsListComponent */]
+            __WEBPACK_IMPORTED_MODULE_2__cards_list__["a" /* CardsListComponent */]
         ]
     })
-], ButtonsListComponentModule);
+], CardsListComponentModule);
 
-//# sourceMappingURL=buttons-list.module.js.map
+//# sourceMappingURL=cards-list.module.js.map
 
 /***/ }),
 
-/***/ 278:
+/***/ 280:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ButtonsListComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CardsListComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -101,49 +101,47 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 /**
- * Generated class for the ButtonsListComponent component.
+ * Generated class for the CardsListComponent component.
  *
  * See https://angular.io/docs/ts/latest/api/core/index/ComponentMetadata-class.html
  * for more info on Angular Components.
  */
-var ButtonsListComponent = (function () {
-    function ButtonsListComponent() {
-        this.buttonClick = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* EventEmitter */]();
+var CardsListComponent = (function () {
+    function CardsListComponent() {
+        this.cardClick = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* EventEmitter */]();
     }
-    ButtonsListComponent.prototype.onButtonClick = function (button) {
-        this.buttonClick.emit(button);
+    CardsListComponent.prototype.onCardClick = function (card) {
+        this.cardClick.emit(card);
     };
-    return ButtonsListComponent;
+    return CardsListComponent;
 }());
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */])('buttons'),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */])('cards'),
     __metadata("design:type", Array)
-], ButtonsListComponent.prototype, "buttons", void 0);
+], CardsListComponent.prototype, "cards", void 0);
 __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_3" /* Output */])(),
     __metadata("design:type", Object)
-], ButtonsListComponent.prototype, "buttonClick", void 0);
-ButtonsListComponent = __decorate([
+], CardsListComponent.prototype, "cardClick", void 0);
+CardsListComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-        selector: 'buttons-list',template:/*ion-inline-start:"/home/pisaris/projects/dianoia-app/dianoia/src/components/buttons-list/buttons-list.html"*/'<!-- Generated template for the ButtonsListComponent component -->\n<div>\n  <div class="buttonsContainer">\n    <p *ngFor="let button of buttons">\n      <button mode="ios" ion-button full (click)="onButtonClick(button)">{{ button.title }}</button>\n    </p>\n  </div>\n</div>\n'/*ion-inline-end:"/home/pisaris/projects/dianoia-app/dianoia/src/components/buttons-list/buttons-list.html"*/
+        selector: 'cards-list',template:/*ion-inline-start:"/home/pisaris/projects/dianoia-app/dianoia/src/components/cards-list/cards-list.html"*/'<ion-card mode="ios" *ngFor="let card of cards" (click)="onCardClick(card)">\n  <button ion-item no-padding>\n    <ion-item no-padding style="background: rgba(0,0,0,0);">\n      <ion-card-header text-wrap>\n        {{ card.id }}\n      </ion-card-header>\n      <ion-card-content>\n        <p>\n          {{ card.id }}\n        </p>\n      </ion-card-content>\n    </ion-item>\n  </button>\n\n</ion-card>\n'/*ion-inline-end:"/home/pisaris/projects/dianoia-app/dianoia/src/components/cards-list/cards-list.html"*/
     }),
     __metadata("design:paramtypes", [])
-], ButtonsListComponent);
+], CardsListComponent);
 
-//# sourceMappingURL=buttons-list.js.map
+//# sourceMappingURL=cards-list.js.map
 
 /***/ }),
 
-/***/ 281:
+/***/ 285:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_activity_category_activity_category__ = __webpack_require__(201);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_activity_activity__ = __webpack_require__(202);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_difficulty_level_difficulty_level__ = __webpack_require__(203);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ActivityCategoriesPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_activity_activity__ = __webpack_require__(202);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RandomActivitiesPage; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -156,98 +154,35 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-
-var ActivityCategoriesPage = (function () {
-    function ActivityCategoriesPage(navCtrl, navParams, activityCategoryProvider, activityProvider, difficultyLevelProvider) {
+/**
+ * Generated class for the RandomActivitiesPage page.
+ *
+ * See http://ionicframework.com/docs/components/#navigation for more info
+ * on Ionic pages and navigation.
+ */
+var RandomActivitiesPage = (function () {
+    function RandomActivitiesPage(navCtrl, navParams, activityProvider) {
         var _this = this;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.activityCategoryProvider = activityCategoryProvider;
         this.activityProvider = activityProvider;
-        this.difficultyLevelProvider = difficultyLevelProvider;
-        this.categories = this.navParams.get("categories");
-        // if no categories passed as parameter, load top-level categories by default
-        if (this.categories == null) {
-            this.activityCategoryProvider.getTopLevelCategories().then(function (categories) {
-                _this.categories = categories;
-            });
-        }
-        else {
-            this.parentCategoryId = this.navParams.get("parentCategoryId");
-            this.activityCategoryProvider.getCategoryById(this.parentCategoryId).subscribe(function (category) {
-                _this.parentCategory = category;
-            });
-        }
+        this.activityProvider.getAllActivities().subscribe(function (activities) {
+            _this.activities = activities;
+        });
     }
-    ActivityCategoriesPage.prototype.getPageTitle = function () {
-        return this.parentCategory != null ? this.parentCategory.title : "Κατηγορίες δραστηριοτήτων";
+    RandomActivitiesPage.prototype.ionViewDidLoad = function () {
     };
-    ActivityCategoriesPage.prototype.selectCategory = function (categoryButton) {
-        var _this = this;
-        // if the selected category has subcategories, get the subcategories and load the page again
-        this.activityCategoryProvider.getRelationshipsForCategory(categoryButton.category_id).subscribe(function (categoryRelationships) {
-            if (categoryRelationships.subcategories.length > 0) {
-                _this.getSubcategoriesAndLoadPage(categoryButton.category_id);
-            }
-            else if (categoryRelationships.activities.length > 0) {
-                _this.getDifficultyLevelsForCategoryAndLoadPage(categoryButton.category_id);
-            }
-        });
-    };
-    ActivityCategoriesPage.prototype.getDifficultyLevelsForCategoryAndLoadPage = function (categoryId) {
-        var _this = this;
-        this.activityCategoryProvider.getActivitiesForCategory(categoryId).subscribe(function (activitiesIds) {
-            if (activitiesIds != null) {
-                _this.activityProvider.getActivitiesByIds(activitiesIds).subscribe(function (activities) {
-                    _this.tests = activities;
-                    setTimeout(function () {
-                        _this.getDifficultyLevelsForActivitiesAndLoadPage(activities, categoryId);
-                    }, 10);
-                });
-            }
-        });
-    };
-    ActivityCategoriesPage.prototype.getDifficultyLevelsForActivitiesAndLoadPage = function (activities, categoryId) {
-        var _this = this;
-        this.difficultyLevelProvider.getDifficultyLevelsForActivities(activities).subscribe(function (difficultyLevels) {
-            console.log("difficultyLevels", difficultyLevels);
-            _this.navCtrl.push("DifficultyLevelsPage", { levels: difficultyLevels, categoryId: categoryId, activities: activities });
-        });
-    };
-    ActivityCategoriesPage.prototype.getActivitiesAndLoadPage = function (categoryId) {
-        var _this = this;
-        this.activityCategoryProvider.getActivitiesForCategory(categoryId).subscribe(function (activitiesIds) {
-            if (activitiesIds != null) {
-                _this.activityProvider.getActivitiesByIds(activitiesIds).subscribe(function (activities) {
-                });
-            }
-        });
-    };
-    ActivityCategoriesPage.prototype.getSubcategoriesAndLoadPage = function (categoryId) {
-        var _this = this;
-        this.activityCategoryProvider.getSubcategoriesForCategory(categoryId).subscribe(function (subcategoriesIds) {
-            if (subcategoriesIds != null) {
-                _this.activityCategoryProvider.getCategoriesByIds(subcategoriesIds).subscribe(function (subcategories) {
-                    _this.navCtrl.push("ActivityCategoriesPage", { categories: subcategories, parentCategoryId: categoryId });
-                });
-            }
-        });
-    };
-    return ActivityCategoriesPage;
+    return RandomActivitiesPage;
 }());
-ActivityCategoriesPage = __decorate([
+RandomActivitiesPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-        selector: 'page-activity-categories',template:/*ion-inline-start:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/activity-categories/activity-categories.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{ getPageTitle() }}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <div class="description">Επιλέξτε μια κατηγορία</div>\n\n  <!--<div *ngFor="let test of tests">-->\n    <!--<p>{{ test.id }}</p>-->\n  <!--</div>-->\n\n  <buttons-list *ngIf=\'categories?.length > 0\' [buttons]="categories" (buttonClick)="selectCategory($event)"></buttons-list>\n\n</ion-content>\n'/*ion-inline-end:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/activity-categories/activity-categories.html"*/,
+        selector: 'page-random-activities',template:/*ion-inline-start:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/random-activities/random-activities.html"*/'\n<ion-content padding>\n\n\n  <cards-list *ngIf=\'activities?.length > 0\' [cards]="activities" (cardClick)="selectActivity($event)"></cards-list>\n\n</ion-content>\n'/*ion-inline-end:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/random-activities/random-activities.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_2__providers_activity_category_activity_category__["a" /* ActivityCategoryProvider */],
-        __WEBPACK_IMPORTED_MODULE_3__providers_activity_activity__["a" /* ActivityProvider */],
-        __WEBPACK_IMPORTED_MODULE_4__providers_difficulty_level_difficulty_level__["a" /* DifficultyLevelProvider */]])
-], ActivityCategoriesPage);
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_activity_activity__["a" /* ActivityProvider */]])
+], RandomActivitiesPage);
 
-//# sourceMappingURL=activity-categories.js.map
+//# sourceMappingURL=random-activities.js.map
 
 /***/ })
 

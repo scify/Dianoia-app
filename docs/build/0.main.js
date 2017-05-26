@@ -1,6 +1,6 @@
 webpackJsonp([0],{
 
-/***/ 274:
+/***/ 273:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -218,7 +218,7 @@ __decorate([
 ], CardsListComponent.prototype, "cardClick", void 0);
 CardsListComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-        selector: 'cards-list',template:/*ion-inline-start:"/home/pisaris/projects/dianoia-app/dianoia/src/components/cards-list/cards-list.html"*/'<ion-card mode="ios" *ngFor="let card of cards" (click)="onCardClick(card)">\n  <ion-card-header text-wrap>\n    {{ card.id }}\n  </ion-card-header>\n  <ion-card-content>\n    <p>\n      {{ card.id }}\n    </p>\n  </ion-card-content>\n</ion-card>\n'/*ion-inline-end:"/home/pisaris/projects/dianoia-app/dianoia/src/components/cards-list/cards-list.html"*/
+        selector: 'cards-list',template:/*ion-inline-start:"/home/pisaris/projects/dianoia-app/dianoia/src/components/cards-list/cards-list.html"*/'<ion-card mode="ios" *ngFor="let card of cards" (click)="onCardClick(card)">\n  <button ion-item no-padding>\n    <ion-item no-padding style="background: rgba(0,0,0,0);">\n      <ion-card-header text-wrap>\n        {{ card.id }}\n      </ion-card-header>\n      <ion-card-content>\n        <p>\n          {{ card.id }}\n        </p>\n      </ion-card-content>\n    </ion-item>\n  </button>\n\n</ion-card>\n'/*ion-inline-end:"/home/pisaris/projects/dianoia-app/dianoia/src/components/cards-list/cards-list.html"*/
     }),
     __metadata("design:paramtypes", [])
 ], CardsListComponent);

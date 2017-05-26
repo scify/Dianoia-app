@@ -27041,6 +27041,10 @@ ion-content {
   font-size: 140%;
 }
 
+cards-list ion-label {
+  margin: 0 !important;
+}
+
 page-info-list .imgContainer {
   text-align: center;
   margin-bottom: 20px;

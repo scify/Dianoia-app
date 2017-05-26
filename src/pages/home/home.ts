@@ -9,6 +9,9 @@ import { IonicPage } from 'ionic-angular';
 })
 export class HomePage {
 
+  tab1Root = "RandomActivitiesPage";
+  tab2Root = "RandomActivitiesPage";
+
   constructor(public navCtrl: NavController) {
 
   }

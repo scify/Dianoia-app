@@ -24,7 +24,7 @@ import { DifficultyLevelProvider } from '../providers/difficulty-level/difficult
   imports: [
     HttpModule,
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp,),
     IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
