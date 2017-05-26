@@ -12,7 +12,7 @@ export class PageProvider {
   }
 
   getDataForPage(pageCode, pageFile) {
-    console.log("requested file:", pageFile);
+    console.log("requested file:", this.endPoint + pageFile);
     return this.apiCalls.getHttpCall(pageCode, () => {
       return this.http.get(this.endPoint + pageFile)
         .map(res => res.json());
