@@ -1,0 +1,19 @@
+[
+  {
+    "title": "Νοητικές Ασκήσεις",
+    "category_id": "mental_activities"
+  },
+  {
+    "title": "Κοινές δραστηριότητες",
+    "category_id": "common_activities"
+  },
+  {
+    "title": "Ασκήσεις Προσοχής",
+    "category_id": "focus_activities"
+  },
+  {
+    "title": "Ασκήσεις Μνήμης",
+    "category_id": "memory_activities"
+  }
+]
+

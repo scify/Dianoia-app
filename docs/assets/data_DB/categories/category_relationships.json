@@ -1,0 +1,26 @@
+[
+  {
+    "parent_category_id": "mental_activities",
+    "subcategories": ["focus_activities", "memory_activities"],
+    "is_root": true,
+    "activities": []
+  },
+  {
+    "parent_category_id": "common_activities",
+    "subcategories": [],
+    "is_root": true,
+    "activities": ["activity_1", "activity_2", "activity_2"]
+  },
+  {
+    "parent_category_id": "focus_activities",
+    "subcategories": [],
+    "is_root": false,
+    "activities": ["activity_1", "activity_2", "activity_2"]
+  },
+  {
+    "parent_category_id": "memory_activities",
+    "subcategories": [],
+    "is_root": false,
+    "activities": ["activity_1", "activity_2", "activity_3"]
+  }
+]
