@@ -1,14 +1,14 @@
 webpackJsonp([2],{
 
-/***/ 272:
+/***/ 274:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__activity_categories__ = __webpack_require__(281);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_buttons_list_buttons_list_module__ = __webpack_require__(277);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__activity_categories__ = __webpack_require__(283);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_buttons_list_buttons_list_module__ = __webpack_require__(279);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TopActivityCategoriesPageModule", function() { return TopActivityCategoriesPageModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -31,7 +31,7 @@ TopActivityCategoriesPageModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_2__activity_categories__["a" /* ActivityCategoriesPage */]
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__activity_categories__["a" /* ActivityCategoriesPage */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__activity_categories__["a" /* ActivityCategoriesPage */]),
             __WEBPACK_IMPORTED_MODULE_3__components_buttons_list_buttons_list_module__["a" /* ButtonsListComponentModule */]
         ],
         exports: [
@@ -44,13 +44,13 @@ TopActivityCategoriesPageModule = __decorate([
 
 /***/ }),
 
-/***/ 277:
+/***/ 279:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__buttons_list__ = __webpack_require__(278);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__buttons_list__ = __webpack_require__(280);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ButtonsListComponentModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -72,7 +72,7 @@ ButtonsListComponentModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_2__buttons_list__["a" /* ButtonsListComponent */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__buttons_list__["a" /* ButtonsListComponent */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__buttons_list__["a" /* ButtonsListComponent */]),
         ],
         exports: [
             __WEBPACK_IMPORTED_MODULE_2__buttons_list__["a" /* ButtonsListComponent */]
@@ -84,7 +84,7 @@ ButtonsListComponentModule = __decorate([
 
 /***/ }),
 
-/***/ 278:
+/***/ 280:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -108,7 +108,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  */
 var ButtonsListComponent = (function () {
     function ButtonsListComponent() {
-        this.buttonClick = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* EventEmitter */]();
+        this.buttonClick = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["l" /* EventEmitter */]();
     }
     ButtonsListComponent.prototype.onButtonClick = function (button) {
         this.buttonClick.emit(button);
@@ -116,11 +116,11 @@ var ButtonsListComponent = (function () {
     return ButtonsListComponent;
 }());
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* Input */])('buttons'),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* Input */])('buttons'),
     __metadata("design:type", Array)
 ], ButtonsListComponent.prototype, "buttons", void 0);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_3" /* Output */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* Output */])(),
     __metadata("design:type", Object)
 ], ButtonsListComponent.prototype, "buttonClick", void 0);
 ButtonsListComponent = __decorate([
@@ -134,15 +134,16 @@ ButtonsListComponent = __decorate([
 
 /***/ }),
 
-/***/ 281:
+/***/ 283:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_activity_category_activity_category__ = __webpack_require__(201);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_activity_activity__ = __webpack_require__(202);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_difficulty_level_difficulty_level__ = __webpack_require__(203);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_activity_category_activity_category__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_activity_activity__ = __webpack_require__(203);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_difficulty_level_difficulty_level__ = __webpack_require__(205);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_loader_service_loader_service__ = __webpack_require__(204);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ActivityCategoriesPage; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -158,26 +159,31 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var ActivityCategoriesPage = (function () {
-    function ActivityCategoriesPage(navCtrl, navParams, activityCategoryProvider, activityProvider, difficultyLevelProvider) {
+    function ActivityCategoriesPage(navCtrl, navParams, activityCategoryProvider, activityProvider, difficultyLevelProvider, loaderService) {
         var _this = this;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.activityCategoryProvider = activityCategoryProvider;
         this.activityProvider = activityProvider;
         this.difficultyLevelProvider = difficultyLevelProvider;
+        this.loaderService = loaderService;
         this.categories = this.navParams.get("categories");
         // if no categories passed as parameter, load top-level categories by default
+        this.loaderService.showLoader();
         if (this.categories == null) {
             this.activityCategoryProvider.getTopLevelCategories().then(function (categories) {
                 _this.categories = categories;
+                _this.loaderService.hideLoader();
             });
         }
         else {
             this.parentCategoryId = this.navParams.get("parentCategoryId");
-            this.activityCategoryProvider.getCategoryById(this.parentCategoryId).subscribe(function (category) {
+            this.activityCategoryProvider.getCategoryById(this.parentCategoryId).then(function (category) {
                 _this.parentCategory = category;
-            });
+                _this.loaderService.hideLoader();
+            }).catch(function (error) { console.log(error); _this.loaderService.hideLoader(); });
         }
     }
     ActivityCategoriesPage.prototype.getPageTitle = function () {
@@ -186,6 +192,7 @@ var ActivityCategoriesPage = (function () {
     ActivityCategoriesPage.prototype.selectCategory = function (categoryButton) {
         var _this = this;
         // if the selected category has subcategories, get the subcategories and load the page again
+        this.loaderService.showLoader();
         this.activityCategoryProvider.getRelationshipsForCategory(categoryButton.category_id).subscribe(function (categoryRelationships) {
             if (categoryRelationships.subcategories.length > 0) {
                 _this.getSubcategoriesAndLoadPage(categoryButton.category_id);
@@ -200,51 +207,45 @@ var ActivityCategoriesPage = (function () {
         this.activityCategoryProvider.getActivitiesForCategory(categoryId).subscribe(function (activitiesIds) {
             if (activitiesIds != null) {
                 _this.activityProvider.getActivitiesByIds(activitiesIds).subscribe(function (activities) {
-                    _this.tests = activities;
-                    setTimeout(function () {
-                        _this.getDifficultyLevelsForActivitiesAndLoadPage(activities, categoryId);
-                    }, 10);
+                    console.log(activities);
+                    _this.getDifficultyLevelsForActivitiesAndLoadPage(activities, categoryId);
                 });
             }
         });
     };
     ActivityCategoriesPage.prototype.getDifficultyLevelsForActivitiesAndLoadPage = function (activities, categoryId) {
         var _this = this;
-        this.difficultyLevelProvider.getDifficultyLevelsForActivities(activities).subscribe(function (difficultyLevels) {
-            console.log("difficultyLevels", difficultyLevels);
+        this.difficultyLevelProvider.getDifficultyLevelsForActivities(activities).then(function (difficultyLevels) {
+            _this.loaderService.hideLoader();
             _this.navCtrl.push("DifficultyLevelsPage", { levels: difficultyLevels, categoryId: categoryId, activities: activities });
-        });
-    };
-    ActivityCategoriesPage.prototype.getActivitiesAndLoadPage = function (categoryId) {
-        var _this = this;
-        this.activityCategoryProvider.getActivitiesForCategory(categoryId).subscribe(function (activitiesIds) {
-            if (activitiesIds != null) {
-                _this.activityProvider.getActivitiesByIds(activitiesIds).subscribe(function (activities) {
-                });
-            }
         });
     };
     ActivityCategoriesPage.prototype.getSubcategoriesAndLoadPage = function (categoryId) {
         var _this = this;
-        this.activityCategoryProvider.getSubcategoriesForCategory(categoryId).subscribe(function (subcategoriesIds) {
+        this.activityCategoryProvider.getSubcategoriesForCategory(categoryId).then(function (subcategoriesIds) {
+            console.log("subcategoriesIds", subcategoriesIds);
             if (subcategoriesIds != null) {
                 _this.activityCategoryProvider.getCategoriesByIds(subcategoriesIds).subscribe(function (subcategories) {
+                    _this.loaderService.hideLoader();
                     _this.navCtrl.push("ActivityCategoriesPage", { categories: subcategories, parentCategoryId: categoryId });
                 });
+            }
+            else {
+                _this.loaderService.hideLoader();
             }
         });
     };
     return ActivityCategoriesPage;
 }());
 ActivityCategoriesPage = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
         selector: 'page-activity-categories',template:/*ion-inline-start:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/activity-categories/activity-categories.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{ getPageTitle() }}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <div class="description">Επιλέξτε μια κατηγορία</div>\n\n  <!--<div *ngFor="let test of tests">-->\n    <!--<p>{{ test.id }}</p>-->\n  <!--</div>-->\n\n  <buttons-list *ngIf=\'categories?.length > 0\' [buttons]="categories" (buttonClick)="selectCategory($event)"></buttons-list>\n\n</ion-content>\n'/*ion-inline-end:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/activity-categories/activity-categories.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
         __WEBPACK_IMPORTED_MODULE_2__providers_activity_category_activity_category__["a" /* ActivityCategoryProvider */],
         __WEBPACK_IMPORTED_MODULE_3__providers_activity_activity__["a" /* ActivityProvider */],
-        __WEBPACK_IMPORTED_MODULE_4__providers_difficulty_level_difficulty_level__["a" /* DifficultyLevelProvider */]])
+        __WEBPACK_IMPORTED_MODULE_4__providers_difficulty_level_difficulty_level__["a" /* DifficultyLevelProvider */], __WEBPACK_IMPORTED_MODULE_5__providers_loader_service_loader_service__["a" /* LoaderService */]])
 ], ActivityCategoriesPage);
 
 //# sourceMappingURL=activity-categories.js.map
