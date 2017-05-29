@@ -27059,6 +27059,14 @@ page-activity .scroll-content {
   padding-right: 2% !important;
 }
 
+page-activity .cardFooterContainer button {
+  position: relative;
+  float: right;
+  top: 50%;
+  -webkit-transform: translateY(-25%);
+  transform: translateY(-25%);
+}
+
 page-difficulty-levels .activitiesContainer {
   background-color: #eeeeee;
   padding-top: 1px;

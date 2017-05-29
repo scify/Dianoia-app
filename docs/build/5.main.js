@@ -77,6 +77,7 @@ var ActivityPage = (function () {
         this.activityProvider = activityProvider;
         this.iab = iab;
         this.platform = platform;
+        this.dailyActivityCompleted = false;
         var activityObj = this.navParams.get("activity");
         if (activityObj == null) {
             this.activityProvider.getRandomActivity().then(function (randomActivity) {
@@ -86,7 +87,17 @@ var ActivityPage = (function () {
         else {
             this.activity = activityObj;
         }
+        this.activityProvider.userHasCompletedActivityForToday().then(function (activityDone) {
+            console.log(activityDone);
+            activityDone == null ? _this.dailyActivityCompleted = false : _this.dailyActivityCompleted = true;
+        });
     }
+    ActivityPage.prototype.activityDoneForToday = function () {
+        var _this = this;
+        this.activityProvider.setActivityCompletedForToday().then(function (result) {
+            _this.dailyActivityCompleted = true;
+        });
+    };
     ActivityPage.prototype.openLink = function (url) {
         this.iab.create(url);
     };
@@ -95,7 +106,7 @@ var ActivityPage = (function () {
 ActivityPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-        selector: 'page-activity',template:/*ion-inline-start:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/activity/activity.html"*/'<!--\n  Generated template for the ActivityPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{ activity?.title }}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n\n  <ion-card>\n\n    <ion-item>\n      <h2>{{ activity?.title }}</h2>\n      <!--<p>November 5, 1955</p>-->\n    </ion-item>\n\n    <!--<img src="img/advance-card-bttf.png">-->\n\n    <ion-card-content>\n      <p>{{ activity?.description }}</p>\n\n      <p *ngFor="let instruction of activity?.instructions">\n        {{ instruction }}\n      </p>\n      <a *ngIf="activity?.link && platform.is(\'core\')" href="{{ activity.link }}" target="_blank">Σύνδεσμος άσκησης</a>\n      <a *ngIf="activity?.link && !platform.is(\'core\')" (click)="openLink(activity.link)">Σύνδεσμος άσκησης</a>\n    </ion-card-content>\n\n    <!--<ion-row>-->\n      <!--<ion-col>-->\n        <!--<button ion-button icon-left clear small>-->\n          <!--<ion-icon name="thumbs-up"></ion-icon>-->\n          <!--<div>12 Likes</div>-->\n        <!--</button>-->\n      <!--</ion-col>-->\n      <!--<ion-col>-->\n        <!--<button ion-button icon-left clear small>-->\n          <!--<ion-icon name="text"></ion-icon>-->\n          <!--<div>4 Comments</div>-->\n        <!--</button>-->\n      <!--</ion-col>-->\n      <!--<ion-col center text-center>-->\n        <!--<ion-note>-->\n          <!--11h ago-->\n        <!--</ion-note>-->\n      <!--</ion-col>-->\n    <!--</ion-row>-->\n\n  </ion-card>\n\n</ion-content>\n'/*ion-inline-end:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/activity/activity.html"*/,
+        selector: 'page-activity',template:/*ion-inline-start:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/activity/activity.html"*/'<!--\n  Generated template for the ActivityPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{ activity?.title }}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n\n  <ion-card>\n\n    <ion-item>\n      <h2>{{ activity?.title }}</h2>\n      <!--<p>November 5, 1955</p>-->\n    </ion-item>\n\n    <!--<img src="img/advance-card-bttf.png">-->\n\n    <ion-card-content>\n      <p>{{ activity?.description }}</p>\n\n      <p *ngFor="let instruction of activity?.instructions">\n        {{ instruction }}\n      </p>\n      <div class="cardFooterContainer">\n        <a *ngIf="activity?.link && platform.is(\'core\')" href="{{ activity.link }}" target="_blank">Σύνδεσμος άσκησης</a>\n        <a *ngIf="activity?.link && !platform.is(\'core\')" (click)="openLink(activity.link)">Σύνδεσμος άσκησης</a>\n        <button ion-button icon-left small [disabled]="dailyActivityCompleted" (click)="activityDoneForToday()">\n          <ion-icon name="thumbs-up"></ion-icon>\n          <div>Done</div>\n        </button>\n      </div>\n    </ion-card-content>\n\n\n\n  </ion-card>\n\n</ion-content>\n'/*ion-inline-end:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/activity/activity.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
         __WEBPACK_IMPORTED_MODULE_2__providers_activity_activity__["a" /* ActivityProvider */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_in_app_browser__["a" /* InAppBrowser */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */]])
