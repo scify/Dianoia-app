@@ -16,6 +16,7 @@ import { ActivityCategoryProvider } from '../providers/activity-category/activit
 import { ActivityProvider } from '../providers/activity/activity';
 import { DifficultyLevelProvider } from '../providers/difficulty-level/difficulty-level';
 import { LoaderService } from '../providers/loader-service/loader-service';
+import {InAppBrowser} from "@ionic-native/in-app-browser";
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { LoaderService } from '../providers/loader-service/loader-service';
     ActivityCategoryProvider,
     ActivityProvider,
     DifficultyLevelProvider,
-    LoaderService
+    LoaderService,
+    InAppBrowser
   ]
 })
 export class AppModule {}

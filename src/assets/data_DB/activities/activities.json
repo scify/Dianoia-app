@@ -12,13 +12,13 @@
   },
   {
     "id": "activity_2",
-    "title":"ed ut perspiciatis unde omnis iste natus error",
-    "description": "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur",
+    "title":"Χρώματα αντικειμένων",
+    "description": "Συνδυάστε αντικέιμενα με τα χρώματά τους",
     "full_text": "",
     "video_url":"",
     "img_url":"",
-    "instructions":["Instruction 1", "Instruction 2", "Instruction 3", "Instruction 4"],
-    "link": "",
+    "instructions":["Τι χρώμα έχει καθένα από τα παρακάτω αντικείμενα;"],
+    "link": "https://docs.google.com/document/d/1vD9ZjpBe_7azv82FwblJEifkaFX5HNYv1qw0syxX57A",
     "difficulty_level_id": "difficulty_level_1"
   },
   {
@@ -29,7 +29,7 @@
     "video_url":"",
     "img_url":"",
     "instructions":["Instruction 1", "Instruction 2", "Instruction 3", "Instruction 4"],
-    "link": "",
+    "link": "https://docs.google.com/document/d/1vD9ZjpBe_7azv82FwblJEifkaFX5HNYv1qw0syxX57A",
     "difficulty_level_id": "difficulty_level_2"
   },
   {
@@ -51,7 +51,7 @@
     "video_url":"",
     "img_url":"",
     "instructions":["Instruction 1", "Instruction 2", "Instruction 3", "Instruction 4"],
-    "link": "",
+    "link": "https://docs.google.com/document/d/1vD9ZjpBe_7azv82FwblJEifkaFX5HNYv1qw0syxX57A",
     "difficulty_level_id": "difficulty_level_2"
   }
 ]

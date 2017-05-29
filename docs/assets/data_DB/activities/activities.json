@@ -1,37 +1,57 @@
 [
   {
     "id": "activity_1",
-    "description": "",
+    "title":"Ορισμοί λέξεων",
+    "description": "Βρείτε τη λέξη που περιγράφει ο κάθε ορισμός.",
     "full_text": "",
-    "link": "",
+    "video_url":"",
+    "img_url":"",
+    "instructions":["Κάντε click στο σύνδεσμο για να δείτε τους ορισμούς"],
+    "link": "https://docs.google.com/document/d/1vD9ZjpBe_7azv82FwblJEifkaFX5HNYv1qw0syxX57A",
     "difficulty_level_id": "difficulty_level_1"
   },
   {
     "id": "activity_2",
-    "description": "",
+    "title":"Χρώματα αντικειμένων",
+    "description": "Συνδυάστε αντικέιμενα με τα χρώματά τους",
     "full_text": "",
-    "ink": "",
+    "video_url":"",
+    "img_url":"",
+    "instructions":["Τι χρώμα έχει καθένα από τα παρακάτω αντικείμενα;"],
+    "link": "https://docs.google.com/document/d/1vD9ZjpBe_7azv82FwblJEifkaFX5HNYv1qw0syxX57A",
     "difficulty_level_id": "difficulty_level_1"
   },
   {
     "id": "activity_3",
-    "description": "",
+    "title":"At vero eos et accusamus et iusto odio dignissimo",
+    "description": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
     "full_text": "",
-    "link": "",
+    "video_url":"",
+    "img_url":"",
+    "instructions":["Instruction 1", "Instruction 2", "Instruction 3", "Instruction 4"],
+    "link": "https://docs.google.com/document/d/1vD9ZjpBe_7azv82FwblJEifkaFX5HNYv1qw0syxX57A",
     "difficulty_level_id": "difficulty_level_2"
   },
   {
     "id": "activity_4",
-    "description": "",
+    "title":"Et harum quidem rerum",
+    "description": "Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
     "full_text": "",
+    "video_url":"",
+    "img_url":"",
+    "instructions":["Instruction 1", "Instruction 2", "Instruction 3", "Instruction 4"],
     "link": "",
     "difficulty_level_id": "difficulty_level_1"
   },
   {
     "id": "activity_5",
-    "description": "",
+    "title":"Excepteur sint occaecat",
+    "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     "full_text": "",
-    "link": "",
+    "video_url":"",
+    "img_url":"",
+    "instructions":["Instruction 1", "Instruction 2", "Instruction 3", "Instruction 4"],
+    "link": "https://docs.google.com/document/d/1vD9ZjpBe_7azv82FwblJEifkaFX5HNYv1qw0syxX57A",
     "difficulty_level_id": "difficulty_level_2"
   }
 ]

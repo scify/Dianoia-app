@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {IonicPage, NavController, NavParams, Platform} from 'ionic-angular';
 import {ActivityProvider} from "../../providers/activity/activity";
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 /**
  * Generated class for the ActivityPage page.
@@ -16,7 +17,8 @@ import {ActivityProvider} from "../../providers/activity/activity";
 export class ActivityPage {
   activity: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private activityProvider: ActivityProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+              private activityProvider: ActivityProvider, private iab: InAppBrowser, private platform: Platform) {
     let activityObj = this.navParams.get("activity");
     if(activityObj == null) {
       this.activityProvider.getRandomActivity().then(randomActivity => {
@@ -25,6 +27,10 @@ export class ActivityPage {
     } else {
       this.activity = activityObj;
     }
+  }
+
+  openLink(url) {
+    this.iab.create(url);
   }
 
 }

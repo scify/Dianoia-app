@@ -27050,6 +27050,15 @@ cards-list .title {
   font-style: italic;
 }
 
+page-activity ion-content {
+  background-color: #eeeeee !important;
+}
+
+page-activity .scroll-content {
+  padding-left: 2% !important;
+  padding-right: 2% !important;
+}
+
 page-difficulty-levels .activitiesContainer {
   background-color: #eeeeee;
   padding-top: 1px;
