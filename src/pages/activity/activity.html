@@ -30,29 +30,17 @@
       <p *ngFor="let instruction of activity?.instructions">
         {{ instruction }}
       </p>
-      <a *ngIf="activity?.link && platform.is('core')" href="{{ activity.link }}" target="_blank">Σύνδεσμος άσκησης</a>
-      <a *ngIf="activity?.link && !platform.is('core')" (click)="openLink(activity.link)">Σύνδεσμος άσκησης</a>
+      <div class="cardFooterContainer">
+        <a *ngIf="activity?.link && platform.is('core')" href="{{ activity.link }}" target="_blank">Σύνδεσμος άσκησης</a>
+        <a *ngIf="activity?.link && !platform.is('core')" (click)="openLink(activity.link)">Σύνδεσμος άσκησης</a>
+        <button ion-button icon-left small [disabled]="dailyActivityCompleted" (click)="activityDoneForToday()">
+          <ion-icon name="thumbs-up"></ion-icon>
+          <div>Done</div>
+        </button>
+      </div>
     </ion-card-content>
 
-    <!--<ion-row>-->
-      <!--<ion-col>-->
-        <!--<button ion-button icon-left clear small>-->
-          <!--<ion-icon name="thumbs-up"></ion-icon>-->
-          <!--<div>12 Likes</div>-->
-        <!--</button>-->
-      <!--</ion-col>-->
-      <!--<ion-col>-->
-        <!--<button ion-button icon-left clear small>-->
-          <!--<ion-icon name="text"></ion-icon>-->
-          <!--<div>4 Comments</div>-->
-        <!--</button>-->
-      <!--</ion-col>-->
-      <!--<ion-col center text-center>-->
-        <!--<ion-note>-->
-          <!--11h ago-->
-        <!--</ion-note>-->
-      <!--</ion-col>-->
-    <!--</ion-row>-->
+
 
   </ion-card>
 

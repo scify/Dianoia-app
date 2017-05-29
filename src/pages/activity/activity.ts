@@ -16,7 +16,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 })
 export class ActivityPage {
   activity: any;
-
+  dailyActivityCompleted: boolean = false;
   constructor(public navCtrl: NavController, public navParams: NavParams,
               private activityProvider: ActivityProvider, private iab: InAppBrowser, private platform: Platform) {
     let activityObj = this.navParams.get("activity");
@@ -27,10 +27,22 @@ export class ActivityPage {
     } else {
       this.activity = activityObj;
     }
+
+    this.activityProvider.userHasCompletedActivityForToday().then(activityDone => {
+      console.log(activityDone);
+      activityDone == null ? this.dailyActivityCompleted = false : this.dailyActivityCompleted = true;
+    })
+  }
+
+  activityDoneForToday() {
+    this.activityProvider.setActivityCompletedForToday().then(result => {
+      this.dailyActivityCompleted = true;
+    });
   }
 
   openLink(url) {
     this.iab.create(url);
   }
+
 
 }

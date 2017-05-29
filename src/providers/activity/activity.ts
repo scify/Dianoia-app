@@ -4,6 +4,7 @@ import 'rxjs/add/operator/map';
 import {ApiCallsProvider} from "../api-calls/api-calls";
 import {Observable} from "rxjs/Observable";
 import "rxjs/add/observable/forkJoin";
+import {AppStorageProvider} from "../app-storage/app-storage";
 
 /*
   Generated class for the ActivityProvider provider.
@@ -15,11 +16,15 @@ import "rxjs/add/observable/forkJoin";
 export class ActivityProvider {
 
   activities: [any];
+  currentDateFormatted: string;
 
-  constructor(public http: Http, private apiCalls: ApiCallsProvider) {
+  constructor(public http: Http, private apiCalls: ApiCallsProvider, private appStorage: AppStorageProvider) {
     this.getAllActivities().subscribe(data => {
       this.activities = data;
     });
+
+    const currentDate = new Date();
+    this.currentDateFormatted = currentDate.getDay() + "-" + currentDate.getMonth() + "-" + currentDate.getFullYear();
   }
 
   public getAllActivities(): Observable<any> {
@@ -82,5 +87,13 @@ export class ActivityProvider {
       activities.push(this.getActivityById(activityId));
     });
     return Observable.forkJoin(activities);
+  }
+
+  public userHasCompletedActivityForToday() {
+    return this.appStorage.get(this.currentDateFormatted);
+  }
+
+  public setActivityCompletedForToday() {
+    return this.appStorage.set(this.currentDateFormatted, true);
   }
 }

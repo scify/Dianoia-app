@@ -9,4 +9,11 @@ page-activity {
     padding-right: 2% !important;
   }
 
+  .cardFooterContainer button {
+    position: relative;
+    float: right;
+    top: 50%;
+    transform: translateY(-25%);
+  }
+
 }
