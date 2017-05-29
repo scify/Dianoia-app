@@ -15,6 +15,7 @@ import { AppStorageProvider } from '../providers/app-storage/app-storage';
 import { ActivityCategoryProvider } from '../providers/activity-category/activity-category';
 import { ActivityProvider } from '../providers/activity/activity';
 import { DifficultyLevelProvider } from '../providers/difficulty-level/difficulty-level';
+import { LoaderService } from '../providers/loader-service/loader-service';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { DifficultyLevelProvider } from '../providers/difficulty-level/difficult
     AppStorageProvider,
     ActivityCategoryProvider,
     ActivityProvider,
-    DifficultyLevelProvider
+    DifficultyLevelProvider,
+    LoaderService
   ]
 })
 export class AppModule {}

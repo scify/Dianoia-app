@@ -2,6 +2,6 @@
 <ion-content no-padding>
 
 
-  <cards-list [cards]="activities | async" (cardClick)="selectActivity($event)"></cards-list>
+  <cards-list *ngIf="activities?.length > 0" [cards]="activities" (cardClick)="selectActivity($event)"></cards-list>
 
 </ion-content>

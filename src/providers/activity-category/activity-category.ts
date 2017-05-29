@@ -36,7 +36,7 @@ export class ActivityCategoryProvider {
           let topLevelCategories = [];
           for(let category of categories) {
             if(category.is_root) {
-              this.getCategoryById(category.parent_category_id).subscribe(topLevelCategory => {
+              this.getCategoryById(category.parent_category_id).then(topLevelCategory => {
                 topLevelCategories.push(topLevelCategory);
               });
             }
@@ -46,15 +46,15 @@ export class ActivityCategoryProvider {
       });
   }
 
-  public getCategoryById(categoryId): Observable<any> {
-    return Observable.create(observer => {
+  public getCategoryById(categoryId): Promise<any> {
+    return new Promise((resolve, reject) => {
       this.getAllCategories().subscribe(categories => {
         for(let category of categories) {
           if(category.category_id == categoryId) {
-            observer.next(category);
+            resolve(category);
           }
         }
-        observer.complete();
+        reject("No Category found");
       });
     });
   }
@@ -81,11 +81,10 @@ export class ActivityCategoryProvider {
     });
   }
 
-  public getSubcategoriesForCategory(categoryId): Observable<any> {
-    return Observable.create(observer => {
+  public getSubcategoriesForCategory(categoryId): Promise<any> {
+    return new Promise((resolve, reject) => {
       this.getRelationshipsForCategory(categoryId).subscribe(category => {
-        observer.next(category.subcategories);
-        observer.complete();
+        resolve(category.subcategories);
       });
     });
   }
@@ -94,7 +93,7 @@ export class ActivityCategoryProvider {
     let categories = [];
     return Observable.create(observer => {
       for (let activityId of categoriesIds) {
-        this.getCategoryById(activityId).subscribe(activity => {
+        this.getCategoryById(activityId).then(activity => {
           categories.push(activity);
         });
       }

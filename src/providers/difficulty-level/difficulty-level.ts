@@ -22,20 +22,20 @@ export class DifficultyLevelProvider {
     });
   }
 
-  public getDifficultyLevelById(difficultyLevelId): Observable<any> {
-    return Observable.create(observer => {
+  public getDifficultyLevelById(difficultyLevelId): Promise<any> {
+    return new Promise((resolve, reject) => {
       this.getAllDifficultyLevels().subscribe(difficultyLevels => {
         for(let difficultyLevel of difficultyLevels) {
           if(difficultyLevel.id == difficultyLevelId) {
-            observer.next(difficultyLevel);
+            resolve(difficultyLevel);
           }
         }
-        observer.complete();
+        reject("No difficulty level found")
       });
     });
   }
 
-  public getDifficultyLevelsForActivities(activities: any): Observable<any> {
+  public getDifficultyLevelsForActivities(activities: any): Promise<any> {
     let difficultyLevelIds = [];
     for(let activity of activities) {
       if(activity.difficulty_level_id != null) {
@@ -45,14 +45,14 @@ export class DifficultyLevelProvider {
       }
     }
     let difficultyLevels = [];
-    return Observable.create(observer => {
-      for(let difficultyLevelId of difficultyLevelIds) {
-          this.getDifficultyLevelById(difficultyLevelId).subscribe(difficultyLevel => {
-            difficultyLevels.push(difficultyLevel);
-          });
-      }
-      observer.next(difficultyLevels);
-      observer.complete();
+    for(let difficultyLevelId of difficultyLevelIds) {
+      this.getDifficultyLevelById(difficultyLevelId).then(difficultyLevel => {
+        difficultyLevels.push(difficultyLevel);
+      });
+    }
+    return new Promise((resolve, reject) => {
+      resolve(difficultyLevels);
     });
+    // return Observable.forkJoin(difficultyLevels);
   }
 }

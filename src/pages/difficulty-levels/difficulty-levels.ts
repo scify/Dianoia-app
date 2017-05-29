@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {ActivityCategoryProvider} from "../../providers/activity-category/activity-category";
+import {LoaderService} from "../../providers/loader-service/loader-service";
 
 /**
  * Generated class for the DifficultyLevelsPage page.
@@ -21,19 +22,21 @@ export class DifficultyLevelsPage {
   category: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-              private categoryProvider: ActivityCategoryProvider) {
+              private categoryProvider: ActivityCategoryProvider,  private loaderService: LoaderService) {
     this.levels = this.navParams.get("levels");
     this.categoryId = this.navParams.get("categoryId");
     this.allActivities = this.navParams.get("activities");
     this.activities = this.allActivities;
+    this.loaderService.showLoader();
 
     if(this.levels == null) {
       this.navCtrl.setRoot("HomePage");
     } else {
       this.levels.unshift({id: "0", title: "Όλα τα επίπεδα"});
     }
-    this.categoryProvider.getCategoryById(this.categoryId).subscribe(category => {
+    this.categoryProvider.getCategoryById(this.categoryId).then(category => {
       this.category = category;
+      this.loaderService.hideLoader();
     });
   }
 
@@ -57,6 +60,7 @@ export class DifficultyLevelsPage {
 
   selectActivity(activity: any) {
     console.log(activity);
+    // TODO: Load activity page
   }
 
 }

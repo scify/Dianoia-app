@@ -3,6 +3,7 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import {ApiCallsProvider} from "../api-calls/api-calls";
 import {Observable} from "rxjs/Observable";
+import "rxjs/add/observable/forkJoin";
 
 /*
   Generated class for the ActivityProvider provider.
@@ -49,28 +50,24 @@ export class ActivityProvider {
     });
   }
 
+  // public getActivitiesByIds(activityIds: [string]): Observable<any> {
+  //   let activities = [];
+  //   return Observable.create(observer => {
+  //     for (let activityId of activityIds) {
+  //       this.getActivityById(activityId).then(activity => {
+  //         activities.push(activity);
+  //       });
+  //     }
+  //     observer.next(activities);
+  //     observer.complete();
+  //   });
+  // }
+
   public getActivitiesByIds(activityIds: [string]): Observable<any> {
     let activities = [];
-    return Observable.create(observer => {
-      for (let activityId of activityIds) {
-        this.getActivityById(activityId).then(activity => {
-          activities.push(activity);
-        });
-      }
-      observer.next(activities);
-      observer.complete();
+    activityIds.forEach(( activityId, index ) => {
+      activities.push(this.getActivityById(activityId));
     });
-  }
-
-  public getActivitiesByIdsSimple(activityIds: [string]) {
-    let activities = [];
-    for (let activityId of activityIds) {
-      this.getActivityById(activityId).then(activity => {
-        console.log(activity);
-        activities.push(activity);
-      });
-    }
-    console.log("activities", activities);
-    return activities;
+    return Observable.forkJoin(activities);
   }
 }

@@ -3,6 +3,7 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import {Observable} from "rxjs/Observable";
 import {AppStorageProvider} from "../app-storage/app-storage";
+import {LoadingController} from "ionic-angular";
 
 @Injectable()
 export class ApiCallsProvider {
