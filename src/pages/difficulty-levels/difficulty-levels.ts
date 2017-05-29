@@ -59,8 +59,7 @@ export class DifficultyLevelsPage {
   }
 
   selectActivity(activity: any) {
-    console.log(activity);
-    // TODO: Load activity page
+    this.navCtrl.push("ActivityPage", {activity: activity});
   }
 
 }

@@ -29,10 +29,23 @@ export class ActivityProvider {
     });
   }
 
+  public getRandomActivity() {
+    return new Promise((resolve, reject) => {
+      if (this.activities.length == 0) {
+        this.getAllActivities().subscribe(activities => {
+          let randomActivity = activities[Math.floor(Math.random()*activities.length)];
+          resolve(randomActivity);
+        });
+      } else {
+        let randomActivity = this.activities[Math.floor(Math.random()*this.activities.length)];
+        resolve(randomActivity);
+      }
+    });
+  }
+
   public getActivityById(activityId): Promise<any> {
     return new Promise((resolve, reject) => {
       if(this.activities.length == 0) {
-        console.log("get new");
         this.getAllActivities().subscribe(activities => {
           for(let activity of activities) {
             if(activity.id == activityId) {

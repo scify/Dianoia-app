@@ -54,7 +54,7 @@ export class ActivityCategoryProvider {
             resolve(category);
           }
         }
-        reject("No Category found");
+        // reject("No Category found");
       });
     });
   }

@@ -34,7 +34,7 @@ export class ActivityCategoriesPage {
       this.activityCategoryProvider.getCategoryById(this.parentCategoryId).then(category => {
         this.parentCategory = category;
         this.loaderService.hideLoader();
-      }).catch(error => { console.log(error); this.loaderService.hideLoader();});
+      });
     }
   }
 
