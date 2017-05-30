@@ -3,7 +3,7 @@
     <name>Dianoia</name>
     <description>Non-pharmaceutical activities for people with dementia.</description>
     <author email="info@scify.org" href="http://www.scify.gr/site/en/">SciFY Team</author>
-    <content original-src="index.html" src="http://192.168.1.10:8100" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-navigation href="http://ionic.local/*" />
     <allow-navigation href="http://192.168.1.10:8100" />

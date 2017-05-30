@@ -7,7 +7,7 @@
     "video_url":"",
     "img_url":"",
     "instructions":["Κάντε click στο σύνδεσμο για να δείτε τους ορισμούς"],
-    "link": "https://docs.google.com/document/d/1vD9ZjpBe_7azv82FwblJEifkaFX5HNYv1qw0syxX57A",
+    "link": "https://drive.google.com/file/d/0B2SImDUlGm_hWW1BUWNKdUI2bnFpZWl1SVN3a0lHQjRzOUZZ/view",
     "difficulty_level_id": "difficulty_level_1"
   },
   {
@@ -18,7 +18,7 @@
     "video_url":"",
     "img_url":"",
     "instructions":["Τι χρώμα έχει καθένα από τα παρακάτω αντικείμενα;"],
-    "link": "https://docs.google.com/document/d/1vD9ZjpBe_7azv82FwblJEifkaFX5HNYv1qw0syxX57A",
+    "link": "https://drive.google.com/file/d/0B2SImDUlGm_hWW1BUWNKdUI2bnFpZWl1SVN3a0lHQjRzOUZZ/view",
     "difficulty_level_id": "difficulty_level_1"
   },
   {
@@ -29,7 +29,7 @@
     "video_url":"",
     "img_url":"",
     "instructions":["Instruction 1", "Instruction 2", "Instruction 3", "Instruction 4"],
-    "link": "https://docs.google.com/document/d/1vD9ZjpBe_7azv82FwblJEifkaFX5HNYv1qw0syxX57A",
+    "link": "https://drive.google.com/file/d/0B2SImDUlGm_hWW1BUWNKdUI2bnFpZWl1SVN3a0lHQjRzOUZZ/view",
     "difficulty_level_id": "difficulty_level_2"
   },
   {
@@ -40,7 +40,7 @@
     "video_url":"",
     "img_url":"",
     "instructions":["Instruction 1", "Instruction 2", "Instruction 3", "Instruction 4"],
-    "link": "",
+    "link": "https://drive.google.com/file/d/0B2SImDUlGm_hWW1BUWNKdUI2bnFpZWl1SVN3a0lHQjRzOUZZ/view",
     "difficulty_level_id": "difficulty_level_1"
   },
   {
@@ -51,7 +51,7 @@
     "video_url":"",
     "img_url":"",
     "instructions":["Instruction 1", "Instruction 2", "Instruction 3", "Instruction 4"],
-    "link": "https://docs.google.com/document/d/1vD9ZjpBe_7azv82FwblJEifkaFX5HNYv1qw0syxX57A",
+    "link": "https://drive.google.com/file/d/0B2SImDUlGm_hWW1BUWNKdUI2bnFpZWl1SVN3a0lHQjRzOUZZ/view",
     "difficulty_level_id": "difficulty_level_2"
   }
 ]
