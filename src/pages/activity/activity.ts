@@ -33,7 +33,7 @@ export class ActivityPage {
 
     this.activityProvider.userHasCompletedActivityForToday().then(activityDone => {
 
-      activityDone == null ? this.dailyActivityCompleted = false : this.dailyActivityCompleted = true;
+      // activityDone == null ? this.dailyActivityCompleted = false : this.dailyActivityCompleted = true;
     });
 
     console.log(platform.is('core'));
@@ -42,7 +42,9 @@ export class ActivityPage {
   activityDoneForToday() {
     this.activityProvider.setActivityCompletedForToday().then(result => {
       this.dailyActivityCompleted = true;
-      this.alert.displayToast("Η άσκηση για σήμερα καταγράφηκε");
+      if(!this.platform.is('core')) {
+        this.alert.displayToast("Η άσκηση για σήμερα καταγράφηκε");
+      }
     });
   }
 

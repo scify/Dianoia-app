@@ -5,6 +5,7 @@ import {ApiCallsProvider} from "../api-calls/api-calls";
 import {Observable} from "rxjs/Observable";
 import "rxjs/add/observable/forkJoin";
 import {AppStorageProvider} from "../app-storage/app-storage";
+import {Storage} from "@ionic/storage";
 
 /*
   Generated class for the ActivityProvider provider.
@@ -18,13 +19,14 @@ export class ActivityProvider {
   activities: [any];
   currentDateFormatted: string;
 
-  constructor(public http: Http, private apiCalls: ApiCallsProvider, private appStorage: AppStorageProvider) {
+  constructor(public http: Http, private apiCalls: ApiCallsProvider, private appStorage: AppStorageProvider, private storage: Storage) {
     this.getAllActivities().subscribe(data => {
       this.activities = data;
     });
 
     const currentDate = new Date();
-    this.currentDateFormatted = currentDate.getDay() + "-" + currentDate.getMonth() + "-" + currentDate.getFullYear();
+    currentDate.setDate(currentDate.getDate() - 4);
+    this.currentDateFormatted = currentDate.toDateString();
   }
 
   public getAllActivities(): Observable<any> {
@@ -68,18 +70,25 @@ export class ActivityProvider {
     });
   }
 
-  // public getActivitiesByIds(activityIds: [string]): Observable<any> {
-  //   let activities = [];
-  //   return Observable.create(observer => {
-  //     for (let activityId of activityIds) {
-  //       this.getActivityById(activityId).then(activity => {
-  //         activities.push(activity);
-  //       });
-  //     }
-  //     observer.next(activities);
-  //     observer.complete();
-  //   });
-  // }
+  public getNumberOfActivitiesForLastMonth() {
+    let currentDate = new Date();
+    let dateAMonthAgo = new Date();
+    dateAMonthAgo.setMonth(currentDate.getMonth() - 1);
+    console.log("from", dateAMonthAgo);
+    console.log("until", currentDate);
+    let numberOfDays = 0;
+    let promises = [];
+    for (let date = dateAMonthAgo; date <= currentDate; date.setDate(date.getDate() + 1)) {
+      let promise = this.appStorage.get("activity_completed_" + date.toDateString());
+
+      promise.then(result => {
+        if (result)
+          numberOfDays++;
+      });
+      promises.push(promise);
+    }
+    return Promise.all(promises);
+  }
 
   public getActivitiesByIds(activityIds: [string]): Observable<any> {
     let activities = [];
@@ -94,6 +103,6 @@ export class ActivityProvider {
   }
 
   public setActivityCompletedForToday() {
-    return this.appStorage.set(this.currentDateFormatted, true);
+    return this.appStorage.set("activity_completed_" + this.currentDateFormatted, true);
   }
 }
