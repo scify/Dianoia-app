@@ -17,7 +17,6 @@ export class LoaderService {
 
   constructor(public http: Http,
               private loadingCtrl: LoadingController) {
-    console.log('Hello LoaderService Provider');
   }
 
   showLoader() {

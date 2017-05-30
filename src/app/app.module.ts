@@ -17,6 +17,9 @@ import { ActivityProvider } from '../providers/activity/activity';
 import { DifficultyLevelProvider } from '../providers/difficulty-level/difficulty-level';
 import { LoaderService } from '../providers/loader-service/loader-service';
 import {InAppBrowser} from "@ionic-native/in-app-browser";
+import {Printer} from "@ionic-native/printer";
+import { AlertProvider } from '../providers/alert/alert';
+import {Toast} from "@ionic-native/toast";
 
 @NgModule({
   declarations: [
@@ -45,7 +48,10 @@ import {InAppBrowser} from "@ionic-native/in-app-browser";
     ActivityProvider,
     DifficultyLevelProvider,
     LoaderService,
-    InAppBrowser
+    InAppBrowser,
+    Printer,
+    AlertProvider,
+    Toast
   ]
 })
 export class AppModule {}

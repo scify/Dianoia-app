@@ -31,17 +31,33 @@
         {{ instruction }}
       </p>
       <div class="cardFooterContainer">
-        <a *ngIf="activity?.link && platform.is('core')" href="{{ activity.link }}" target="_blank">Σύνδεσμος άσκησης</a>
-        <a *ngIf="activity?.link && !platform.is('core')" (click)="openLink(activity.link)">Σύνδεσμος άσκησης</a>
-        <button ion-button icon-left small [disabled]="dailyActivityCompleted" (click)="activityDoneForToday()">
-          <ion-icon name="thumbs-up"></ion-icon>
-          <div>Done</div>
-        </button>
+        <!--<a *ngIf="activity?.link && platform.is('core')" href="{{ activity.link }}" target="_blank">Σύνδεσμος άσκησης</a>-->
+        <!--<a *ngIf="activity?.link && !platform.is('core')" (click)="openLink(activity.link)">Σύνδεσμος άσκησης</a>-->
       </div>
     </ion-card-content>
 
-
-
+    <ion-row>
+      <ion-col>
+        <a *ngIf="activity?.link && platform.is('core')" href="{{ activity.link }}" target="_blank">
+          <button ion-button icon-left clear small>
+            <ion-icon name="ios-link"></ion-icon>
+            <div>Open link</div>
+          </button>
+        </a>
+        <button *ngIf="activity?.link && !platform.is('core')" ion-button icon-left clear small (click)="openLink(activity.link)">
+          <ion-icon name="ios-link"></ion-icon>
+          <div>Open link</div>
+        </button>
+      </ion-col>
+      <ion-col>
+      </ion-col>
+      <ion-col>
+        <button clear ion-button icon-left small [disabled]="dailyActivityCompleted" (click)="activityDoneForToday()">
+          <ion-icon name="thumbs-up"></ion-icon>
+          <div>Done</div>
+        </button>
+      </ion-col>
+    </ion-row>
   </ion-card>
 
 </ion-content>

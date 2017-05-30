@@ -23,7 +23,6 @@ export class RandomActivitiesPage {
 
     this.loaderService.showLoader();
     this.activityProvider.getAllActivities().subscribe(activities => {
-      console.log("all activities", activities);
       this.activities = activities;
       this.loaderService.hideLoader();
     });
