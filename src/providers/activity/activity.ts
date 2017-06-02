@@ -38,7 +38,7 @@ export class ActivityProvider {
 
   public getRandomActivity() {
     return new Promise((resolve, reject) => {
-      if (this.activities.length == 0) {
+      if (!this.activities) {
         this.getAllActivities().subscribe(activities => {
           let randomActivity = activities[Math.floor(Math.random()*activities.length)];
           resolve(randomActivity);
