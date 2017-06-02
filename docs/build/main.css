@@ -27056,6 +27056,25 @@ cards-list .title {
   font-style: italic;
 }
 
+page-about .basicInfoContainer {
+  height: 30%;
+}
+
+page-about .logoContainer {
+  height: 20%;
+}
+
+page-about .imgContainer {
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  height: 80%;
+}
+
+page-about .imgContainer img {
+  height: 100%;
+}
+
 page-activity ion-content {
   background-color: #eeeeee !important;
 }
@@ -27096,6 +27115,22 @@ page-activity .instructionsList .icon {
 
 page-activity .activityImg {
   max-height: 350px;
+  max-width: 500px;
+}
+
+page-help .basicInfoContainer {
+  height: 40%;
+}
+
+page-help .imgContainer {
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  height: 80%;
+}
+
+page-help .imgContainer img {
+  height: 100%;
 }
 
 page-home .logo {

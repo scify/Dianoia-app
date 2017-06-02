@@ -23,7 +23,7 @@ export class ActivityPage {
               private activityProvider: ActivityProvider, private iab: InAppBrowser, private platform: Platform,
               private printer: Printer, private alert: AlertProvider) {
     let activityObj = this.navParams.get("activity");
-    if(activityObj == null) {
+    if(!activityObj) {
       this.activityProvider.getRandomActivity().then(randomActivity => {
         this.activity = randomActivity;
       });

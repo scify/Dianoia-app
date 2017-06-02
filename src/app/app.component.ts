@@ -27,8 +27,8 @@ export class MyApp {
       { title: 'Ξεκινήστε', component: "ActivityCategoriesPage"},
       { title: 'Ιστορικό Ασκήσεων/Δραστηριοτήτων', component: ListPage },
       { title: 'Ρυθμίσεις ειδοποιήσεων', component: ListPage },
-      { title: 'Βοήθεια', component: "InfoListPage", pageCode: "page_help", pageFile: "pages/help.json" },
-      { title: 'About', component: "InfoListPage", pageCode: "page_about", pageFile: "pages/about.json" }
+      { title: 'Βοήθεια', component: "HelpPage"},
+      { title: 'About', component: "AboutPage"}
     ];
 
   }

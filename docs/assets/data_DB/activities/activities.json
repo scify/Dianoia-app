@@ -16,7 +16,7 @@
     "description": "O χρήστης πρέπει να απομνημονεύσει λέξεις και να δεί ποιά από αυτές έχει αλλάξει",
     "full_text": "",
     "video_url":"",
-    "img_url":"",
+    "img_url":"remembering_list.png",
     "instructions":["Κάντε click στο σύνδεσμο για να δείτε το έγγραφο", "Απομνημονεύστε τις λέξεις της πρώτης λίστας", "Στη συνέχεια καλύψτε τη λίστα αυτή."," Διαβάστε τη δεύτερη λίστα και βρείτε ποια από τις λέξεις έχει αλλάξει."],
     "link": "https://drive.google.com/file/d/0B2SImDUlGm_hWW1BUWNKdUI2bnFpZWl1SVN3a0lHQjRzOUZZ/view",
     "difficulty_level_id": "difficulty_level_1"
@@ -27,7 +27,7 @@
     "description": "Προσπαθήστε να τα συγκρατήσετε στη μνήμη σας μια λίστα με αντικείμενα",
     "full_text": "",
     "video_url":"",
-    "img_url":"",
+    "img_url":"remembering_list_by_heart.png",
     "instructions":["Κάντε click στο σύνδεσμο για να δείτε το έγγραφο", "Θέλετε να ψωνίσετε κάποια αντικείμενα από το σούπερ μάρκετ. Προσπαθήστε να τα συγκρατήσετε στη μνήμη σας", ". Γυρίστε το φύλλο και καταγράψτε όσα θυμάστε."],
     "link": "https://drive.google.com/file/d/0B6htunInH8hvMnNoTHNDQm1OMUE/view?usp=sharing",
     "difficulty_level_id": "difficulty_level_2"
@@ -38,7 +38,7 @@
     "description": "Συμπληρώστε τις προτάσεις με τις κατάλληλες λέξεις, ώστε να έχουν νόημα.",
     "full_text": "",
     "video_url":"",
-    "img_url":"",
+    "img_url":"sentences.png",
     "instructions":["Κάντε click στο σύνδεσμο για να δείτε το έγγραφο"],
     "link": "https://drive.google.com/file/d/0B2SImDUlGm_hWW1BUWNKdUI2bnFpZWl1SVN3a0lHQjRzOUZZ/view",
     "difficulty_level_id": "difficulty_level_1"
@@ -49,7 +49,7 @@
     "description": "Διαβάστε τις τρεις λέξεις - κλειδιά και προσπαθήστε να βρείτε ποια λέξη περιγράφουν",
     "full_text": "",
     "video_url":"",
-    "img_url":"",
+    "img_url":"find_the_word.png",
     "instructions":["Κάντε click στο σύνδεσμο για να δείτε το έγγραφο"],
     "link": "https://drive.google.com/file/d/0B2SImDUlGm_hWW1BUWNKdUI2bnFpZWl1SVN3a0lHQjRzOUZZ/view",
     "difficulty_level_id": "difficulty_level_2"
@@ -60,7 +60,7 @@
     "description": "Χρωματίστε τα σχήματα και ταυτόχρονα απαριθμήστε ότι σας ζητάται.",
     "full_text": "",
     "video_url":"",
-    "img_url":"",
+    "img_url":"draw_and_think.png",
     "instructions":["Κάντε click στο σύνδεσμο για να δείτε το έγγραφο"],
     "link": "https://drive.google.com/file/d/0B2SImDUlGm_hWW1BUWNKdUI2bnFpZWl1SVN3a0lHQjRzOUZZ/view",
     "difficulty_level_id": "difficulty_level_2"
@@ -71,7 +71,7 @@
     "description": "Αντιγράψτε τα σχέδια, σκιάζοντας τα αντίστοιχα τετράγωνα.",
     "full_text": "",
     "video_url":"",
-    "img_url":"",
+    "img_url":"shapes.png",
     "instructions":["Κάντε click στο σύνδεσμο για να δείτε το έγγραφο"],
     "link": "https://drive.google.com/file/d/0B6htunInH8hvbGlQaXJEbW1rRW8/view?usp=sharing",
     "difficulty_level_id": "difficulty_level_1"
@@ -82,7 +82,7 @@
     "description": "Προσπαθήστε να αντιγράψετε τους αριθμούς στις ίδιες θέσεις.",
     "full_text": "",
     "video_url":"",
-    "img_url":"",
+    "img_url":"copy_correctly.png",
     "instructions":["Κάντε click στο σύνδεσμο για να δείτε το έγγραφο"],
     "link": "https://drive.google.com/file/d/0B2SImDUlGm_hWW1BUWNKdUI2bnFpZWl1SVN3a0lHQjRzOUZZ/view",
     "difficulty_level_id": "difficulty_level_1"
@@ -93,7 +93,7 @@
     "description": "Υπογραμμίστε ή κυκλώστε τις λέξεις που ανήκουν σε κατηγορίες",
     "full_text": "",
     "video_url":"",
-    "img_url":"",
+    "img_url":"semantic_categories.png",
     "instructions":["Κάντε click στο σύνδεσμο για να δείτε το έγγραφο", "Υπογραμμίστε τις λέξεις που έχουν σχέση με τη μουσική", "Κυκλώστε τις λέξεις που αφορούν σε ζώα και ταυτόχρονα κυκλώστε τις λέξεις που αφορούν σε χρώματα"],
     "link": "https://drive.google.com/file/d/0B2SImDUlGm_hWW1BUWNKdUI2bnFpZWl1SVN3a0lHQjRzOUZZ/view",
     "difficulty_level_id": "difficulty_level_2"
@@ -104,7 +104,7 @@
     "description": "Βρείτε μια λέξη σε κάθε κατηγορία, η οποία να ξεκινά από το γράμμα που σας δίνεται.",
     "full_text": "",
     "video_url":"",
-    "img_url":"",
+    "img_url":"name_animal.png",
     "instructions":["Κάντε click στο σύνδεσμο για να δείτε το έγγραφο"],
     "link": "https://drive.google.com/file/d/0B6htunInH8hvT2tGTUxZMnN3cGM/view?usp=sharing",
     "difficulty_level_id": "difficulty_level_1"
@@ -115,7 +115,7 @@
     "description": "Βρείτε μια συνώνυμη και μια αντίθετη λέξη για καθεμία από τις λέξεις που σας δίνονται",
     "full_text": "",
     "video_url":"",
-    "img_url":"",
+    "img_url":"synonyms.png",
     "instructions":["Κάντε click στο σύνδεσμο για να δείτε το έγγραφο"],
     "link": "https://drive.google.com/file/d/0B6htunInH8hvQ0t1a2NUNlBSajA/view?usp=sharing",
     "difficulty_level_id": "difficulty_level_1"
