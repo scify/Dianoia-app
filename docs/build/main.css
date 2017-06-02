@@ -27041,6 +27041,12 @@ ion-content {
   font-size: 140%;
 }
 
+.activitiesContainer {
+  background-color: #eeeeee;
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
 cards-list ion-label {
   margin: 0 !important;
 }
@@ -27067,16 +27073,35 @@ page-activity .cardFooterContainer button {
   transform: translateY(-25%);
 }
 
-page-difficulty-levels .activitiesContainer {
-  background-color: #eeeeee;
-  padding-top: 1px;
-  padding-bottom: 1px;
+page-activity .title {
+  font-weight: bold;
+}
+
+page-activity .card ion-label {
+  white-space: inherit !important;
+}
+
+page-activity .instructionsList {
+  margin-top: 20px;
+}
+
+page-activity .instructionsList .item {
+  font-size: 100%;
+  padding-left: 0;
+}
+
+page-activity .instructionsList .icon {
+  color: #32db64;
+}
+
+page-info-list .basicInfoContainer {
+  height: 40%;
 }
 
 page-info-list .imgContainer {
   text-align: center;
   margin-bottom: 20px;
-  height: 40%;
+  height: 80%;
 }
 
 page-info-list .imgContainer img {
