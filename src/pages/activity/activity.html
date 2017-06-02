@@ -25,6 +25,8 @@
     <ion-card-content>
       <p>{{ activity?.description }}</p>
 
+      <img class="activityImg" *ngIf="activity?.img_url" [src]="'assets/img/' + activity.img_url">
+
       <div *ngIf="activity?.id" class="instructionsList">
         <p>Οδηγίες:</p>
         <ion-list no-lines>

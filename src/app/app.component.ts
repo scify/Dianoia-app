@@ -16,7 +16,7 @@ export class MyApp {
   pages: Array<{title: string, component?: any, pageFile?: string, pageCode?: string}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
-    this.initializeApp();
+    this.initializeApp(platform, statusBar);
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Αρχική', component: "HomePage"},
@@ -24,7 +24,7 @@ export class MyApp {
       { title: 'Σκοπός', component: "InfoListPage", pageCode: "page_goal", pageFile: "pages/goal.json" },
       { title: 'Αξία', component: "InfoListPage", pageCode: "page_value", pageFile: "pages/value.json" },
       { title: 'Τι να προσέξω', component: "InfoListPage", pageCode: "page_tips_list", pageFile: "pages/tips_list.json" },
-      { title: 'Μ.Φ.Π.', component: "ActivityCategoriesPage"},
+      { title: 'Ξεκινήστε', component: "ActivityCategoriesPage"},
       { title: 'Ιστορικό Ασκήσεων/Δραστηριοτήτων', component: ListPage },
       { title: 'Ρυθμίσεις ειδοποιήσεων', component: ListPage },
       { title: 'Βοήθεια', component: ListPage }
@@ -32,12 +32,21 @@ export class MyApp {
 
   }
 
-  initializeApp() {
+  initializeApp(platform, statusBar) {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+
+      if (platform.is('android')) {
+        statusBar.overlaysWebView(false);
+        statusBar.backgroundColorByHexString("#3f51b5");
+        statusBar.styleBlackOpaque();
+      } else {
+        statusBar.overlaysWebView(true);
+        statusBar.styleDefault();
+      }
     });
   }
 

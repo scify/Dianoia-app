@@ -7,10 +7,22 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-tabs>
-    <ion-tab [root]="tab1Root" tabTitle="Activities" tabIcon="ios-list-outline"></ion-tab>
-    <ion-tab [root]="tab2Root" tabTitle="Σχετικά" tabIcon="information-circle"></ion-tab>
-  </ion-tabs>
+<ion-content>
+
+  <div padding>
+    <div class="logoContainer">
+      <img class="logo" src="assets/img/icon.png">
+    </div>
+    <h4>Κοινές δραστηριότητες</h4>
+  </div>
+
+
+  <div class="activitiesContainer">
+    <cards-list *ngIf="activities?.length > 0" [cards]="activities" (cardClick)="selectActivity($event)"></cards-list>
+  </div>
+  <!--<ion-tabs>-->
+    <!--<ion-tab [root]="tab1Root" tabTitle="Activities" tabIcon="ios-list-outline"></ion-tab>-->
+    <!--<ion-tab [root]="tab2Root" tabTitle="Σχετικά" tabIcon="information-circle"></ion-tab>-->
+  <!--</ion-tabs>-->
 
 </ion-content>
