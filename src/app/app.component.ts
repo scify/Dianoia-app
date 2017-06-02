@@ -25,7 +25,7 @@ export class MyApp {
       { title: 'Αξία', component: "InfoListPage", pageCode: "page_value", pageFile: "pages/value.json" },
       { title: 'Τι να προσέξω', component: "InfoListPage", pageCode: "page_tips_list", pageFile: "pages/tips_list.json" },
       { title: 'Ξεκινήστε', component: "ActivityCategoriesPage"},
-      { title: 'Ιστορικό Ασκήσεων/Δραστηριοτήτων', component: ListPage },
+      { title: 'Ιστορικό Ασκήσεων/Δραστηριοτήτων', component: "StatisticsPage" },
       { title: 'Ρυθμίσεις ειδοποιήσεων', component: ListPage },
       { title: 'Βοήθεια', component: "HelpPage"},
       { title: 'About', component: "AboutPage"}

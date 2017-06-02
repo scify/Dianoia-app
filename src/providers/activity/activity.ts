@@ -70,15 +70,38 @@ export class ActivityProvider {
     });
   }
 
+
+  public getNumberOfActivitiesForLastThreeMonths() {
+    let currentDate = new Date();
+    let dateAMonthAgo = new Date();
+    dateAMonthAgo.setMonth(currentDate.getMonth() - 3);
+    console.log("from", dateAMonthAgo);
+    console.log("until", currentDate);
+    return this.getNumberOfActivitiesForPeriod(dateAMonthAgo, currentDate);
+  }
+
   public getNumberOfActivitiesForLastMonth() {
     let currentDate = new Date();
     let dateAMonthAgo = new Date();
     dateAMonthAgo.setMonth(currentDate.getMonth() - 1);
     console.log("from", dateAMonthAgo);
     console.log("until", currentDate);
+    return this.getNumberOfActivitiesForPeriod(dateAMonthAgo, currentDate);
+  }
+
+  public getNumberOfActivitiesForLastTwoWeeks() {
+    let currentDate = new Date();
+    let dateAWeekAgo = new Date();
+    dateAWeekAgo.setDate(currentDate.getDate() - 14);
+    console.log("from", dateAWeekAgo);
+    console.log("until", currentDate);
+    return this.getNumberOfActivitiesForPeriod(dateAWeekAgo, currentDate);
+  }
+
+  private getNumberOfActivitiesForPeriod(startDate, endDate) {
     let numberOfDays = 0;
     let promises = [];
-    for (let date = dateAMonthAgo; date <= currentDate; date.setDate(date.getDate() + 1)) {
+    for (let date = startDate; date <= endDate; date.setDate(date.getDate() + 1)) {
       let promise = this.appStorage.get("activity_completed_" + date.toDateString());
 
       promise.then(result => {

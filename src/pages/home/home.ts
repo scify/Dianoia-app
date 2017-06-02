@@ -17,15 +17,9 @@ export class HomePage {
 
   activities: any[];
 
+
   constructor(public navCtrl: NavController, private activityProvider: ActivityProvider,
               private loaderService: LoaderService, private activityCategoryProvider: ActivityCategoryProvider) {
-    activityProvider.getNumberOfActivitiesForLastMonth().then(numberOfDays => {
-      console.log(numberOfDays.filter(checkAdult).length);
-    });
-
-    function checkAdult(item) {
-      return item == "true";
-    }
 
     this.loaderService.showLoader();
 
@@ -40,8 +34,6 @@ export class HomePage {
   }
 
   selectActivity(activity) {
-    // let nav = this.app.getRootNav();
-    // nav.push("ActivityPage", {activity: activity});
     this.navCtrl.push("ActivityPage", {activity: activity});
   }
 
