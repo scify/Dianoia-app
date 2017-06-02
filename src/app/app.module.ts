@@ -20,6 +20,7 @@ import {InAppBrowser} from "@ionic-native/in-app-browser";
 import {Printer} from "@ionic-native/printer";
 import { AlertProvider } from '../providers/alert/alert';
 import {Toast} from "@ionic-native/toast";
+import {SocialSharing} from "@ionic-native/social-sharing";
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import {Toast} from "@ionic-native/toast";
     InAppBrowser,
     Printer,
     AlertProvider,
-    Toast
+    Toast,
+    SocialSharing
   ]
 })
 export class AppModule {}
