@@ -171,11 +171,13 @@ var ActivityCategoriesPage = (function () {
         this.loaderService = loaderService;
         this.categories = this.navParams.get("categories");
         // if no categories passed as parameter, load top-level categories by default
-        this.loaderService.showLoader();
+        // this.loaderService.showLoader();
         if (this.categories == null) {
             this.activityCategoryProvider.getTopLevelCategories().then(function (categories) {
                 _this.categories = categories;
                 _this.loaderService.hideLoader();
+            }).catch(function (error) {
+                _this.handleError(error);
             });
         }
         else {
@@ -183,9 +185,15 @@ var ActivityCategoriesPage = (function () {
             this.activityCategoryProvider.getCategoryById(this.parentCategoryId).then(function (category) {
                 _this.parentCategory = category;
                 _this.loaderService.hideLoader();
+            }).catch(function (error) {
+                _this.handleError(error);
             });
         }
     }
+    ActivityCategoriesPage.prototype.handleError = function (error) {
+        console.log(error);
+        this.loaderService.hideLoader();
+    };
     ActivityCategoriesPage.prototype.getPageTitle = function () {
         return this.parentCategory != null ? this.parentCategory.title : "Κατηγορίες δραστηριοτήτων";
     };
@@ -200,6 +208,8 @@ var ActivityCategoriesPage = (function () {
             else if (categoryRelationships.activities.length > 0) {
                 _this.getDifficultyLevelsForCategoryAndLoadPage(categoryButton.category_id);
             }
+        }, function (error) {
+            _this.handleError(error);
         });
     };
     ActivityCategoriesPage.prototype.getDifficultyLevelsForCategoryAndLoadPage = function (categoryId) {
@@ -209,14 +219,18 @@ var ActivityCategoriesPage = (function () {
                 _this.activityProvider.getActivitiesByIds(activitiesIds).subscribe(function (activities) {
                     console.log(activities);
                     _this.getDifficultyLevelsForActivitiesAndLoadPage(activities, categoryId);
+                }, function (error) {
+                    _this.handleError(error);
                 });
             }
+        }, function (error) {
+            _this.handleError(error);
         });
     };
     ActivityCategoriesPage.prototype.getDifficultyLevelsForActivitiesAndLoadPage = function (activities, categoryId) {
         var _this = this;
         this.difficultyLevelProvider.getDifficultyLevelsForActivities(activities).then(function (difficultyLevels) {
-            _this.loaderService.hideLoader();
+            // this.loaderService.hideLoader();
             _this.navCtrl.push("DifficultyLevelsPage", { levels: difficultyLevels, categoryId: categoryId, activities: activities });
         });
     };
@@ -226,7 +240,7 @@ var ActivityCategoriesPage = (function () {
             console.log("subcategoriesIds", subcategoriesIds);
             if (subcategoriesIds != null) {
                 _this.activityCategoryProvider.getCategoriesByIds(subcategoriesIds).subscribe(function (subcategories) {
-                    _this.loaderService.hideLoader();
+                    // this.loaderService.hideLoader();
                     _this.navCtrl.push("ActivityCategoriesPage", { categories: subcategories, parentCategoryId: categoryId });
                 });
             }
