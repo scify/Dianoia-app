@@ -16,7 +16,7 @@
 <ion-content>
 
   <div padding>
-    <div class="description">Επιλέξτε επίπεδο δυσκολίας</div>
+    <div class="description" *ngIf='levels?.length > 0'>Επιλέξτε επίπεδο δυσκολίας</div>
     <buttons-list *ngIf='levels?.length > 0' [buttons]="levels" (buttonClick)="selectLevel($event)"></buttons-list>
   </div>
 

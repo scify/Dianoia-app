@@ -23,19 +23,28 @@ export class ActivityCategoriesPage {
     this.categories = this.navParams.get("categories");
 
     // if no categories passed as parameter, load top-level categories by default
-    this.loaderService.showLoader();
+    // this.loaderService.showLoader();
     if(this.categories == null) {
       this.activityCategoryProvider.getTopLevelCategories().then(categories => {
         this.categories = categories;
         this.loaderService.hideLoader();
+      }).catch(error =>{
+        this.handleError(error);
       });
     } else {
       this.parentCategoryId = this.navParams.get("parentCategoryId");
       this.activityCategoryProvider.getCategoryById(this.parentCategoryId).then(category => {
         this.parentCategory = category;
         this.loaderService.hideLoader();
+      }).catch(error =>{
+        this.handleError(error);
       });
     }
+  }
+
+  handleError(error) {
+    console.log(error);
+    this.loaderService.hideLoader();
   }
 
   getPageTitle() {
@@ -54,6 +63,8 @@ export class ActivityCategoriesPage {
       else if(categoryRelationships.activities.length > 0) {
         this.getDifficultyLevelsForCategoryAndLoadPage(categoryButton.category_id);
       }
+    }, error => {
+      this.handleError(error);
     });
   }
 
@@ -63,14 +74,18 @@ export class ActivityCategoriesPage {
         this.activityProvider.getActivitiesByIds(activitiesIds).subscribe(activities => {
           console.log(activities);
           this.getDifficultyLevelsForActivitiesAndLoadPage(activities, categoryId);
+        }, error => {
+          this.handleError(error);
         });
       }
+    }, error => {
+      this.handleError(error);
     });
   }
 
   getDifficultyLevelsForActivitiesAndLoadPage(activities: any, categoryId) {
     this.difficultyLevelProvider.getDifficultyLevelsForActivities(activities).then(difficultyLevels => {
-      this.loaderService.hideLoader();
+      // this.loaderService.hideLoader();
       this.navCtrl.push("DifficultyLevelsPage", {levels: difficultyLevels, categoryId: categoryId, activities: activities});
     });
   }
@@ -80,7 +95,7 @@ export class ActivityCategoriesPage {
       console.log("subcategoriesIds",subcategoriesIds);
       if(subcategoriesIds != null) {
         this.activityCategoryProvider.getCategoriesByIds(subcategoriesIds).subscribe(subcategories => {
-          this.loaderService.hideLoader();
+          // this.loaderService.hideLoader();
           this.navCtrl.push("ActivityCategoriesPage", {categories: subcategories, parentCategoryId: categoryId})
         });
       } else {

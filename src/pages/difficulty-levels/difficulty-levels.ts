@@ -23,19 +23,25 @@ export class DifficultyLevelsPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               private categoryProvider: ActivityCategoryProvider,  private loaderService: LoaderService) {
-    this.levels = this.navParams.get("levels");
+
     this.categoryId = this.navParams.get("categoryId");
     this.allActivities = this.navParams.get("activities");
     this.activities = this.allActivities;
-    this.loaderService.showLoader();
+    // this.loaderService.showLoader();
 
-    if(this.levels == null) {
-      this.navCtrl.setRoot("HomePage");
-    } else {
-      this.levels.unshift({id: "0", title: "Όλα τα επίπεδα"});
-    }
+    // if(this.levels == null) {
+    //   this.navCtrl.setRoot("HomePage");
+    // } else {
+    //   this.levels.unshift({id: "0", title: "Όλα τα επίπεδα"});
+    // }
     this.categoryProvider.getCategoryById(this.categoryId).then(category => {
       this.category = category;
+      if (!this.category.has_difficulty_levels) {
+        this.levels = [];
+      } else {
+        this.levels = this.navParams.get("levels");
+        this.levels.unshift({id: "0", title: "Όλα τα επίπεδα"});
+      }
       this.loaderService.hideLoader();
     });
   }
