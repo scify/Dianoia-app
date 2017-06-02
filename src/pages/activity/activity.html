@@ -18,21 +18,21 @@
   <ion-card>
 
     <ion-item>
-      <h2>{{ activity?.title }}</h2>
+      <h2 class="title">{{ activity?.title }}</h2>
       <!--<p>November 5, 1955</p>-->
     </ion-item>
-
-    <!--<img src="img/advance-card-bttf.png">-->
 
     <ion-card-content>
       <p>{{ activity?.description }}</p>
 
-      <p *ngFor="let instruction of activity?.instructions">
-        {{ instruction }}
-      </p>
-      <div class="cardFooterContainer">
-        <!--<a *ngIf="activity?.link && platform.is('core')" href="{{ activity.link }}" target="_blank">Σύνδεσμος άσκησης</a>-->
-        <!--<a *ngIf="activity?.link && !platform.is('core')" (click)="openLink(activity.link)">Σύνδεσμος άσκησης</a>-->
+      <div *ngIf="activity?.id" class="instructionsList">
+        <p>Οδηγίες:</p>
+        <ion-list no-lines>
+          <ion-item text-wrap *ngFor="let instruction of activity?.instructions">
+            <ion-icon name="ios-checkmark" item-left></ion-icon>
+            {{ instruction }}
+          </ion-item>
+        </ion-list>
       </div>
     </ion-card-content>
 
@@ -52,7 +52,7 @@
       <ion-col>
       </ion-col>
       <ion-col>
-        <button clear ion-button icon-left small [disabled]="dailyActivityCompleted" (click)="activityDoneForToday()">
+        <button *ngIf="activity?.id" clear ion-button icon-left small [disabled]="dailyActivityCompleted" (click)="activityDoneForToday()">
           <ion-icon name="thumbs-up"></ion-icon>
           <div>Done</div>
         </button>

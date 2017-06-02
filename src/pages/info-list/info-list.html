@@ -13,8 +13,9 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
 
+  <div padding class="basicInfoContainer">
   <div class="imgContainer">
     <img [src]="'assets/img/' + image">
   </div>
@@ -28,6 +29,11 @@
       {{ item }}
     </ion-item>
   </ion-list>
+  </div>
+
+  <div class="activitiesContainer">
+    <cards-list *ngIf='cards?.length > 0' [cards]="cards" (cardClick)="selectCard($event)"></cards-list>
+  </div>
 
 </ion-content>
 

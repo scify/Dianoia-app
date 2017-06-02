@@ -20,7 +20,10 @@ export class CardsListComponent {
 
   getCardsListTitle() {
     let title = this.cards.length;
-    return this.cards.length == 1 ? title + " δραστηριότητα" : title + " δραστηριότητες";
+    if(!this.cards) return '';
+    if(this.cards[0].id) {
+      return this.cards.length == 1 ? title + " δραστηριότητα:" : title + " δραστηριότητες:";
+    }
   }
 
   onCardClick(card) {

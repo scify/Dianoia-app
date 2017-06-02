@@ -16,4 +16,27 @@ page-activity {
     transform: translateY(-25%);
   }
 
+  .title {
+    font-weight: bold;
+  }
+
+  .card {
+    ion-label {
+      white-space: inherit !important;
+    }
+  }
+
+  .instructionsList {
+    margin-top: 20px;
+
+    .item {
+      font-size: 100%;
+      padding-left: 0;
+    }
+
+    .icon {
+      color: $success;
+    }
+  }
+
 }

@@ -21,6 +21,7 @@ export class InfoListPage {
   description: string;
   image: string;
   list: [string];
+  cards: [any];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               private pageProvider: PageProvider) {
@@ -37,7 +38,12 @@ export class InfoListPage {
         this.description = pageData.description;
         this.image = pageData.image;
         this.list = pageData.list;
+        this.cards = pageData.cards;
       });
+  }
+
+  selectCard(card) {
+    this.navCtrl.push("ActivityPage", {activity: card});
   }
 
 }
