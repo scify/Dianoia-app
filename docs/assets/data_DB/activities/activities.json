@@ -5,7 +5,7 @@
     "description": "Βρείτε λέξεις για κάθε κατηγορία που σας ζητείται",
     "full_text": "",
     "video_url":"",
-    "img_url":"",
+    "img_url":"words_categories.png",
     "instructions":["Κάντε click στο σύνδεσμο για να δείτε το έγγραφο"],
     "link": "https://drive.google.com/file/d/0B6htunInH8hvSzctQV90X0tXM2M/view?usp=sharing",
     "difficulty_level_id": "difficulty_level_1"
