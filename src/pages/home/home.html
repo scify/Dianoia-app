@@ -13,11 +13,11 @@
     <div class="logoContainer">
       <img class="logo" src="assets/img/icon.png">
     </div>
-    <h4>Κοινές δραστηριότητες</h4>
   </div>
 
 
   <div class="activitiesContainer">
+    <p padding>Επιλέξτε μια από τις κοινές δραστηριότητες, ή δείτε περισσότερες επιλέγοντας το μενού.</p>
     <cards-list *ngIf="activities?.length > 0" [cards]="activities" (cardClick)="selectActivity($event)"></cards-list>
   </div>
   <!--<ion-tabs>-->

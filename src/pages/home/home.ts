@@ -31,7 +31,7 @@ export class HomePage {
 
       this.activityCategoryProvider.getActivitiesForCategory("common_activities").subscribe(activityIds => {
         console.log(activityIds);
-        this.activityProvider.getActivitiesByIds(activityIds).subscribe(activities => {
+        this.activityProvider.getActivitiesByIds(this.shuffle(activityIds)).subscribe(activities => {
           this.activities = activities;
           this.loaderService.hideLoader();
         });
@@ -44,5 +44,13 @@ export class HomePage {
     // nav.push("ActivityPage", {activity: activity});
     this.navCtrl.push("ActivityPage", {activity: activity});
   }
+
+  shuffle(a) {
+  for (let i = a.length; i; i--) {
+    let j = Math.floor(Math.random() * i);
+    [a[i - 1], a[j]] = [a[j], a[i - 1]];
+  }
+  return a;
+}
 
 }

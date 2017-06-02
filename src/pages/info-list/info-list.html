@@ -16,14 +16,14 @@
 <ion-content>
 
   <div padding class="basicInfoContainer">
-  <div class="imgContainer">
+  <div class="imgContainer" *ngIf="image">
     <img [src]="'assets/img/' + image">
   </div>
 
   <div class="description">
     {{ description }}
   </div>
-  <ion-list class="aboutList" no-lines>
+  <ion-list class="aboutList" no-lines *ngIf="list">
     <ion-item text-wrap *ngFor="let item of list">
       <ion-icon name="ios-checkmark" item-left></ion-icon>
       {{ item }}
@@ -31,8 +31,8 @@
   </ion-list>
   </div>
 
-  <div class="activitiesContainer">
-    <cards-list *ngIf='cards?.length > 0' [cards]="cards" (cardClick)="selectCard($event)"></cards-list>
+  <div class="activitiesContainer" *ngIf='cards?.length > 0'>
+    <cards-list [cards]="cards" (cardClick)="selectCard($event)"></cards-list>
   </div>
 
 </ion-content>
