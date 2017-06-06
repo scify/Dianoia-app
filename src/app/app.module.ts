@@ -57,7 +57,6 @@ import { NotificationProvider } from '../providers/notification/notification';
     Toast,
     SocialSharing,
     LocalNotifications,
-    NotificationProvider,
     NotificationProvider
   ]
 })

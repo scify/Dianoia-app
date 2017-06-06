@@ -27,7 +27,7 @@
 
       <img class="activityImg" *ngIf="activity?.img_url" [src]="'assets/img/activities/' + activity.img_url">
 
-      <div *ngIf="activity?.id" class="instructionsList">
+      <div *ngIf="activity?.id && activity?.instructions.length > 0" class="instructionsList">
         <p>Οδηγίες:</p>
         <ion-list no-lines>
           <ion-item text-wrap *ngFor="let instruction of activity?.instructions">

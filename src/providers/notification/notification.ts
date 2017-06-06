@@ -13,36 +13,45 @@ import {Platform} from "ionic-angular";
 @Injectable()
 export class NotificationProvider {
 
+  notificationTitles: [string];
+  notificationTexts: [string];
+
   constructor(private localNotifications: LocalNotifications, private appStorage: AppStorageProvider, private platform: Platform) {
+    this.notificationTitles = ["Τι να κάνετε σήμερα:", "Σημερινή δραστηριότητα:"];
+
+    this.notificationTexts = ["- Κάντε δουλειές στο σπίτι.", "- Πηγαίνετε μαζί για ψώνια.",
+      "- Κάντε μια συναλλαγή σε δημόσια υπηρεσία.", "- Συζητήστε ένα επίκαιρο θέμα.",
+      "- Μοιραστείτε ευχάριστες αναμνήσεις.", "- Δείτε ένα φωτογραφικό άλμπουμ.", "- Ακούστε αγαπημένα τραγούδια.",
+      "- Ασχοληθείτε με ένα αγαπημένο χόμπι.", "- Διαβάστε ένα βιβλίο ή εφημερίδα.", "- Παίξτε ένα επιτραπέζιο παιχνίδι.",
+      "- Παίξτε κρεμάλα ή τρίλιζα.", "- Παρακολουθήστε ένα τηλεπαιχνίδι γνώσεων και απαντήστε μαζί τις ερωτήσεις.",
+      "-  Παρακολουθήστε τις ειδήσεις και σχολιάστε την επικαιρότητα.", "- Καταγράψτε αναμνήσεις και εμπειρίες.",
+      "- Πηγαίνετε μια εκδρομή.", "- Κάντε ένα περίπατο."]
   }
 
   public scheduleNextNotification() {
-    this.appStorage.get('notification_frequency').then(frequency => {
+    this.appStorage.get('notification_frequency').then(data => {
+      let frequency = JSON.parse(data);
       console.log("frequency: " + frequency);
       let date = new Date();
-      let title = "";
-      let text = "";
+      let title = "Δι-Άνοια - " + this.randomArrayElement(this.notificationTitles);
+      let text = this.randomArrayElement(this.notificationTexts);
       switch (frequency) {
-        case null:
-          date.setMinutes(date.getDay() + 1);
-          this.scheduleNotificationFor(date, title, text, 'day');
-          break;
         case 'every_day':
-          date.setMinutes(date.getDay() + 1);
+          date.setDate(date.getDay() + 1);
           this.scheduleNotificationFor(date, title, text, 'day');
           break;
         case 'every_week':
-          date.setMinutes(date.getDay() + 7);
+          date.setDate(date.getDay() + 7);
           this.scheduleNotificationFor(date, title, text, 'week');
           break;
         case 'every_month':
-          date.setMinutes(date.getMonth() + 1);
+          date.setMonth(date.getMonth() + 1);
           this.scheduleNotificationFor(date, title, text, 'month');
           break;
         case 'never':
           break;
         default:
-          date.setMinutes(date.getDay() + 1);
+          date.setMinutes(date.getMinutes() + 1);
           this.scheduleNotificationFor(date, title, text, 'day');
           break;
       }
@@ -52,6 +61,9 @@ export class NotificationProvider {
 
   public scheduleNotificationFor(date: Date, title: string, text: string, every?) {
     console.log("Scheduling notification for: " + date + " every: " + every);
+    console.log("Notification title: ", title);
+    console.log("Notification text: ", text);
+
     this.localNotifications.cancelAll().then(result => {
 
       this.appStorage.set('notifications_scheduled', true);
@@ -73,6 +85,10 @@ export class NotificationProvider {
       console.log("notification state: ", state);
       this.scheduleNextNotification();
     });
+  }
+
+  private randomArrayElement(items: [any]): any {
+    return items[Math.floor(Math.random()*items.length)];
   }
 
 }
