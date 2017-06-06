@@ -87,7 +87,6 @@ var ActivityPage = (function () {
         this.alert = alert;
         this.socialSharing = socialSharing;
         this.dailyActivityCompleted = false;
-        this.actionSheetButtons = [];
         var activityObj = this.navParams.get("activity");
         console.log("activityObj", activityObj);
         if (!activityObj) {
@@ -163,14 +162,14 @@ var ActivityPage = (function () {
             message: 'ΔιΆνοια - δραστηριότητα: ' + activity.title + "    ",
             subject: 'ΔιΆνοια - δραστηριότητα: ' + activity.title,
             url: activity.link,
-            chooserTitle: 'Share via...'
+            chooserTitle: 'Κοινοποίηση με...'
         };
         this.socialSharing.shareWithOptions(options).then(function (result) {
             console.log(result);
-            if (result.completed)
-                _this.alert.displayToast("Η δραστηριοτητα κοινοποιηθηκε");
+            // if(result.completed)
+            _this.alert.displayToast("Η δραστηριοτητα κοινοποιηθηκε");
         }).catch(function (error) {
-            _this.alert.textDialog("Error", "Συνεβη ενα σφαλμα κατα την κοινοποιηση");
+            _this.alert.textDialog("Error", "Αυτή η συσκευή δεν υποστηρίζει κοινοποίηση");
         });
     };
     return ActivityPage;

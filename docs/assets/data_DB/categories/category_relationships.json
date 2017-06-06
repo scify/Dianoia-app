@@ -9,7 +9,8 @@
     "parent_category_id": "common_activities",
     "subcategories": [],
     "is_root": true,
-    "activities": ["activity_1", "activity_2", "activity_3"]
+    "activities": ["activity_12", "activity_13", "activity_14", "activity_15", "activity_16",
+      "activity_17", "activity_18", "activity_19", "activity_20", "activity_21", "activity_22", "activity_23", "activity_24"]
   },
   {
     "parent_category_id": "focus_activities",
