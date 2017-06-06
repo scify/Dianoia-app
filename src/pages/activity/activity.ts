@@ -5,6 +5,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { Printer, PrintOptions } from '@ionic-native/printer';
 import {AlertProvider} from "../../providers/alert/alert";
 import {SocialSharing} from "@ionic-native/social-sharing";
+import {NotificationProvider} from "../../providers/notification/notification";
 
 /**
  * Generated class for the ActivityPage page.
@@ -23,7 +24,8 @@ export class ActivityPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               private activityProvider: ActivityProvider, private iab: InAppBrowser, private platform: Platform,
-              private printer: Printer, private alert: AlertProvider, private socialSharing: SocialSharing) {
+              private printer: Printer, private alert: AlertProvider, private socialSharing: SocialSharing,
+              private notificationProvider: NotificationProvider) {
     let activityObj = this.navParams.get("activity");
     console.log("activityObj", activityObj);
     if(!activityObj) {
@@ -39,7 +41,11 @@ export class ActivityPage {
       // activityDone == null ? this.dailyActivityCompleted = false : this.dailyActivityCompleted = true;
     });
 
-    console.log(platform.is('core'));
+    console.log(platform.is('cordova'));
+
+    if(platform.is('cordova')) {
+      this.scheduleNextNotification();
+    }
   }
 
   activityDoneForToday() {
@@ -115,6 +121,10 @@ export class ActivityPage {
     }).catch(error => {
       this.alert.textDialog("Error", "Αυτή η συσκευή δεν υποστηρίζει κοινοποίηση");
     });
+  }
+
+  private scheduleNextNotification() {
+    this.notificationProvider.scheduleNextNotification("Δι-Άνοια", "Η επόμενη δραστηριότητα είναι έτοιμη!");
   }
 
 

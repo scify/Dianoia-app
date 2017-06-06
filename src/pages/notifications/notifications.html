@@ -1,0 +1,38 @@
+<!--
+  Generated template for the NotificationsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Ρυθμίσεις ειδοποιήσεων</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div *ngIf="platform.is('cordova')">
+
+    <ion-list radio-group [(ngModel)]="selectedNotificationId">
+      <ion-list-header>
+        Να λαμβάνω ειδοποιήσεις για δραστηριότητες:
+      </ion-list-header>
+
+      <ion-item *ngFor="let notificationOption of notificationOptions">
+        <ion-label>{{ notificationOption.title }}</ion-label>
+        <ion-radio value="{{ notificationOption.id }}"></ion-radio>
+      </ion-item>
+
+    </ion-list>
+    <button large ion-button (click)="saveNotificationSettings()">Save</button>
+  </div>
+
+  <div *ngIf="!platform.is('cordova')">
+    <h4>Αυτή η συσκευή δεν υποστηρίζει ειδοποιήσεις.</h4>
+  </div>
+
+</ion-content>

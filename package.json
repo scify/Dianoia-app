@@ -22,6 +22,7 @@
         "@angular/platform-browser-dynamic": "4.1.0",
         "@ionic-native/core": "^3.10.3",
         "@ionic-native/in-app-browser": "^3.10.3",
+        "@ionic-native/local-notifications": "^3.12.1",
         "@ionic-native/native-storage": "^3.10.3",
         "@ionic-native/printer": "^3.10.3",
         "@ionic-native/social-sharing": "^3.11.0",
@@ -31,6 +32,7 @@
         "@ionic/storage": "2.0.1",
         "cordova-android": "^6.2.3",
         "cordova-browser": "^4.1.0",
+        "cordova-plugin-app-event": "file:node_modules/cordova-plugin-app-event",
         "cordova-plugin-console": "^1.0.7",
         "cordova-plugin-device": "^1.1.6",
         "cordova-plugin-inappbrowser": "^1.7.1",
@@ -42,6 +44,7 @@
         "cordova-plugin-x-socialsharing": "^5.1.8",
         "cordova-plugin-x-toast": "^2.6.0",
         "cordova-sqlite-storage": "^2.0.4",
+        "de.appplant.cordova.plugin.local-notification": "^0.8.5",
         "es6-promise-plugin": "^4.1.0",
         "ionic-angular": "3.2.1",
         "ionic-plugin-keyboard": "^2.2.1",
@@ -71,7 +74,8 @@
             "cordova-plugin-inappbrowser": {},
             "cordova-plugin-printer": {},
             "cordova-plugin-x-toast": {},
-            "cordova-plugin-x-socialsharing": {}
+            "cordova-plugin-x-socialsharing": {},
+            "de.appplant.cordova.plugin.local-notification": {}
         },
         "platforms": [
             "android",

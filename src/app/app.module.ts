@@ -21,6 +21,8 @@ import {Printer} from "@ionic-native/printer";
 import { AlertProvider } from '../providers/alert/alert';
 import {Toast} from "@ionic-native/toast";
 import {SocialSharing} from "@ionic-native/social-sharing";
+import {LocalNotifications} from "@ionic-native/local-notifications";
+import { NotificationProvider } from '../providers/notification/notification';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,10 @@ import {SocialSharing} from "@ionic-native/social-sharing";
     Printer,
     AlertProvider,
     Toast,
-    SocialSharing
+    SocialSharing,
+    LocalNotifications,
+    NotificationProvider,
+    NotificationProvider
   ]
 })
 export class AppModule {}

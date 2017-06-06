@@ -26,7 +26,7 @@ export class MyApp {
       { title: 'Τι να προσέξω', component: "InfoListPage", pageCode: "page_tips_list", pageFile: "pages/tips_list.json" },
       { title: 'Ξεκινήστε', component: "ActivityCategoriesPage"},
       { title: 'Ιστορικό Ασκήσεων/Δραστηριοτήτων', component: "StatisticsPage" },
-      { title: 'Ρυθμίσεις ειδοποιήσεων', component: ListPage },
+      { title: 'Ρυθμίσεις ειδοποιήσεων', component: "NotificationsPage" },
       { title: 'Βοήθεια', component: "HelpPage"},
       { title: 'About', component: "AboutPage"}
     ];
