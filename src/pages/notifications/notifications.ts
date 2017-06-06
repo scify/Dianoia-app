@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {IonicPage, NavController, NavParams, Platform} from 'ionic-angular';
 import {AppStorageProvider} from "../../providers/app-storage/app-storage";
 import {AlertProvider} from "../../providers/alert/alert";
+import {NotificationProvider} from "../../providers/notification/notification";
 
 /**
  * Generated class for the NotificationsPage page.
@@ -20,12 +21,10 @@ export class NotificationsPage {
   selectedNotificationId: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-              private platform: Platform, private appStorage: AppStorageProvider, private alert: AlertProvider) {
+              private platform: Platform, private appStorage: AppStorageProvider, private alert: AlertProvider, private localNotifications: NotificationProvider) {
     this.notificationOptions = [
       {title: "Κάθε μέρα", id: 'every_day'},
-      {title: "Κάθε 3 ημέρες", id: 'every_3_days'},
       {title: "Μια φορά την εβδομάδα", id: 'every_week'},
-      {title: "Μια φορά κάθε 2 εβδομάδες", id: 'every_2_weeks'},
       {title: "Μια φορά το μήνα", id: 'every_month'},
       {title: "Να μην έρχονται ειδοποιήσεις", id: 'never'}
     ];
@@ -42,6 +41,9 @@ export class NotificationsPage {
     console.log(this.selectedNotificationId);
     if(this.selectedNotificationId) {
       this.appStorage.set('notification_frequency', this.selectedNotificationId).then(result => {
+        if(this.platform.is('cordova')) {
+          this.localNotifications.scheduleNextNotification();
+        }
         if (this.platform.is('cordova'))
           this.alert.displayToast("Οι ρυθμίσεις αποθηκεύτηκαν.");
       });

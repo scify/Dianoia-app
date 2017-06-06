@@ -43,9 +43,9 @@ export class ActivityPage {
 
     console.log(platform.is('cordova'));
 
-    if(platform.is('cordova')) {
-      this.scheduleNextNotification();
-    }
+    // if(platform.is('cordova')) {
+    //   this.scheduleNextNotification();
+    // }
   }
 
   activityDoneForToday() {
@@ -123,9 +123,12 @@ export class ActivityPage {
     });
   }
 
-  private scheduleNextNotification() {
-    this.notificationProvider.scheduleNextNotification("Δι-Άνοια", "Η επόμενη δραστηριότητα είναι έτοιμη!");
-  }
+  // private scheduleNextNotification() {
+  //   let scheduledDate = new Date();
+  //   scheduledDate.setMinutes(scheduledDate.getMinutes() + 1);
+  //   this.notificationProvider.scheduleNotificationFor(scheduledDate, "Δι-Άνοια", "Η επόμενη δραστηριότητα είναι έτοιμη!");
+  //   // this.notificationProvider.scheduleNextNotification("Δι-Άνοια", "Η επόμενη δραστηριότητα είναι έτοιμη!");
+  // }
 
 
 }

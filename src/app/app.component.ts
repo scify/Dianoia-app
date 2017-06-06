@@ -2,8 +2,9 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
-import { ListPage } from '../pages/list/list';
+import {LocalNotifications} from "@ionic-native/local-notifications";
+import {NotificationProvider} from "../providers/notification/notification";
+import {AppStorageProvider} from "../providers/app-storage/app-storage";
 
 @Component({
   templateUrl: 'app.html'
@@ -15,7 +16,8 @@ export class MyApp {
 
   pages: Array<{title: string, component?: any, pageFile?: string, pageCode?: string}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,
+              private localNotifications: NotificationProvider, private appStorage: AppStorageProvider) {
     this.initializeApp(platform, statusBar);
     // used for an example of ngFor and navigation
     this.pages = [
@@ -30,6 +32,8 @@ export class MyApp {
       { title: 'Βοήθεια', component: "HelpPage"},
       { title: 'About', component: "AboutPage"}
     ];
+
+
 
   }
 
@@ -48,6 +52,16 @@ export class MyApp {
         statusBar.overlaysWebView(true);
         statusBar.styleDefault();
       }
+
+      this.localNotifications.listenForNotificationClicks();
+
+      this.appStorage.get('notifications_scheduled').then(data => {
+        let notificationsScheduled = JSON.parse(data);
+        if(!notificationsScheduled && platform.is('cordova')) {
+          console.log("Notifications not scheduled. Scheduling...");
+          this.localNotifications.scheduleNextNotification();
+        }
+      })
     });
   }
 
