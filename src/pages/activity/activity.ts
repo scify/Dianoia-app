@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {ActionSheetController, IonicPage, NavController, NavParams, Platform} from 'ionic-angular';
+import {IonicPage, NavController, NavParams, Platform} from 'ionic-angular';
 import {ActivityProvider} from "../../providers/activity/activity";
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { Printer, PrintOptions } from '@ionic-native/printer';
@@ -20,7 +20,6 @@ import {SocialSharing} from "@ionic-native/social-sharing";
 export class ActivityPage {
   activity: any;
   dailyActivityCompleted: boolean = false;
-  actionSheetButtons = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               private activityProvider: ActivityProvider, private iab: InAppBrowser, private platform: Platform,
@@ -106,15 +105,15 @@ export class ActivityPage {
       message: 'ΔιΆνοια - δραστηριότητα: ' + activity.title + "    ",
       subject: 'ΔιΆνοια - δραστηριότητα: ' + activity.title,
       url: activity.link,
-      chooserTitle: 'Share via...'
+      chooserTitle: 'Κοινοποίηση με...'
     };
 
     this.socialSharing.shareWithOptions(options).then(result => {
       console.log(result);
-      if(result.completed)
+      // if(result.completed)
         this.alert.displayToast("Η δραστηριοτητα κοινοποιηθηκε");
     }).catch(error => {
-      this.alert.textDialog("Error", "Συνεβη ενα σφαλμα κατα την κοινοποιηση");
+      this.alert.textDialog("Error", "Αυτή η συσκευή δεν υποστηρίζει κοινοποίηση");
     });
   }
 

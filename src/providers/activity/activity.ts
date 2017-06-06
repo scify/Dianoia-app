@@ -52,7 +52,7 @@ export class ActivityProvider {
 
   public getActivityById(activityId): Promise<any> {
     return new Promise((resolve, reject) => {
-      if(this.activities.length == 0) {
+      if(!this.activities) {
         this.getAllActivities().subscribe(activities => {
           for(let activity of activities) {
             if(activity.id == activityId) {

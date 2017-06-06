@@ -51,7 +51,7 @@
     "video_url":"",
     "img_url":"find_the_word.png",
     "instructions":["Κάντε click στο σύνδεσμο για να δείτε το έγγραφο"],
-    "link": "https://drive.google.com/file/d/0B2SImDUlGm_hWW1BUWNKdUI2bnFpZWl1SVN3a0lHQjRzOUZZ/view",
+    "link": "http://go.scify.gr/dianoia1",
     "difficulty_level_id": "difficulty_level_2"
   },
   {
@@ -118,6 +118,149 @@
     "img_url":"synonyms.png",
     "instructions":["Κάντε click στο σύνδεσμο για να δείτε το έγγραφο"],
     "link": "https://drive.google.com/file/d/0B6htunInH8hvQ0t1a2NUNlBSajA/view?usp=sharing",
+    "difficulty_level_id": "difficulty_level_1"
+  },
+  {
+    "id": "activity_12",
+    "title":"Συμμετοχή στις δουλειές του σπιτιού",
+    "description": "Η συμμετοχή τους ατόμου με άνοια στις καθημερινές δουλειές του σπιτιού είναι σημαντική, γιατί συμβάλλει στη διατήρηση ουσιαστικών για την αυτονομία του ικανοτήτων, τον κάνει να αισθάνεται χρήσιμος και τονώνει την αυτοπεποίθηση του. ",
+    "full_text": "",
+    "video_url":"",
+    "img_url":"",
+    "instructions":[],
+    "link": "",
+    "difficulty_level_id": "difficulty_level_1"
+  },
+  {
+    "id": "activity_13",
+    "title":"Συναλλαγές με δημόσιες υπηρεσίες – Ψώνια",
+    "description": "Οι συναλλαγές με τις δημόσιες υπηρεσίες είναι ένας καλός τρόπος να διατηρήσει ο ασθενής την ικανότητά του να διαχειρίζεται τις  προσωπικές του υποθέσεις.",
+    "full_text": "",
+    "video_url":"",
+    "img_url":"",
+    "instructions":[],
+    "link": "",
+    "difficulty_level_id": "difficulty_level_1"
+  },
+  {
+    "id": "activity_14",
+    "title":"Συζήτηση",
+    "description": "Η συμμετοχή τους ασθενούς σε συζητήσεις ενεργοποιεί τις γνωστικές του λειτουργίες.",
+    "full_text": "",
+    "video_url":"",
+    "img_url":"",
+    "instructions":[],
+    "link": "",
+    "difficulty_level_id": "difficulty_level_1"
+  },
+  {
+    "id": "activity_15",
+    "title":"Αναπόληση του παρελθόντος",
+    "description": "Το άτομο με άνοια ξεχνά τα πρόσφατα γεγονότα, ενώ θυμάται έντονα γεγονότα του παρελθόντος. Εκμεταλλευτείτε το για να μοιραστείτε μαζί του ευχάριστες αναμνήσεις περασμένων δεκαετιών χωρίς όμως να τον πιέζετε. Χρησιμοποιήστε βοηθητικά φωτογραφίες, προσωπικά αντικείμενα, οικείες μυρωδιές, παλιά αγαπημένα τραγούδια, ενθύμια από ταξίδια.",
+    "full_text": "",
+    "video_url":"",
+    "img_url":"",
+    "instructions":[],
+    "link": "",
+    "difficulty_level_id": "difficulty_level_1"
+  },
+  {
+    "id": "activity_16",
+    "title":"Μουσική και τραγούδι",
+    "description": "Δοκιμάστε να ακούσετε μαζί το είδος της μουσικής που του αρέσει και τραγουδήστε παλιά αγαπημένα του τραγούδια.",
+    "full_text": "",
+    "video_url":"",
+    "img_url":"",
+    "instructions":[],
+    "link": "",
+    "difficulty_level_id": "difficulty_level_1"
+  },
+  {
+    "id": "activity_17",
+    "title":"Χόμπι",
+    "description": "Άν υπάρχει κάποιο χόμπι από το οποίο ο ασθενής αντλεί ευχαρίστηση, ενθαρρύνετε τη συνέχισή του.",
+    "full_text": "",
+    "video_url":"",
+    "img_url":"",
+    "instructions":[],
+    "link": "",
+    "difficulty_level_id": "difficulty_level_1"
+  },
+  {
+    "id": "activity_18",
+    "title":"Διάβασμα",
+    "description": "Το διάβασμα είναι μια ιδιαίτερα επωφελής δραστηριότητα για άτομα με άνοια. Το είδος του αναγνώσματος που θα επιλεγεί, θα πρέπει να επιλέγεται με βάση τις ικανότητες και τα ενδιαφέροντα του ατόμου.",
+    "full_text": "",
+    "video_url":"",
+    "img_url":"",
+    "instructions":[],
+    "link": "",
+    "difficulty_level_id": "difficulty_level_1"
+  },
+  {
+    "id": "activity_19",
+    "title":"Επιτραπέζια παιχνίδια",
+    "description": "Τα χαρτιά, το τάβλι, το σκάκι, το Scrabble και τα παζλ είναι μερικά από τα επιτραπέζια παιχνίδια που θα μπορούσατε να παίξετε με το άτομο με άνοια.",
+    "full_text": "",
+    "video_url":"",
+    "img_url":"",
+    "instructions":[],
+    "link": "",
+    "difficulty_level_id": "difficulty_level_1"
+  },
+  {
+    "id": "activity_20",
+    "title":"Παιχνίδια με χαρτί και μολύβι",
+    "description": "Περάστε ένα ευχάριστο απόγευμα, παίζοντας με το άτομο με άνοια παιχνίδια που χρειάζονται μόνο χαρτί και μολύβι, όπως η κρεμάλα, η τρίλιζα, οι τελίτσες κ.ά. ",
+    "full_text": "",
+    "video_url":"",
+    "img_url":"",
+    "instructions":[],
+    "link": "",
+    "difficulty_level_id": "difficulty_level_1"
+  },
+  {
+    "id": "activity_21",
+    "title":"Τηλεόραση",
+    "description": "Η τηλεόραση προσφέρει μεγάλη ποικιλία εκπομπών από τις οποίες μπορείτε να επιλέξετε εκείνες που θα αποδώσουν το μεγαλύτερο όφελος για τον ασθενή. Παρακολουθήστε τηλεπαιχνίδια γνώσεων, δείτε τις ειδήσεις και ανταλλάξτε απόψεις για τα θέματα της επικαιρότητας.",
+    "full_text": "",
+    "video_url":"",
+    "img_url":"",
+    "instructions":[],
+    "link": "",
+    "difficulty_level_id": "difficulty_level_1"
+  },
+  {
+    "id": "activity_22",
+    "title":"Γράψιμο",
+    "description": "Πολλοί ηλικιωμένοι βρίσκουν ενδιαφέρουσα την ιδέα να καταγράψουν αναμνήσεις και εμπειρίες, αφήνοντας πίσω τους κάτι που θα μπορούσαν να διαβάσουν τα παιδιά και τα εγγόνια τους.",
+    "full_text": "",
+    "video_url":"",
+    "img_url":"",
+    "instructions":[],
+    "link": "",
+    "difficulty_level_id": "difficulty_level_1"
+  },
+  {
+    "id": "activity_23",
+    "title":"Εκδρομές-Ταξίδια",
+    "description": "Επιλέξτε και οργανώστε μαζί με το αγαπημένο σας πρόσωπο μια έξοδο. Μετά την ολοκλήρωση της δραστηριότητας, συζητήστε σχετικά.",
+    "full_text": "",
+    "video_url":"",
+    "img_url":"",
+    "instructions":[],
+    "link": "",
+    "difficulty_level_id": "difficulty_level_1"
+  },
+  {
+    "id": "activity_24",
+    "title":"Σωματική άσκηση",
+    "description": "Η σωματική άσκηση βοηθά στο να διατηρηθούν οι υπάρχουσες σωματικές και νοητικές ικανότητες του ασθενούς επί μακρόν.",
+    "full_text": "",
+    "video_url":"",
+    "img_url":"",
+    "instructions":[],
+    "link": "",
     "difficulty_level_id": "difficulty_level_1"
   }
 ]
