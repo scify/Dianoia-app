@@ -22,7 +22,6 @@ export class NotificationProvider {
       let date = new Date();
       let title = "";
       let text = "";
-      frequency = null;
       switch (frequency) {
         case null:
           date.setMinutes(date.getDay() + 1);
@@ -43,8 +42,8 @@ export class NotificationProvider {
         case 'never':
           break;
         default:
-          date.setMinutes(date.getMinutes() + 1);
-          this.scheduleNotificationFor(date, title, text, 'minute');
+          date.setMinutes(date.getDay() + 1);
+          this.scheduleNotificationFor(date, title, text, 'day');
           break;
       }
 
@@ -52,7 +51,7 @@ export class NotificationProvider {
   }
 
   public scheduleNotificationFor(date: Date, title: string, text: string, every?) {
-    console.log("Scheduling notification for: " + date);
+    console.log("Scheduling notification for: " + date + " every: " + every);
     this.localNotifications.cancelAll().then(result => {
 
       this.appStorage.set('notifications_scheduled', true);
