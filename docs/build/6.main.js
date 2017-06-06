@@ -1,14 +1,14 @@
 webpackJsonp([6],{
 
-/***/ 283:
+/***/ 288:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(34);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__help__ = __webpack_require__(296);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HelpPageModule", function() { return HelpPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__notifications__ = __webpack_require__(302);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NotificationsPageModule", function() { return NotificationsPageModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,36 +18,38 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var HelpPageModule = (function () {
-    function HelpPageModule() {
+var NotificationsPageModule = (function () {
+    function NotificationsPageModule() {
     }
-    return HelpPageModule;
+    return NotificationsPageModule;
 }());
-HelpPageModule = __decorate([
+NotificationsPageModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__help__["a" /* HelpPage */],
+            __WEBPACK_IMPORTED_MODULE_2__notifications__["a" /* NotificationsPage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__help__["a" /* HelpPage */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__notifications__["a" /* NotificationsPage */]),
         ],
         exports: [
-            __WEBPACK_IMPORTED_MODULE_2__help__["a" /* HelpPage */]
+            __WEBPACK_IMPORTED_MODULE_2__notifications__["a" /* NotificationsPage */]
         ]
     })
-], HelpPageModule);
+], NotificationsPageModule);
 
-//# sourceMappingURL=help.module.js.map
+//# sourceMappingURL=notifications.module.js.map
 
 /***/ }),
 
-/***/ 296:
+/***/ 302:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(34);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HelpPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_app_storage_app_storage__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_alert_alert__ = __webpack_require__(206);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NotificationsPage; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -59,31 +61,68 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
+
 /**
- * Generated class for the HelpPage page.
+ * Generated class for the NotificationsPage page.
  *
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
-var HelpPage = (function () {
-    function HelpPage(navCtrl, navParams) {
+var NotificationsPage = (function () {
+    function NotificationsPage(navCtrl, navParams, platform, appStorage, alert) {
+        var _this = this;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.platform = platform;
+        this.appStorage = appStorage;
+        this.alert = alert;
+        this.notificationOptions = [
+            { title: "Κάθε μέρα", id: 'every_day' },
+            { title: "Κάθε 3 ημέρες", id: 'every_3_days' },
+            { title: "Μια φορά την εβδομάδα", id: 'every_week' },
+            { title: "Μια φορά κάθε 2 εβδομάδες", id: 'every_2_weeks' },
+            { title: "Μια φορά το μήνα", id: 'every_month' },
+            { title: "Να μην έρχονται ειδοποιήσεις", id: 'never' }
+        ];
+        this.selectedNotificationId = 'every_day';
+        this.appStorage.get('notification_frequency').then(function (frequencyId) {
+            if (JSON.parse(frequencyId)) {
+                console.log("frequency: ", JSON.parse(frequencyId));
+                _this.selectedNotificationId = JSON.parse(frequencyId);
+            }
+        });
     }
-    HelpPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad HelpPage');
+    NotificationsPage.prototype.saveNotificationSettings = function () {
+        var _this = this;
+        console.log(this.selectedNotificationId);
+        if (this.selectedNotificationId) {
+            this.appStorage.set('notification_frequency', this.selectedNotificationId).then(function (result) {
+                if (_this.platform.is('cordova'))
+                    _this.alert.displayToast("Οι ρυθμίσεις αποθηκεύτηκαν.");
+            });
+        }
+        else {
+            if (this.platform.is('cordova')) {
+                this.alert.displayToast("Πρέπει να δηλώσετε κάποια επιλογή");
+            }
+            else {
+                alert("Πρέπει να δηλώσετε κάποια επιλογή");
+            }
+        }
     };
-    return HelpPage;
+    return NotificationsPage;
 }());
-HelpPage = __decorate([
+NotificationsPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-        selector: 'page-help',template:/*ion-inline-start:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/help/help.html"*/'<!--\n  Generated template for the HelpPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Βοήθεια</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <div class="basicInfoContainer">\n    <div class="imgContainer">\n      <img src="assets/img/help.png">\n    </div>\n  </div>\n\n    <div class="description">\n      <b>Εκτυπώσετε τις Νοητικές Ασκήσεις</b>\n      Μέσα από τη ΔιΆνοια, μπορείτε εύκολα να εκτυπώσετε τις Νοητικές Ασκήσεις!\n      <br>\n      <br>\n      Επιλέξτε την άσκηση που σας ενδιαφέρει και πατήστε το κουμπί "Share"\n      Επιλέξτε όποια εφαρμογή σας βολεύει για να αποκτήσετε την άσκηση σε εκτυπώσιμη μορφή.\n      <br>Μια πολύ συνηθισμένη λύση είναι να τη στείλετε στον εαυτό σας με e-mail. Ανοίγοντας το mail από τον υπολογιστή σας, μπορείτε άμεσα να την εκτυπώσετε.\n      <br>\n      <br>\n      <b>Κρατήστε το ιστορικό των ασκήσεων</b>\n      Μέσα από τη ΔιΆνοια, μπορείτε να καταγράψετε πόσο συχνά ο άνθρωπός σας ασχολείται με νοητικές ασκήσεις! <br>Κρατάτε έτσι ένα πολύτιμο ημερολόγιο με σχετικά στατιστικά.\n      Μην ξεχνάτε, η συχνότητα της εξάσκησης και η ποιότητα της σχέσης είναι αυτό που μετράει.\n      <br>\n      <br>\n      Επιλέξτε την άσκηση με την οποία ασχολήθηκε και πατήστε το κουμπί "Done".\n      Αυτόματα, καταγράφεται στο ημερολόγιο.\n      Μπορείτε να δείτε το ιστορικό στην ενότητα “Ιστορικό Ασκήσεων”\n\n    </div>\n\n</ion-content>\n'/*ion-inline-end:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/help/help.html"*/,
+        selector: 'page-notifications',template:/*ion-inline-start:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/notifications/notifications.html"*/'<!--\n  Generated template for the NotificationsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Ρυθμίσεις ειδοποιήσεων</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <div *ngIf="platform.is(\'cordova\')">\n\n    <ion-list radio-group [(ngModel)]="selectedNotificationId">\n      <ion-list-header>\n        Να λαμβάνω ειδοποιήσεις για δραστηριότητες:\n      </ion-list-header>\n\n      <ion-item *ngFor="let notificationOption of notificationOptions">\n        <ion-label>{{ notificationOption.title }}</ion-label>\n        <ion-radio value="{{ notificationOption.id }}"></ion-radio>\n      </ion-item>\n\n    </ion-list>\n    <button large ion-button (click)="saveNotificationSettings()">Save</button>\n  </div>\n\n  <div *ngIf="!platform.is(\'cordova\')">\n    <h4>Αυτή η συσκευή δεν υποστηρίζει ειδοποιήσεις.</h4>\n  </div>\n\n</ion-content>\n'/*ion-inline-end:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/notifications/notifications.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
-], HelpPage);
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__providers_app_storage_app_storage__["a" /* AppStorageProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_alert_alert__["a" /* AlertProvider */]])
+], NotificationsPage);
 
-//# sourceMappingURL=help.js.map
+//# sourceMappingURL=notifications.js.map
 
 /***/ })
 
