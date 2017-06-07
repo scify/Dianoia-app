@@ -50,6 +50,10 @@ export class NotificationProvider {
           break;
         case 'never':
           break;
+        case null:
+          date.setDate(date.getDay() + 1);
+          this.scheduleNotificationFor(date, title, text, 'day');
+          break;
         default:
           date.setDate(date.getDay() + 1);
           this.scheduleNotificationFor(date, title, text, 'day');
