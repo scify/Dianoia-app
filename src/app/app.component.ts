@@ -1,8 +1,7 @@
-import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import {LocalNotifications} from "@ionic-native/local-notifications";
+import {Component, ViewChild} from "@angular/core";
+import {Nav, Platform} from "ionic-angular";
+import {StatusBar} from "@ionic-native/status-bar";
+import {SplashScreen} from "@ionic-native/splash-screen";
 import {NotificationProvider} from "../providers/notification/notification";
 import {AppStorageProvider} from "../providers/app-storage/app-storage";
 

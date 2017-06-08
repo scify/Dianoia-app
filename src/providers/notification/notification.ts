@@ -33,15 +33,16 @@ export class NotificationProvider {
       let frequency = JSON.parse(data);
       console.log("frequency: " + frequency);
       let date = new Date();
+      console.log("initial date:", date);
       let title = "Δι-Άνοια - " + this.randomArrayElement(this.notificationTitles);
       let text = this.randomArrayElement(this.notificationTexts);
       switch (frequency) {
         case 'every_day':
-          date.setDate(date.getDay() + 1);
+          date.setDate(date.getDate() + 1);
           this.scheduleNotificationFor(date, title, text, 'day');
           break;
         case 'every_week':
-          date.setDate(date.getDay() + 7);
+          date.setDate(date.getDate() + 7);
           this.scheduleNotificationFor(date, title, text, 'week');
           break;
         case 'every_month':
@@ -51,11 +52,11 @@ export class NotificationProvider {
         case 'never':
           break;
         case null:
-          date.setDate(date.getDay() + 1);
+          date.setDate(date.getDate() + 1);
           this.scheduleNotificationFor(date, title, text, 'day');
           break;
         default:
-          date.setDate(date.getDay() + 1);
+          date.setDate(date.getDate() + 1);
           this.scheduleNotificationFor(date, title, text, 'day');
           break;
       }
@@ -64,10 +65,14 @@ export class NotificationProvider {
   }
 
   public scheduleNotificationFor(date: Date, title: string, text: string, every?) {
+
+    //notification set for 11:00 AM.
+    date.setHours(11);
+    date.setMinutes(0);
+
     console.log("Scheduling notification for: " + date + " every: " + every);
     console.log("Notification title: ", title);
     console.log("Notification text: ", text);
-
     this.localNotifications.cancelAll().then(result => {
 
       this.appStorage.set('notifications_scheduled', true);
