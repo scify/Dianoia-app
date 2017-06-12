@@ -311,12 +311,15 @@ var DifficultyLevelsPage = (function () {
     DifficultyLevelsPage.prototype.selectActivity = function (activity) {
         this.navCtrl.push("ActivityPage", { activity: activity });
     };
+    DifficultyLevelsPage.prototype.goToHome = function () {
+        this.navCtrl.setRoot('HomePage');
+    };
     return DifficultyLevelsPage;
 }());
 DifficultyLevelsPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-        selector: 'page-difficulty-levels',template:/*ion-inline-start:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/difficulty-levels/difficulty-levels.html"*/'<!--\n  Generated template for the DifficultyLevelsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title> {{ getPageTitle() }}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n\n  <div padding>\n    <div class="description" *ngIf=\'levels?.length > 0\'>Επιλέξτε επίπεδο δυσκολίας</div>\n    <buttons-list *ngIf=\'levels?.length > 0\' [buttons]="levels" (buttonClick)="selectLevel($event)"></buttons-list>\n  </div>\n\n  <div class="activitiesContainer">\n    <cards-list *ngIf=\'activities?.length > 0\' [cards]="activities" (cardClick)="selectActivity($event)"></cards-list>\n  </div>\n\n</ion-content>\n'/*ion-inline-end:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/difficulty-levels/difficulty-levels.html"*/,
+        selector: 'page-difficulty-levels',template:/*ion-inline-start:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/difficulty-levels/difficulty-levels.html"*/'<!--\n  Generated template for the DifficultyLevelsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title> {{ getPageTitle() }}</ion-title>\n    <ion-buttons end>\n      <button (click)="goToHome()" class="homeBtn">\n        <ion-icon name="md-home"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n\n  <div padding>\n    <div class="description" *ngIf=\'levels?.length > 0\'>Επιλέξτε επίπεδο δυσκολίας</div>\n    <buttons-list *ngIf=\'levels?.length > 0\' [buttons]="levels" (buttonClick)="selectLevel($event)"></buttons-list>\n  </div>\n\n  <div class="activitiesContainer">\n    <cards-list *ngIf=\'activities?.length > 0\' [cards]="activities" (cardClick)="selectActivity($event)"></cards-list>\n  </div>\n\n</ion-content>\n'/*ion-inline-end:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/difficulty-levels/difficulty-levels.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
         __WEBPACK_IMPORTED_MODULE_2__providers_activity_category_activity_category__["a" /* ActivityCategoryProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_loader_service_loader_service__["a" /* LoaderService */]])

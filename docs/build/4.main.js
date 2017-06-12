@@ -176,7 +176,7 @@ var BasicInfoPage = (function () {
 BasicInfoPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-        selector: 'page-basic-info',template:/*ion-inline-start:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/basic-info/basic-info.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Μάθετε τα βασικά</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <buttons-list *ngIf=\'buttons?.length > 0\' [buttons]="buttons" (buttonClick)="goTo($event)"></buttons-list>\n\n</ion-content>\n'/*ion-inline-end:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/basic-info/basic-info.html"*/,
+        selector: 'page-basic-info',template:/*ion-inline-start:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/basic-info/basic-info.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Ας μάθουμε τα βασικά</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <buttons-list *ngIf=\'buttons?.length > 0\' [buttons]="buttons" (buttonClick)="goTo($event)"></buttons-list>\n\n</ion-content>\n'/*ion-inline-end:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/basic-info/basic-info.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
 ], BasicInfoPage);

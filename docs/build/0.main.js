@@ -275,7 +275,7 @@ var HomePage = (function () {
             });
         });
         this.buttons = [
-            { id: "basic_info", title: 'Μάθετε τα βασικά', subtitle: "Τι είναι - Σκοπός - Αξία", component: "BasicInfoPage" },
+            { id: "basic_info", title: 'Ας μάθουμε τα βασικά', subtitle: "Τι είναι - Σκοπός - Αξία", component: "BasicInfoPage" },
             { id: "mental_activities", title: 'Εκτυπώστε νοητικές ασκήσεις', subtitle: "Ασκήσεις με μολύβι και χαρτί", component: "InfoListPage", pageCode: "page_goal", pageFile: "pages/goal.json" },
             { id: "common_activities", title: 'Βρείτε δημιουργικές δραστηριότητες', subtitle: "Ιδέες για να περάσετε δημιουργικό χρόνο μαζί", component: "InfoListPage", pageCode: "page_value", pageFile: "pages/value.json" }
         ];

@@ -27047,6 +27047,15 @@ ion-content {
   padding-bottom: 1px;
 }
 
+.homeBtn {
+  background-color: transparent;
+  color: white;
+}
+
+.homeBtn ion-icon {
+  font-size: x-large;
+}
+
 buttons-list .button-inner {
   -webkit-flex-flow: column;
   -ms-flex-flow: column;
