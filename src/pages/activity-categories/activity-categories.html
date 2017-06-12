@@ -11,10 +11,6 @@
 
   <div class="description">Επιλέξτε μια κατηγορία</div>
 
-  <!--<div *ngFor="let test of tests">-->
-    <!--<p>{{ test.id }}</p>-->
-  <!--</div>-->
-
   <buttons-list *ngIf='categories?.length > 0' [buttons]="categories" (buttonClick)="selectCategory($event)"></buttons-list>
 
 </ion-content>

@@ -21,12 +21,10 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Αρχική', component: "HomePage"},
-      { title: 'Τι είναι οι Μη Φαρμακευτικές Παρεμβάσεις', component: "InfoListPage", pageCode: "page_info", pageFile: "pages/info.json"},
-      { title: 'Σκοπός', component: "InfoListPage", pageCode: "page_goal", pageFile: "pages/goal.json" },
-      { title: 'Αξία', component: "InfoListPage", pageCode: "page_value", pageFile: "pages/value.json" },
+      { title: 'Μάθετε τα βασικά', component: "BasicInfoPage"},
       { title: 'Τι να προσέξω', component: "InfoListPage", pageCode: "page_tips_list", pageFile: "pages/tips_list.json" },
-      { title: 'Ξεκινήστε', component: "ActivityCategoriesPage"},
-      { title: 'Ιστορικό Ασκήσεων/Δραστηριοτήτων', component: "StatisticsPage" },
+      { title: 'Ασκήσεις - Δραστηριότητες', component: "ActivityCategoriesPage"},
+      { title: 'Ιστορικό', component: "StatisticsPage" },
       { title: 'Ρυθμίσεις ειδοποιήσεων', component: "NotificationsPage" },
       { title: 'Βοήθεια', component: "HelpPage"},
       { title: 'About', component: "AboutPage"}

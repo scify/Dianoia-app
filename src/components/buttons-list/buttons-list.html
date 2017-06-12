@@ -2,7 +2,8 @@
 <div>
   <div class="buttonsContainer">
     <p *ngFor="let button of buttons">
-      <button mode="ios" ion-button full (click)="onButtonClick(button)">{{ button.title }}</button>
+      <button [ngClass]="button.subtitle ? 'bigBtn' : ''" mode="ios" ion-button full (click)="onButtonClick(button)">{{ button.title }} <div class="subtitle" *ngIf='button.subtitle'>{{ button.subtitle }}</div></button>
     </p>
   </div>
 </div>
+

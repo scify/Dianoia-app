@@ -1,3 +1,15 @@
 buttons-list {
 
+  .button-inner {
+    flex-flow: column;
+
+    .subtitle {
+      margin-top: 10px;
+      font-size: 80%;
+    }
+  }
+
+  .bigBtn {
+    height: 3.5em;
+  }
 }

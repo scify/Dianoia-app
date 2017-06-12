@@ -1,0 +1,14 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Μάθετε τα βασικά</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <buttons-list *ngIf='buttons?.length > 0' [buttons]="buttons" (buttonClick)="goTo($event)"></buttons-list>
+
+</ion-content>
