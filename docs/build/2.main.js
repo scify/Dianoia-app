@@ -1,15 +1,15 @@
 webpackJsonp([2],{
 
-/***/ 287:
+/***/ 290:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__info_list__ = __webpack_require__(301);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_cards_list_cards_list_module__ = __webpack_require__(291);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InfoListPageModule", function() { return InfoListPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__random_activities__ = __webpack_require__(305);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_cards_list_cards_list_module__ = __webpack_require__(294);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RandomActivitiesPageModule", function() { return RandomActivitiesPageModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -20,37 +20,37 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var InfoListPageModule = (function () {
-    function InfoListPageModule() {
+var RandomActivitiesPageModule = (function () {
+    function RandomActivitiesPageModule() {
     }
-    return InfoListPageModule;
+    return RandomActivitiesPageModule;
 }());
-InfoListPageModule = __decorate([
+RandomActivitiesPageModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__info_list__["a" /* InfoListPage */],
+            __WEBPACK_IMPORTED_MODULE_2__random_activities__["a" /* RandomActivitiesPage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__info_list__["a" /* InfoListPage */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__random_activities__["a" /* RandomActivitiesPage */]),
             __WEBPACK_IMPORTED_MODULE_3__components_cards_list_cards_list_module__["a" /* CardsListComponentModule */]
         ],
         exports: [
-            __WEBPACK_IMPORTED_MODULE_2__info_list__["a" /* InfoListPage */]
+            __WEBPACK_IMPORTED_MODULE_2__random_activities__["a" /* RandomActivitiesPage */]
         ]
     })
-], InfoListPageModule);
+], RandomActivitiesPageModule);
 
-//# sourceMappingURL=info-list.module.js.map
+//# sourceMappingURL=random-activities.module.js.map
 
 /***/ }),
 
-/***/ 291:
+/***/ 294:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cards_list__ = __webpack_require__(292);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cards_list__ = __webpack_require__(295);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CardsListComponentModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -84,7 +84,7 @@ CardsListComponentModule = __decorate([
 
 /***/ }),
 
-/***/ 292:
+/***/ 295:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -142,14 +142,15 @@ CardsListComponent = __decorate([
 
 /***/ }),
 
-/***/ 301:
+/***/ 305:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_page_page__ = __webpack_require__(209);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return InfoListPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_activity_activity__ = __webpack_require__(204);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_loader_service_loader_service__ = __webpack_require__(205);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RandomActivitiesPage; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -162,50 +163,47 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 /**
- * Generated class for the InfoListPage page.
+ * Generated class for the RandomActivitiesPage page.
  *
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
-var InfoListPage = (function () {
-    function InfoListPage(navCtrl, navParams, pageProvider) {
+var RandomActivitiesPage = (function () {
+    function RandomActivitiesPage(navCtrl, navParams, app, activityProvider, loaderService) {
+        var _this = this;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.pageProvider = pageProvider;
-        this.pageFile = "";
-        this.pageCode = "";
-        var pageData = this.navParams.get("pageData");
-        this.pageFile = pageData.pageFile;
-        this.pageCode = pageData.pageCode;
+        this.app = app;
+        this.activityProvider = activityProvider;
+        this.loaderService = loaderService;
+        this.loaderService.showLoader();
+        this.activityProvider.getAllActivities().subscribe(function (activities) {
+            _this.activities = activities;
+            _this.loaderService.hideLoader();
+        });
     }
-    InfoListPage.prototype.ionViewDidLoad = function () {
-        var _this = this;
-        if (this.pageCode != null && this.pageFile != null)
-            this.pageProvider.getDataForPage(this.pageCode, this.pageFile).subscribe(function (pageData) {
-                console.log("pageData", pageData);
-                _this.title = pageData.title;
-                _this.description = pageData.description;
-                _this.image = pageData.image;
-                _this.list = pageData.list;
-                _this.cards = pageData.cards;
-            });
+    RandomActivitiesPage.prototype.ionViewDidLoad = function () {
     };
-    InfoListPage.prototype.selectCard = function (card) {
-        this.navCtrl.push("ActivityPage", { activity: card });
+    RandomActivitiesPage.prototype.selectActivity = function (activity) {
+        // let nav = this.app.getRootNav();
+        // nav.push("ActivityPage", {activity: activity});
+        this.navCtrl.push("ActivityPage", { activity: activity });
     };
-    return InfoListPage;
+    return RandomActivitiesPage;
 }());
-InfoListPage = __decorate([
+RandomActivitiesPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-        selector: 'page-info-list',template:/*ion-inline-start:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/info-list/info-list.html"*/'<!--\n  Generated template for the InfoListPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{ title }}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n\n  <div padding class="basicInfoContainer">\n  <div class="imgContainer" *ngIf="image">\n    <img [src]="\'assets/img/\' + image">\n  </div>\n\n  <div class="description">\n    {{ description }}\n  </div>\n  <ion-list class="aboutList" no-lines *ngIf="list">\n    <ion-item text-wrap *ngFor="let item of list">\n      <ion-icon name="ios-checkmark" item-left></ion-icon>\n      {{ item }}\n    </ion-item>\n  </ion-list>\n  </div>\n\n  <div class="activitiesContainer" *ngIf=\'cards?.length > 0\'>\n    <cards-list [cards]="cards" (cardClick)="selectCard($event)"></cards-list>\n  </div>\n\n</ion-content>\n\n'/*ion-inline-end:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/info-list/info-list.html"*/,
+        selector: 'page-random-activities',template:/*ion-inline-start:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/random-activities/random-activities.html"*/'\n<ion-content no-padding>\n\n\n  <cards-list *ngIf="activities?.length > 0" [cards]="activities" (cardClick)="selectActivity($event)"></cards-list>\n\n</ion-content>\n'/*ion-inline-end:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/random-activities/random-activities.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_2__providers_page_page__["a" /* PageProvider */]])
-], InfoListPage);
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* App */], __WEBPACK_IMPORTED_MODULE_2__providers_activity_activity__["a" /* ActivityProvider */],
+        __WEBPACK_IMPORTED_MODULE_3__providers_loader_service_loader_service__["a" /* LoaderService */]])
+], RandomActivitiesPage);
 
-//# sourceMappingURL=info-list.js.map
+//# sourceMappingURL=random-activities.js.map
 
 /***/ })
 

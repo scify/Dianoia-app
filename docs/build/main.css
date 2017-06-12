@@ -27047,6 +27047,21 @@ ion-content {
   padding-bottom: 1px;
 }
 
+buttons-list .button-inner {
+  -webkit-flex-flow: column;
+  -ms-flex-flow: column;
+  flex-flow: column;
+}
+
+buttons-list .button-inner .subtitle {
+  margin-top: 10px;
+  font-size: 80%;
+}
+
+buttons-list .bigBtn {
+  height: 3.5em;
+}
+
 cards-list ion-label {
   margin: 0 !important;
 }

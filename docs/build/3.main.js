@@ -1,15 +1,15 @@
 webpackJsonp([3],{
 
-/***/ 286:
+/***/ 288:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home__ = __webpack_require__(300);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_cards_list_cards_list_module__ = __webpack_require__(291);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomePageModule", function() { return HomePageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__info_list__ = __webpack_require__(303);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_cards_list_cards_list_module__ = __webpack_require__(294);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InfoListPageModule", function() { return InfoListPageModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -20,31 +20,37 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var HomePageModule = (function () {
-    function HomePageModule() {
+var InfoListPageModule = (function () {
+    function InfoListPageModule() {
     }
-    return HomePageModule;
+    return InfoListPageModule;
 }());
-HomePageModule = __decorate([
+InfoListPageModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* NgModule */])({
-        declarations: [__WEBPACK_IMPORTED_MODULE_2__home__["a" /* HomePage */]],
-        imports: [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__home__["a" /* HomePage */]),
+        declarations: [
+            __WEBPACK_IMPORTED_MODULE_2__info_list__["a" /* InfoListPage */],
+        ],
+        imports: [
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__info_list__["a" /* InfoListPage */]),
             __WEBPACK_IMPORTED_MODULE_3__components_cards_list_cards_list_module__["a" /* CardsListComponentModule */]
+        ],
+        exports: [
+            __WEBPACK_IMPORTED_MODULE_2__info_list__["a" /* InfoListPage */]
         ]
     })
-], HomePageModule);
+], InfoListPageModule);
 
-//# sourceMappingURL=home.module.js.map
+//# sourceMappingURL=info-list.module.js.map
 
 /***/ }),
 
-/***/ 291:
+/***/ 294:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cards_list__ = __webpack_require__(292);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cards_list__ = __webpack_require__(295);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CardsListComponentModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -78,7 +84,7 @@ CardsListComponentModule = __decorate([
 
 /***/ }),
 
-/***/ 292:
+/***/ 295:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -136,16 +142,14 @@ CardsListComponent = __decorate([
 
 /***/ }),
 
-/***/ 300:
+/***/ 303:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_activity_activity__ = __webpack_require__(204);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_loader_service_loader_service__ = __webpack_require__(205);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_activity_category_activity_category__ = __webpack_require__(206);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_page_page__ = __webpack_require__(209);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return InfoListPage; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -158,50 +162,50 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-
-
-var HomePage = (function () {
-    function HomePage(navCtrl, activityProvider, loaderService, activityCategoryProvider) {
-        var _this = this;
+/**
+ * Generated class for the InfoListPage page.
+ *
+ * See http://ionicframework.com/docs/components/#navigation for more info
+ * on Ionic pages and navigation.
+ */
+var InfoListPage = (function () {
+    function InfoListPage(navCtrl, navParams, pageProvider) {
         this.navCtrl = navCtrl;
-        this.activityProvider = activityProvider;
-        this.loaderService = loaderService;
-        this.activityCategoryProvider = activityCategoryProvider;
-        this.tab1Root = "RandomActivitiesPage";
-        this.tab2Root = "RandomActivitiesPage";
-        this.loaderService.showLoader();
-        this.activityCategoryProvider.getActivitiesForCategory("common_activities").subscribe(function (activityIds) {
-            console.log(activityIds);
-            _this.activityProvider.getActivitiesByIds(_this.shuffle(activityIds)).subscribe(function (activities) {
-                _this.activities = activities;
-                _this.loaderService.hideLoader();
-            });
-        });
+        this.navParams = navParams;
+        this.pageProvider = pageProvider;
+        this.pageFile = "";
+        this.pageCode = "";
+        var pageData = this.navParams.get("pageData");
+        this.pageFile = pageData.pageFile;
+        this.pageCode = pageData.pageCode;
     }
-    HomePage.prototype.selectActivity = function (activity) {
-        this.navCtrl.push("ActivityPage", { activity: activity });
+    InfoListPage.prototype.ionViewDidLoad = function () {
+        var _this = this;
+        if (this.pageCode != null && this.pageFile != null)
+            this.pageProvider.getDataForPage(this.pageCode, this.pageFile).subscribe(function (pageData) {
+                console.log("pageData", pageData);
+                _this.title = pageData.title;
+                _this.description = pageData.description;
+                _this.image = pageData.image;
+                _this.list = pageData.list;
+                _this.cards = pageData.cards;
+            });
     };
-    HomePage.prototype.shuffle = function (a) {
-        for (var i = a.length; i; i--) {
-            var j = Math.floor(Math.random() * i);
-            _a = [a[j], a[i - 1]], a[i - 1] = _a[0], a[j] = _a[1];
-        }
-        return a;
-        var _a;
+    InfoListPage.prototype.selectCard = function (card) {
+        this.navCtrl.push("ActivityPage", { activity: card });
     };
-    return HomePage;
+    return InfoListPage;
 }());
-HomePage = __decorate([
+InfoListPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-        selector: 'page-home',template:/*ion-inline-start:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>διΆνοια</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n\n  <div padding>\n    <div class="logoContainer">\n      <img class="logo" src="assets/img/icon.png">\n    </div>\n  </div>\n\n\n  <div class="activitiesContainer">\n    <p padding>Επιλέξτε μια από τις κοινές δραστηριότητες, ή δείτε περισσότερες επιλέγοντας το μενού.</p>\n    <cards-list *ngIf="activities?.length > 0" [cards]="activities" (cardClick)="selectActivity($event)"></cards-list>\n  </div>\n  <!--<ion-tabs>-->\n    <!--<ion-tab [root]="tab1Root" tabTitle="Activities" tabIcon="ios-list-outline"></ion-tab>-->\n    <!--<ion-tab [root]="tab2Root" tabTitle="Σχετικά" tabIcon="information-circle"></ion-tab>-->\n  <!--</ion-tabs>-->\n\n</ion-content>\n'/*ion-inline-end:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/home/home.html"*/
+        selector: 'page-info-list',template:/*ion-inline-start:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/info-list/info-list.html"*/'<!--\n  Generated template for the InfoListPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{ title }}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n\n  <div padding class="basicInfoContainer">\n  <div class="imgContainer" *ngIf="image">\n    <img [src]="\'assets/img/\' + image">\n  </div>\n\n  <div class="description">\n    {{ description }}\n  </div>\n  <ion-list class="aboutList" no-lines *ngIf="list">\n    <ion-item text-wrap *ngFor="let item of list">\n      <ion-icon name="ios-checkmark" item-left></ion-icon>\n      {{ item }}\n    </ion-item>\n  </ion-list>\n  </div>\n\n  <div class="activitiesContainer" *ngIf=\'cards?.length > 0\'>\n    <cards-list [cards]="cards" (cardClick)="selectCard($event)"></cards-list>\n  </div>\n\n</ion-content>\n\n'/*ion-inline-end:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/info-list/info-list.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__providers_activity_activity__["a" /* ActivityProvider */],
-        __WEBPACK_IMPORTED_MODULE_3__providers_loader_service_loader_service__["a" /* LoaderService */], __WEBPACK_IMPORTED_MODULE_4__providers_activity_category_activity_category__["a" /* ActivityCategoryProvider */]])
-], HomePage);
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_2__providers_page_page__["a" /* PageProvider */]])
+], InfoListPage);
 
-//# sourceMappingURL=home.js.map
+//# sourceMappingURL=info-list.js.map
 
 /***/ })
 

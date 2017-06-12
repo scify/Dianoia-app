@@ -1,14 +1,14 @@
 webpackJsonp([6],{
 
-/***/ 288:
+/***/ 291:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__notifications__ = __webpack_require__(302);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NotificationsPageModule", function() { return NotificationsPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__statistics__ = __webpack_require__(306);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StatisticsPageModule", function() { return StatisticsPageModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,39 +18,38 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var NotificationsPageModule = (function () {
-    function NotificationsPageModule() {
+var StatisticsPageModule = (function () {
+    function StatisticsPageModule() {
     }
-    return NotificationsPageModule;
+    return StatisticsPageModule;
 }());
-NotificationsPageModule = __decorate([
+StatisticsPageModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__notifications__["a" /* NotificationsPage */],
+            __WEBPACK_IMPORTED_MODULE_2__statistics__["a" /* StatisticsPage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__notifications__["a" /* NotificationsPage */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__statistics__["a" /* StatisticsPage */]),
         ],
         exports: [
-            __WEBPACK_IMPORTED_MODULE_2__notifications__["a" /* NotificationsPage */]
+            __WEBPACK_IMPORTED_MODULE_2__statistics__["a" /* StatisticsPage */]
         ]
     })
-], NotificationsPageModule);
+], StatisticsPageModule);
 
-//# sourceMappingURL=notifications.module.js.map
+//# sourceMappingURL=statistics.module.js.map
 
 /***/ }),
 
-/***/ 302:
+/***/ 306:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_app_storage_app_storage__ = __webpack_require__(35);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_alert_alert__ = __webpack_require__(207);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_notification_notification__ = __webpack_require__(105);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NotificationsPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_activity_activity__ = __webpack_require__(204);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_loader_service_loader_service__ = __webpack_require__(205);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StatisticsPage; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -64,69 +63,56 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
 /**
- * Generated class for the NotificationsPage page.
+ * Generated class for the StatisticsPage page.
  *
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
-var NotificationsPage = (function () {
-    function NotificationsPage(navCtrl, navParams, platform, appStorage, alert, localNotifications) {
+var StatisticsPage = (function () {
+    function StatisticsPage(navCtrl, navParams, activityProvider, loaderService) {
         var _this = this;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.platform = platform;
-        this.appStorage = appStorage;
-        this.alert = alert;
-        this.localNotifications = localNotifications;
-        this.notificationOptions = [
-            { title: "Κάθε μέρα", id: 'every_day' },
-            { title: "Μια φορά την εβδομάδα", id: 'every_week' },
-            { title: "Μια φορά το μήνα", id: 'every_month' },
-            { title: "Να μην έρχονται ειδοποιήσεις", id: 'never' }
-        ];
-        this.selectedNotificationId = 'every_day';
-        this.appStorage.get('notification_frequency').then(function (frequencyId) {
-            if (JSON.parse(frequencyId)) {
-                console.log("frequency: ", JSON.parse(frequencyId));
-                _this.selectedNotificationId = JSON.parse(frequencyId);
-            }
+        this.activityProvider = activityProvider;
+        this.loaderService = loaderService;
+        this.statistics = [];
+        this.loaderService.showLoader();
+        activityProvider.getNumberOfActivitiesForLastMonth().then(function (numberOfDays) {
+            console.log(numberOfDays.filter(daysThatAreTrue).length);
+            _this.numberOfDaysForLastMonth = numberOfDays.filter(daysThatAreTrue).length.toString();
+            _this.statistics.push({ title: "Για τον τελευταίο μήνα", value: _this.numberOfDaysForLastMonth });
         });
+        activityProvider.getNumberOfActivitiesForLastTwoWeeks().then(function (numberOfDays) {
+            console.log(numberOfDays.filter(daysThatAreTrue).length);
+            _this.numberOfDaysForLastTwoWeeks = numberOfDays.filter(daysThatAreTrue).length.toString();
+            _this.statistics.push({ title: "Για το τελευταίο 15 ήμερο", value: _this.numberOfDaysForLastTwoWeeks });
+        });
+        activityProvider.getNumberOfActivitiesForLastThreeMonths().then(function (numberOfDays) {
+            console.log(numberOfDays.filter(daysThatAreTrue).length);
+            _this.numberOfDaysForThreeMonths = numberOfDays.filter(daysThatAreTrue).length.toString();
+            _this.statistics.push({ title: "Για το τελευταίο 3 μηνο", value: _this.numberOfDaysForThreeMonths });
+            _this.loaderService.hideLoader();
+        });
+        function daysThatAreTrue(item) {
+            return item == "true";
+        }
     }
-    NotificationsPage.prototype.saveNotificationSettings = function () {
-        var _this = this;
-        console.log(this.selectedNotificationId);
-        if (this.selectedNotificationId) {
-            this.appStorage.set('notification_frequency', this.selectedNotificationId).then(function (result) {
-                if (_this.platform.is('cordova')) {
-                    _this.localNotifications.scheduleNextNotification();
-                }
-                if (_this.platform.is('cordova'))
-                    _this.alert.displayToast("Οι ρυθμίσεις αποθηκεύτηκαν.");
-            });
-        }
-        else {
-            if (this.platform.is('cordova')) {
-                this.alert.displayToast("Πρέπει να δηλώσετε κάποια επιλογή");
-            }
-            else {
-                alert("Πρέπει να δηλώσετε κάποια επιλογή");
-            }
-        }
+    StatisticsPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad StatisticsPage');
     };
-    return NotificationsPage;
+    return StatisticsPage;
 }());
-NotificationsPage = __decorate([
+StatisticsPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-        selector: 'page-notifications',template:/*ion-inline-start:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/notifications/notifications.html"*/'<!--\n  Generated template for the NotificationsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Ρυθμίσεις ειδοποιήσεων</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <div *ngIf="platform.is(\'cordova\')">\n\n    <ion-list radio-group [(ngModel)]="selectedNotificationId">\n      <ion-list-header>\n        Να λαμβάνω ειδοποιήσεις για δραστηριότητες:\n      </ion-list-header>\n\n      <ion-item *ngFor="let notificationOption of notificationOptions">\n        <ion-label>{{ notificationOption.title }}</ion-label>\n        <ion-radio value="{{ notificationOption.id }}"></ion-radio>\n      </ion-item>\n\n    </ion-list>\n    <button large ion-button (click)="saveNotificationSettings()">Save</button>\n  </div>\n\n  <div *ngIf="!platform.is(\'cordova\')">\n    <h4>Αυτή η συσκευή δεν υποστηρίζει ειδοποιήσεις.</h4>\n  </div>\n\n</ion-content>\n'/*ion-inline-end:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/notifications/notifications.html"*/,
+        selector: 'page-statistics',template:/*ion-inline-start:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/statistics/statistics.html"*/'<!--\n  Generated template for the StatisticsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Ιστορικό Δραστηριοτήτων</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <h4>Ημέρες που πραγματοποιήθηκαν ασκήσεις</h4>\n  <ion-grid>\n    <div class="statistics" *ngFor="let statistic of statistics">\n      <ion-row>\n        <ion-col col-9>\n          <p class="date">{{ statistic.title }}:</p>\n        </ion-col>\n        <ion-col col-3>\n          <p class="value">{{ statistic.value }}</p>\n        </ion-col>\n      </ion-row>\n    </div>\n  </ion-grid>\n\n</ion-content>\n'/*ion-inline-end:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/statistics/statistics.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__providers_app_storage_app_storage__["a" /* AppStorageProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_alert_alert__["a" /* AlertProvider */], __WEBPACK_IMPORTED_MODULE_4__providers_notification_notification__["a" /* NotificationProvider */]])
-], NotificationsPage);
+        __WEBPACK_IMPORTED_MODULE_2__providers_activity_activity__["a" /* ActivityProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_loader_service_loader_service__["a" /* LoaderService */]])
+], StatisticsPage);
 
-//# sourceMappingURL=notifications.js.map
+//# sourceMappingURL=statistics.js.map
 
 /***/ })
 
