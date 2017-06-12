@@ -37,3 +37,12 @@ ion-content { font-size: 1.6rem;}
   padding-top: 1px;
   padding-bottom: 1px;
 }
+
+.homeBtn {
+  background-color: transparent;
+  color: white;
+
+  ion-icon {
+    font-size: x-large;
+  }
+}

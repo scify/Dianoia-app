@@ -68,4 +68,8 @@ export class DifficultyLevelsPage {
     this.navCtrl.push("ActivityPage", {activity: activity});
   }
 
+  goToHome() {
+    this.navCtrl.setRoot('HomePage');
+  }
+
 }

@@ -104,4 +104,8 @@ export class ActivityCategoriesPage {
     });
 
   }
+
+  goToHome() {
+    this.navCtrl.setRoot('HomePage');
+  }
 }

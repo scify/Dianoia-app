@@ -2,6 +2,11 @@
 
   <ion-navbar>
     <ion-title>{{ getPageTitle() }}</ion-title>
+    <ion-buttons end>
+      <button (click)="goToHome()" class="homeBtn">
+        <ion-icon name="md-home"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
