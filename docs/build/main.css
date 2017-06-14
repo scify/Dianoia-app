@@ -27057,7 +27057,7 @@ ion-content {
 }
 
 .button {
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .buttonsContainer {
@@ -27078,7 +27078,7 @@ buttons-list .button-inner .subtitle {
   font-size: 80%;
 }
 
-buttons-list .bigBtn {
+buttons-list .button {
   height: 3.5em;
 }
 
