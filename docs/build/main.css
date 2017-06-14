@@ -27056,6 +27056,17 @@ ion-content {
   font-size: x-large;
 }
 
+.button {
+  border-radius: 10px;
+}
+
+.buttonsContainer {
+  max-width: 500px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 buttons-list .button-inner {
   -webkit-flex-flow: column;
   -ms-flex-flow: column;
@@ -27182,6 +27193,7 @@ page-info-list .imgContainer img {
 
 page-info-list .aboutList {
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 page-info-list .aboutList .item {

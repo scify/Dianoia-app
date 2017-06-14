@@ -19,8 +19,8 @@
     <div padding style="padding-bottom: 0">
       <buttons-list *ngIf='buttons?.length > 0' [buttons]="buttons" (buttonClick)="goTo($event)"></buttons-list>
     </div>
-    <p padding>Επιλέξτε μια από τις κοινές δραστηριότητες, ή δείτε περισσότερες επιλέγοντας το μενού.</p>
-    <cards-list *ngIf="activities?.length > 0" [cards]="activities" (cardClick)="selectActivity($event)"></cards-list>
+    <p padding>Δείτε περισσότερες επιλογές στο κεντρικό μενού</p>
+    <!--<cards-list *ngIf="activities?.length > 0" [cards]="activities" (cardClick)="selectActivity($event)"></cards-list>-->
   </div>
   <!--<ion-tabs>-->
     <!--<ion-tab [root]="tab1Root" tabTitle="Activities" tabIcon="ios-list-outline"></ion-tab>-->

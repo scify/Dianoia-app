@@ -189,6 +189,8 @@ var InfoListPage = (function () {
                 _this.image = pageData.image;
                 _this.list = pageData.list;
                 _this.cards = pageData.cards;
+                _this.bottomText = pageData.bottom_text;
+                console.log(_this.bottomText);
             });
     };
     InfoListPage.prototype.selectCard = function (card) {
@@ -199,7 +201,7 @@ var InfoListPage = (function () {
 InfoListPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-        selector: 'page-info-list',template:/*ion-inline-start:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/info-list/info-list.html"*/'<!--\n  Generated template for the InfoListPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{ title }}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n\n  <div padding class="basicInfoContainer">\n  <div class="imgContainer" *ngIf="image">\n    <img [src]="\'assets/img/\' + image">\n  </div>\n\n  <div class="description">\n    {{ description }}\n  </div>\n  <ion-list class="aboutList" no-lines *ngIf="list">\n    <ion-item text-wrap *ngFor="let item of list">\n      <ion-icon name="ios-checkmark" item-left></ion-icon>\n      {{ item }}\n    </ion-item>\n  </ion-list>\n  </div>\n\n  <div class="activitiesContainer" *ngIf=\'cards?.length > 0\'>\n    <cards-list [cards]="cards" (cardClick)="selectCard($event)"></cards-list>\n  </div>\n\n</ion-content>\n\n'/*ion-inline-end:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/info-list/info-list.html"*/,
+        selector: 'page-info-list',template:/*ion-inline-start:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/info-list/info-list.html"*/'<!--\n  Generated template for the InfoListPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{ title }}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n\n  <div padding class="basicInfoContainer">\n  <div class="imgContainer" *ngIf="image">\n    <img [src]="\'assets/img/\' + image">\n  </div>\n\n  <div class="description">\n    {{ description }}\n  </div>\n  <ion-list class="aboutList" no-lines *ngIf="list">\n    <ion-item text-wrap *ngFor="let item of list">\n      <ion-icon name="ios-checkmark" item-left></ion-icon>\n      {{ item }}\n    </ion-item>\n  </ion-list>\n\n    <div class="bottom_text">\n      {{ bottomText }}\n    </div>\n  </div>\n\n\n\n  <div class="activitiesContainer" *ngIf=\'cards?.length > 0\'>\n    <cards-list [cards]="cards" (cardClick)="selectCard($event)"></cards-list>\n  </div>\n\n</ion-content>\n\n'/*ion-inline-end:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/info-list/info-list.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
         __WEBPACK_IMPORTED_MODULE_2__providers_page_page__["a" /* PageProvider */]])

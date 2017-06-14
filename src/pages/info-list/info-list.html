@@ -29,7 +29,13 @@
       {{ item }}
     </ion-item>
   </ion-list>
+
+    <div class="bottom_text">
+      {{ bottomText }}
+    </div>
   </div>
+
+
 
   <div class="activitiesContainer" *ngIf='cards?.length > 0'>
     <cards-list [cards]="cards" (cardClick)="selectCard($event)"></cards-list>

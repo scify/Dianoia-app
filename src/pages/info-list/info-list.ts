@@ -19,6 +19,7 @@ export class InfoListPage {
   pageCode: string = "";
   title: string;
   description: string;
+  bottomText: string;
   image: string;
   list: [string];
   cards: [any];
@@ -39,6 +40,8 @@ export class InfoListPage {
         this.image = pageData.image;
         this.list = pageData.list;
         this.cards = pageData.cards;
+        this.bottomText = pageData.bottom_text;
+        console.log(this.bottomText);
       });
   }
 
