@@ -72,4 +72,6 @@ export class DifficultyLevelsPage {
     this.navCtrl.setRoot('HomePage');
   }
 
+  
+
 }
