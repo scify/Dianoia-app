@@ -4,6 +4,8 @@ import {StatusBar} from "@ionic-native/status-bar";
 import {SplashScreen} from "@ionic-native/splash-screen";
 import {NotificationProvider} from "../providers/notification/notification";
 import {AppStorageProvider} from "../providers/app-storage/app-storage";
+import {Http} from "@angular/http";
+import {AlertProvider} from "../providers/alert/alert";
 
 @Component({
   templateUrl: 'app.html'
@@ -15,8 +17,10 @@ export class MyApp {
 
   pages: Array<{title: string, component?: any, pageFile?: string, pageCode?: string}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,
-              private localNotifications: NotificationProvider, private appStorage: AppStorageProvider) {
+  constructor(public platform: Platform, public statusBar: StatusBar,
+              public splashScreen: SplashScreen, private localNotifications: NotificationProvider,
+              private appStorage: AppStorageProvider, private http: Http,
+              private alertProvider: AlertProvider) {
     this.initializeApp(platform, statusBar);
     // used for an example of ngFor and navigation
     this.pages = [
@@ -52,13 +56,17 @@ export class MyApp {
 
       this.localNotifications.listenForNotificationClicks();
 
-      this.appStorage.get('notifications_scheduled').then(data => {
-        let notificationsScheduled = JSON.parse(data);
-        if(!notificationsScheduled && platform.is('cordova')) {
-          console.log("Notifications not scheduled. Scheduling...");
-          this.localNotifications.scheduleNextNotification();
-        }
-      })
+      // this.appStorage.get('notifications_scheduled').then(data => {
+      //   let notificationsScheduled = JSON.parse(data);
+      //   if(!notificationsScheduled && platform.is('cordova')) {
+      //     console.log("Notifications not scheduled. Scheduling...");
+      //     this.localNotifications.scheduleNextNotification();
+      //   }
+      // })
+      if(platform.is('cordova')) {
+        this.localNotifications.scheduleNextNotification();
+      }
+
     });
   }
 

@@ -19,7 +19,8 @@ export class ActivityProvider {
   activities: [any];
   currentDateFormatted: string;
 
-  constructor(public http: Http, private apiCalls: ApiCallsProvider, private appStorage: AppStorageProvider, private storage: Storage) {
+  constructor(public http: Http, private apiCalls: ApiCallsProvider,
+              private appStorage: AppStorageProvider) {
     this.getAllActivities().subscribe(data => {
       this.activities = data;
     });
