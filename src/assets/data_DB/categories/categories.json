@@ -28,6 +28,11 @@
     "title": "Εκτελεστικές λειτουργίες",
     "category_id": "executive_activities",
     "has_difficulty_levels": true
+  },
+  {
+    "title": "Λέμε ιστορίες",
+    "category_id": "stories",
+    "has_difficulty_levels": true
   }
 ]
 

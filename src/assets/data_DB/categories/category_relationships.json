@@ -13,6 +13,12 @@
       "activity_17", "activity_18", "activity_19", "activity_20", "activity_21", "activity_22", "activity_23", "activity_24"]
   },
   {
+    "parent_category_id": "stories",
+    "subcategories": [],
+    "is_root": true,
+    "activities": ["activity_25"]
+  },
+  {
     "parent_category_id": "focus_activities",
     "subcategories": [],
     "is_root": false,

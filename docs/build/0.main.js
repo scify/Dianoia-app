@@ -235,10 +235,13 @@ CardsListComponent = __decorate([
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_activity_activity__ = __webpack_require__(204);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_loader_service_loader_service__ = __webpack_require__(205);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_activity_category_activity_category__ = __webpack_require__(206);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_activity_activity__ = __webpack_require__(205);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_loader_service_loader_service__ = __webpack_require__(206);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_activity_category_activity_category__ = __webpack_require__(207);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_difficulty_level_difficulty_level__ = __webpack_require__(208);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_http__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_app_storage_app_storage__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_alert_alert__ = __webpack_require__(104);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -256,30 +259,83 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
+
 var HomePage = (function () {
-    function HomePage(navCtrl, activityProvider, loaderService, activityCategoryProvider, difficultyLevelProvider) {
+    function HomePage(navCtrl, activityProvider, loaderService, activityCategoryProvider, difficultyLevelProvider, http, appStorage, alertProvider, platform) {
+        // this.loaderService.showLoader();
         var _this = this;
         this.navCtrl = navCtrl;
         this.activityProvider = activityProvider;
         this.loaderService = loaderService;
         this.activityCategoryProvider = activityCategoryProvider;
         this.difficultyLevelProvider = difficultyLevelProvider;
+        this.http = http;
+        this.appStorage = appStorage;
+        this.alertProvider = alertProvider;
+        this.platform = platform;
         this.tab1Root = "RandomActivitiesPage";
         this.tab2Root = "RandomActivitiesPage";
-        this.loaderService.showLoader();
-        this.activityCategoryProvider.getActivitiesForCategory("common_activities").subscribe(function (activityIds) {
-            console.log(activityIds);
-            _this.activityProvider.getActivitiesByIds(_this.shuffle(activityIds)).subscribe(function (activities) {
-                _this.activities = activities;
-                _this.loaderService.hideLoader();
-            });
-        });
+        // this.activityCategoryProvider.getActivitiesForCategory("common_activities").subscribe(activityIds => {
+        //   console.log(activityIds);
+        //   this.activityProvider.getActivitiesByIds(this.shuffle(activityIds)).subscribe(activities => {
+        //     this.activities = activities;
+        //     this.loaderService.hideLoader();
+        //   });
+        // });
         this.buttons = [
             { id: "basic_info", title: 'Ας μάθουμε τα βασικά', subtitle: "Τι είναι - Σκοπός - Αξία", component: "BasicInfoPage" },
             { id: "mental_activities", title: 'Εκτυπώστε νοητικές ασκήσεις', subtitle: "Ασκήσεις με μολύβι και χαρτί", component: "InfoListPage", pageCode: "page_goal", pageFile: "pages/goal.json" },
             { id: "common_activities", title: 'Βρείτε δημιουργικές δραστηριότητες', subtitle: "Ιδέες για να περάσετε δημιουργικό χρόνο μαζί", component: "InfoListPage", pageCode: "page_value", pageFile: "pages/value.json" }
         ];
+        this.appStorage.get('app_installed').then(function (data) {
+            var dataInstalled = JSON.parse(data);
+            if (dataInstalled) {
+                _this.checkForAnnouncement();
+            }
+            _this.appStorage.set('app_installed', true);
+        });
     }
+    HomePage.prototype.checkForAnnouncement = function () {
+        var _this = this;
+        this.http.get('http://scify.org/dianoiaAnnouncement.html').subscribe(function (data) {
+            if (data) {
+                var lastUpdatedString = data.headers.get('last-modified');
+                console.log(data);
+                if (lastUpdatedString) {
+                    var lastUpdatedDate = new Date(lastUpdatedString);
+                    _this.showAnnouncementIfNewerThan(lastUpdatedDate, data.text());
+                }
+            }
+        });
+    };
+    HomePage.prototype.showAnnouncementIfNewerThan = function (date, htmlToSHow) {
+        var _this = this;
+        console.log(date);
+        var lastUpdatedMills = date.getTime();
+        console.log("lastUpdatedMills", lastUpdatedMills);
+        this.appStorage.get('announcement_last_modified').then(function (data) {
+            var announcementLastUpdated = JSON.parse(data);
+            if (announcementLastUpdated)
+                announcementLastUpdated = parseInt(announcementLastUpdated);
+            console.log("announcementLastUpdated", announcementLastUpdated);
+            console.log("this.strip(htmlToSHow)", _this.strip(htmlToSHow) == "");
+            if (announcementLastUpdated < lastUpdatedMills && _this.platform.is('cordova') && _this.strip(htmlToSHow) !== "") {
+                console.log("Showing new announcement");
+                console.log("htmlToSHow", htmlToSHow);
+                _this.alertProvider.announcementDialog("Announcement", htmlToSHow);
+                _this.appStorage.set('announcement_last_modified', lastUpdatedMills);
+            }
+        });
+    };
+    HomePage.prototype.strip = function (html) {
+        var tmp = document.createElement("DIV");
+        tmp.innerHTML = html;
+        var str = tmp.textContent || tmp.innerText || "";
+        console.log(str.replace(/(\r\n|\n|\r)/gm, "").trim());
+        return str.replace(/(\r\n|\n|\r)/gm, "").trim();
+    };
     HomePage.prototype.selectActivity = function (activity) {
         this.navCtrl.push("ActivityPage", { activity: activity });
     };
@@ -347,7 +403,8 @@ HomePage = __decorate([
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__providers_activity_activity__["a" /* ActivityProvider */],
         __WEBPACK_IMPORTED_MODULE_3__providers_loader_service_loader_service__["a" /* LoaderService */], __WEBPACK_IMPORTED_MODULE_4__providers_activity_category_activity_category__["a" /* ActivityCategoryProvider */],
-        __WEBPACK_IMPORTED_MODULE_5__providers_difficulty_level_difficulty_level__["a" /* DifficultyLevelProvider */]])
+        __WEBPACK_IMPORTED_MODULE_5__providers_difficulty_level_difficulty_level__["a" /* DifficultyLevelProvider */], __WEBPACK_IMPORTED_MODULE_6__angular_http__["b" /* Http */],
+        __WEBPACK_IMPORTED_MODULE_7__providers_app_storage_app_storage__["a" /* AppStorageProvider */], __WEBPACK_IMPORTED_MODULE_8__providers_alert_alert__["a" /* AlertProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Platform */]])
 ], HomePage);
 
 //# sourceMappingURL=home.js.map

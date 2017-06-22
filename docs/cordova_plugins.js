@@ -159,6 +159,7 @@ module.exports = [
 module.exports.metadata = 
 // TOP OF METADATA
 {
+    "cordova-plugin-app-event": "1.2.0",
     "cordova-plugin-console": "1.0.7",
     "cordova-plugin-device": "1.1.6",
     "cordova-plugin-inappbrowser": "1.7.1",
@@ -171,7 +172,6 @@ module.exports.metadata =
     "cordova-plugin-x-socialsharing": "5.1.8",
     "cordova-plugin-x-toast": "2.6.0",
     "cordova-sqlite-storage": "2.0.4",
-    "cordova-plugin-app-event": "1.2.0",
     "de.appplant.cordova.plugin.local-notification": "0.8.5",
     "ionic-plugin-keyboard": "2.2.1"
 }

@@ -262,5 +262,16 @@
     "instructions":[],
     "link": "",
     "difficulty_level_id": "difficulty_level_1"
+  },
+  {
+    "id": "activity_25",
+    "title":"\"Το χαμένο περιδέραιο\"",
+    "description": "Είστε σε μία κρουαζιέρα στα νησιά του Αιγαίου. Καιρό το περιμένατε αυτό  το ταξίδι!  Όλοι έχουμε ανάγκη λίγη ξεκούραση, και τα ελληνικά νησιά είναι ο ιδανικός προορισμός για κάτι τέτοιο.",
+    "full_text": "",
+    "video_url":"",
+    "img_url":"",
+    "instructions":[],
+    "link": "http://go.scify.gr/dianoia12",
+    "difficulty_level_id": "difficulty_level_1"
   }
 ]
