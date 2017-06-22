@@ -16,8 +16,22 @@ page-activity {
     transform: translateY(-25%);
   }
 
-  .title {
+  .activityTitle {
     font-weight: bold;
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+
+  .activityBody {
+    font-size: 1.7rem;
+  }
+
+  .activityActionsContainer {
+    margin-top: 20px;
+
+    button {
+      padding-left: 0;
+    }
   }
 
   .card {
