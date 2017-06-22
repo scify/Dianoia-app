@@ -27127,8 +27127,22 @@ page-activity .cardFooterContainer button {
   transform: translateY(-25%);
 }
 
-page-activity .title {
+page-activity .activityTitle {
   font-weight: bold;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+page-activity .activityBody {
+  font-size: 1.7rem;
+}
+
+page-activity .activityActionsContainer {
+  margin-top: 20px;
+}
+
+page-activity .activityActionsContainer button {
+  padding-left: 0;
 }
 
 page-activity .card ion-label {
