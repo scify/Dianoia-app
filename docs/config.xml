@@ -6,7 +6,7 @@
     <feature name="NativeStorage">
         <param name="browser-package" value="NativeStorage" />
     </feature>
-    <name>διΆνοια</name>
+    <name>Dianoia</name>
     <description>Non-pharmaceutical activities for people with dementia.</description>
     <author email="info@scify.org" href="http://www.scify.gr/site/en/">SciFY Team</author>
     <content src="index.html" />
