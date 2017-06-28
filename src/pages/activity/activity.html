@@ -22,8 +22,22 @@
     </ion-item>
 
     <ion-card-content>
-      <p class="activityBody">{{ activity?.description }}</p>
+      <ion-row class="navigationContainer">
+        <ion-col col-6 style="text-align: left">
+          <button *ngIf="activityIsNotFirst()" class="activityNavigationBtn" no-padding ion-button icon-left clear small (click)="previousActivity()">
+            <ion-icon class="navLeft" name="ios-arrow-back"></ion-icon>
+            <div>Προηγουμενη</div>
+          </button>
+        </ion-col>
+        <ion-col col-6 style="text-align: right">
+          <button *ngIf="activityIsNotLast()" class="activityNavigationBtn" no-padding ion-button icon-left clear small (click)="nextActivity()">
+            <div>Επομενη</div>
+            <ion-icon class="navRight" name="ios-arrow-forward"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
 
+      <p class="activityBody">{{ activity?.description }}</p>
       <img class="activityImg" *ngIf="activity?.img_url" [src]="'assets/img/activities/' + activity.img_url">
 
       <!--<div *ngIf="activity?.id && activity?.instructions.length > 0" class="instructionsList">-->

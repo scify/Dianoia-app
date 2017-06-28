@@ -46,7 +46,7 @@ export class InfoListPage {
   }
 
   selectCard(card) {
-    this.navCtrl.push("ActivityPage", {activity: card});
+    this.navCtrl.push("ActivityPage", {activity: card, allActivities: this.cards, uniqueId: 'title'});
   }
 
 }

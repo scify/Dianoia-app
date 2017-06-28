@@ -21,6 +21,7 @@
         "@angular/platform-browser": "4.1.0",
         "@angular/platform-browser-dynamic": "4.1.0",
         "@ionic-native/core": "^3.10.3",
+        "@ionic-native/google-analytics": "^3.12.1",
         "@ionic-native/in-app-browser": "^3.10.3",
         "@ionic-native/local-notifications": "^3.12.1",
         "@ionic-native/native-storage": "^3.10.3",
@@ -35,6 +36,7 @@
         "cordova-plugin-app-event": "file:node_modules/cordova-plugin-app-event",
         "cordova-plugin-console": "^1.0.7",
         "cordova-plugin-device": "^1.1.6",
+        "cordova-plugin-google-analytics": "^1.8.2",
         "cordova-plugin-inappbrowser": "^1.7.1",
         "cordova-plugin-nativestorage": "^2.2.2",
         "cordova-plugin-printer": "git+https://github.com/katzer/cordova-plugin-printer.git",
@@ -82,7 +84,8 @@
             "cordova-plugin-printer": {},
             "cordova-plugin-x-toast": {},
             "cordova-plugin-x-socialsharing": {},
-            "de.appplant.cordova.plugin.local-notification": {}
+            "de.appplant.cordova.plugin.local-notification": {},
+            "cordova-plugin-google-analytics": {}
         },
         "platforms": [
             "android",

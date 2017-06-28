@@ -23,6 +23,7 @@ import {Toast} from "@ionic-native/toast";
 import {SocialSharing} from "@ionic-native/social-sharing";
 import {LocalNotifications} from "@ionic-native/local-notifications";
 import { NotificationProvider } from '../providers/notification/notification';
+import {GoogleAnalytics} from "@ionic-native/google-analytics";
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { NotificationProvider } from '../providers/notification/notification';
     Toast,
     SocialSharing,
     LocalNotifications,
-    NotificationProvider
+    NotificationProvider,
+    GoogleAnalytics
   ]
 })
 export class AppModule {}

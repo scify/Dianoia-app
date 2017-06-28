@@ -60,4 +60,21 @@ page-activity {
     max-width: 100%;
   }
 
+  .activityNavigationBtn {
+    .navLeft {
+      margin-right: 5px;
+    }
+
+    .navRight {
+      margin-left: 5px;
+    }
+  }
+
+  .navigationContainer {
+    .col {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+  }
+
 }

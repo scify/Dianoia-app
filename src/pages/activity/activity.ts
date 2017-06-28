@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {IonicPage, NavController, NavParams, Platform} from 'ionic-angular';
+import {IonicPage, NavController, NavParams, Platform, ViewController} from 'ionic-angular';
 import {ActivityProvider} from "../../providers/activity/activity";
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { Printer, PrintOptions } from '@ionic-native/printer';
@@ -21,11 +21,13 @@ import {NotificationProvider} from "../../providers/notification/notification";
 export class ActivityPage {
   activity: any;
   dailyActivityCompleted: boolean = false;
+  allActivities: any = [];
+  activityUniqueId: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               private activityProvider: ActivityProvider, private iab: InAppBrowser, private platform: Platform,
               private printer: Printer, private alert: AlertProvider, private socialSharing: SocialSharing,
-              private notificationProvider: NotificationProvider) {
+              private notificationProvider: NotificationProvider, private viewCtrl: ViewController) {
     let activityObj = this.navParams.get("activity");
     console.log("activityObj", activityObj);
     if(!activityObj) {
@@ -35,17 +37,68 @@ export class ActivityPage {
     } else {
       this.activity = activityObj;
     }
-
-    this.activityProvider.userHasCompletedActivityForToday().then(activityDone => {
-
-      // activityDone == null ? this.dailyActivityCompleted = false : this.dailyActivityCompleted = true;
-    });
+    this.allActivities = this.navParams.get("allActivities");
+    this.activityUniqueId = this.navParams.get("uniqueId");
 
     console.log(platform.is('cordova'));
+  }
 
-    // if(platform.is('cordova')) {
-    //   this.scheduleNextNotification();
-    // }
+  nextActivity() {
+    for (let i = 0; i < this.allActivities.length; i++) {
+      if (this.activityUniqueId == 'title') {
+        if (this.activity.title == this.allActivities[i].title) {
+          this.loadNextActivity(this.allActivities[i + 1], 'forward');
+          break;
+        }
+      } else if (this.activityUniqueId == 'id') {
+        if (this.activity.id == this.allActivities[i].id) {
+          this.loadNextActivity(this.allActivities[i + 1], 'forward');
+          break;
+        }
+      }
+    }
+  }
+
+  previousActivity() {
+    for (let i = 0; i < this.allActivities.length; i++) {
+      if (this.activityUniqueId == 'title') {
+        if (this.activity.title == this.allActivities[i].title) {
+          this.loadNextActivity(this.allActivities[i - 1], 'back');
+          break;
+        }
+      } else if (this.activityUniqueId == 'id') {
+        if (this.activity.id == this.allActivities[i].id) {
+          this.loadNextActivity(this.allActivities[i - 1], 'back');
+          break;
+        }
+      }
+    }
+  }
+
+  loadNextActivity(nextActivity, animationDirection) {
+    if(nextActivity) {
+      this.navCtrl.push("ActivityPage", {
+        activity: nextActivity,
+        allActivities: this.allActivities,
+        uniqueId: this.activityUniqueId
+      }, { animate: true, animation: 'ios-transition', direction: animationDirection }).then(() => {
+        const index = this.viewCtrl.index;
+        this.navCtrl.remove(index);
+      });
+
+    }
+  }
+
+  activityIsNotFirst() {
+    if(this.allActivities)
+      return this.allActivities[0] !== this.activity;
+    return false;
+  }
+
+  activityIsNotLast() {
+    if(this.allActivities)
+      return this.allActivities[this.allActivities.length - 1] !== this.activity;
+    return false;
   }
 
   activityDoneForToday() {
@@ -122,13 +175,6 @@ export class ActivityPage {
       this.alert.textDialog("Error", "Αυτή η συσκευή δεν υποστηρίζει κοινοποίηση");
     });
   }
-
-  // private scheduleNextNotification() {
-  //   let scheduledDate = new Date();
-  //   scheduledDate.setMinutes(scheduledDate.getMinutes() + 1);
-  //   this.notificationProvider.scheduleNotificationFor(scheduledDate, "Δι-Άνοια", "Η επόμενη δραστηριότητα είναι έτοιμη!");
-  //   // this.notificationProvider.scheduleNextNotification("Δι-Άνοια", "Η επόμενη δραστηριότητα είναι έτοιμη!");
-  // }
 
 
 }

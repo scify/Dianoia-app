@@ -65,13 +65,13 @@ export class DifficultyLevelsPage {
   }
 
   selectActivity(activity: any) {
-    this.navCtrl.push("ActivityPage", {activity: activity});
+    this.navCtrl.push("ActivityPage", {activity: activity, allActivities: this.activities, uniqueId: 'id'});
   }
 
   goToHome() {
     this.navCtrl.setRoot('HomePage');
   }
 
-  
+
 
 }

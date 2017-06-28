@@ -3,12 +3,6 @@ import {App, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {ActivityProvider} from "../../providers/activity/activity";
 import {LoaderService} from "../../providers/loader-service/loader-service";
 
-/**
- * Generated class for the RandomActivitiesPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 @IonicPage()
 @Component({
   selector: 'page-random-activities',
@@ -32,8 +26,6 @@ export class RandomActivitiesPage {
   }
 
   selectActivity(activity) {
-    // let nav = this.app.getRootNav();
-    // nav.push("ActivityPage", {activity: activity});
     this.navCtrl.push("ActivityPage", {activity: activity});
   }
 
