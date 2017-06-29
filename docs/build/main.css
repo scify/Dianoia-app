@@ -27130,7 +27130,7 @@ page-activity .cardFooterContainer button {
 page-activity .activityTitle {
   font-weight: bold;
   font-size: 2rem;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 page-activity .activityBody {
@@ -27165,7 +27165,25 @@ page-activity .instructionsList .icon {
 }
 
 page-activity .activityImg {
+  width: auto !important;
   max-width: 100%;
+}
+
+page-activity .activityNavigationBtn .navLeft {
+  margin-right: 5px;
+}
+
+page-activity .activityNavigationBtn .navRight {
+  margin-left: 5px;
+}
+
+page-activity .navigationContainer {
+  margin-bottom: 20px;
+}
+
+page-activity .navigationContainer .col {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 
 page-help .basicInfoContainer {

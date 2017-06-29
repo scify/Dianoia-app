@@ -19,7 +19,7 @@ page-activity {
   .activityTitle {
     font-weight: bold;
     font-size: 2rem;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
   }
 
   .activityBody {
@@ -75,6 +75,8 @@ page-activity {
       padding-left: 0 !important;
       padding-right: 0 !important;
     }
+
+    margin-bottom: 20px;
   }
 
 }

@@ -17,10 +17,6 @@
 
   <ion-card>
 
-    <ion-item>
-      <h2 class="activityTitle">{{ activity?.title }}</h2>
-    </ion-item>
-
     <ion-card-content>
       <ion-row class="navigationContainer">
         <ion-col col-6 style="text-align: left">
@@ -36,7 +32,7 @@
           </button>
         </ion-col>
       </ion-row>
-
+      <h2 class="activityTitle">{{ activity?.title }}</h2>
       <p class="activityBody">{{ activity?.description }}</p>
       <img class="activityImg" *ngIf="activity?.img_url" [src]="'assets/img/activities/' + activity.img_url">
 
