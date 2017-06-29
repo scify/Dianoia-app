@@ -176,5 +176,14 @@ export class ActivityPage {
     });
   }
 
+  swipeActivity(event) {
+    console.log(event.direction);
+    if(event.direction == 2) {
+      this.nextActivity();
+    } else if(event.direction == 4) {
+      this.previousActivity();
+    }
+  }
+
 
 }
