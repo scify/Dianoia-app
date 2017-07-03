@@ -11,4 +11,10 @@
 
   <buttons-list *ngIf='buttons?.length > 0' [buttons]="buttons" (buttonClick)="goTo($event)"></buttons-list>
 
+  <div class="videoContainer">
+    <iframe frameborder="0" class="video" width="{{getContainerWidth()}}"
+            src="https://www.youtube.com/embed/Ej3T-QiBWVg">
+    </iframe>
+  </div>
+
 </ion-content>

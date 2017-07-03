@@ -28,4 +28,9 @@ export class BasicInfoPage {
     this.navCtrl.push(button.component, {pageData: button});
   }
 
+  getContainerWidth() {
+    // left + right padding of page is 32 pixels.
+    return screen.width - 32;
+  }
+
 }

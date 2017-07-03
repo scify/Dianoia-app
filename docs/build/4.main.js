@@ -171,12 +171,16 @@ var BasicInfoPage = (function () {
     BasicInfoPage.prototype.goTo = function (button) {
         this.navCtrl.push(button.component, { pageData: button });
     };
+    BasicInfoPage.prototype.getContainerWidth = function () {
+        // left + right padding of page is 32 pixels.
+        return screen.width - 32;
+    };
     return BasicInfoPage;
 }());
 BasicInfoPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-        selector: 'page-basic-info',template:/*ion-inline-start:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/basic-info/basic-info.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Ας μάθουμε τα βασικά</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <buttons-list *ngIf=\'buttons?.length > 0\' [buttons]="buttons" (buttonClick)="goTo($event)"></buttons-list>\n\n</ion-content>\n'/*ion-inline-end:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/basic-info/basic-info.html"*/,
+        selector: 'page-basic-info',template:/*ion-inline-start:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/basic-info/basic-info.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Ας μάθουμε τα βασικά</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <buttons-list *ngIf=\'buttons?.length > 0\' [buttons]="buttons" (buttonClick)="goTo($event)"></buttons-list>\n\n  <div class="videoContainer">\n    <iframe frameborder="0" class="video" width="{{getContainerWidth()}}"\n            src="https://www.youtube.com/embed/Ej3T-QiBWVg">\n    </iframe>\n  </div>\n\n</ion-content>\n'/*ion-inline-end:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/basic-info/basic-info.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
 ], BasicInfoPage);
