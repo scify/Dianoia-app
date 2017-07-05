@@ -43,14 +43,14 @@ export class HomePage {
       {id: "common_activities", title: 'Βρείτε δημιουργικές δραστηριότητες', subtitle: "Ιδέες για να περάσετε δημιουργικό χρόνο μαζί", component: "InfoListPage", pageCode: "page_value", pageFile: "pages/value.json"}
     ];
 
-    this.appStorage.get('app_installed').then(data => {
-      let dataInstalled = JSON.parse(data);
-      if(dataInstalled) {
-        this.checkForAnnouncement();
-      }
-      this.appStorage.set('app_installed', true);
-    });
-
+    // this.appStorage.get('app_installed').then(data => {
+    //   let dataInstalled = JSON.parse(data);
+    //   if(dataInstalled) {
+    //     this.checkForAnnouncement();
+    //   }
+    //   this.appStorage.set('app_installed', true);
+    // });
+    this.checkForAnnouncement();
   }
 
   checkForAnnouncement() {
