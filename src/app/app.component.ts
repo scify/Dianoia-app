@@ -12,6 +12,11 @@ import {DifficultyLevelProvider} from "../providers/difficulty-level/difficulty-
 import {LoaderService} from "../providers/loader-service/loader-service";
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
 
+import {
+  Push,
+  PushToken
+} from '@ionic/cloud-angular';
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -27,7 +32,7 @@ export class MyApp {
               private appStorage: AppStorageProvider, private http: Http, private activityCategoryProvider: ActivityCategoryProvider,
               private alertProvider: AlertProvider, private activityProvider: ActivityProvider,
               private difficultyLevelProvider: DifficultyLevelProvider, private loaderService: LoaderService,
-              private ga: GoogleAnalytics ) {
+              private ga: GoogleAnalytics, public push: Push) {
     this.initializeApp(platform, statusBar);
     // used for an example of ngFor and navigation
     this.pages = [
@@ -76,6 +81,16 @@ export class MyApp {
         this.setUpGoogleAnalytics();
       }
 
+      this.push.register().then((t: PushToken) => {
+        return this.push.saveToken(t);
+      }).then((t: PushToken) => {
+        console.log('Token saved:', t.token);
+      });
+
+      this.push.rx.notification()
+        .subscribe((msg) => {
+          //alert(msg.title + ': ' + msg.text);
+        });
     });
 
 
