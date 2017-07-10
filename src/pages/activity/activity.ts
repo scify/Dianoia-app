@@ -170,7 +170,7 @@ export class ActivityPage {
     this.socialSharing.shareWithOptions(options).then(result => {
       console.log(result);
       // if(result.completed)
-        this.alert.displayToast("Η δραστηριοτητα κοινοποιηθηκε");
+        //this.alert.displayToast("Η δραστηριοτητα κοινοποιηθηκε");
     }).catch(error => {
       this.alert.textDialog("Error", "Αυτή η συσκευή δεν υποστηρίζει κοινοποίηση");
     });

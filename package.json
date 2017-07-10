@@ -36,6 +36,7 @@
         "cordova-browser": "^4.1.0",
         "cordova-plugin-app-event": "file:node_modules/cordova-plugin-app-event",
         "cordova-plugin-console": "^1.0.7",
+        "cordova-plugin-crosswalk-webview": "^2.3.0",
         "cordova-plugin-device": "^1.1.6",
         "cordova-plugin-google-analytics": "^1.8.2",
         "cordova-plugin-inappbrowser": "^1.7.1",
@@ -90,6 +91,13 @@
             "cordova-plugin-google-analytics": {},
             "phonegap-plugin-push": {
                 "SENDER_ID": "179483799070"
+            },
+            "cordova-plugin-crosswalk-webview": {
+                "XWALK_VERSION": "23+",
+                "XWALK_LITEVERSION": "xwalk_core_library_canary:17+",
+                "XWALK_COMMANDLINE": "--disable-pull-to-refresh-effect",
+                "XWALK_MODE": "embedded",
+                "XWALK_MULTIPLEAPK": "true"
             }
         },
         "platforms": [
