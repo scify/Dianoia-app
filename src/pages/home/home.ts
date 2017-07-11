@@ -8,6 +8,7 @@ import {DifficultyLevelProvider} from "../../providers/difficulty-level/difficul
 import {Http} from "@angular/http";
 import {AppStorageProvider} from "../../providers/app-storage/app-storage";
 import {AlertProvider} from "../../providers/alert/alert";
+import {StatusBar} from "@ionic-native/status-bar";
 
 @IonicPage()
 @Component({
@@ -25,7 +26,17 @@ export class HomePage {
   constructor(public navCtrl: NavController, private activityProvider: ActivityProvider,
               private loaderService: LoaderService, private activityCategoryProvider: ActivityCategoryProvider,
               private difficultyLevelProvider: DifficultyLevelProvider, private http: Http,
-              private appStorage: AppStorageProvider, private alertProvider: AlertProvider, private platform: Platform) {
+              private appStorage: AppStorageProvider, public statusBar: StatusBar,
+              private alertProvider: AlertProvider, private platform: Platform) {
+
+    if (platform.is('android')) {
+      statusBar.overlaysWebView(false);
+      statusBar.backgroundColorByHexString("#3f51b5");
+      statusBar.styleBlackOpaque();
+    } else {
+      statusBar.overlaysWebView(true);
+      statusBar.styleDefault();
+    }
 
     // this.loaderService.showLoader();
 
