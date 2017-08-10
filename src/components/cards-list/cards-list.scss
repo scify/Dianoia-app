@@ -8,4 +8,8 @@ cards-list {
     margin: 12px;
     font-style: italic;
   }
+
+  .label-ios .item-ios .item-inner {
+  	background-image: none !important;
+  }
 }

@@ -34,11 +34,12 @@
         "@ionic/storage": "2.0.1",
         "cordova-android": "^6.2.3",
         "cordova-browser": "^4.1.0",
+        "cordova-ios": "^4.4.0",
         "cordova-plugin-app-event": "file:node_modules/cordova-plugin-app-event",
         "cordova-plugin-console": "^1.0.7",
         "cordova-plugin-crosswalk-webview": "^2.3.0",
         "cordova-plugin-device": "^1.1.6",
-        "cordova-plugin-google-analytics": "^1.8.2",
+        "cordova-plugin-google-analytics": "^1.8.3",
         "cordova-plugin-inappbrowser": "^1.7.1",
         "cordova-plugin-nativestorage": "^2.2.2",
         "cordova-plugin-printer": "git+https://github.com/katzer/cordova-plugin-printer.git",
@@ -103,7 +104,8 @@
         },
         "platforms": [
             "android",
-            "browser"
+            "browser",
+            "ios"
         ]
     }
 }
