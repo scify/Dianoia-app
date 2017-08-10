@@ -59,7 +59,7 @@ export class MyApp {
 
       if (platform.is('android')) {
         statusBar.overlaysWebView(false);
-        statusBar.backgroundColorByHexString("#3f51b5");
+        statusBar.backgroundColorByHexString("#002984");
         statusBar.styleBlackOpaque();
       } else {
         statusBar.overlaysWebView(true);
@@ -78,18 +78,19 @@ export class MyApp {
       if(platform.is('cordova')) {
         this.localNotifications.scheduleNextNotification();
         this.setUpGoogleAnalytics();
-      }
 
-      this.push.register().then((t: PushToken) => {
-        return this.push.saveToken(t);
-      }).then((t: PushToken) => {
-        console.log('Token saved:', t.token);
-      });
 
-      this.push.rx.notification()
-        .subscribe((msg) => {
-          //alert(msg.title + ': ' + msg.text);
+        this.push.register().then((t: PushToken) => {
+          return this.push.saveToken(t);
+        }).then((t: PushToken) => {
+          console.log('Token saved:', t.token);
         });
+
+        this.push.rx.notification()
+          .subscribe((msg) => {
+            //alert(msg.title + ': ' + msg.text);
+          });
+      }
     });
 
 

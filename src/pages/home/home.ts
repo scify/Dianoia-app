@@ -31,7 +31,7 @@ export class HomePage {
 
     if (platform.is('android')) {
       statusBar.overlaysWebView(false);
-      statusBar.backgroundColorByHexString("#3f51b5");
+      statusBar.backgroundColorByHexString("#002984");
       statusBar.styleBlackOpaque();
     } else {
       statusBar.overlaysWebView(true);
