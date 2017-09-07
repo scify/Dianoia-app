@@ -273,5 +273,16 @@
     "instructions":[],
     "link": "http://go.scify.gr/dianoia12",
     "difficulty_level_id": "difficulty_level_1"
+  },
+  {
+    "id": "activity_26",
+    "title":"\"Η γιορτή έκπληξη\"",
+    "description": "Όλη η μικρή παρέα ξέρει ότι σε λίγο η Αντωνία θα έχει τα γενέθλια των 70 χρόνων της. Έπεσε λοιπόν η ιδέα να διοργανώσετε μια μικρή γιορτή έκπληξη...",
+    "full_text": "",
+    "video_url":"",
+    "img_url":"story_2.jpg",
+    "instructions":[],
+    "link": "http://go.scify.gr/dianoia13",
+    "difficulty_level_id": "difficulty_level_1"
   }
 ]

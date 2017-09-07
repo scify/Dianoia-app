@@ -16,7 +16,7 @@
     "parent_category_id": "stories",
     "subcategories": [],
     "is_root": true,
-    "activities": ["activity_25"]
+    "activities": ["activity_25", "activity_26"]
   },
   {
     "parent_category_id": "focus_activities",
