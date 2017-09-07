@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import {IonicPage, NavController, NavParams, Platform, ViewController} from 'ionic-angular';
 import {ActivityProvider} from "../../providers/activity/activity";
 import { InAppBrowser } from '@ionic-native/in-app-browser';
-import { Printer, PrintOptions } from '@ionic-native/printer';
 import {AlertProvider} from "../../providers/alert/alert";
 import {SocialSharing} from "@ionic-native/social-sharing";
 import {NotificationProvider} from "../../providers/notification/notification";
@@ -25,8 +24,7 @@ export class ActivityPage {
   activityUniqueId: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-              private activityProvider: ActivityProvider, private iab: InAppBrowser, private platform: Platform,
-              private printer: Printer, private alert: AlertProvider, private socialSharing: SocialSharing,
+              private activityProvider: ActivityProvider, private iab: InAppBrowser, private platform: Platform, private alert: AlertProvider, private socialSharing: SocialSharing,
               private notificationProvider: NotificationProvider, private viewCtrl: ViewController) {
     let activityObj = this.navParams.get("activity");
     console.log("activityObj", activityObj);
@@ -114,50 +112,6 @@ export class ActivityPage {
     this.iab.create(url);
   }
 
-  print() {
-    console.log("checking for printer");
-    this.printer.isAvailable().then(isAvailable => {
-      console.log("isAvailable", isAvailable);
-      if(isAvailable) {
-        this.pickPrinter();
-      } else {
-        this.printerNotAvailable();
-      }
-    });
-  }
-
-  pickPrinter() {
-    console.log("pickPrinter");
-    this.printer.pick().then(result => {
-      if(result !== null)
-        this.alert.displayToast("Printing option selected");
-    });
-  }
-
-  printerNotAvailable() {
-    console.log("printer not available");
-    this.alert.textDialog("Printer", "Δεν βρέθηκε εκτυπωτής στο τοπικό δίκτυο");
-  }
-
-  printSuccess() {
-    console.log("document sent to printer");
-  }
-
-  printError() {
-    console.log("print error");
-    this.alert.textDialog("Printer error", "Συνέβη ένα σφάλμα κατά την εκτύπωση");
-  }
-
-  printActivityDoc() {
-    console.log("ready to print");
-    let options: PrintOptions = {
-      name: this.activity.title,
-      duplex: true,
-      landscape: false,
-      grayscale: true
-    };
-    this.printer.print(this.activity.title, options).then(this.printSuccess, this.printError);
-  }
 
   private share(activity) {
     var options = {
