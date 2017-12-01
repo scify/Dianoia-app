@@ -14,8 +14,8 @@ This project was built using the following versions of nodejs and npm:
 $ node -v
 v7.10.0
 
-$ node -v
-v7.10.0
+$ npm -v
+4.2.0
 
 ```
 
