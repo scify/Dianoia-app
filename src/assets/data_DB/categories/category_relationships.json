@@ -22,7 +22,7 @@
     "parent_category_id": "focus_activities",
     "subcategories": [],
     "is_root": false,
-    "activities": ["activity_7", "activity_8", "activity_9"]
+    "activities": ["activity_7", "activity_8", "activity_9", "activity_28"]
   },
   {
     "parent_category_id": "memory_activities",
@@ -34,7 +34,7 @@
     "parent_category_id": "think_activities",
     "subcategories": [],
     "is_root": false,
-    "activities": ["activity_10", "activity_11"]
+    "activities": ["activity_10", "activity_11", "activity_27"]
   },
   {
     "parent_category_id": "executive_activities",

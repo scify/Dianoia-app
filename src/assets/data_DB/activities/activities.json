@@ -284,5 +284,27 @@
     "instructions":[],
     "link": "http://go.scify.gr/dianoia13",
     "difficulty_level_id": "difficulty_level_1"
+  },
+  {
+    "id": "activity_27",
+    "title":"Η γλώσσα πάει ροδάνι",
+    "description": "Βρείτε 10 λέξεις οι οποίες να ξεκινούν με το πρόθεμα που σας δίνεται κάθε φορά και έπειτα δημιουργείστε ολοκληρωμένες προτάσεις.",
+    "full_text": "",
+    "video_url":"",
+    "img_url":"",
+    "instructions":[],
+    "link": "http://go.scify.gr/dianoia14",
+    "difficulty_level_id": "difficulty_level_2"
+  },
+  {
+    "id": "activity_28",
+    "title":"Διορθώστε το λάθος I",
+    "description": "Από τις παρακάτω λέξεις διαγράψτε όσες έχουν γραφτεί λάθος και ξαναγράψτε τες δίπλα σωστά.",
+    "full_text": "",
+    "video_url":"",
+    "img_url":"",
+    "instructions":[],
+    "link": "http://go.scify.gr/dianoia15",
+    "difficulty_level_id": "difficulty_level_1"
   }
 ]
