@@ -51,7 +51,8 @@ export class HomePage {
     this.buttons = [
       {id: "basic_info", title: 'Ας μάθουμε τα βασικά', subtitle: "Τι είναι - Σκοπός - Αξία", component: "BasicInfoPage"},
       {id: "mental_activities", title: 'Εκτυπώστε νοητικές ασκήσεις', subtitle: "Ασκήσεις με μολύβι και χαρτί", component: "InfoListPage", pageCode: "page_goal", pageFile: "pages/goal.json"},
-      {id: "common_activities", title: 'Βρείτε δημιουργικές δραστηριότητες', subtitle: "Ιδέες για να περάσετε δημιουργικό χρόνο μαζί", component: "InfoListPage", pageCode: "page_value", pageFile: "pages/value.json"}
+      {id: "common_activities", title: 'Βρείτε δημιουργικές δραστηριότητες', subtitle: "Ιδέες για να περάσετε δημιουργικό χρόνο μαζί", component: "InfoListPage", pageCode: "page_value", pageFile: "pages/value.json"},
+      {id: "stories", title: 'Λέμε ιστορίες', subtitle: "Δημιουργικές και διασκεδασικές ιστορίες!"}
     ];
 
     // this.appStorage.get('app_installed').then(data => {
@@ -137,6 +138,10 @@ export class HomePage {
       case "common_activities":
         this.loaderService.showLoader();
         this.getDifficultyLevelsForCategoryAndLoadPage("common_activities");
+        break;
+      case "stories":
+        this.loaderService.showLoader();
+        this.getDifficultyLevelsForCategoryAndLoadPage("stories");
         break;
     }
   }
