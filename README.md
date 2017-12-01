@@ -6,15 +6,30 @@
 </p>
 <br>
 
-### Non-pharmaceutical activities for people with dementia.
+## Non-pharmaceutical activities for people with dementia.
 
+This project was built using the following versions of nodejs and npm:
+
+```$xslt
+$ node -v
+v7.10.0
+
+$ node -v
+v7.10.0
+
+```
+
+It is very easy to install multiple versions of nodejs and npm, by using [Node Version Manager (nvm)](https://github.com/creationix/nvm).
+
+##Install project dependencies:
 
 ```bash
-$ sudo npm install -g ionic cordova
+$ npm install -g ionic cordova
 $ npm install
 $ ionic serve
 ```
 
+##Execution
 Then, to run it, cd into `dianoia-app` and run:
 
 ```bash
