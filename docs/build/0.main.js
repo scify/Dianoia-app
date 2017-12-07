@@ -1,15 +1,15 @@
 webpackJsonp([0],{
 
-/***/ 288:
+/***/ 849:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home__ = __webpack_require__(303);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_cards_list_cards_list_module__ = __webpack_require__(295);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_buttons_list_buttons_list_module__ = __webpack_require__(293);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home__ = __webpack_require__(864);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_cards_list_cards_list_module__ = __webpack_require__(856);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_buttons_list_buttons_list_module__ = __webpack_require__(854);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomePageModule", function() { return HomePageModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -41,13 +41,13 @@ HomePageModule = __decorate([
 
 /***/ }),
 
-/***/ 293:
+/***/ 854:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__buttons_list__ = __webpack_require__(294);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__buttons_list__ = __webpack_require__(855);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ButtonsListComponentModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -81,11 +81,11 @@ ButtonsListComponentModule = __decorate([
 
 /***/ }),
 
-/***/ 294:
+/***/ 855:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ButtonsListComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -131,13 +131,13 @@ ButtonsListComponent = __decorate([
 
 /***/ }),
 
-/***/ 295:
+/***/ 856:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cards_list__ = __webpack_require__(296);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cards_list__ = __webpack_require__(857);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CardsListComponentModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -171,11 +171,11 @@ CardsListComponentModule = __decorate([
 
 /***/ }),
 
-/***/ 296:
+/***/ 857:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CardsListComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -229,19 +229,20 @@ CardsListComponent = __decorate([
 
 /***/ }),
 
-/***/ 303:
+/***/ 864:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_activity_activity__ = __webpack_require__(104);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_loader_service_loader_service__ = __webpack_require__(105);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_activity_category_activity_category__ = __webpack_require__(106);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_difficulty_level_difficulty_level__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_http__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_app_storage_app_storage__ = __webpack_require__(35);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_alert_alert__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_activity_activity__ = __webpack_require__(172);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_loader_service_loader_service__ = __webpack_require__(173);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_activity_category_activity_category__ = __webpack_require__(174);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_difficulty_level_difficulty_level__ = __webpack_require__(176);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_http__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_app_storage_app_storage__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_alert_alert__ = __webpack_require__(175);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_status_bar__ = __webpack_require__(178);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -262,10 +263,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var HomePage = (function () {
-    function HomePage(navCtrl, activityProvider, loaderService, activityCategoryProvider, difficultyLevelProvider, http, appStorage, alertProvider, platform) {
-        // this.loaderService.showLoader();
-        var _this = this;
+    function HomePage(navCtrl, activityProvider, loaderService, activityCategoryProvider, difficultyLevelProvider, http, appStorage, statusBar, alertProvider, platform) {
         this.navCtrl = navCtrl;
         this.activityProvider = activityProvider;
         this.loaderService = loaderService;
@@ -273,10 +273,21 @@ var HomePage = (function () {
         this.difficultyLevelProvider = difficultyLevelProvider;
         this.http = http;
         this.appStorage = appStorage;
+        this.statusBar = statusBar;
         this.alertProvider = alertProvider;
         this.platform = platform;
         this.tab1Root = "RandomActivitiesPage";
         this.tab2Root = "RandomActivitiesPage";
+        if (platform.is('android')) {
+            statusBar.overlaysWebView(false);
+            statusBar.backgroundColorByHexString("#002984");
+            statusBar.styleBlackOpaque();
+        }
+        else {
+            statusBar.overlaysWebView(true);
+            statusBar.styleDefault();
+        }
+        // this.loaderService.showLoader();
         // this.activityCategoryProvider.getActivitiesForCategory("common_activities").subscribe(activityIds => {
         //   console.log(activityIds);
         //   this.activityProvider.getActivitiesByIds(this.shuffle(activityIds)).subscribe(activities => {
@@ -287,15 +298,17 @@ var HomePage = (function () {
         this.buttons = [
             { id: "basic_info", title: 'Ας μάθουμε τα βασικά', subtitle: "Τι είναι - Σκοπός - Αξία", component: "BasicInfoPage" },
             { id: "mental_activities", title: 'Εκτυπώστε νοητικές ασκήσεις', subtitle: "Ασκήσεις με μολύβι και χαρτί", component: "InfoListPage", pageCode: "page_goal", pageFile: "pages/goal.json" },
-            { id: "common_activities", title: 'Βρείτε δημιουργικές δραστηριότητες', subtitle: "Ιδέες για να περάσετε δημιουργικό χρόνο μαζί", component: "InfoListPage", pageCode: "page_value", pageFile: "pages/value.json" }
+            { id: "common_activities", title: 'Βρείτε δημιουργικές δραστηριότητες', subtitle: "Ιδέες για να περάσετε δημιουργικό χρόνο μαζί", component: "InfoListPage", pageCode: "page_value", pageFile: "pages/value.json" },
+            { id: "stories", title: 'Λέμε ιστορίες', subtitle: "Δημιουργικές και διασκεδασικές ιστορίες!" }
         ];
-        this.appStorage.get('app_installed').then(function (data) {
-            var dataInstalled = JSON.parse(data);
-            if (dataInstalled) {
-                _this.checkForAnnouncement();
-            }
-            _this.appStorage.set('app_installed', true);
-        });
+        // this.appStorage.get('app_installed').then(data => {
+        //   let dataInstalled = JSON.parse(data);
+        //   if(dataInstalled) {
+        //     this.checkForAnnouncement();
+        //   }
+        //   this.appStorage.set('app_installed', true);
+        // });
+        this.checkForAnnouncement();
     }
     HomePage.prototype.checkForAnnouncement = function () {
         var _this = this;
@@ -366,6 +379,10 @@ var HomePage = (function () {
                 this.loaderService.showLoader();
                 this.getDifficultyLevelsForCategoryAndLoadPage("common_activities");
                 break;
+            case "stories":
+                this.loaderService.showLoader();
+                this.getDifficultyLevelsForCategoryAndLoadPage("stories");
+                break;
         }
     };
     HomePage.prototype.getDifficultyLevelsForCategoryAndLoadPage = function (categoryId) {
@@ -404,7 +421,8 @@ HomePage = __decorate([
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__providers_activity_activity__["a" /* ActivityProvider */],
         __WEBPACK_IMPORTED_MODULE_3__providers_loader_service_loader_service__["a" /* LoaderService */], __WEBPACK_IMPORTED_MODULE_4__providers_activity_category_activity_category__["a" /* ActivityCategoryProvider */],
         __WEBPACK_IMPORTED_MODULE_5__providers_difficulty_level_difficulty_level__["a" /* DifficultyLevelProvider */], __WEBPACK_IMPORTED_MODULE_6__angular_http__["b" /* Http */],
-        __WEBPACK_IMPORTED_MODULE_7__providers_app_storage_app_storage__["a" /* AppStorageProvider */], __WEBPACK_IMPORTED_MODULE_8__providers_alert_alert__["a" /* AlertProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Platform */]])
+        __WEBPACK_IMPORTED_MODULE_7__providers_app_storage_app_storage__["a" /* AppStorageProvider */], __WEBPACK_IMPORTED_MODULE_9__ionic_native_status_bar__["a" /* StatusBar */],
+        __WEBPACK_IMPORTED_MODULE_8__providers_alert_alert__["a" /* AlertProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Platform */]])
 ], HomePage);
 
 //# sourceMappingURL=home.js.map

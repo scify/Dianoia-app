@@ -27091,6 +27091,10 @@ cards-list .title {
   font-style: italic;
 }
 
+cards-list .label-ios .item-ios .item-inner {
+  background-image: none !important;
+}
+
 page-about .basicInfoContainer {
   height: 30%;
 }
@@ -27277,10 +27281,8 @@ page-random-activities .scroll-content {
 
 page-statistics .value {
   color: #488aff;
-  font-size: x-large;
-  margin: 0;
   position: relative;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
+  font-size: 22px;
+  margin-top: 13px;
+  margin-bottom: 13px;
 }

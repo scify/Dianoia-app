@@ -273,5 +273,75 @@
     "instructions":[],
     "link": "http://go.scify.gr/dianoia12",
     "difficulty_level_id": "difficulty_level_1"
+  },
+  {
+    "id": "activity_26",
+    "title":"\"Η γιορτή έκπληξη\"",
+    "description": "Όλη η μικρή παρέα ξέρει ότι σε λίγο η Αντωνία θα έχει τα γενέθλια των 70 χρόνων της. Έπεσε λοιπόν η ιδέα να διοργανώσετε μια μικρή γιορτή έκπληξη...",
+    "full_text": "",
+    "video_url":"",
+    "img_url":"story_2.jpg",
+    "instructions":[],
+    "link": "http://go.scify.gr/dianoia13",
+    "difficulty_level_id": "difficulty_level_1",
+    "help_link": "http://go.scify.gr/dianoia17"
+  },
+  {
+    "id": "activity_27",
+    "title":"Η γλώσσα πάει ροδάνι",
+    "description": "Βρείτε 10 λέξεις οι οποίες να ξεκινούν με το πρόθεμα που σας δίνεται κάθε φορά και έπειτα δημιουργείστε ολοκληρωμένες προτάσεις.",
+    "full_text": "",
+    "video_url":"",
+    "img_url":"",
+    "instructions":[],
+    "link": "http://go.scify.gr/dianoia14",
+    "difficulty_level_id": "difficulty_level_2"
+  },
+  {
+    "id": "activity_28",
+    "title":"Διορθώστε το λάθος I",
+    "description": "Από τις παρακάτω λέξεις διαγράψτε όσες έχουν γραφτεί λάθος και ξαναγράψτε τες δίπλα σωστά.",
+    "full_text": "",
+    "video_url":"",
+    "img_url":"",
+    "instructions":[],
+    "link": "http://go.scify.gr/dianoia15",
+    "difficulty_level_id": "difficulty_level_1"
+  },
+  {
+    "id": "activity_29",
+    "title":"\"Στην αυλή της Λαμπρινής\"",
+    "description": "Η Λαμπρινή από τη διπλανή παλιά μονοκατοικία, μας καλεί συχνά στη μικρή αυλή της. Πώς στο καλό έχει καταφέρει να χωρέσει όλα αυτά τα λουλούδια μαζί;",
+    "full_text": "",
+    "video_url":"",
+    "img_url":"auli_lamprinis.jpg",
+    "instructions":[],
+    "link": "http://go.scify.gr/dianoia16",
+    "difficulty_level_id": "difficulty_level_1",
+    "help_link": "http://go.scify.gr/dianoia18"
+  },
+  {
+    "id": "activity_30",
+    "title": "\"Περήφανη για τα εγγόνια\"",
+    "description": "Έξι εγγονάκια έχει η Λαμπρινή, ζωή νά 'χουν. Τα συναντάμε και εμείς αρκετά συχνά, τόσο που μας υπολογίζουν και εμάς για παπούδες και γιαγιάδες τους!",
+    "full_text": "",
+    "video_url": "",
+    "img_url": "auli_lamprinis.jpg",
+    "instructions": [],
+    "link": "http://go.scify.gr/dianoia19",
+    "difficulty_level_id": "difficulty_level_1",
+    "help_link": "http://go.scify.gr/dianoia20"
+  },
+  {
+    "id": "activity_31",
+    "title": "\"Ο κρυφός παραμυθάς\"",
+    "description": "Ο Νικόλας, ο δάσκαλος, που τον ξέραμε για λιγομίλητο, φαίνεται πως έχει και μια πολύ διαφορετική πλευρά. Εκείνη την ανοιξιάτικη Κυριακή μας εξέπληξε όλους!",
+    "full_text": "",
+    "video_url": "",
+    "img_url": "auli_lamprinis.jpg",
+    "instructions": [],
+    "link": "http://go.scify.gr/dianoia21",
+    "difficulty_level_id": "difficulty_level_1",
+    "help_link": "http://go.scify.gr/dianoia22"
   }
 ]

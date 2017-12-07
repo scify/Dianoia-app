@@ -85,12 +85,6 @@ module.exports = [
         "runs": true
     },
     {
-        "file": "plugins/es6-promise-plugin/www/promise.js",
-        "id": "es6-promise-plugin.Promise",
-        "pluginId": "es6-promise-plugin",
-        "runs": true
-    },
-    {
         "file": "plugins/cordova-plugin-x-socialsharing/www/SocialSharing.js",
         "id": "cordova-plugin-x-socialsharing.SocialSharing",
         "pluginId": "cordova-plugin-x-socialsharing",
@@ -169,12 +163,33 @@ module.exports = [
         "id": "cordova-plugin-google-analytics.UniversalAnalyticsProxy",
         "pluginId": "cordova-plugin-google-analytics",
         "runs": true
+    },
+    {
+        "file": "plugins/phonegap-plugin-push/www/push.js",
+        "id": "phonegap-plugin-push.PushNotification",
+        "pluginId": "phonegap-plugin-push",
+        "clobbers": [
+            "PushNotification"
+        ]
+    },
+    {
+        "file": "plugins/phonegap-plugin-push/www/browser/push.js",
+        "id": "phonegap-plugin-push.BrowserPush",
+        "pluginId": "phonegap-plugin-push",
+        "clobbers": [
+            "PushNotification"
+        ]
+    },
+    {
+        "file": "plugins/es6-promise-plugin/www/promise.js",
+        "id": "es6-promise-plugin.Promise",
+        "pluginId": "es6-promise-plugin",
+        "runs": true
     }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
-    "cordova-plugin-app-event": "1.2.0",
     "cordova-plugin-console": "1.0.7",
     "cordova-plugin-device": "1.1.6",
     "cordova-plugin-inappbrowser": "1.7.1",
@@ -183,13 +198,16 @@ module.exports.metadata =
     "cordova-plugin-splashscreen": "4.0.3",
     "cordova-plugin-statusbar": "2.2.3",
     "cordova-plugin-whitelist": "1.3.2",
-    "es6-promise-plugin": "4.1.0",
     "cordova-plugin-x-socialsharing": "5.1.8",
     "cordova-plugin-x-toast": "2.6.0",
     "cordova-sqlite-storage": "2.0.4",
     "de.appplant.cordova.plugin.local-notification": "0.8.5",
     "ionic-plugin-keyboard": "2.2.1",
-    "cordova-plugin-google-analytics": "1.8.2"
+    "cordova-plugin-google-analytics": "1.8.2",
+    "phonegap-plugin-push": "1.10.5",
+    "cordova-plugin-crosswalk-webview": "2.3.0",
+    "cordova-plugin-app-event": "1.2.0",
+    "es6-promise-plugin": "4.1.0"
 }
 // BOTTOM OF METADATA
 });
