@@ -93,6 +93,19 @@
           <div>Μοιραστειτε και εκτυπωστε </div>
         </button>
       </ion-item>
+      <ion-item text-wrap *ngIf="activity?.help_link">
+        <a *ngIf="activity?.help_link && platform.is('core')" href="{{ activity.help_link }}" target="_blank">
+          <button ion-button icon-left clear small>
+            <ion-icon name="ios-help-buoy"></ion-icon>
+            <div>Περισσοτερες επιλογες και βοηθεια</div>
+          </button>
+        </a>
+        <button *ngIf="activity?.help_link && !platform.is('core')" ion-button icon-left clear small
+                (click)="openLink(activity.help_link)">
+          <ion-icon name="ios-help-buoy"></ion-icon>
+          <div>Περισσοτερες επιλογες και βοηθεια</div>
+        </button>
+      </ion-item>
       <ion-item text-wrap>
         <button style="margin-bottom: 10px" *ngIf="activity?.id" clear ion-button icon-left small [disabled]="dailyActivityCompleted"
                 (click)="activityDoneForToday()">
