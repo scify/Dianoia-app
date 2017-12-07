@@ -283,7 +283,8 @@
     "img_url":"story_2.jpg",
     "instructions":[],
     "link": "http://go.scify.gr/dianoia13",
-    "difficulty_level_id": "difficulty_level_1"
+    "difficulty_level_id": "difficulty_level_1",
+    "help_link": "http://go.scify.gr/dianoia17"
   },
   {
     "id": "activity_27",
@@ -306,5 +307,41 @@
     "instructions":[],
     "link": "http://go.scify.gr/dianoia15",
     "difficulty_level_id": "difficulty_level_1"
+  },
+  {
+    "id": "activity_29",
+    "title":"\"Στην αυλή της Λαμπρινής\"",
+    "description": "Η Λαμπρινή από τη διπλανή παλιά μονοκατοικία, μας καλεί συχνά στη μικρή αυλή της. Πώς στο καλό έχει καταφέρει να χωρέσει όλα αυτά τα λουλούδια μαζί;",
+    "full_text": "",
+    "video_url":"",
+    "img_url":"auli_lamprinis.jpg",
+    "instructions":[],
+    "link": "http://go.scify.gr/dianoia16",
+    "difficulty_level_id": "difficulty_level_1",
+    "help_link": "http://go.scify.gr/dianoia18"
+  },
+  {
+    "id": "activity_30",
+    "title": "\"Περήφανη για τα εγγόνια\"",
+    "description": "Έξι εγγονάκια έχει η Λαμπρινή, ζωή νά 'χουν. Τα συναντάμε και εμείς αρκετά συχνά, τόσο που μας υπολογίζουν και εμάς για παπούδες και γιαγιάδες τους!",
+    "full_text": "",
+    "video_url": "",
+    "img_url": "auli_lamprinis.jpg",
+    "instructions": [],
+    "link": "http://go.scify.gr/dianoia19",
+    "difficulty_level_id": "difficulty_level_1",
+    "help_link": "http://go.scify.gr/dianoia20"
+  },
+  {
+    "id": "activity_31",
+    "title": "\"Ο κρυφός παραμυθάς\"",
+    "description": "Ο Νικόλας, ο δάσκαλος, που τον ξέραμε για λιγομίλητο, φαίνεται πως έχει και μια πολύ διαφορετική πλευρά. Εκείνη την ανοιξιάτικη Κυριακή μας εξέπληξε όλους!",
+    "full_text": "",
+    "video_url": "",
+    "img_url": "auli_lamprinis.jpg",
+    "instructions": [],
+    "link": "http://go.scify.gr/dianoia21",
+    "difficulty_level_id": "difficulty_level_1",
+    "help_link": "http://go.scify.gr/dianoia22"
   }
 ]
