@@ -338,10 +338,54 @@
     "description": "Ο Νικόλας, ο δάσκαλος, που τον ξέραμε για λιγομίλητο, φαίνεται πως έχει και μια πολύ διαφορετική πλευρά. Εκείνη την ανοιξιάτικη Κυριακή μας εξέπληξε όλους!",
     "full_text": "",
     "video_url": "",
-    "img_url": "auli_lamprinis.jpg",
+    "img_url": "storyteller_cover.jpg",
     "instructions": [],
     "link": "http://go.scify.gr/dianoia21",
     "difficulty_level_id": "difficulty_level_1",
     "help_link": "http://go.scify.gr/dianoia22"
+  },
+  {
+    "id": "activity_32",
+    "title": "Εναλλαγές",
+    "description": "Βρείτε ζώα και φυτά για κάθε γράμμα της αλφαβήτου, εναλλάσσοντας τα.",
+    "full_text": "",
+    "video_url": "",
+    "img_url": "",
+    "instructions": [],
+    "link": "http://go.scify.gr/dianoia23",
+    "difficulty_level_id": "difficulty_level_1"
+  },
+  {
+    "id": "activity_33",
+    "title":"Διορθώστε το λάθος (σημαντικής  δυσκολίας)",
+    "description": "Κάτι δεν πάει καλά με τις παρακάτω λέξεις. Έχουν κάποιο τυπογραφικό λάθος. Διορθώστε το, ώστε να βγαίνει νόημα.",
+    "full_text": "",
+    "video_url":"",
+    "img_url":"",
+    "instructions":[],
+    "link": "http://go.scify.gr/dianoia24",
+    "difficulty_level_id": "difficulty_level_2"
+  },
+  {
+    "id": "activity_34",
+    "title": "Πιθανοί λόγοι",
+    "description": "Αναφέρετε πιθανές αιτίες που μπορεί να οδήγησαν στις παρακάτω συνθήκες",
+    "full_text": "",
+    "video_url": "",
+    "img_url": "",
+    "instructions": [],
+    "link": "http://go.scify.gr/dianoia25",
+    "difficulty_level_id": "difficulty_level_1"
+  },
+  {
+    "id": "activity_35",
+    "title":"Αλφαβητική σειρά",
+    "description": "Βάλτε σε αλφαβητική σειρά τις παρακάτω λέξεις.",
+    "full_text": "",
+    "video_url":"",
+    "img_url":"",
+    "instructions":[],
+    "link": "http://go.scify.gr/dianoia26",
+    "difficulty_level_id": "difficulty_level_2"
   }
 ]
