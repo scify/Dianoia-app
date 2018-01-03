@@ -34,12 +34,12 @@
     "parent_category_id": "think_activities",
     "subcategories": [],
     "is_root": false,
-    "activities": ["activity_10", "activity_11", "activity_27"]
+    "activities": ["activity_10", "activity_11", "activity_27", "activity_34"]
   },
   {
     "parent_category_id": "executive_activities",
     "subcategories": [],
     "is_root": false,
-    "activities": ["activity_4", "activity_5", "activity_6", "activity_32"]
+    "activities": ["activity_4", "activity_5", "activity_6", "activity_32", "activity_35"]
   }
 ]
