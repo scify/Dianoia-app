@@ -6,6 +6,8 @@
 </p>
 <br>
 
+A demo of the app (in Greek) can be found [here](https://scify.github.io/Dianoia-app/#/home).
+
 ## Non-pharmaceutical activities for people with dementia.
 
 This project was built using the following versions of nodejs and npm:
