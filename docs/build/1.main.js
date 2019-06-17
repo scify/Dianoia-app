@@ -1,15 +1,15 @@
 webpackJsonp([1],{
 
-/***/ 847:
+/***/ 846:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__difficulty_levels__ = __webpack_require__(862);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_buttons_list_buttons_list_module__ = __webpack_require__(854);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_cards_list_cards_list_module__ = __webpack_require__(856);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__difficulty_levels__ = __webpack_require__(861);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_buttons_list_buttons_list_module__ = __webpack_require__(853);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_cards_list_cards_list_module__ = __webpack_require__(855);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DifficultyLevelsPageModule", function() { return DifficultyLevelsPageModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -47,13 +47,13 @@ DifficultyLevelsPageModule = __decorate([
 
 /***/ }),
 
-/***/ 854:
+/***/ 853:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__buttons_list__ = __webpack_require__(855);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__buttons_list__ = __webpack_require__(854);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ButtonsListComponentModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -87,7 +87,7 @@ ButtonsListComponentModule = __decorate([
 
 /***/ }),
 
-/***/ 855:
+/***/ 854:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -128,7 +128,7 @@ __decorate([
 ], ButtonsListComponent.prototype, "buttonClick", void 0);
 ButtonsListComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-        selector: 'buttons-list',template:/*ion-inline-start:"/home/pisaris/projects/dianoia-app/dianoia/src/components/buttons-list/buttons-list.html"*/'<!-- Generated template for the ButtonsListComponent component -->\n<div>\n  <div class="buttonsContainer">\n    <p *ngFor="let button of buttons">\n      <button [ngClass]="button.subtitle ? \'bigBtn\' : \'\'" mode="ios" ion-button full (click)="onButtonClick(button)">{{ button.title }} <div class="subtitle" *ngIf=\'button.subtitle\'>{{ button.subtitle }}</div></button>\n    </p>\n  </div>\n</div>\n\n'/*ion-inline-end:"/home/pisaris/projects/dianoia-app/dianoia/src/components/buttons-list/buttons-list.html"*/
+        selector: 'buttons-list',template:/*ion-inline-start:"/home/paul/projects/dianoia/Dianoia-app/src/components/buttons-list/buttons-list.html"*/'<!-- Generated template for the ButtonsListComponent component -->\n<div>\n  <div class="buttonsContainer">\n    <p *ngFor="let button of buttons">\n      <button [ngClass]="button.subtitle ? \'bigBtn\' : \'\'" mode="ios" ion-button full (click)="onButtonClick(button)">{{ button.title }} <div class="subtitle" *ngIf=\'button.subtitle\'>{{ button.subtitle }}</div></button>\n    </p>\n  </div>\n</div>\n\n'/*ion-inline-end:"/home/paul/projects/dianoia/Dianoia-app/src/components/buttons-list/buttons-list.html"*/
     }),
     __metadata("design:paramtypes", [])
 ], ButtonsListComponent);
@@ -137,13 +137,13 @@ ButtonsListComponent = __decorate([
 
 /***/ }),
 
-/***/ 856:
+/***/ 855:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cards_list__ = __webpack_require__(857);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cards_list__ = __webpack_require__(856);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CardsListComponentModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -177,7 +177,7 @@ CardsListComponentModule = __decorate([
 
 /***/ }),
 
-/***/ 857:
+/***/ 856:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -226,7 +226,7 @@ __decorate([
 ], CardsListComponent.prototype, "cardClick", void 0);
 CardsListComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-        selector: 'cards-list',template:/*ion-inline-start:"/home/pisaris/projects/dianoia-app/dianoia/src/components/cards-list/cards-list.html"*/'\n<div class="title">{{ getCardsListTitle() }}</div>\n\n<ion-card mode="ios" *ngFor="let card of cards" (click)="onCardClick(card)">\n  <button ion-item no-padding>\n    <ion-item no-padding style="background: rgba(0,0,0,0);">\n      <ion-card-header text-wrap>\n        {{ card.title }}\n      </ion-card-header>\n      <ion-card-content>\n        <p>\n          {{ card.description }}\n        </p>\n      </ion-card-content>\n    </ion-item>\n  </button>\n\n</ion-card>\n'/*ion-inline-end:"/home/pisaris/projects/dianoia-app/dianoia/src/components/cards-list/cards-list.html"*/
+        selector: 'cards-list',template:/*ion-inline-start:"/home/paul/projects/dianoia/Dianoia-app/src/components/cards-list/cards-list.html"*/'\n<div class="title">{{ getCardsListTitle() }}</div>\n\n<ion-card mode="ios" *ngFor="let card of cards" (click)="onCardClick(card)">\n  <button ion-item no-padding>\n    <ion-item no-padding style="background: rgba(0,0,0,0);">\n      <ion-card-header text-wrap>\n        {{ card.title }}\n      </ion-card-header>\n      <ion-card-content>\n        <p>\n          {{ card.description }}\n        </p>\n      </ion-card-content>\n    </ion-item>\n  </button>\n\n</ion-card>\n'/*ion-inline-end:"/home/paul/projects/dianoia/Dianoia-app/src/components/cards-list/cards-list.html"*/
     }),
     __metadata("design:paramtypes", [])
 ], CardsListComponent);
@@ -235,7 +235,7 @@ CardsListComponent = __decorate([
 
 /***/ }),
 
-/***/ 862:
+/***/ 861:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -319,7 +319,7 @@ var DifficultyLevelsPage = (function () {
 DifficultyLevelsPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-        selector: 'page-difficulty-levels',template:/*ion-inline-start:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/difficulty-levels/difficulty-levels.html"*/'<!--\n  Generated template for the DifficultyLevelsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title> {{ getPageTitle() }}</ion-title>\n    <ion-buttons end>\n      <button (click)="goToHome()" class="homeBtn">\n        <ion-icon name="md-home"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n\n  <div padding *ngIf=\'levels?.length > 2\'>\n    <div class="description">Επιλέξτε επίπεδο δυσκολίας</div>\n    <buttons-list [buttons]="levels" (buttonClick)="selectLevel($event)"></buttons-list>\n  </div>\n\n  <div class="activitiesContainer">\n    <cards-list *ngIf=\'activities?.length > 0\' [cards]="activities" (cardClick)="selectActivity($event)"></cards-list>\n  </div>\n\n</ion-content>\n'/*ion-inline-end:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/difficulty-levels/difficulty-levels.html"*/,
+        selector: 'page-difficulty-levels',template:/*ion-inline-start:"/home/paul/projects/dianoia/Dianoia-app/src/pages/difficulty-levels/difficulty-levels.html"*/'<!--\n  Generated template for the DifficultyLevelsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title> {{ getPageTitle() }}</ion-title>\n    <ion-buttons end>\n      <button (click)="goToHome()" class="homeBtn">\n        <ion-icon name="md-home"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n\n  <div padding *ngIf=\'levels?.length > 2\'>\n    <div class="description">Επιλέξτε επίπεδο δυσκολίας</div>\n    <buttons-list [buttons]="levels" (buttonClick)="selectLevel($event)"></buttons-list>\n  </div>\n\n  <div class="activitiesContainer">\n    <cards-list *ngIf=\'activities?.length > 0\' [cards]="activities" (cardClick)="selectActivity($event)"></cards-list>\n  </div>\n\n</ion-content>\n'/*ion-inline-end:"/home/paul/projects/dianoia/Dianoia-app/src/pages/difficulty-levels/difficulty-levels.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
         __WEBPACK_IMPORTED_MODULE_2__providers_activity_category_activity_category__["a" /* ActivityCategoryProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_loader_service_loader_service__["a" /* LoaderService */]])

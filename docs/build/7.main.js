@@ -1,13 +1,13 @@
 webpackJsonp([7],{
 
-/***/ 851:
+/***/ 850:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__notifications__ = __webpack_require__(866);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__notifications__ = __webpack_require__(865);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NotificationsPageModule", function() { return NotificationsPageModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -41,13 +41,13 @@ NotificationsPageModule = __decorate([
 
 /***/ }),
 
-/***/ 866:
+/***/ 865:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_app_storage_app_storage__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_app_storage_app_storage__ = __webpack_require__(58);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_alert_alert__ = __webpack_require__(175);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_notification_notification__ = __webpack_require__(177);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NotificationsPage; });
@@ -120,7 +120,7 @@ var NotificationsPage = (function () {
 NotificationsPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-        selector: 'page-notifications',template:/*ion-inline-start:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/notifications/notifications.html"*/'<!--\n  Generated template for the NotificationsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Ρυθμίσεις ειδοποιήσεων</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <div *ngIf="platform.is(\'cordova\')">\n\n    <ion-list radio-group [(ngModel)]="selectedNotificationId">\n      <ion-list-header>\n        Να λαμβάνω ειδοποιήσεις για δραστηριότητες:\n      </ion-list-header>\n\n      <ion-item *ngFor="let notificationOption of notificationOptions">\n        <ion-label>{{ notificationOption.title }}</ion-label>\n        <ion-radio value="{{ notificationOption.id }}"></ion-radio>\n      </ion-item>\n\n    </ion-list>\n    <button large ion-button (click)="saveNotificationSettings()">Save</button>\n  </div>\n\n  <div *ngIf="!platform.is(\'cordova\')">\n    <h4>Αυτή η συσκευή δεν υποστηρίζει ειδοποιήσεις.</h4>\n  </div>\n\n</ion-content>\n'/*ion-inline-end:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/notifications/notifications.html"*/,
+        selector: 'page-notifications',template:/*ion-inline-start:"/home/paul/projects/dianoia/Dianoia-app/src/pages/notifications/notifications.html"*/'<!--\n  Generated template for the NotificationsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Ρυθμίσεις ειδοποιήσεων</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <div *ngIf="platform.is(\'cordova\')">\n\n    <ion-list radio-group [(ngModel)]="selectedNotificationId">\n      <ion-list-header>\n        Να λαμβάνω ειδοποιήσεις για δραστηριότητες:\n      </ion-list-header>\n\n      <ion-item *ngFor="let notificationOption of notificationOptions">\n        <ion-label>{{ notificationOption.title }}</ion-label>\n        <ion-radio value="{{ notificationOption.id }}"></ion-radio>\n      </ion-item>\n\n    </ion-list>\n    <button large ion-button (click)="saveNotificationSettings()">Save</button>\n  </div>\n\n  <div *ngIf="!platform.is(\'cordova\')">\n    <h4>Αυτή η συσκευή δεν υποστηρίζει ειδοποιήσεις.</h4>\n  </div>\n\n</ion-content>\n'/*ion-inline-end:"/home/paul/projects/dianoia/Dianoia-app/src/pages/notifications/notifications.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__providers_app_storage_app_storage__["a" /* AppStorageProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_alert_alert__["a" /* AlertProvider */], __WEBPACK_IMPORTED_MODULE_4__providers_notification_notification__["a" /* NotificationProvider */]])

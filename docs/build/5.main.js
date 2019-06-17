@@ -1,14 +1,14 @@
 webpackJsonp([5],{
 
-/***/ 844:
+/***/ 843:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__activity_categories__ = __webpack_require__(859);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_buttons_list_buttons_list_module__ = __webpack_require__(854);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__activity_categories__ = __webpack_require__(858);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_buttons_list_buttons_list_module__ = __webpack_require__(853);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TopActivityCategoriesPageModule", function() { return TopActivityCategoriesPageModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -44,13 +44,13 @@ TopActivityCategoriesPageModule = __decorate([
 
 /***/ }),
 
-/***/ 854:
+/***/ 853:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__buttons_list__ = __webpack_require__(855);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__buttons_list__ = __webpack_require__(854);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ButtonsListComponentModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -84,7 +84,7 @@ ButtonsListComponentModule = __decorate([
 
 /***/ }),
 
-/***/ 855:
+/***/ 854:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -125,7 +125,7 @@ __decorate([
 ], ButtonsListComponent.prototype, "buttonClick", void 0);
 ButtonsListComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-        selector: 'buttons-list',template:/*ion-inline-start:"/home/pisaris/projects/dianoia-app/dianoia/src/components/buttons-list/buttons-list.html"*/'<!-- Generated template for the ButtonsListComponent component -->\n<div>\n  <div class="buttonsContainer">\n    <p *ngFor="let button of buttons">\n      <button [ngClass]="button.subtitle ? \'bigBtn\' : \'\'" mode="ios" ion-button full (click)="onButtonClick(button)">{{ button.title }} <div class="subtitle" *ngIf=\'button.subtitle\'>{{ button.subtitle }}</div></button>\n    </p>\n  </div>\n</div>\n\n'/*ion-inline-end:"/home/pisaris/projects/dianoia-app/dianoia/src/components/buttons-list/buttons-list.html"*/
+        selector: 'buttons-list',template:/*ion-inline-start:"/home/paul/projects/dianoia/Dianoia-app/src/components/buttons-list/buttons-list.html"*/'<!-- Generated template for the ButtonsListComponent component -->\n<div>\n  <div class="buttonsContainer">\n    <p *ngFor="let button of buttons">\n      <button [ngClass]="button.subtitle ? \'bigBtn\' : \'\'" mode="ios" ion-button full (click)="onButtonClick(button)">{{ button.title }} <div class="subtitle" *ngIf=\'button.subtitle\'>{{ button.subtitle }}</div></button>\n    </p>\n  </div>\n</div>\n\n'/*ion-inline-end:"/home/paul/projects/dianoia/Dianoia-app/src/components/buttons-list/buttons-list.html"*/
     }),
     __metadata("design:paramtypes", [])
 ], ButtonsListComponent);
@@ -134,7 +134,7 @@ ButtonsListComponent = __decorate([
 
 /***/ }),
 
-/***/ 859:
+/***/ 858:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -257,7 +257,7 @@ var ActivityCategoriesPage = (function () {
 ActivityCategoriesPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-        selector: 'page-activity-categories',template:/*ion-inline-start:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/activity-categories/activity-categories.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{ getPageTitle() }}</ion-title>\n    <ion-buttons end>\n      <button (click)="goToHome()" class="homeBtn">\n        <ion-icon name="md-home"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <div class="description">Επιλέξτε μια κατηγορία</div>\n\n  <buttons-list *ngIf=\'categories?.length > 0\' [buttons]="categories" (buttonClick)="selectCategory($event)"></buttons-list>\n\n</ion-content>\n'/*ion-inline-end:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/activity-categories/activity-categories.html"*/,
+        selector: 'page-activity-categories',template:/*ion-inline-start:"/home/paul/projects/dianoia/Dianoia-app/src/pages/activity-categories/activity-categories.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{ getPageTitle() }}</ion-title>\n    <ion-buttons end>\n      <button (click)="goToHome()" class="homeBtn">\n        <ion-icon name="md-home"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <div class="description">Επιλέξτε μια κατηγορία</div>\n\n  <buttons-list *ngIf=\'categories?.length > 0\' [buttons]="categories" (buttonClick)="selectCategory($event)"></buttons-list>\n\n</ion-content>\n'/*ion-inline-end:"/home/paul/projects/dianoia/Dianoia-app/src/pages/activity-categories/activity-categories.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
         __WEBPACK_IMPORTED_MODULE_2__providers_activity_category_activity_category__["a" /* ActivityCategoryProvider */],

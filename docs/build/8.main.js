@@ -1,13 +1,13 @@
 webpackJsonp([8],{
 
-/***/ 848:
+/***/ 847:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__help__ = __webpack_require__(863);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__help__ = __webpack_require__(862);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HelpPageModule", function() { return HelpPageModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -41,7 +41,7 @@ HelpPageModule = __decorate([
 
 /***/ }),
 
-/***/ 863:
+/***/ 862:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -78,7 +78,7 @@ var HelpPage = (function () {
 HelpPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-        selector: 'page-help',template:/*ion-inline-start:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/help/help.html"*/'<!--\n  Generated template for the HelpPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Βοήθεια</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <div class="basicInfoContainer">\n    <div class="imgContainer">\n      <img src="assets/img/help.png">\n    </div>\n  </div>\n\n    <div class="description">\n      <b>Εκτυπώσετε τις Νοητικές Ασκήσεις</b>\n      Επιλέξτε την άσκηση που σας ενδιαφέρει και πατήστε “Μοιραστείτε και Εκτυπώστε”\n      Επιλέξτε όποια εφαρμογή σας βολεύει για να αποκτήσετε την άσκηση σε εκτυπώσιμη μορφή.\n      <br>Μια πολύ συνηθισμένη λύση είναι να τη στείλετε στον εαυτό σας με e-mail. Ανοίγοντας το mail από τον υπολογιστή σας, μπορείτε άμεσα να την εκτυπώσετε.\n      <br>\n      <br>\n      <b>Κρατήστε το ιστορικό των ασκήσεων</b>\n      Καταγράψτε πόσο συχνά ο άνθρωπός σας ασχολείται με νοητικές ασκήσεις! <br>Κρατάτε έτσι ένα πολύτιμο ημερολόγιο με σχετικά στατιστικά.\n      Μην ξεχνάτε, η συχνότητα της εξάσκησης και η ποιότητα της σχέσης είναι αυτό που μετράει.\n      <br>\n      <br>\n      Επιλέξτε την άσκηση με την οποία ασχολήθηκε και πατήστε το κουμπί "Έγινε σήμερα".\n      Αυτόματα, καταγράφεται στο ημερολόγιο.\n      Μπορείτε να δείτε το ιστορικό στην ενότητα “Ιστορικό”\n\n    </div>\n\n</ion-content>\n'/*ion-inline-end:"/home/pisaris/projects/dianoia-app/dianoia/src/pages/help/help.html"*/,
+        selector: 'page-help',template:/*ion-inline-start:"/home/paul/projects/dianoia/Dianoia-app/src/pages/help/help.html"*/'<!--\n  Generated template for the HelpPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Βοήθεια</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <div class="basicInfoContainer">\n    <div class="imgContainer">\n      <img src="assets/img/help.png">\n    </div>\n  </div>\n\n    <div class="description">\n      <b>Εκτυπώσετε τις Νοητικές Ασκήσεις</b>\n      Επιλέξτε την άσκηση που σας ενδιαφέρει και πατήστε “Μοιραστείτε και Εκτυπώστε”\n      Επιλέξτε όποια εφαρμογή σας βολεύει για να αποκτήσετε την άσκηση σε εκτυπώσιμη μορφή.\n      <br>Μια πολύ συνηθισμένη λύση είναι να τη στείλετε στον εαυτό σας με e-mail. Ανοίγοντας το mail από τον υπολογιστή σας, μπορείτε άμεσα να την εκτυπώσετε.\n      <br>\n      <br>\n      <b>Κρατήστε το ιστορικό των ασκήσεων</b>\n      Καταγράψτε πόσο συχνά ο άνθρωπός σας ασχολείται με νοητικές ασκήσεις! <br>Κρατάτε έτσι ένα πολύτιμο ημερολόγιο με σχετικά στατιστικά.\n      Μην ξεχνάτε, η συχνότητα της εξάσκησης και η ποιότητα της σχέσης είναι αυτό που μετράει.\n      <br>\n      <br>\n      Επιλέξτε την άσκηση με την οποία ασχολήθηκε και πατήστε το κουμπί "Έγινε σήμερα".\n      Αυτόματα, καταγράφεται στο ημερολόγιο.\n      Μπορείτε να δείτε το ιστορικό στην ενότητα “Ιστορικό”\n\n    </div>\n\n</ion-content>\n'/*ion-inline-end:"/home/paul/projects/dianoia/Dianoia-app/src/pages/help/help.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
 ], HelpPage);

@@ -16,13 +16,13 @@
     "parent_category_id": "stories",
     "subcategories": [],
     "is_root": true,
-    "activities": ["activity_25", "activity_26", "activity_29", "activity_30"]
+    "activities": ["activity_25", "activity_26", "activity_29", "activity_30", "activity_31"]
   },
   {
     "parent_category_id": "focus_activities",
     "subcategories": [],
     "is_root": false,
-    "activities": ["activity_7", "activity_8", "activity_9", "activity_28"]
+    "activities": ["activity_7", "activity_8", "activity_9", "activity_28", "activity_33"]
   },
   {
     "parent_category_id": "memory_activities",
@@ -34,12 +34,12 @@
     "parent_category_id": "think_activities",
     "subcategories": [],
     "is_root": false,
-    "activities": ["activity_10", "activity_11", "activity_27"]
+    "activities": ["activity_10", "activity_11", "activity_27", "activity_34"]
   },
   {
     "parent_category_id": "executive_activities",
     "subcategories": [],
     "is_root": false,
-    "activities": ["activity_4", "activity_5", "activity_6"]
+    "activities": ["activity_4", "activity_5", "activity_6", "activity_32", "activity_35"]
   }
 ]

@@ -12,10 +12,10 @@ This project was built using the following versions of nodejs and npm:
 
 ```$xslt
 $ node -v
-v7.10.0
+v10.16.0
 
 $ npm -v
-4.2.0
+6.9.0
 
 ```
 
@@ -24,7 +24,7 @@ It is very easy to install multiple versions of nodejs and npm, by using [Node V
 ## Install project dependencies:
 
 ```bash
-$ npm install -g ionic cordova
+$ npm install -g ionic@3.9.2 cordova@8.1.2
 $ cd dianoia-app
 $ npm install
 $ ionic serve
