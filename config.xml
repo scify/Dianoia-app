@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="org.scify.dianoia.app" version="1.2.11" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget android-versionCode="102116" id="org.scify.dianoia.app" version="1.2.13" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Dianoia</name>
     <description>Non-pharmaceutical activities for people with dementia.</description>
     <author email="info@scify.org" href="http://www.scify.gr/site/en/">SciFY Team</author>
@@ -30,6 +30,7 @@
     <platform name="android">
         <allow-intent href="market:*" />
         <preference name="loadUrlTimeoutValue" value="700000" />
+        <preference name="android-targetSdkVersion" value="28" />
         <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
         <icon density="mdpi" src="resources/android/icon/drawable-mdpi-icon.png" />
         <icon density="hdpi" src="resources/android/icon/drawable-hdpi-icon.png" />
