@@ -68,13 +68,6 @@ export class MyApp {
 
       this.localNotifications.listenForNotificationClicks();
 
-      // this.appStorage.get('notifications_scheduled').then(data => {
-      //   let notificationsScheduled = JSON.parse(data);
-      //   if(!notificationsScheduled && platform.is('cordova')) {
-      //     console.log("Notifications not scheduled. Scheduling...");
-      //     this.localNotifications.scheduleNextNotification();
-      //   }
-      // })
       if(platform.is('cordova')) {
         this.localNotifications.scheduleNextNotification();
         this.setUpGoogleAnalytics();
@@ -84,15 +77,16 @@ export class MyApp {
           return this.push.saveToken(t);
         }).then((t: PushToken) => {
           console.log('Token saved:', t.token);
-        });
+        }).catch(e => console.log('Error registering push', e));
 
         this.push.rx.notification()
           .subscribe((msg) => {
             console.log(msg.title + ': ' + msg.text);
+          }, error => {
+            console.log('Error push.rx.notification()', error)
           });
       }
     });
-
 
   }
 

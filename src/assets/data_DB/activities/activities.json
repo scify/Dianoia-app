@@ -387,5 +387,38 @@
     "instructions":[],
     "link": "http://go.scify.gr/dianoia26",
     "difficulty_level_id": "difficulty_level_2"
+  },
+  {
+    "id": "activity_36",
+    "title":"Συμπλήρωση προτάσεων",
+    "description": "Συμπληρώστε τις παρακάτω προτάσεις με τις κατάλληλες λέξεις, ώστε να έχουν νόημα.",
+    "full_text": "",
+    "video_url":"",
+    "img_url":"",
+    "instructions":[],
+    "link": "http://go.scify.gr/dianoia27",
+    "difficulty_level_id": "difficulty_level_1"
+  },
+  {
+    "id": "activity_37",
+    "title":"Εναλλαγές",
+    "description": "Βρείτε χώρες και πόλεις για κάθε γράμμα της αλφαβήτου, εναλλάσσοντας τα γράμματα.",
+    "full_text": "",
+    "video_url":"",
+    "img_url":"",
+    "instructions":[],
+    "link": "http://go.scify.gr/dianoia28",
+    "difficulty_level_id": "difficulty_level_1"
+  },
+  {
+    "id": "activity_38",
+    "title":"Διορθώστε το λάθος I",
+    "description": "Από τις παρακάτω λέξεις διαγράψτε όσες έχουν γραφτεί λάθος και ξαναγράψτε τες δίπλα σωστά.",
+    "full_text": "",
+    "video_url":"",
+    "img_url":"",
+    "instructions":[],
+    "link": "http://go.scify.gr/dianoia29",
+    "difficulty_level_id": "difficulty_level_1"
   }
 ]
