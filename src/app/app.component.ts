@@ -88,7 +88,7 @@ export class MyApp {
 
         this.push.rx.notification()
           .subscribe((msg) => {
-            //alert(msg.title + ': ' + msg.text);
+            console.log(msg.title + ': ' + msg.text);
           });
       }
     });
