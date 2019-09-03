@@ -21,6 +21,7 @@
         "@angular/platform-browser": "4.1.0",
         "@angular/platform-browser-dynamic": "4.1.0",
         "@ionic-native/core": "^3.10.3",
+        "@ionic-native/firebase-analytics": "^5.12.0",
         "@ionic-native/google-analytics": "^3.12.1",
         "@ionic-native/in-app-browser": "^3.10.3",
         "@ionic-native/local-notifications": "^3.12.1",
@@ -32,12 +33,12 @@
         "@ionic/cloud-angular": "^0.12.0",
         "@ionic/storage": "2.0.1",
         "cordova": "9.0.0",
-        "cordova-android": "7.1.4",
-        "cordova-android-support-gradle-release": "^3.0.1",
+        "cordova-android": "8.0.0",
+        "cordova-android-support-gradle-release": "3.0.1",
         "cordova-browser": "5.0.4",
         "cordova-plugin-console": "^1.0.7",
         "cordova-plugin-device": "^1.1.6",
-        "cordova-plugin-google-analytics": "^1.8.6",
+        "cordova-plugin-firebase-analytics": "3.0.0",
         "cordova-plugin-inappbrowser": "^1.7.1",
         "cordova-plugin-nativestorage": "^2.2.2",
         "cordova-plugin-splashscreen": "^4.0.3",
@@ -46,6 +47,7 @@
         "cordova-plugin-x-socialsharing": "^5.4.0",
         "cordova-plugin-x-toast": "^2.6.0",
         "cordova-sqlite-storage": "3.2.1",
+        "cordova-support-google-services": "^1.3.1",
         "de.appplant.cordova.plugin.local-notification": "^0.8.5",
         "es6-promise-plugin": "^4.2.2",
         "ionic-angular": "3.2.1",
@@ -85,13 +87,9 @@
                 "SENDER_ID": "179483799070"
             },
             "cordova-sqlite-storage": {},
-            "cordova-plugin-google-analytics": {
-                "GMS_VERSION": "11.0.1"
-            },
             "cordova-plugin-x-socialsharing": {},
-            "cordova-android-support-gradle-release": {
-                "ANDROID_SUPPORT_VERSION": "27.+"
-            }
+            "cordova-plugin-firebase-analytics": {},
+            "cordova-android-support-gradle-release": {}
         },
         "platforms": [
             "browser",

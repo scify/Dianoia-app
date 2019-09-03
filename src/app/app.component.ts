@@ -10,12 +10,12 @@ import {ActivityCategoryProvider} from "../providers/activity-category/activity-
 import {ActivityProvider} from "../providers/activity/activity";
 import {DifficultyLevelProvider} from "../providers/difficulty-level/difficulty-level";
 import {LoaderService} from "../providers/loader-service/loader-service";
-import { GoogleAnalytics } from '@ionic-native/google-analytics';
 
 import {
   Push,
   PushToken
 } from '@ionic/cloud-angular';
+import {FirebaseAnalytics} from "@ionic-native/firebase-analytics/ngx";
 
 @Component({
   templateUrl: 'app.html'
@@ -32,7 +32,7 @@ export class MyApp {
               private appStorage: AppStorageProvider, private http: Http, private activityCategoryProvider: ActivityCategoryProvider,
               private alertProvider: AlertProvider, private activityProvider: ActivityProvider,
               private difficultyLevelProvider: DifficultyLevelProvider, private loaderService: LoaderService,
-              private ga: GoogleAnalytics, public push: Push) {
+              private firebaseAnalytics: FirebaseAnalytics, public push: Push) {
     this.initializeApp(platform, statusBar);
     // used for an example of ngFor and navigation
     this.pages = [
@@ -70,7 +70,7 @@ export class MyApp {
 
       if(platform.is('cordova')) {
         this.localNotifications.scheduleNextNotification();
-        this.setUpGoogleAnalytics();
+        this.setUpAnalyticsLogger();
 
 
         this.push.register().then((t: PushToken) => {
@@ -133,14 +133,9 @@ export class MyApp {
     this.loaderService.hideLoader();
   }
 
-  setUpGoogleAnalytics() {
-    this.ga.startTrackerWithId('UA-31632742-19')
-      .then(() => {
-        console.log('Google analytics is ready now');
-        this.ga.trackView('test');
-        // Tracker is ready
-        // You can now track pages or set additional information such as AppVersion or UserId
-      })
-      .catch(e => console.log('Error starting GoogleAnalytics', e));
+  setUpAnalyticsLogger() {
+    this.firebaseAnalytics.logEvent('page_view', {page: "home"})
+      .then((res: any) => console.log(res))
+      .catch((error: any) => console.error(error));
   }
 }
