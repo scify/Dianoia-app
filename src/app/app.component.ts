@@ -10,8 +10,7 @@ import {ActivityCategoryProvider} from "../providers/activity-category/activity-
 import {ActivityProvider} from "../providers/activity/activity";
 import {DifficultyLevelProvider} from "../providers/difficulty-level/difficulty-level";
 import {LoaderService} from "../providers/loader-service/loader-service";
-
-import {FirebaseAnalytics} from "@ionic-native/firebase-analytics/ngx";
+import { AnalyticsFirebase } from '@ionic-native/analytics-firebase';
 
 @Component({
   templateUrl: 'app.html'
@@ -28,7 +27,7 @@ export class MyApp {
               private appStorage: AppStorageProvider, private http: Http, private activityCategoryProvider: ActivityCategoryProvider,
               private alertProvider: AlertProvider, private activityProvider: ActivityProvider,
               private difficultyLevelProvider: DifficultyLevelProvider, private loaderService: LoaderService,
-              private firebaseAnalytics: FirebaseAnalytics) {
+              private analyticsFirebase: AnalyticsFirebase) {
     this.initializeApp(platform, statusBar);
     // used for an example of ngFor and navigation
     this.pages = [
@@ -42,9 +41,6 @@ export class MyApp {
       { title: 'Βοήθεια', component: "HelpPage"},
       { title: 'About', component: "AboutPage"}
     ];
-
-
-
   }
 
   initializeApp(platform, statusBar) {
@@ -116,7 +112,10 @@ export class MyApp {
   }
 
   setUpAnalyticsLogger() {
-    this.firebaseAnalytics.logEvent('page_view', {page: "home"})
+    const eventParams = {};
+    eventParams[this.analyticsFirebase.DEFAULT_PARAMS.LEVEL] = 29;
+    eventParams['page'] = 'home';
+    this.analyticsFirebase.logEvent('page_view', eventParams)
       .then((res: any) => console.log(res))
       .catch((error: any) => console.error(error));
   }
