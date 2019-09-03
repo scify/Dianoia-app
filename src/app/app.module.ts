@@ -23,25 +23,7 @@ import {SocialSharing} from "@ionic-native/social-sharing";
 import {LocalNotifications} from "@ionic-native/local-notifications";
 import { NotificationProvider } from '../providers/notification/notification';
 import {GoogleAnalytics} from "@ionic-native/google-analytics";
-import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 
-const cloudSettings: CloudSettings = {
-  'core': {
-    'app_id': 'ce418411',
-  },
-  'push': {
-    'sender_id': '179483799070',
-    'pluginConfig': {
-      'ios': {
-        'badge': true,
-        'sound': true
-      },
-      'android': {
-        'iconColor': '#343434'
-      }
-    }
-  }
-};
 @NgModule({
   declarations: [
     MyApp,
@@ -51,8 +33,7 @@ const cloudSettings: CloudSettings = {
     HttpModule,
     BrowserModule,
     IonicModule.forRoot(MyApp,),
-    IonicStorageModule.forRoot(),
-    CloudModule.forRoot(cloudSettings)
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [

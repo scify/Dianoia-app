@@ -100,13 +100,9 @@
     <plugin name="cordova-plugin-x-toast" spec="^2.6.0" />
     <plugin name="de.appplant.cordova.plugin.local-notification" spec="^0.8.5" />
     <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
-    <plugin name="phonegap-plugin-push" spec="^1.10.5">
-        <variable name="SENDER_ID" value="179483799070" />
-    </plugin>
     <plugin name="cordova-android-support-gradle-release">
         <variable name="ANDROID_SUPPORT_VERSION" value="28.+" />
     </plugin>
-    <engine name="browser" spec="5.0.4" />
     <plugin name="cordova-plugin-x-socialsharing" spec="5.4.0">
         <variable name="ANDROID_SUPPORT_V4_VERSION" value="27.1.1+" />
         <variable name="PHOTO_LIBRARY_ADD_USAGE_DESCRIPTION" value="This app requires photo library access to function properly." />

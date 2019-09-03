@@ -11,10 +11,6 @@ import {ActivityProvider} from "../providers/activity/activity";
 import {DifficultyLevelProvider} from "../providers/difficulty-level/difficulty-level";
 import {LoaderService} from "../providers/loader-service/loader-service";
 
-import {
-  Push,
-  PushToken
-} from '@ionic/cloud-angular';
 import {FirebaseAnalytics} from "@ionic-native/firebase-analytics/ngx";
 
 @Component({
@@ -32,7 +28,7 @@ export class MyApp {
               private appStorage: AppStorageProvider, private http: Http, private activityCategoryProvider: ActivityCategoryProvider,
               private alertProvider: AlertProvider, private activityProvider: ActivityProvider,
               private difficultyLevelProvider: DifficultyLevelProvider, private loaderService: LoaderService,
-              private firebaseAnalytics: FirebaseAnalytics, public push: Push) {
+              private firebaseAnalytics: FirebaseAnalytics) {
     this.initializeApp(platform, statusBar);
     // used for an example of ngFor and navigation
     this.pages = [
@@ -71,20 +67,6 @@ export class MyApp {
       if(platform.is('cordova')) {
         this.localNotifications.scheduleNextNotification();
         this.setUpAnalyticsLogger();
-
-
-        this.push.register().then((t: PushToken) => {
-          return this.push.saveToken(t);
-        }).then((t: PushToken) => {
-          console.log('Token saved:', t.token);
-        }).catch(e => console.log('Error registering push', e));
-
-        this.push.rx.notification()
-          .subscribe((msg) => {
-            console.log(msg.title + ': ' + msg.text);
-          }, error => {
-            console.log('Error push.rx.notification()', error)
-          });
       }
     });
 
