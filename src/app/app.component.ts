@@ -73,7 +73,7 @@ export class MyApp {
             this.localNotifications.scheduleNotificationFor(t,
               'Σχολείο Φοροντιστών',
               'Το Σχολείο Φοροντιστών ξεκίνησε! Παρακολουθήστε το ΔΩΡΕΑΝ. Καλέστε στο 2107013271 για πληροφορίες και δηλώσεις συμμετοχής.',
-              null,
+              'day',
               false);
             this.appStorage.set('notification-event-athens-alzheimer', true);
           } else {
