@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget android-versionCode="102128" id="org.scify.dianoia.app" version="1.3.1" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget android-versionCode="102129" id="org.scify.dianoia.app" version="1.3.2" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Dianoia</name>
     <description>Non-pharmaceutical activities for people with dementia.</description>
     <author email="info@scify.org" href="http://www.scify.gr/site/en/">SciFY Team</author>
@@ -35,8 +35,8 @@
         <allow-intent href="market:*" />
         <preference name="loadUrlTimeoutValue" value="700000" />
         <preference name="android-minSdkVersion" value="19" />
-        <preference name="android-targetSdkVersion" value="28" />
-        <preference name="android-compileSdkVersion" value="28" />
+        <preference name="android-targetSdkVersion" value="29" />
+        <preference name="android-compileSdkVersion" value="29" />
         <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
         <icon density="mdpi" src="resources/android/icon/drawable-mdpi-icon.png" />
         <icon density="hdpi" src="resources/android/icon/drawable-hdpi-icon.png" />
@@ -99,7 +99,6 @@
     <plugin name="cordova-plugin-nativestorage" spec="^2.2.2" />
     <plugin name="cordova-plugin-inappbrowser" spec="^1.7.1" />
     <plugin name="cordova-plugin-x-toast" spec="^2.6.0" />
-    <plugin name="de.appplant.cordova.plugin.local-notification" spec="^0.8.5" />
     <plugin name="cordova-sqlite-storage" spec="3.2.1" />
     <plugin name="cordova-plugin-x-socialsharing" spec="^5.4.0">
         <variable name="ANDROID_SUPPORT_V4_VERSION" value="27.1.1+" />
@@ -110,8 +109,9 @@
         <variable name="FIREBASE_CORE_VERSION" value="17.0.+" />
     </plugin>
     <plugin name="cordova-plugin-analytics" spec="2.0.0" />
-    <plugin name="cordova-support-google-services" spec="^1.3.1" />
+    <plugin name="cordova-support-google-services" spec="https://github.com/LuisEGR/cordova-support-google-services.git" />
     <plugin name="cordova-android-support-gradle-release" spec="3.0.1" />
+    <plugin name="cordova-plugin-local-notification" spec="0.9.0-beta.2" />
     <engine name="browser" spec="5.0.4" />
     <engine name="android" spec="7.1.4" />
 </widget>

@@ -61,7 +61,26 @@ export class MyApp {
       this.localNotifications.listenForNotificationClicks();
 
       if(platform.is('cordova')) {
-        this.localNotifications.scheduleNextNotification();
+
+
+
+        this.appStorage.get('notification-event-athens-alzheimer').then(value => {
+          value =  JSON.parse(value);
+          console.log("value", value);
+          if(!value) {
+            let t = new Date();
+            t.setSeconds(t.getSeconds() + 1);
+            this.localNotifications.scheduleNotificationFor(t,
+              'Σχολείο Φοροντιστών',
+              'Το Σχολείο Φοροντιστών ξεκίνησε! Παρακολουθήστε το ΔΩΡΕΑΝ. Καλέστε στο 2107013271 για πληροφορίες και δηλώσεις συμμετοχής.',
+              null,
+              false);
+            this.appStorage.set('notification-event-athens-alzheimer', true);
+          } else {
+            this.localNotifications.scheduleNextNotification();
+          }
+
+        });
         this.setUpAnalyticsLogger();
       }
     });

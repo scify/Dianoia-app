@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
-import {LocalNotifications} from "@ionic-native/local-notifications";
+import { LocalNotifications } from '@ionic-native/local-notifications';
 import {AppStorageProvider} from "../app-storage/app-storage";
 import {Platform} from "ionic-angular";
 
@@ -13,14 +13,24 @@ import {Platform} from "ionic-angular";
 @Injectable()
 export class NotificationProvider {
 
-  notificationTitles: [string];
-  notificationTexts: [string];
+  notificationTitles: [any];
+  notificationTexts: [any];
 
   constructor(private localNotifications: LocalNotifications, private appStorage: AppStorageProvider, private platform: Platform) {
     this.notificationTitles = ["Τι να κάνετε σήμερα:", "Σημερινή δραστηριότητα:"];
 
     this.notificationTexts = ["- Κάντε δουλειές στο σπίτι.", "- Πηγαίνετε μαζί για ψώνια.",
       "- Κάντε μια συναλλαγή σε δημόσια υπηρεσία.", "- Συζητήστε ένα επίκαιρο θέμα.",
+      "Το Σχολείο Φοροντιστών ξεκίνησε! Παρακολουθήστε το ΔΩΡΕΑΝ. Καλέστε στο 2107013271 για πληροφορίες και δηλώσεις συμμετοχής.",
+      "Το Σχολείο Φοροντιστών ξεκίνησε! Παρακολουθήστε το ΔΩΡΕΑΝ. Καλέστε στο 2107013271 για πληροφορίες και δηλώσεις συμμετοχής.",
+      "Το Σχολείο Φοροντιστών ξεκίνησε! Παρακολουθήστε το ΔΩΡΕΑΝ. Καλέστε στο 2107013271 για πληροφορίες και δηλώσεις συμμετοχής.",
+      "Το Σχολείο Φοροντιστών ξεκίνησε! Παρακολουθήστε το ΔΩΡΕΑΝ. Καλέστε στο 2107013271 για πληροφορίες και δηλώσεις συμμετοχής.",
+      "Το Σχολείο Φοροντιστών ξεκίνησε! Παρακολουθήστε το ΔΩΡΕΑΝ. Καλέστε στο 2107013271 για πληροφορίες και δηλώσεις συμμετοχής.",
+      "Το Σχολείο Φοροντιστών ξεκίνησε! Παρακολουθήστε το ΔΩΡΕΑΝ. Καλέστε στο 2107013271 για πληροφορίες και δηλώσεις συμμετοχής.",
+      "Το Σχολείο Φοροντιστών ξεκίνησε! Παρακολουθήστε το ΔΩΡΕΑΝ. Καλέστε στο 2107013271 για πληροφορίες και δηλώσεις συμμετοχής.",
+      "Το Σχολείο Φοροντιστών ξεκίνησε! Παρακολουθήστε το ΔΩΡΕΑΝ. Καλέστε στο 2107013271 για πληροφορίες και δηλώσεις συμμετοχής.",
+      "Το Σχολείο Φοροντιστών ξεκίνησε! Παρακολουθήστε το ΔΩΡΕΑΝ. Καλέστε στο 2107013271 για πληροφορίες και δηλώσεις συμμετοχής.",
+      "Το Σχολείο Φοροντιστών ξεκίνησε! Παρακολουθήστε το ΔΩΡΕΑΝ. Καλέστε στο 2107013271 για πληροφορίες και δηλώσεις συμμετοχής.",
       "- Μοιραστείτε ευχάριστες αναμνήσεις.", "- Δείτε ένα φωτογραφικό άλμπουμ.", "- Ακούστε αγαπημένα τραγούδια.",
       "- Ασχοληθείτε με ένα αγαπημένο χόμπι.", "- Διαβάστε ένα βιβλίο ή εφημερίδα.", "- Παίξτε ένα επιτραπέζιο παιχνίδι.",
       "- Παίξτε κρεμάλα ή τρίλιζα.", "- Παρακολουθήστε ένα τηλεπαιχνίδι γνώσεων και απαντήστε μαζί τις ερωτήσεις.",
@@ -68,34 +78,30 @@ export class NotificationProvider {
     })
   }
 
-  public scheduleNotificationFor(date: Date, title: string, text: string, every?) {
+  public scheduleNotificationFor(date: Date, title: string, text: string, every?, setHour: boolean = true) {
 
     //notification set for 11:00 AM.
-    date.setHours(11);
-    date.setMinutes(0);
+    if(setHour) {
+      date.setHours(11);
+      date.setMinutes(0);
+    }
 
-    console.log("Scheduling notification for: " + date + " every: " + every);
+    console.log("Scheduling notification for " + date + " every: " + every);
     console.log("Notification title: ", title);
     console.log("Notification text: ", text);
-    this.localNotifications.cancelAll().then(result => {
+    let options = {
+      text: text,
+      title: title,
+      trigger: {at: date, every: every}
+    };
 
-      this.appStorage.set('notifications_scheduled', true);
-
-      this.localNotifications.schedule({
-        text: text,
-        title: title,
-        at: date,
-        led: 'FF0000',
-        every: every
-      });
-    });
-
+    this.localNotifications.schedule(options);
   }
 
   public listenForNotificationClicks() {
-    this.localNotifications.on("click", (notification, state) => {
+    const instance = this;
+    this.localNotifications.on("click").subscribe(notification => {
       console.log("notification clicked: ", notification);
-      console.log("notification state: ", state);
       this.scheduleNextNotification();
     });
   }
