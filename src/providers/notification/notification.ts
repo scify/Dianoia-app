@@ -92,7 +92,7 @@ export class NotificationProvider {
     let options = {
       text: text,
       title: title,
-      trigger: {at: date, every: every}
+      trigger: {at: date}
     };
 
     this.localNotifications.schedule(options);
