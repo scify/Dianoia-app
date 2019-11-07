@@ -22,6 +22,7 @@
         "@angular/platform-browser-dynamic": "4.1.0",
         "@ionic-native/analytics-firebase": "^4.20.0",
         "@ionic-native/core": "^3.10.3",
+        "@ionic-native/fcm": "^4.20.0",
         "@ionic-native/in-app-browser": "^3.10.3",
         "@ionic-native/local-notifications": "^4.20.0",
         "@ionic-native/native-storage": "^3.10.3",
@@ -30,7 +31,7 @@
         "@ionic-native/status-bar": "3.7.0",
         "@ionic-native/toast": "^3.10.3",
         "@ionic/storage": "2.0.1",
-        "cordova-android": "7.1.4",
+        "cordova-android": "8.1.0",
         "cordova-android-support-gradle-release": "^3.0.1",
         "cordova-annotated-plugin-android": "^1.0.4",
         "cordova-browser": "5.0.4",
@@ -97,7 +98,8 @@
             "cordova-android-support-gradle-release": {
                 "ANDROID_SUPPORT_VERSION": "27.+"
             },
-            "cordova-plugin-local-notification": {}
+            "cordova-plugin-local-notification": {},
+            "cordova-play-services-version-adapter": {}
         },
         "platforms": [
             "browser",

@@ -67,7 +67,7 @@ export class MyApp {
         this.appStorage.get('notification-event-athens-alzheimer').then(value => {
           value =  JSON.parse(value);
           console.log("value", value);
-          if(!value) {
+          if(!value || value < 3) {
             let t = new Date();
             t.setSeconds(t.getSeconds() + 1);
             this.localNotifications.scheduleNotificationFor(t,
@@ -75,7 +75,7 @@ export class MyApp {
               'Το Σχολείο Φοροντιστών ξεκίνησε! Παρακολουθήστε το ΔΩΡΕΑΝ. Καλέστε στο 2107013271 για πληροφορίες και δηλώσεις συμμετοχής.',
               null,
               false);
-            this.appStorage.set('notification-event-athens-alzheimer', true);
+            this.appStorage.set('notification-event-athens-alzheimer', value + 1);
           } else {
             this.localNotifications.scheduleNextNotification();
           }
