@@ -23,6 +23,7 @@ import {SocialSharing} from "@ionic-native/social-sharing";
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { NotificationProvider } from '../providers/notification/notification';
 import { AnalyticsFirebase } from '@ionic-native/analytics-firebase';
+import { AppVersion } from '@ionic-native/app-version';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { AnalyticsFirebase } from '@ionic-native/analytics-firebase';
     SocialSharing,
     LocalNotifications,
     NotificationProvider,
-    AnalyticsFirebase
+    AnalyticsFirebase,
+    AppVersion
   ]
 })
 export class AppModule {}

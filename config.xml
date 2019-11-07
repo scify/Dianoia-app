@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget android-versionCode="102129" id="org.scify.dianoia.app" version="1.3.2" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget android-versionCode="102130" id="org.scify.dianoia.app" version="1.3.3" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Dianoia</name>
     <description>Non-pharmaceutical activities for people with dementia.</description>
     <author email="info@scify.org" href="http://www.scify.gr/site/en/">SciFY Team</author>
@@ -113,6 +113,7 @@
     <plugin name="cordova-android-support-gradle-release" spec="3.0.1" />
     <plugin name="cordova-plugin-local-notification" spec="0.9.0-beta.2" />
     <plugin name="cordova-play-services-version-adapter" spec="^1.0.2" />
+    <plugin name="cordova-plugin-app-version" spec="0.1.9" />
     <engine name="browser" spec="5.0.4" />
     <engine name="android" spec="8.1.0" />
 </widget>
