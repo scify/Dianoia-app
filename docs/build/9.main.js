@@ -1,13 +1,13 @@
 webpackJsonp([9],{
 
-/***/ 844:
+/***/ 291:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__activity__ = __webpack_require__(859);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__activity__ = __webpack_require__(306);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ActivityPageModule", function() { return ActivityPageModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -18,40 +18,40 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var ActivityPageModule = (function () {
+var ActivityPageModule = /** @class */ (function () {
     function ActivityPageModule() {
     }
+    ActivityPageModule = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__activity__["a" /* ActivityPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__activity__["a" /* ActivityPage */]),
+            ],
+            exports: [
+                __WEBPACK_IMPORTED_MODULE_2__activity__["a" /* ActivityPage */]
+            ]
+        })
+    ], ActivityPageModule);
     return ActivityPageModule;
 }());
-ActivityPageModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* NgModule */])({
-        declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__activity__["a" /* ActivityPage */],
-        ],
-        imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__activity__["a" /* ActivityPage */]),
-        ],
-        exports: [
-            __WEBPACK_IMPORTED_MODULE_2__activity__["a" /* ActivityPage */]
-        ]
-    })
-], ActivityPageModule);
 
 //# sourceMappingURL=activity.module.js.map
 
 /***/ }),
 
-/***/ 859:
+/***/ 306:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_activity_activity__ = __webpack_require__(172);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_in_app_browser__ = __webpack_require__(491);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_alert_alert__ = __webpack_require__(175);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_social_sharing__ = __webpack_require__(492);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_notification_notification__ = __webpack_require__(177);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_activity_activity__ = __webpack_require__(103);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_in_app_browser__ = __webpack_require__(213);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_alert_alert__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_social_sharing__ = __webpack_require__(214);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_notification_notification__ = __webpack_require__(108);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ActivityPage; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -75,7 +75,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
-var ActivityPage = (function () {
+var ActivityPage = /** @class */ (function () {
     function ActivityPage(navCtrl, navParams, activityProvider, iab, platform, alert, socialSharing, notificationProvider, viewCtrl) {
         var _this = this;
         this.navCtrl = navCtrl;
@@ -170,6 +170,7 @@ var ActivityPage = (function () {
     ActivityPage.prototype.openLink = function (url) {
         this.iab.create(url);
     };
+    // tslint:disable-next-line:no-unused-variable
     ActivityPage.prototype.share = function (activity) {
         var _this = this;
         var options = {
@@ -195,17 +196,17 @@ var ActivityPage = (function () {
             this.previousActivity();
         }
     };
+    ActivityPage = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
+            selector: 'page-activity',template:/*ion-inline-start:"/home/paul/projects/dianoia/dianoia-paulisaris/Dianoia-app/src/pages/activity/activity.html"*/'<!--\n  Generated template for the ActivityPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{ activity?.title }}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n\n  <ion-card (swipe)="swipeActivity($event)">\n\n    <ion-card-content>\n      <ion-row class="navigationContainer">\n        <ion-col col-6 style="text-align: left">\n          <button *ngIf="activityIsNotFirst()" class="activityNavigationBtn" no-padding ion-button icon-left clear small (click)="previousActivity()">\n            <ion-icon class="navLeft" name="ios-arrow-back"></ion-icon>\n            <div>Προηγουμενη</div>\n          </button>\n        </ion-col>\n        <ion-col col-6 style="text-align: right">\n          <button *ngIf="activityIsNotLast()" class="activityNavigationBtn" no-padding ion-button icon-left clear small (click)="nextActivity()">\n            <div>Επομενη</div>\n            <ion-icon class="navRight" name="ios-arrow-forward"></ion-icon>\n          </button>\n        </ion-col>\n      </ion-row>\n      <h2 class="activityTitle">{{ activity?.title }}</h2>\n      <p class="activityBody">{{ activity?.description }}</p>\n      <img class="activityImg" *ngIf="activity?.img_url" [src]="\'assets/img/activities/\' + activity.img_url">\n\n      <!--<div *ngIf="activity?.id && activity?.instructions.length > 0" class="instructionsList">-->\n      <!--<p>Οδηγίες:</p>-->\n      <!--<ion-list no-lines>-->\n      <!--<ion-item text-wrap *ngFor="let instruction of activity?.instructions">-->\n      <!--<ion-icon name="ios-checkmark" item-left></ion-icon>-->\n      <!--{{ instruction }}-->\n      <!--</ion-item>-->\n      <!--</ion-list>-->\n      <!--</div>-->\n    </ion-card-content>\n\n    <!--<ion-row>-->\n    <!--<ion-col>-->\n    <!--<a *ngIf="activity?.link && platform.is(\'core\')" href="{{ activity.link }}" target="_blank">-->\n    <!--<button ion-button icon-left clear small>-->\n    <!--<ion-icon name="ios-link"></ion-icon>-->\n    <!--<div>Open link</div>-->\n    <!--</button>-->\n    <!--</a>-->\n    <!--<button *ngIf="activity?.link && !platform.is(\'core\')" ion-button icon-left clear small (click)="openLink(activity.link)">-->\n    <!--<ion-icon name="ios-link"></ion-icon>-->\n    <!--<div>Open link</div>-->\n    <!--</button>-->\n    <!--</ion-col>-->\n    <!--<ion-col>-->\n    <!--<button *ngIf="activity?.link" ion-button icon-left clear small (click)="share(activity)">-->\n    <!--<ion-icon name="ios-share-alt"></ion-icon>-->\n    <!--<div>Share</div>-->\n    <!--</button>-->\n    <!--</ion-col>-->\n    <!--<ion-col>-->\n    <!--<button *ngIf="activity?.id" clear ion-button icon-left small [disabled]="dailyActivityCompleted" (click)="activityDoneForToday()">-->\n    <!--<ion-icon name="thumbs-up"></ion-icon>-->\n    <!--<div>Done</div>-->\n    <!--</button>-->\n    <!--</ion-col>-->\n    <!--</ion-row>-->\n    <ion-list no-lines class="activityActionsContainer">\n      <ion-item text-wrap *ngIf="activity?.link">\n        <a *ngIf="activity?.link && platform.is(\'core\')" href="{{ activity.link }}" target="_blank">\n          <button ion-button icon-left clear small>\n            <ion-icon name="ios-link"></ion-icon>\n            <div>Δειτε την ασκηση</div>\n          </button>\n        </a>\n        <button *ngIf="activity?.link && !platform.is(\'core\')" ion-button icon-left clear small\n                (click)="openLink(activity.link)">\n          <ion-icon name="ios-link"></ion-icon>\n          <div>Δειτε την ασκηση</div>\n        </button>\n      </ion-item>\n      <ion-item text-wrap *ngIf="activity?.link">\n        <button *ngIf="activity?.link" ion-button icon-left clear small (click)="share(activity)">\n          <ion-icon name="ios-share-alt"></ion-icon>\n          <div>Μοιραστειτε και εκτυπωστε </div>\n        </button>\n      </ion-item>\n      <ion-item text-wrap *ngIf="activity?.help_link">\n        <a *ngIf="activity?.help_link && platform.is(\'core\')" href="{{ activity.help_link }}" target="_blank">\n          <button ion-button icon-left clear small>\n            <ion-icon name="ios-help-buoy"></ion-icon>\n            <div>Περισσοτερες επιλογες και βοηθεια</div>\n          </button>\n        </a>\n        <button *ngIf="activity?.help_link && !platform.is(\'core\')" ion-button icon-left clear small\n                (click)="openLink(activity.help_link)">\n          <ion-icon name="ios-help-buoy"></ion-icon>\n          <div>Περισσοτερες επιλογες και βοηθεια</div>\n        </button>\n      </ion-item>\n      <ion-item text-wrap>\n        <button style="margin-bottom: 10px" *ngIf="activity?.id" clear ion-button icon-left small [disabled]="dailyActivityCompleted"\n                (click)="activityDoneForToday()">\n          <ion-icon name="thumbs-up"></ion-icon>\n          <div>Εγινε σημερα</div>\n        </button>\n      </ion-item>\n    </ion-list>\n  </ion-card>\n\n</ion-content>\n'/*ion-inline-end:"/home/paul/projects/dianoia/dianoia-paulisaris/Dianoia-app/src/pages/activity/activity.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_activity_activity__["a" /* ActivityProvider */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_in_app_browser__["a" /* InAppBrowser */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Platform */], __WEBPACK_IMPORTED_MODULE_4__providers_alert_alert__["a" /* AlertProvider */], __WEBPACK_IMPORTED_MODULE_5__ionic_native_social_sharing__["a" /* SocialSharing */],
+            __WEBPACK_IMPORTED_MODULE_6__providers_notification_notification__["a" /* NotificationProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ViewController */]])
+    ], ActivityPage);
     return ActivityPage;
 }());
-ActivityPage = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-        selector: 'page-activity',template:/*ion-inline-start:"/home/paul/projects/dianoia/Dianoia-app/src/pages/activity/activity.html"*/'<!--\n  Generated template for the ActivityPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{ activity?.title }}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n\n  <ion-card (swipe)="swipeActivity($event)">\n\n    <ion-card-content>\n      <ion-row class="navigationContainer">\n        <ion-col col-6 style="text-align: left">\n          <button *ngIf="activityIsNotFirst()" class="activityNavigationBtn" no-padding ion-button icon-left clear small (click)="previousActivity()">\n            <ion-icon class="navLeft" name="ios-arrow-back"></ion-icon>\n            <div>Προηγουμενη</div>\n          </button>\n        </ion-col>\n        <ion-col col-6 style="text-align: right">\n          <button *ngIf="activityIsNotLast()" class="activityNavigationBtn" no-padding ion-button icon-left clear small (click)="nextActivity()">\n            <div>Επομενη</div>\n            <ion-icon class="navRight" name="ios-arrow-forward"></ion-icon>\n          </button>\n        </ion-col>\n      </ion-row>\n      <h2 class="activityTitle">{{ activity?.title }}</h2>\n      <p class="activityBody">{{ activity?.description }}</p>\n      <img class="activityImg" *ngIf="activity?.img_url" [src]="\'assets/img/activities/\' + activity.img_url">\n\n      <!--<div *ngIf="activity?.id && activity?.instructions.length > 0" class="instructionsList">-->\n      <!--<p>Οδηγίες:</p>-->\n      <!--<ion-list no-lines>-->\n      <!--<ion-item text-wrap *ngFor="let instruction of activity?.instructions">-->\n      <!--<ion-icon name="ios-checkmark" item-left></ion-icon>-->\n      <!--{{ instruction }}-->\n      <!--</ion-item>-->\n      <!--</ion-list>-->\n      <!--</div>-->\n    </ion-card-content>\n\n    <!--<ion-row>-->\n    <!--<ion-col>-->\n    <!--<a *ngIf="activity?.link && platform.is(\'core\')" href="{{ activity.link }}" target="_blank">-->\n    <!--<button ion-button icon-left clear small>-->\n    <!--<ion-icon name="ios-link"></ion-icon>-->\n    <!--<div>Open link</div>-->\n    <!--</button>-->\n    <!--</a>-->\n    <!--<button *ngIf="activity?.link && !platform.is(\'core\')" ion-button icon-left clear small (click)="openLink(activity.link)">-->\n    <!--<ion-icon name="ios-link"></ion-icon>-->\n    <!--<div>Open link</div>-->\n    <!--</button>-->\n    <!--</ion-col>-->\n    <!--<ion-col>-->\n    <!--<button *ngIf="activity?.link" ion-button icon-left clear small (click)="share(activity)">-->\n    <!--<ion-icon name="ios-share-alt"></ion-icon>-->\n    <!--<div>Share</div>-->\n    <!--</button>-->\n    <!--</ion-col>-->\n    <!--<ion-col>-->\n    <!--<button *ngIf="activity?.id" clear ion-button icon-left small [disabled]="dailyActivityCompleted" (click)="activityDoneForToday()">-->\n    <!--<ion-icon name="thumbs-up"></ion-icon>-->\n    <!--<div>Done</div>-->\n    <!--</button>-->\n    <!--</ion-col>-->\n    <!--</ion-row>-->\n    <ion-list no-lines class="activityActionsContainer">\n      <ion-item text-wrap *ngIf="activity?.link">\n        <a *ngIf="activity?.link && platform.is(\'core\')" href="{{ activity.link }}" target="_blank">\n          <button ion-button icon-left clear small>\n            <ion-icon name="ios-link"></ion-icon>\n            <div>Δειτε την ασκηση</div>\n          </button>\n        </a>\n        <button *ngIf="activity?.link && !platform.is(\'core\')" ion-button icon-left clear small\n                (click)="openLink(activity.link)">\n          <ion-icon name="ios-link"></ion-icon>\n          <div>Δειτε την ασκηση</div>\n        </button>\n      </ion-item>\n      <ion-item text-wrap *ngIf="activity?.link">\n        <button *ngIf="activity?.link" ion-button icon-left clear small (click)="share(activity)">\n          <ion-icon name="ios-share-alt"></ion-icon>\n          <div>Μοιραστειτε και εκτυπωστε </div>\n        </button>\n      </ion-item>\n      <ion-item text-wrap *ngIf="activity?.help_link">\n        <a *ngIf="activity?.help_link && platform.is(\'core\')" href="{{ activity.help_link }}" target="_blank">\n          <button ion-button icon-left clear small>\n            <ion-icon name="ios-help-buoy"></ion-icon>\n            <div>Περισσοτερες επιλογες και βοηθεια</div>\n          </button>\n        </a>\n        <button *ngIf="activity?.help_link && !platform.is(\'core\')" ion-button icon-left clear small\n                (click)="openLink(activity.help_link)">\n          <ion-icon name="ios-help-buoy"></ion-icon>\n          <div>Περισσοτερες επιλογες και βοηθεια</div>\n        </button>\n      </ion-item>\n      <ion-item text-wrap>\n        <button style="margin-bottom: 10px" *ngIf="activity?.id" clear ion-button icon-left small [disabled]="dailyActivityCompleted"\n                (click)="activityDoneForToday()">\n          <ion-icon name="thumbs-up"></ion-icon>\n          <div>Εγινε σημερα</div>\n        </button>\n      </ion-item>\n    </ion-list>\n  </ion-card>\n\n</ion-content>\n'/*ion-inline-end:"/home/paul/projects/dianoia/Dianoia-app/src/pages/activity/activity.html"*/,
-    }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_2__providers_activity_activity__["a" /* ActivityProvider */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_in_app_browser__["a" /* InAppBrowser */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Platform */], __WEBPACK_IMPORTED_MODULE_4__providers_alert_alert__["a" /* AlertProvider */], __WEBPACK_IMPORTED_MODULE_5__ionic_native_social_sharing__["a" /* SocialSharing */],
-        __WEBPACK_IMPORTED_MODULE_6__providers_notification_notification__["a" /* NotificationProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ViewController */]])
-], ActivityPage);
 
 //# sourceMappingURL=activity.js.map
 

@@ -19,6 +19,12 @@
     "activities": ["activity_25", "activity_26", "activity_29", "activity_30", "activity_31"]
   },
   {
+    "parent_category_id": "carer_activities",
+    "subcategories": [],
+    "is_root": true,
+    "activities": ["activity_40", "activity_41", "activity_42", "activity_43"]
+  },
+  {
     "parent_category_id": "focus_activities",
     "subcategories": [],
     "is_root": false,
@@ -34,12 +40,12 @@
     "parent_category_id": "think_activities",
     "subcategories": [],
     "is_root": false,
-    "activities": ["activity_10", "activity_11", "activity_27", "activity_34"]
+    "activities": ["activity_10", "activity_11", "activity_27", "activity_34", "activity_37", "activity_38", "activity_39"]
   },
   {
     "parent_category_id": "executive_activities",
     "subcategories": [],
     "is_root": false,
-    "activities": ["activity_4", "activity_5", "activity_6", "activity_32", "activity_35"]
+    "activities": ["activity_4", "activity_5", "activity_6", "activity_32", "activity_35", "activity_36"]
   }
 ]
