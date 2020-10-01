@@ -25,7 +25,8 @@ It is very easy to install multiple versions of nodejs and npm, by using [Node V
 ## Install project dependencies:
 
 ```bash
-$ npm install -g ionic@3.9.2 cordova@8.1.2
+$ npm install -g @ionic/cli@6.11.10 
+$ npm install -g cordova@8.1.2
 $ cd dianoia-app
 $ npm install
 $ ionic serve
