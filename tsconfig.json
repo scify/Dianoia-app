@@ -1,6 +1,8 @@
 {
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "noStrictGenericChecks": true,
     "declaration": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
