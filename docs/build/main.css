@@ -4117,7 +4117,6 @@ ion-alert input {
 .alert-tappable {
   text-align: left;
   text-align: start;
-  -moz-appearance: none;
   -ms-appearance: none;
   -webkit-appearance: none;
   appearance: none;
@@ -4170,7 +4169,6 @@ ion-alert input {
 }
 
 .alert-ios .alert-input {
-  -moz-appearance: none;
   -ms-appearance: none;
   -webkit-appearance: none;
   appearance: none;
@@ -4980,7 +4978,6 @@ body {
   -ms-text-size-adjust: none;
   text-size-adjust: none;
   -webkit-user-select: none;
-  -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
@@ -5623,7 +5620,6 @@ ion-badge:empty {
 
 .button {
   text-align: center;
-  -moz-appearance: none;
   -ms-appearance: none;
   -webkit-appearance: none;
   appearance: none;
@@ -5640,7 +5636,6 @@ ion-badge:empty {
   -webkit-font-kerning: none;
   font-kerning: none;
   -webkit-user-select: none;
-  -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
   contain: content;
@@ -9291,7 +9286,6 @@ ion-datetime {
 
 .fab {
   text-align: center;
-  -moz-appearance: none;
   -ms-appearance: none;
   -webkit-appearance: none;
   appearance: none;
@@ -9313,7 +9307,6 @@ ion-datetime {
   -webkit-font-kerning: none;
   font-kerning: none;
   -webkit-user-select: none;
-  -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
   contain: strict;
@@ -13030,7 +13023,6 @@ ion-textarea {
 }
 
 .text-input {
-  -moz-appearance: none;
   -ms-appearance: none;
   -webkit-appearance: none;
   appearance: none;
@@ -17374,7 +17366,6 @@ ion-searchbar {
 }
 
 .searchbar-input {
-  -moz-appearance: none;
   -ms-appearance: none;
   -webkit-appearance: none;
   appearance: none;
@@ -18787,7 +18778,6 @@ button.swiper-pagination-bullet {
   margin: 0;
   padding: 0;
   box-shadow: none;
-  -moz-appearance: none;
   -ms-appearance: none;
   -webkit-appearance: none;
   appearance: none;
@@ -19807,7 +19797,6 @@ ion-spinner.spinner-paused svg {
   background: none;
   cursor: pointer;
   -webkit-user-select: none;
-  -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
@@ -21082,7 +21071,6 @@ ion-navbar.toolbar {
 
 .bar-button {
   text-align: center;
-  -moz-appearance: none;
   -ms-appearance: none;
   -webkit-appearance: none;
   appearance: none;
@@ -21098,7 +21086,6 @@ ion-navbar.toolbar {
   vertical-align: top;
   vertical-align: -webkit-baseline-middle;
   -webkit-user-select: none;
-  -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }

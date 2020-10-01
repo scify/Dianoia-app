@@ -9,7 +9,8 @@
         "build": "ionic-app-scripts build",
         "lint": "ionic-app-scripts lint",
         "ionic:build": "ionic-app-scripts build",
-        "ionic:serve": "ionic-app-scripts serve"
+        "ionic:serve": "ionic-app-scripts serve",
+        "build-docs": "node copy_browser_www_to_docs.js"
     },
     "dependencies": {
         "@angular/common": "4.1.0",
@@ -35,6 +36,7 @@
         "cordova-android": "8.1.0",
         "cordova-android-support-gradle-release": "^3.0.1",
         "cordova-annotated-plugin-android": "^1.0.4",
+        "cordova-browser": "^5.0.4",
         "cordova-play-services-version-adapter": "^1.1.0",
         "cordova-plugin-analytics": "^2.0.0",
         "cordova-plugin-app-version": "^0.1.9",
@@ -104,7 +106,8 @@
             }
         },
         "platforms": [
-            "android"
+            "android",
+            "browser"
         ]
     }
 }

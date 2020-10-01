@@ -1,5 +1,5 @@
 
-# Dianoia - Ionic 3 Mobile app
+# Dianoia - Ionic Mobile app
 
 <p align="center">
 <img src="https://raw.githubusercontent.com/scify/Dianoia-app/master/resources/splash.png" width="500">
@@ -70,6 +70,28 @@ cordova build android --release
 ```
 #### Signing the Android .apk
 After the .apk file is built, you can either use Android CLI commands, or just open Android Studio, and sign the .apk.
+
+## Building for Browser
+
+In order to generate a bundled directory that can be hosted as a web application, you need to add and build the `browser` platform:
+
+```bash
+$ ionic cordova platform add browser
+
+$ ionic cordova platform build browser
+```
+
+This will generate a `platforms/browse/www` directory that can be uploaded to a server.
+
+### GitHub pages
+
+In order to generate the `docs` directory that can be used from GitHub Pages, you need to run the following script:
+
+```bash
+$ npm run build-docs
+```
+
+This will generate the `docs` directory. (Note that this directory is and should be under Version Control).
 
 ## License
 

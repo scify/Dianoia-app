@@ -379,7 +379,7 @@
   },
   {
     "id": "activity_35",
-    "title":"Αλφαβητική σειρά",
+    "title":"Αλφαβητική σειρά 1",
     "description": "Βάλτε σε αλφαβητική σειρά τις παρακάτω λέξεις.",
     "full_text": "",
     "video_url":"",
@@ -387,5 +387,93 @@
     "instructions":[],
     "link": "http://go.scify.gr/dianoia26",
     "difficulty_level_id": "difficulty_level_2"
+  },
+  {
+    "id": "activity_36",
+    "title":"Αλφαβητική σειρά 2",
+    "description": "Βάλτε σε αλφαβητική σειρά τις παρακάτω λέξεις.",
+    "full_text": "",
+    "video_url":"",
+    "img_url":"",
+    "instructions":[],
+    "link": "http://go.scify.gr/dianoia26",
+    "difficulty_level_id": "difficulty_level_2"
+  },
+  {
+    "id": "activity_37",
+    "title":"Λεκτική Ροή",
+    "description": "Βρείτε όσες περισσότερες λέξεις μπορείτε για κάθε μία κατηγορία.",
+    "full_text": "",
+    "video_url":"",
+    "img_url":"",
+    "instructions":[],
+    "link": "http://go.scify.gr/dianoia26",
+    "difficulty_level_id": "difficulty_level_2"
+  },
+  {
+    "id": "activity_38",
+    "title":"Συνειρμοί",
+    "description": "Για κάθε λέξη που σας δίνεται παρακάτω, βρείτε άλλες πέντε σχετικές που σας έρχονται στο μυαλό.",
+    "full_text": "",
+    "video_url":"",
+    "img_url":"",
+    "instructions":[],
+    "link": "http://go.scify.gr/dianoia26",
+    "difficulty_level_id": "difficulty_level_2"
+  },
+  {
+    "id": "activity_39",
+    "title":"Δημιουργία προτάσεων",
+    "description": "Για την κάθε μία λέξη που σας δίνεται παρακάτω, φτιάξτε μία πρόταση.",
+    "full_text": "",
+    "video_url":"",
+    "img_url":"",
+    "instructions":[],
+    "link": "http://go.scify.gr/dianoia26",
+    "difficulty_level_id": "difficulty_level_1"
+  },
+  {
+    "id": "activity_40",
+    "title":"Δημιουργία προτάσεων",
+    "description": "Για την κάθε μία λέξη που σας δίνεται παρακάτω, φτιάξτε μία πρόταση.",
+    "full_text": "",
+    "video_url":"",
+    "img_url":"",
+    "instructions":[],
+    "link": "http://go.scify.gr/dianoia26",
+    "difficulty_level_id": "difficulty_level_1"
+  },
+  {
+    "id": "activity_41",
+    "title":"Δημιουργία προτάσεων",
+    "description": "Για την κάθε μία λέξη που σας δίνεται παρακάτω, φτιάξτε μία πρόταση.",
+    "full_text": "",
+    "video_url":"",
+    "img_url":"",
+    "instructions":[],
+    "link": "http://go.scify.gr/dianoia26",
+    "difficulty_level_id": "difficulty_level_1"
+  },
+  {
+    "id": "activity_42",
+    "title":"Δημιουργία προτάσεων",
+    "description": "Για την κάθε μία λέξη που σας δίνεται παρακάτω, φτιάξτε μία πρόταση.",
+    "full_text": "",
+    "video_url":"",
+    "img_url":"",
+    "instructions":[],
+    "link": "http://go.scify.gr/dianoia26",
+    "difficulty_level_id": "difficulty_level_1"
+  },
+  {
+    "id": "activity_43",
+    "title":"Δημιουργία προτάσεων",
+    "description": "Για την κάθε μία λέξη που σας δίνεται παρακάτω, φτιάξτε μία πρόταση.",
+    "full_text": "",
+    "video_url":"",
+    "img_url":"",
+    "instructions":[],
+    "link": "http://go.scify.gr/dianoia26",
+    "difficulty_level_id": "difficulty_level_1"
   }
 ]
