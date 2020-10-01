@@ -12,13 +12,12 @@ A demo of the app (in Greek) can be found [here](https://scify.github.io/Dianoia
 
 This project was built using the following versions of nodejs and npm:
 
-```$xslt
+```bash
 $ node -v
 v10.16.0
 
 $ npm -v
-6.9.0
-
+6.14.2
 ```
 
 It is very easy to install multiple versions of nodejs and npm, by using [Node Version Manager (nvm)](https://github.com/creationix/nvm).
@@ -36,17 +35,34 @@ $ ionic serve
 Then, to run it in a real Android device, cd into `dianoia-app` and run:
 
 ```bash
-$ ionic cordova platform add android
+$ ionic cordova platform add android@8.1.0
 $ ionic cordova emulate android
 ```
 
 ## Building
-In order to produce both 32bit and 64bit .apk files (using crosswalk),
-you run the following:
+
+### Building for Android
+
+#### Java - Gradle
+In order to build for Android, Java `1.8` is required, along with Gradle `4.4.1`.
+
+Verify your installations by running:
+```bash
+java -version
+gradle -version
+```
+
+#### Firebase Analytics
+Since the project uses Firebase Analytics, In order to build for Android you have to put the `google-services.json` file from Firebase Console to the root directory.
+The build process will then copy this file to the `platforms/andorid/app` directory.
+
+In order to produce e release build:
 
 ```bash
-cordova build android --release --xwalk64bit
+cordova build android --release
 ```
+#### Signing the Android .apk
+After the .apk file is built, you can either use Android CLI commands, or just open Android Studio, and sign the .apk.
 
 ## License
 
