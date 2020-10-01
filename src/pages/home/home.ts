@@ -29,47 +29,59 @@ export class HomePage {
               private appStorage: AppStorageProvider, public statusBar: StatusBar,
               private alertProvider: AlertProvider, private platform: Platform) {
 
-    if (platform.is('android')) {
-      statusBar.overlaysWebView(false);
-      statusBar.backgroundColorByHexString("#002984");
-      statusBar.styleBlackOpaque();
-    } else {
-      statusBar.overlaysWebView(true);
-      statusBar.styleDefault();
+    if (platform.is('cordova')) {
+      if (platform.is('android')) {
+        statusBar.overlaysWebView(false);
+        statusBar.backgroundColorByHexString("#002984");
+        statusBar.styleBlackOpaque();
+      } else {
+        statusBar.overlaysWebView(true);
+        statusBar.styleDefault();
+      }
+      this.checkForAnnouncement();
     }
 
-    // this.loaderService.showLoader();
-
-    // this.activityCategoryProvider.getActivitiesForCategory("common_activities").subscribe(activityIds => {
-    //   console.log(activityIds);
-    //   this.activityProvider.getActivitiesByIds(this.shuffle(activityIds)).subscribe(activities => {
-    //     this.activities = activities;
-    //     this.loaderService.hideLoader();
-    //   });
-    // });
-
     this.buttons = [
-      {id: "basic_info", title: 'Ας μάθουμε τα βασικά', subtitle: "Τι είναι - Σκοπός - Αξία", component: "BasicInfoPage"},
-      {id: "mental_activities", title: 'Εκτυπώστε νοητικές ασκήσεις', subtitle: "Ασκήσεις με μολύβι και χαρτί", component: "InfoListPage", pageCode: "page_goal", pageFile: "pages/goal.json"},
-      {id: "common_activities", title: 'Βρείτε δημιουργικές δραστηριότητες', subtitle: "Ιδέες για να περάσετε δημιουργικό χρόνο μαζί", component: "InfoListPage", pageCode: "page_value", pageFile: "pages/value.json"},
-      {id: "stories", title: 'Λέμε ιστορίες', subtitle: "Δημιουργικές και διασκεδασικές ιστορίες!"}
+      {
+        id: "basic_info",
+        title: 'Ας μάθουμε τα βασικά',
+        subtitle: "Τι είναι - Σκοπός - Αξία",
+        component: "BasicInfoPage"
+      },
+      {
+        id: "mental_activities",
+        title: 'Εκτυπώστε νοητικές ασκήσεις',
+        subtitle: "Ασκήσεις με μολύβι και χαρτί",
+        component: "InfoListPage",
+        pageCode: "page_goal",
+        pageFile: "pages/goal.json"
+      },
+      {
+        id: "common_activities",
+        title: 'Βρείτε δημιουργικές δραστηριότητες',
+        subtitle: "Ιδέες για να περάσετε δημιουργικό χρόνο μαζί",
+        component: "InfoListPage",
+        pageCode: "page_value",
+        pageFile: "pages/value.json"
+      },
+      {id: "stories", title: 'Λέμε ιστορίες', subtitle: "Δημιουργικές και διασκεδασικές ιστορίες!"},
+      {
+        id: "carer_activities",
+        title: 'Δραστηριότητες για φροντιστές',
+        subtitle: "Ιδέες και δραστηριότητες για φροντιστές",
+        component: "InfoListPage",
+        pageCode: "page_value",
+        pageFile: "pages/value.json"
+      }
     ];
 
-    // this.appStorage.get('app_installed').then(data => {
-    //   let dataInstalled = JSON.parse(data);
-    //   if(dataInstalled) {
-    //     this.checkForAnnouncement();
-    //   }
-    //   this.appStorage.set('app_installed', true);
-    // });
-    this.checkForAnnouncement();
   }
 
   checkForAnnouncement() {
 
     this.http.get('http://scify.org/dianoiaAnnouncement.html').subscribe(data => {
 
-      if(data) {
+      if (data) {
         let lastUpdatedString = data.headers.get('last-modified');
         console.log(data);
         if (lastUpdatedString) {
@@ -86,12 +98,12 @@ export class HomePage {
     console.log("lastUpdatedMills", lastUpdatedMills);
     this.appStorage.get('announcement_last_modified').then(data => {
       let announcementLastUpdated = JSON.parse(data);
-      if(announcementLastUpdated)
+      if (announcementLastUpdated)
         announcementLastUpdated = parseInt(announcementLastUpdated);
 
       console.log("announcementLastUpdated", announcementLastUpdated);
       console.log("this.strip(htmlToSHow)", this.strip(htmlToSHow) == "");
-      if(announcementLastUpdated < lastUpdatedMills && this.platform.is('cordova') && this.strip(htmlToSHow) !== "") {
+      if (announcementLastUpdated < lastUpdatedMills && this.platform.is('cordova') && this.strip(htmlToSHow) !== "") {
         console.log("Showing new announcement");
         console.log("htmlToSHow", htmlToSHow);
         this.alertProvider.announcementDialog("Announcement", htmlToSHow);
@@ -100,12 +112,12 @@ export class HomePage {
     });
   }
 
-   strip(html) {
+  strip(html) {
     let tmp = document.createElement("DIV");
     tmp.innerHTML = html;
     let str = tmp.textContent || tmp.innerText || "";
-    console.log(str.replace(/(\r\n|\n|\r)/gm,"").trim());
-    return str.replace(/(\r\n|\n|\r)/gm,"").trim();
+    console.log(str.replace(/(\r\n|\n|\r)/gm, "").trim());
+    return str.replace(/(\r\n|\n|\r)/gm, "").trim();
   }
 
   selectActivity(activity) {
@@ -129,28 +141,26 @@ export class HomePage {
         this.loaderService.showLoader();
         this.activityCategoryProvider.getSubcategoriesForCategory("mental_activities").then(subCategoriesIds => {
           this.activityCategoryProvider.getCategoriesByIds(subCategoriesIds).subscribe(categories => {
-            this.navCtrl.push("ActivityCategoriesPage", {categories: categories, parentCategoryId: "mental_activities"});
+            this.navCtrl.push("ActivityCategoriesPage", {
+              categories: categories,
+              parentCategoryId: "mental_activities"
+            });
             this.loaderService.hideLoader();
           });
 
         });
         break;
-      case "common_activities":
+      default:
         this.loaderService.showLoader();
-        this.getDifficultyLevelsForCategoryAndLoadPage("common_activities");
-        break;
-      case "stories":
-        this.loaderService.showLoader();
-        this.getDifficultyLevelsForCategoryAndLoadPage("stories");
+        this.getDifficultyLevelsForCategoryAndLoadPage(button.id);
         break;
     }
   }
 
-  getDifficultyLevelsForCategoryAndLoadPage(categoryId: string):any {
+  getDifficultyLevelsForCategoryAndLoadPage(categoryId: string): any {
     this.activityCategoryProvider.getActivitiesForCategory(categoryId).subscribe(activitiesIds => {
-      if(activitiesIds != null) {
+      if (activitiesIds != null) {
         this.activityProvider.getActivitiesByIds(activitiesIds).subscribe(activities => {
-          console.log(activities);
           this.getDifficultyLevelsForActivitiesAndLoadPage(activities, categoryId);
         }, error => {
           this.handleError(error);
@@ -164,8 +174,11 @@ export class HomePage {
 
   getDifficultyLevelsForActivitiesAndLoadPage(activities: any, categoryId) {
     this.difficultyLevelProvider.getDifficultyLevelsForActivities(activities).then(difficultyLevels => {
-      // this.loaderService.hideLoader();
-      this.navCtrl.push("DifficultyLevelsPage", {levels: difficultyLevels, categoryId: categoryId, activities: activities});
+      this.navCtrl.push("DifficultyLevelsPage", {
+        levels: difficultyLevels,
+        categoryId: categoryId,
+        activities: activities
+      });
     });
   }
 

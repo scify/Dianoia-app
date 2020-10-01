@@ -23,7 +23,6 @@ export class ActivityCategoriesPage {
     this.categories = this.navParams.get("categories");
 
     // if no categories passed as parameter, load top-level categories by default
-    // this.loaderService.showLoader();
     if(this.categories == null) {
       this.activityCategoryProvider.getTopLevelCategories().then(categories => {
         this.categories = categories;
@@ -43,14 +42,13 @@ export class ActivityCategoriesPage {
   }
 
   handleError(error) {
-    console.log(error);
+    console.error(error);
     this.loaderService.hideLoader();
   }
 
   getPageTitle() {
     return this.parentCategory != null ?  this.parentCategory.title : "Κατηγορίες δραστηριοτήτων";
   }
-
 
   selectCategory(categoryButton: any):any {
     // if the selected category has subcategories, get the subcategories and load the page again

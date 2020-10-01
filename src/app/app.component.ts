@@ -29,7 +29,6 @@ export class MyApp {
               private difficultyLevelProvider: DifficultyLevelProvider, private loaderService: LoaderService,
               private analyticsFirebase: AnalyticsFirebase) {
     this.initializeApp(platform, statusBar);
-    // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Αρχική', component: "HomePage"},
       { title: 'Ας μάθουμε τα βασικά', component: "BasicInfoPage"},
@@ -45,43 +44,41 @@ export class MyApp {
 
   initializeApp(platform, statusBar) {
     this.platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
-      this.splashScreen.hide();
+      if(this.platform.is('cordova')) {
+        this.splashScreen.hide();
 
-      if (platform.is('android')) {
-        statusBar.overlaysWebView(false);
-        statusBar.backgroundColorByHexString("#002984");
-        statusBar.styleBlackOpaque();
-      } else {
-        statusBar.overlaysWebView(true);
-        statusBar.styleDefault();
+        if (platform.is('android')) {
+          statusBar.overlaysWebView(false);
+          statusBar.backgroundColorByHexString("#002984");
+          statusBar.styleBlackOpaque();
+        } else {
+          statusBar.overlaysWebView(true);
+          statusBar.styleDefault();
+        }
+
+        this.localNotifications.listenForNotificationClicks();
+        this.localNotifications.scheduleNextNotification();
+        this.setUpAnalyticsLogger();
       }
 
-      this.localNotifications.listenForNotificationClicks();
-
       if(platform.is('cordova')) {
-
-
-
-        this.appStorage.get('notification-event-athens-alzheimer').then(value => {
-          value =  JSON.parse(value);
-          console.log("value", value);
-          if(!value || value < 3) {
-            let t = new Date();
-            t.setSeconds(t.getSeconds() + 1);
-            this.localNotifications.scheduleNotificationFor(t,
-              'Σχολείο Φοροντιστών',
-              'Το Σχολείο Φοροντιστών ξεκίνησε! Παρακολουθήστε το ΔΩΡΕΑΝ. Καλέστε στο 2107013271 για πληροφορίες και δηλώσεις συμμετοχής.',
-              null,
-              false);
-            this.appStorage.set('notification-event-athens-alzheimer', value + 1);
-          } else {
-            this.localNotifications.scheduleNextNotification();
-          }
-
-        });
-        this.setUpAnalyticsLogger();
+        // this.appStorage.get('notification-event-athens-alzheimer').then(value => {
+        //   value =  JSON.parse(value);
+        //   console.log("value", value);
+        //   if(!value || value < 3) {
+        //     let t = new Date();
+        //     t.setSeconds(t.getSeconds() + 1);
+        //     this.localNotifications.scheduleNotificationFor(t,
+        //       'Σχολείο Φοροντιστών',
+        //       'Το Σχολείο Φοροντιστών ξεκίνησε! Παρακολουθήστε το ΔΩΡΕΑΝ. Καλέστε στο 2107013271 για πληροφορίες και δηλώσεις συμμετοχής.',
+        //       null,
+        //       false);
+        //     this.appStorage.set('notification-event-athens-alzheimer', value + 1);
+        //   } else {
+        //     this.localNotifications.scheduleNextNotification();
+        //   }
+        //
+        // });
       }
     });
 
