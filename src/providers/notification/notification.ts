@@ -13,8 +13,8 @@ import {Platform} from "ionic-angular";
 @Injectable()
 export class NotificationProvider {
 
-  notificationTitles: [any];
-  notificationTexts: [any];
+  notificationTitles: string[];
+  notificationTexts: string[];
 
   constructor(private localNotifications: LocalNotifications, private appStorage: AppStorageProvider, private platform: Platform) {
     this.notificationTitles = ["Τι να κάνετε σήμερα:", "Σημερινή δραστηριότητα:"];
@@ -99,14 +99,13 @@ export class NotificationProvider {
   }
 
   public listenForNotificationClicks() {
-    const instance = this;
     this.localNotifications.on("click").subscribe(notification => {
       console.log("notification clicked: ", notification);
       this.scheduleNextNotification();
     });
   }
 
-  private randomArrayElement(items: [any]): any {
+  private randomArrayElement(items: string[]): string {
     return items[Math.floor(Math.random()*items.length)];
   }
 

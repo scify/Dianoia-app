@@ -5,7 +5,6 @@ import {ApiCallsProvider} from "../api-calls/api-calls";
 import {Observable} from "rxjs/Observable";
 import "rxjs/add/observable/forkJoin";
 import {AppStorageProvider} from "../app-storage/app-storage";
-import {Storage} from "@ionic/storage";
 
 /*
   Generated class for the ActivityProvider provider.

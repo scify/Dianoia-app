@@ -113,6 +113,7 @@ export class ActivityPage {
   }
 
 
+  // tslint:disable-next-line:no-unused-variable
   private share(activity) {
     var options = {
       message: 'ΔιΆνοια - δραστηριότητα: ' + activity.title + "    ",

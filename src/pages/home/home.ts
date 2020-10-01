@@ -21,7 +21,7 @@ export class HomePage {
   tab2Root = "RandomActivitiesPage";
 
   activities: any[];
-  buttons: [any];
+  buttons: any[];
 
   constructor(public navCtrl: NavController, private activityProvider: ActivityProvider,
               private loaderService: LoaderService, private activityCategoryProvider: ActivityCategoryProvider,

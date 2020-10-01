@@ -14,7 +14,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class BasicInfoPage {
 
-  buttons: [any];
+  buttons: any[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.buttons = [

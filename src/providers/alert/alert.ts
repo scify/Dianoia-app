@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import {AlertController, Platform} from 'ionic-angular';
+import {AlertController} from 'ionic-angular';
 import {Toast} from "@ionic-native/toast";
-import {InAppBrowser} from "@ionic-native/in-app-browser";
 
 /*
   Generated class for the AlertProvider provider.
