@@ -10,7 +10,7 @@ import {ActivityCategoryProvider} from "../providers/activity-category/activity-
 import {ActivityProvider} from "../providers/activity/activity";
 import {DifficultyLevelProvider} from "../providers/difficulty-level/difficulty-level";
 import {LoaderService} from "../providers/loader-service/loader-service";
-import { AnalyticsFirebase } from '@ionic-native/analytics-firebase';
+import {AnalyticsFirebase} from '@ionic-native/analytics-firebase';
 
 @Component({
   templateUrl: 'app.html'
@@ -20,7 +20,7 @@ export class MyApp {
 
   rootPage: any = 'HomePage';
 
-  pages: Array<{title: string, id?: any, component?: any, pageFile?: string, pageCode?: string}>;
+  pages: Array<{ title: string, id?: any, component?: any, pageFile?: string, pageCode?: string }>;
 
   constructor(public platform: Platform, public statusBar: StatusBar,
               public splashScreen: SplashScreen, private localNotifications: NotificationProvider,
@@ -30,21 +30,27 @@ export class MyApp {
               private analyticsFirebase: AnalyticsFirebase) {
     this.initializeApp(platform, statusBar);
     this.pages = [
-      { title: 'Αρχική', component: "HomePage"},
-      { title: 'Ας μάθουμε τα βασικά', component: "BasicInfoPage"},
-      { title: 'Τι να προσέξουμε', component: "InfoListPage", pageCode: "page_tips_list", pageFile: "pages/tips_list.json" },
-      { title: 'Ασκήσεις - Δραστηριότητες', component: "ActivityCategoriesPage"},
-      { title: 'Λέμε Ιστορίες', id: "stories"},
-      { title: 'Ιστορικό', component: "StatisticsPage" },
-      { title: 'Ρυθμίσεις ειδοποιήσεων', component: "NotificationsPage" },
-      { title: 'Βοήθεια', component: "HelpPage"},
-      { title: 'About', component: "AboutPage"}
+      {title: 'Αρχική', component: "HomePage"},
+      {title: 'Ας μάθουμε τα βασικά', component: "BasicInfoPage"},
+      {
+        title: 'Τι να προσέξουμε',
+        component: "InfoListPage",
+        pageCode: "page_tips_list",
+        pageFile: "pages/tips_list.json"
+      },
+      {title: 'Ασκήσεις - Δραστηριότητες', component: "ActivityCategoriesPage"},
+      {title: 'Λέμε Ιστορίες', id: "stories"},
+      {title: 'Δραστηριότητες για φροντιστές', id: "carer_activities"},
+      {title: 'Ιστορικό', component: "StatisticsPage"},
+      {title: 'Ρυθμίσεις ειδοποιήσεων', component: "NotificationsPage"},
+      {title: 'Βοήθεια', component: "HelpPage"},
+      {title: 'About', component: "AboutPage"}
     ];
   }
 
   initializeApp(platform, statusBar) {
     this.platform.ready().then(() => {
-      if(this.platform.is('cordova')) {
+      if (this.platform.is('cordova')) {
         this.splashScreen.hide();
 
         if (platform.is('android')) {
@@ -61,28 +67,18 @@ export class MyApp {
         this.setUpAnalyticsLogger();
       }
     });
-
   }
 
   openPage(page) {
-    switch(page.id) {
-      case "stories":
-        this.loadStoriesPage();
-        break;
-      default:
-        this.nav.push(page.component, {pageData: page});
-        break;
-    }
-
+    if (page.id)
+      this.getDifficultyLevelsForCategoryAndLoadPage(page.id);
+    else
+      this.nav.push(page.component, {pageData: page});
   }
 
-  loadStoriesPage() {
-    this.getDifficultyLevelsForCategoryAndLoadPage("stories");
-  }
-
-  getDifficultyLevelsForCategoryAndLoadPage(categoryId: string):any {
+  getDifficultyLevelsForCategoryAndLoadPage(categoryId: string): any {
     this.activityCategoryProvider.getActivitiesForCategory(categoryId).subscribe(activitiesIds => {
-      if(activitiesIds != null) {
+      if (activitiesIds != null) {
         this.activityProvider.getActivitiesByIds(activitiesIds).subscribe(activities => {
           console.log(activities);
           this.getDifficultyLevelsForActivitiesAndLoadPage(activities, categoryId);
