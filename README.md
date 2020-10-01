@@ -26,9 +26,13 @@ It is very easy to install multiple versions of nodejs and npm, by using [Node V
 
 ```bash
 $ npm install -g @ionic/cli@6.11.10 
+
 $ npm install -g cordova@8.1.2
+
 $ cd dianoia-app
+
 $ npm install
+
 $ ionic serve
 ```
 
@@ -37,6 +41,7 @@ Then, to run it in a real Android device, cd into `dianoia-app` and run:
 
 ```bash
 $ ionic cordova platform add android@8.1.0
+
 $ ionic cordova emulate android
 ```
 
@@ -50,6 +55,7 @@ In order to build for Android, Java `1.8` is required, along with Gradle `4.4.1`
 Verify your installations by running:
 ```bash
 java -version
+
 gradle -version
 ```
 
