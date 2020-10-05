@@ -396,7 +396,7 @@
     "video_url":"",
     "img_url":"",
     "instructions":[],
-    "link": "http://go.scify.gr/dianoia26",
+    "link": "http://go.scify.gr/dianoia30",
     "difficulty_level_id": "difficulty_level_2"
   },
   {
@@ -407,7 +407,7 @@
     "video_url":"",
     "img_url":"",
     "instructions":[],
-    "link": "http://go.scify.gr/dianoia26",
+    "link": "http://go.scify.gr/dianoia27",
     "difficulty_level_id": "difficulty_level_2"
   },
   {
@@ -418,7 +418,7 @@
     "video_url":"",
     "img_url":"",
     "instructions":[],
-    "link": "http://go.scify.gr/dianoia26",
+    "link": "http://go.scify.gr/dianoia28",
     "difficulty_level_id": "difficulty_level_2"
   },
   {
@@ -429,51 +429,51 @@
     "video_url":"",
     "img_url":"",
     "instructions":[],
-    "link": "http://go.scify.gr/dianoia26",
+    "link": "http://go.scify.gr/dianoia29",
     "difficulty_level_id": "difficulty_level_1"
   },
   {
     "id": "activity_40",
-    "title":"Δημιουργία προτάσεων",
-    "description": "Για την κάθε μία λέξη που σας δίνεται παρακάτω, φτιάξτε μία πρόταση.",
+    "title":"Εβδομαδιαίο Πρόγραμμα Δραστηριοτήτων",
+    "description": "Δημιουργήστε το εβδομαδιαίο σας πρόγραμμα με τις δραστηριότητές σας.",
     "full_text": "",
     "video_url":"",
     "img_url":"",
     "instructions":[],
-    "link": "http://go.scify.gr/dianoia26",
+    "link": "http://go.scify.gr/dianoia31",
     "difficulty_level_id": "difficulty_level_1"
   },
   {
     "id": "activity_41",
-    "title":"Δημιουργία προτάσεων",
-    "description": "Για την κάθε μία λέξη που σας δίνεται παρακάτω, φτιάξτε μία πρόταση.",
+    "title":"Τεχνική Mindfulness",
+    "description": "Χρήση της τεχνικής Mindfulness για μείωση των συμπτωμάτων του stress και κατάθλιψης.",
     "full_text": "",
     "video_url":"",
     "img_url":"",
     "instructions":[],
-    "link": "http://go.scify.gr/dianoia26",
+    "link": "http://go.scify.gr/dianoia32",
     "difficulty_level_id": "difficulty_level_1"
   },
   {
     "id": "activity_42",
-    "title":"Δημιουργία προτάσεων",
-    "description": "Για την κάθε μία λέξη που σας δίνεται παρακάτω, φτιάξτε μία πρόταση.",
+    "title":"Τεχνικές Χαλάρωσης",
+    "description": "Τεχνικές χαλάρωσης (Διαφραγματική αναπνοή, Κατευθυνόμενη φαντασίωση) για μείωση του στρες.",
     "full_text": "",
     "video_url":"",
     "img_url":"",
     "instructions":[],
-    "link": "http://go.scify.gr/dianoia26",
+    "link": "http://go.scify.gr/dianoia33",
     "difficulty_level_id": "difficulty_level_1"
   },
   {
     "id": "activity_43",
-    "title":"Δημιουργία προτάσεων",
-    "description": "Για την κάθε μία λέξη που σας δίνεται παρακάτω, φτιάξτε μία πρόταση.",
+    "title":"Πηγές & Βιβλιογραφία",
+    "description": "Σύνδεσμοι βιβλιογραφικών πηγών για τις ασκήσεις για Φροντιστές.",
     "full_text": "",
     "video_url":"",
     "img_url":"",
     "instructions":[],
-    "link": "http://go.scify.gr/dianoia26",
+    "link": "http://go.scify.gr/dianoia34",
     "difficulty_level_id": "difficulty_level_1"
   }
 ]
