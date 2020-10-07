@@ -123,7 +123,7 @@ var ButtonsListComponent = /** @class */ (function () {
     ], ButtonsListComponent.prototype, "buttonClick", void 0);
     ButtonsListComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-            selector: 'buttons-list',template:/*ion-inline-start:"/home/paul/projects/dianoia/dianoia-paulisaris/Dianoia-app/src/components/buttons-list/buttons-list.html"*/'<!-- Generated template for the ButtonsListComponent component -->\n<div>\n  <div class="buttonsContainer">\n    <p *ngFor="let button of buttons">\n      <button [ngClass]="button.subtitle ? \'bigBtn\' : \'\'" mode="ios" ion-button full (click)="onButtonClick(button)">{{ button.title }} <div class="subtitle" *ngIf=\'button.subtitle\'>{{ button.subtitle }}</div></button>\n    </p>\n  </div>\n</div>\n\n'/*ion-inline-end:"/home/paul/projects/dianoia/dianoia-paulisaris/Dianoia-app/src/components/buttons-list/buttons-list.html"*/
+            selector: 'buttons-list',template:/*ion-inline-start:"/home/paul/projects/dianoia/Dianoia-app/src/components/buttons-list/buttons-list.html"*/'<!-- Generated template for the ButtonsListComponent component -->\n<div>\n  <div class="buttonsContainer">\n    <p *ngFor="let button of buttons">\n      <button [ngClass]="button.subtitle ? \'bigBtn\' : \'\'" mode="ios" ion-button full (click)="onButtonClick(button)">{{ button.title }} <div class="subtitle" *ngIf=\'button.subtitle\'>{{ button.subtitle }}</div></button>\n    </p>\n  </div>\n</div>\n\n'/*ion-inline-end:"/home/paul/projects/dianoia/Dianoia-app/src/components/buttons-list/buttons-list.html"*/
         }),
         __metadata("design:paramtypes", [])
     ], ButtonsListComponent);
@@ -171,6 +171,7 @@ var ActivityCategoriesPage = /** @class */ (function () {
         this.loaderService = loaderService;
         this.categories = this.navParams.get("categories");
         // if no categories passed as parameter, load top-level categories by default
+        // this.loaderService.showLoader();
         if (this.categories == null) {
             this.activityCategoryProvider.getTopLevelCategories().then(function (categories) {
                 _this.categories = categories;
@@ -190,7 +191,7 @@ var ActivityCategoriesPage = /** @class */ (function () {
         }
     }
     ActivityCategoriesPage.prototype.handleError = function (error) {
-        console.error(error);
+        console.log(error);
         this.loaderService.hideLoader();
     };
     ActivityCategoriesPage.prototype.getPageTitle = function () {
@@ -255,7 +256,7 @@ var ActivityCategoriesPage = /** @class */ (function () {
     ActivityCategoriesPage = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-            selector: 'page-activity-categories',template:/*ion-inline-start:"/home/paul/projects/dianoia/dianoia-paulisaris/Dianoia-app/src/pages/activity-categories/activity-categories.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{ getPageTitle() }}</ion-title>\n    <ion-buttons end>\n      <button (click)="goToHome()" class="homeBtn">\n        <ion-icon name="md-home"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <div class="description">Επιλέξτε μια κατηγορία</div>\n\n  <buttons-list *ngIf=\'categories?.length > 0\' [buttons]="categories" (buttonClick)="selectCategory($event)"></buttons-list>\n\n</ion-content>\n'/*ion-inline-end:"/home/paul/projects/dianoia/dianoia-paulisaris/Dianoia-app/src/pages/activity-categories/activity-categories.html"*/,
+            selector: 'page-activity-categories',template:/*ion-inline-start:"/home/paul/projects/dianoia/Dianoia-app/src/pages/activity-categories/activity-categories.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{ getPageTitle() }}</ion-title>\n    <ion-buttons end>\n      <button (click)="goToHome()" class="homeBtn">\n        <ion-icon name="md-home"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <div class="description">Επιλέξτε μια κατηγορία</div>\n\n  <buttons-list *ngIf=\'categories?.length > 0\' [buttons]="categories" (buttonClick)="selectCategory($event)"></buttons-list>\n\n</ion-content>\n'/*ion-inline-end:"/home/paul/projects/dianoia/Dianoia-app/src/pages/activity-categories/activity-categories.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_2__providers_activity_category_activity_category__["a" /* ActivityCategoryProvider */],

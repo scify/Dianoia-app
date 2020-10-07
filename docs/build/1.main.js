@@ -126,7 +126,7 @@ var ButtonsListComponent = /** @class */ (function () {
     ], ButtonsListComponent.prototype, "buttonClick", void 0);
     ButtonsListComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-            selector: 'buttons-list',template:/*ion-inline-start:"/home/paul/projects/dianoia/dianoia-paulisaris/Dianoia-app/src/components/buttons-list/buttons-list.html"*/'<!-- Generated template for the ButtonsListComponent component -->\n<div>\n  <div class="buttonsContainer">\n    <p *ngFor="let button of buttons">\n      <button [ngClass]="button.subtitle ? \'bigBtn\' : \'\'" mode="ios" ion-button full (click)="onButtonClick(button)">{{ button.title }} <div class="subtitle" *ngIf=\'button.subtitle\'>{{ button.subtitle }}</div></button>\n    </p>\n  </div>\n</div>\n\n'/*ion-inline-end:"/home/paul/projects/dianoia/dianoia-paulisaris/Dianoia-app/src/components/buttons-list/buttons-list.html"*/
+            selector: 'buttons-list',template:/*ion-inline-start:"/home/paul/projects/dianoia/Dianoia-app/src/components/buttons-list/buttons-list.html"*/'<!-- Generated template for the ButtonsListComponent component -->\n<div>\n  <div class="buttonsContainer">\n    <p *ngFor="let button of buttons">\n      <button [ngClass]="button.subtitle ? \'bigBtn\' : \'\'" mode="ios" ion-button full (click)="onButtonClick(button)">{{ button.title }} <div class="subtitle" *ngIf=\'button.subtitle\'>{{ button.subtitle }}</div></button>\n    </p>\n  </div>\n</div>\n\n'/*ion-inline-end:"/home/paul/projects/dianoia/Dianoia-app/src/components/buttons-list/buttons-list.html"*/
         }),
         __metadata("design:paramtypes", [])
     ], ButtonsListComponent);
@@ -224,7 +224,7 @@ var CardsListComponent = /** @class */ (function () {
     ], CardsListComponent.prototype, "cardClick", void 0);
     CardsListComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-            selector: 'cards-list',template:/*ion-inline-start:"/home/paul/projects/dianoia/dianoia-paulisaris/Dianoia-app/src/components/cards-list/cards-list.html"*/'\n<div class="title">{{ getCardsListTitle() }}</div>\n\n<ion-card mode="ios" *ngFor="let card of cards" (click)="onCardClick(card)">\n  <button ion-item no-padding>\n    <ion-item no-padding style="background: rgba(0,0,0,0);">\n      <ion-card-header text-wrap>\n        {{ card.title }}\n      </ion-card-header>\n      <ion-card-content>\n        <p>\n          {{ card.description }}\n        </p>\n      </ion-card-content>\n    </ion-item>\n  </button>\n\n</ion-card>\n'/*ion-inline-end:"/home/paul/projects/dianoia/dianoia-paulisaris/Dianoia-app/src/components/cards-list/cards-list.html"*/
+            selector: 'cards-list',template:/*ion-inline-start:"/home/paul/projects/dianoia/Dianoia-app/src/components/cards-list/cards-list.html"*/'\n<div class="title">{{ getCardsListTitle() }}</div>\n\n<ion-card mode="ios" *ngFor="let card of cards" (click)="onCardClick(card)">\n  <button ion-item no-padding>\n    <ion-item no-padding style="background: rgba(0,0,0,0);">\n      <ion-card-header text-wrap>\n        {{ card.title }}\n      </ion-card-header>\n      <ion-card-content>\n        <p>\n          {{ card.description }}\n        </p>\n      </ion-card-content>\n    </ion-item>\n  </button>\n\n</ion-card>\n'/*ion-inline-end:"/home/paul/projects/dianoia/Dianoia-app/src/components/cards-list/cards-list.html"*/
         }),
         __metadata("design:paramtypes", [])
     ], CardsListComponent);
@@ -257,23 +257,39 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+/**
+ * Generated class for the DifficultyLevelsPage page.
+ *
+ * See http://ionicframework.com/docs/components/#navigation for more info
+ * on Ionic pages and navigation.
+ */
 var DifficultyLevelsPage = /** @class */ (function () {
     function DifficultyLevelsPage(navCtrl, navParams, categoryProvider, loaderService) {
+        var _this = this;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.categoryProvider = categoryProvider;
         this.loaderService = loaderService;
         this.categoryId = this.navParams.get("categoryId");
         this.allActivities = this.navParams.get("activities");
-        this.activities = this.navParams.get("activities");
-        this.loaderService.hideLoader();
-        if (this.categoryId == null) {
-            this.navCtrl.setRoot("HomePage");
-        }
-        else {
-            this.levels = this.navParams.get("levels");
-            this.levels.unshift({ id: "0", title: "Όλα τα επίπεδα" });
-        }
+        this.activities = this.allActivities;
+        // this.loaderService.showLoader();
+        // if(this.levels == null) {
+        //   this.navCtrl.setRoot("HomePage");
+        // } else {
+        //   this.levels.unshift({id: "0", title: "Όλα τα επίπεδα"});
+        // }
+        this.categoryProvider.getCategoryById(this.categoryId).then(function (category) {
+            _this.category = category;
+            if (!_this.category.has_difficulty_levels) {
+                _this.levels = [];
+            }
+            else {
+                _this.levels = _this.navParams.get("levels");
+                _this.levels.unshift({ id: "0", title: "Όλα τα επίπεδα" });
+            }
+            _this.loaderService.hideLoader();
+        });
     }
     DifficultyLevelsPage.prototype.getPageTitle = function () {
         return this.category != null ? this.category.title : "Δραστηριότητες";
@@ -301,7 +317,7 @@ var DifficultyLevelsPage = /** @class */ (function () {
     DifficultyLevelsPage = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-            selector: 'page-difficulty-levels',template:/*ion-inline-start:"/home/paul/projects/dianoia/dianoia-paulisaris/Dianoia-app/src/pages/difficulty-levels/difficulty-levels.html"*/'<!--\n  Generated template for the DifficultyLevelsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title> {{ getPageTitle() }}</ion-title>\n    <ion-buttons end>\n      <button (click)="goToHome()" class="homeBtn">\n        <ion-icon name="md-home"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n\n  <div padding *ngIf=\'levels?.length > 2\'>\n    <div class="description">Επιλέξτε επίπεδο δυσκολίας</div>\n    <buttons-list [buttons]="levels" (buttonClick)="selectLevel($event)"></buttons-list>\n  </div>\n\n  <div class="activitiesContainer">\n    <cards-list *ngIf=\'activities?.length > 0\' [cards]="activities" (cardClick)="selectActivity($event)"></cards-list>\n  </div>\n\n</ion-content>\n'/*ion-inline-end:"/home/paul/projects/dianoia/dianoia-paulisaris/Dianoia-app/src/pages/difficulty-levels/difficulty-levels.html"*/,
+            selector: 'page-difficulty-levels',template:/*ion-inline-start:"/home/paul/projects/dianoia/Dianoia-app/src/pages/difficulty-levels/difficulty-levels.html"*/'<!--\n  Generated template for the DifficultyLevelsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title> {{ getPageTitle() }}</ion-title>\n    <ion-buttons end>\n      <button (click)="goToHome()" class="homeBtn">\n        <ion-icon name="md-home"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n\n  <div padding *ngIf=\'levels?.length > 2\'>\n    <div class="description">Επιλέξτε επίπεδο δυσκολίας</div>\n    <buttons-list [buttons]="levels" (buttonClick)="selectLevel($event)"></buttons-list>\n  </div>\n\n  <div class="activitiesContainer">\n    <cards-list *ngIf=\'activities?.length > 0\' [cards]="activities" (cardClick)="selectActivity($event)"></cards-list>\n  </div>\n\n</ion-content>\n'/*ion-inline-end:"/home/paul/projects/dianoia/Dianoia-app/src/pages/difficulty-levels/difficulty-levels.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_2__providers_activity_category_activity_category__["a" /* ActivityCategoryProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_loader_service_loader_service__["a" /* LoaderService */]])

@@ -120,7 +120,7 @@ var ButtonsListComponent = /** @class */ (function () {
     ], ButtonsListComponent.prototype, "buttonClick", void 0);
     ButtonsListComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-            selector: 'buttons-list',template:/*ion-inline-start:"/home/paul/projects/dianoia/dianoia-paulisaris/Dianoia-app/src/components/buttons-list/buttons-list.html"*/'<!-- Generated template for the ButtonsListComponent component -->\n<div>\n  <div class="buttonsContainer">\n    <p *ngFor="let button of buttons">\n      <button [ngClass]="button.subtitle ? \'bigBtn\' : \'\'" mode="ios" ion-button full (click)="onButtonClick(button)">{{ button.title }} <div class="subtitle" *ngIf=\'button.subtitle\'>{{ button.subtitle }}</div></button>\n    </p>\n  </div>\n</div>\n\n'/*ion-inline-end:"/home/paul/projects/dianoia/dianoia-paulisaris/Dianoia-app/src/components/buttons-list/buttons-list.html"*/
+            selector: 'buttons-list',template:/*ion-inline-start:"/home/paul/projects/dianoia/Dianoia-app/src/components/buttons-list/buttons-list.html"*/'<!-- Generated template for the ButtonsListComponent component -->\n<div>\n  <div class="buttonsContainer">\n    <p *ngFor="let button of buttons">\n      <button [ngClass]="button.subtitle ? \'bigBtn\' : \'\'" mode="ios" ion-button full (click)="onButtonClick(button)">{{ button.title }} <div class="subtitle" *ngIf=\'button.subtitle\'>{{ button.subtitle }}</div></button>\n    </p>\n  </div>\n</div>\n\n'/*ion-inline-end:"/home/paul/projects/dianoia/Dianoia-app/src/components/buttons-list/buttons-list.html"*/
         }),
         __metadata("design:paramtypes", [])
     ], ButtonsListComponent);
@@ -218,7 +218,7 @@ var CardsListComponent = /** @class */ (function () {
     ], CardsListComponent.prototype, "cardClick", void 0);
     CardsListComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-            selector: 'cards-list',template:/*ion-inline-start:"/home/paul/projects/dianoia/dianoia-paulisaris/Dianoia-app/src/components/cards-list/cards-list.html"*/'\n<div class="title">{{ getCardsListTitle() }}</div>\n\n<ion-card mode="ios" *ngFor="let card of cards" (click)="onCardClick(card)">\n  <button ion-item no-padding>\n    <ion-item no-padding style="background: rgba(0,0,0,0);">\n      <ion-card-header text-wrap>\n        {{ card.title }}\n      </ion-card-header>\n      <ion-card-content>\n        <p>\n          {{ card.description }}\n        </p>\n      </ion-card-content>\n    </ion-item>\n  </button>\n\n</ion-card>\n'/*ion-inline-end:"/home/paul/projects/dianoia/dianoia-paulisaris/Dianoia-app/src/components/cards-list/cards-list.html"*/
+            selector: 'cards-list',template:/*ion-inline-start:"/home/paul/projects/dianoia/Dianoia-app/src/components/cards-list/cards-list.html"*/'\n<div class="title">{{ getCardsListTitle() }}</div>\n\n<ion-card mode="ios" *ngFor="let card of cards" (click)="onCardClick(card)">\n  <button ion-item no-padding>\n    <ion-item no-padding style="background: rgba(0,0,0,0);">\n      <ion-card-header text-wrap>\n        {{ card.title }}\n      </ion-card-header>\n      <ion-card-content>\n        <p>\n          {{ card.description }}\n        </p>\n      </ion-card-content>\n    </ion-item>\n  </button>\n\n</ion-card>\n'/*ion-inline-end:"/home/paul/projects/dianoia/Dianoia-app/src/components/cards-list/cards-list.html"*/
         }),
         __metadata("design:paramtypes", [])
     ], CardsListComponent);
@@ -278,51 +278,37 @@ var HomePage = /** @class */ (function () {
         this.platform = platform;
         this.tab1Root = "RandomActivitiesPage";
         this.tab2Root = "RandomActivitiesPage";
-        if (platform.is('cordova')) {
-            if (platform.is('android')) {
-                statusBar.overlaysWebView(false);
-                statusBar.backgroundColorByHexString("#002984");
-                statusBar.styleBlackOpaque();
-            }
-            else {
-                statusBar.overlaysWebView(true);
-                statusBar.styleDefault();
-            }
-            this.checkForAnnouncement();
+        if (platform.is('android')) {
+            statusBar.overlaysWebView(false);
+            statusBar.backgroundColorByHexString("#002984");
+            statusBar.styleBlackOpaque();
         }
+        else {
+            statusBar.overlaysWebView(true);
+            statusBar.styleDefault();
+        }
+        // this.loaderService.showLoader();
+        // this.activityCategoryProvider.getActivitiesForCategory("common_activities").subscribe(activityIds => {
+        //   console.log(activityIds);
+        //   this.activityProvider.getActivitiesByIds(this.shuffle(activityIds)).subscribe(activities => {
+        //     this.activities = activities;
+        //     this.loaderService.hideLoader();
+        //   });
+        // });
         this.buttons = [
-            {
-                id: "basic_info",
-                title: 'Ας μάθουμε τα βασικά',
-                subtitle: "Τι είναι - Σκοπός - Αξία",
-                component: "BasicInfoPage"
-            },
-            {
-                id: "mental_activities",
-                title: 'Εκτυπώστε νοητικές ασκήσεις',
-                subtitle: "Ασκήσεις με μολύβι και χαρτί",
-                component: "InfoListPage",
-                pageCode: "page_goal",
-                pageFile: "pages/goal.json"
-            },
-            {
-                id: "common_activities",
-                title: 'Βρείτε δημιουργικές δραστηριότητες',
-                subtitle: "Ιδέες για να περάσετε δημιουργικό χρόνο μαζί",
-                component: "InfoListPage",
-                pageCode: "page_value",
-                pageFile: "pages/value.json"
-            },
-            { id: "stories", title: 'Λέμε ιστορίες', subtitle: "Δημιουργικές και διασκεδασικές ιστορίες!" },
-            {
-                id: "carer_activities",
-                title: 'Δραστηριότητες για φροντιστές',
-                subtitle: "Ιδέες και δραστηριότητες για φροντιστές",
-                component: "InfoListPage",
-                pageCode: "page_value",
-                pageFile: "pages/value.json"
-            }
+            { id: "basic_info", title: 'Ας μάθουμε τα βασικά', subtitle: "Τι είναι - Σκοπός - Αξία", component: "BasicInfoPage" },
+            { id: "mental_activities", title: 'Εκτυπώστε νοητικές ασκήσεις', subtitle: "Ασκήσεις με μολύβι και χαρτί", component: "InfoListPage", pageCode: "page_goal", pageFile: "pages/goal.json" },
+            { id: "common_activities", title: 'Βρείτε δημιουργικές δραστηριότητες', subtitle: "Ιδέες για να περάσετε δημιουργικό χρόνο μαζί", component: "InfoListPage", pageCode: "page_value", pageFile: "pages/value.json" },
+            { id: "stories", title: 'Λέμε ιστορίες', subtitle: "Δημιουργικές και διασκεδασικές ιστορίες!" }
         ];
+        // this.appStorage.get('app_installed').then(data => {
+        //   let dataInstalled = JSON.parse(data);
+        //   if(dataInstalled) {
+        //     this.checkForAnnouncement();
+        //   }
+        //   this.appStorage.set('app_installed', true);
+        // });
+        this.checkForAnnouncement();
     }
     HomePage.prototype.checkForAnnouncement = function () {
         var _this = this;
@@ -384,17 +370,18 @@ var HomePage = /** @class */ (function () {
                 this.loaderService.showLoader();
                 this.activityCategoryProvider.getSubcategoriesForCategory("mental_activities").then(function (subCategoriesIds) {
                     _this.activityCategoryProvider.getCategoriesByIds(subCategoriesIds).subscribe(function (categories) {
-                        _this.navCtrl.push("ActivityCategoriesPage", {
-                            categories: categories,
-                            parentCategoryId: "mental_activities"
-                        });
+                        _this.navCtrl.push("ActivityCategoriesPage", { categories: categories, parentCategoryId: "mental_activities" });
                         _this.loaderService.hideLoader();
                     });
                 });
                 break;
-            default:
+            case "common_activities":
                 this.loaderService.showLoader();
-                this.getDifficultyLevelsForCategoryAndLoadPage(button.id);
+                this.getDifficultyLevelsForCategoryAndLoadPage("common_activities");
+                break;
+            case "stories":
+                this.loaderService.showLoader();
+                this.getDifficultyLevelsForCategoryAndLoadPage("stories");
                 break;
         }
     };
@@ -403,6 +390,7 @@ var HomePage = /** @class */ (function () {
         this.activityCategoryProvider.getActivitiesForCategory(categoryId).subscribe(function (activitiesIds) {
             if (activitiesIds != null) {
                 _this.activityProvider.getActivitiesByIds(activitiesIds).subscribe(function (activities) {
+                    console.log(activities);
                     _this.getDifficultyLevelsForActivitiesAndLoadPage(activities, categoryId);
                 }, function (error) {
                     _this.handleError(error);
@@ -415,11 +403,8 @@ var HomePage = /** @class */ (function () {
     HomePage.prototype.getDifficultyLevelsForActivitiesAndLoadPage = function (activities, categoryId) {
         var _this = this;
         this.difficultyLevelProvider.getDifficultyLevelsForActivities(activities).then(function (difficultyLevels) {
-            _this.navCtrl.push("DifficultyLevelsPage", {
-                levels: difficultyLevels,
-                categoryId: categoryId,
-                activities: activities
-            });
+            // this.loaderService.hideLoader();
+            _this.navCtrl.push("DifficultyLevelsPage", { levels: difficultyLevels, categoryId: categoryId, activities: activities });
         });
     };
     HomePage.prototype.handleError = function (error) {
@@ -429,7 +414,7 @@ var HomePage = /** @class */ (function () {
     HomePage = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/home/paul/projects/dianoia/dianoia-paulisaris/Dianoia-app/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>διΆνοια</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n\n  <div padding>\n    <div class="logoContainer">\n      <img class="logo" src="assets/img/icon.png">\n    </div>\n  </div>\n\n  <div class="activitiesContainer">\n    <div padding style="padding-bottom: 0">\n      <buttons-list *ngIf=\'buttons?.length > 0\' [buttons]="buttons" (buttonClick)="goTo($event)"></buttons-list>\n    </div>\n    <p padding>Δείτε περισσότερες επιλογές στο κεντρικό μενού</p>\n    <!--<cards-list *ngIf="activities?.length > 0" [cards]="activities" (cardClick)="selectActivity($event)"></cards-list>-->\n  </div>\n\n</ion-content>\n'/*ion-inline-end:"/home/paul/projects/dianoia/dianoia-paulisaris/Dianoia-app/src/pages/home/home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"/home/paul/projects/dianoia/Dianoia-app/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>διΆνοια</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n\n  <div padding>\n    <div class="logoContainer">\n      <img class="logo" src="assets/img/icon.png">\n    </div>\n  </div>\n\n  <div class="activitiesContainer">\n    <div padding style="padding-bottom: 0">\n      <buttons-list *ngIf=\'buttons?.length > 0\' [buttons]="buttons" (buttonClick)="goTo($event)"></buttons-list>\n    </div>\n    <p padding>Δείτε περισσότερες επιλογές στο κεντρικό μενού</p>\n    <!--<cards-list *ngIf="activities?.length > 0" [cards]="activities" (cardClick)="selectActivity($event)"></cards-list>-->\n  </div>\n  <!--<ion-tabs>-->\n    <!--<ion-tab [root]="tab1Root" tabTitle="Activities" tabIcon="ios-list-outline"></ion-tab>-->\n    <!--<ion-tab [root]="tab2Root" tabTitle="Σχετικά" tabIcon="information-circle"></ion-tab>-->\n  <!--</ion-tabs>-->\n\n</ion-content>\n'/*ion-inline-end:"/home/paul/projects/dianoia/Dianoia-app/src/pages/home/home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__providers_activity_activity__["a" /* ActivityProvider */],
             __WEBPACK_IMPORTED_MODULE_3__providers_loader_service_loader_service__["a" /* LoaderService */], __WEBPACK_IMPORTED_MODULE_4__providers_activity_category_activity_category__["a" /* ActivityCategoryProvider */],
