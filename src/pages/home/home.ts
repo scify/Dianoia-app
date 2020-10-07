@@ -9,6 +9,7 @@ import {Http} from "@angular/http";
 import {AppStorageProvider} from "../../providers/app-storage/app-storage";
 import {AlertProvider} from "../../providers/alert/alert";
 import {StatusBar} from "@ionic-native/status-bar";
+import {InAppBrowser} from "@ionic-native/in-app-browser";
 
 @IonicPage()
 @Component({
@@ -27,7 +28,7 @@ export class HomePage {
               private loaderService: LoaderService, private activityCategoryProvider: ActivityCategoryProvider,
               private difficultyLevelProvider: DifficultyLevelProvider, private http: Http,
               private appStorage: AppStorageProvider, public statusBar: StatusBar,
-              private alertProvider: AlertProvider, private platform: Platform) {
+              private alertProvider: AlertProvider, private platform: Platform,  private iab: InAppBrowser) {
 
     if (platform.is('cordova')) {
       if (platform.is('android')) {
@@ -185,6 +186,10 @@ export class HomePage {
   handleError(error) {
     console.log(error);
     this.loaderService.hideLoader();
+  }
+
+  openLink(url) {
+    this.iab.create(url);
   }
 
 }

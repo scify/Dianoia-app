@@ -11,6 +11,7 @@ import {ActivityProvider} from "../providers/activity/activity";
 import {DifficultyLevelProvider} from "../providers/difficulty-level/difficulty-level";
 import {LoaderService} from "../providers/loader-service/loader-service";
 import {AnalyticsFirebase} from '@ionic-native/analytics-firebase';
+import {InAppBrowser} from "@ionic-native/in-app-browser";
 
 @Component({
   templateUrl: 'app.html'
@@ -27,7 +28,7 @@ export class MyApp {
               private appStorage: AppStorageProvider, private http: Http, private activityCategoryProvider: ActivityCategoryProvider,
               private alertProvider: AlertProvider, private activityProvider: ActivityProvider,
               private difficultyLevelProvider: DifficultyLevelProvider, private loaderService: LoaderService,
-              private analyticsFirebase: AnalyticsFirebase) {
+              private analyticsFirebase: AnalyticsFirebase, private iab: InAppBrowser) {
     this.initializeApp(platform, statusBar);
     this.pages = [
       {title: 'Αρχική', component: "HomePage"},
@@ -110,5 +111,9 @@ export class MyApp {
     this.analyticsFirebase.logEvent('page_view', eventParams)
       .then((res: any) => console.log(res))
       .catch((error: any) => console.error(error));
+  }
+
+  openLink(url) {
+    this.iab.create(url);
   }
 }
