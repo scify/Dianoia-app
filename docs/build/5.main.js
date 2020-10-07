@@ -171,7 +171,6 @@ var ActivityCategoriesPage = /** @class */ (function () {
         this.loaderService = loaderService;
         this.categories = this.navParams.get("categories");
         // if no categories passed as parameter, load top-level categories by default
-        // this.loaderService.showLoader();
         if (this.categories == null) {
             this.activityCategoryProvider.getTopLevelCategories().then(function (categories) {
                 _this.categories = categories;
@@ -191,7 +190,7 @@ var ActivityCategoriesPage = /** @class */ (function () {
         }
     }
     ActivityCategoriesPage.prototype.handleError = function (error) {
-        console.log(error);
+        console.error(error);
         this.loaderService.hideLoader();
     };
     ActivityCategoriesPage.prototype.getPageTitle = function () {

@@ -36,7 +36,7 @@
         "cordova-android": "8.1.0",
         "cordova-android-support-gradle-release": "^3.0.1",
         "cordova-annotated-plugin-android": "^1.0.4",
-        "cordova-browser": "^5.0.4",
+        "cordova-browser": "5.0.4",
         "cordova-play-services-version-adapter": "^1.1.0",
         "cordova-plugin-analytics": "^2.0.0",
         "cordova-plugin-app-version": "^0.1.9",

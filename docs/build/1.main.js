@@ -257,39 +257,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-/**
- * Generated class for the DifficultyLevelsPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 var DifficultyLevelsPage = /** @class */ (function () {
     function DifficultyLevelsPage(navCtrl, navParams, categoryProvider, loaderService) {
-        var _this = this;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.categoryProvider = categoryProvider;
         this.loaderService = loaderService;
         this.categoryId = this.navParams.get("categoryId");
         this.allActivities = this.navParams.get("activities");
-        this.activities = this.allActivities;
-        // this.loaderService.showLoader();
-        // if(this.levels == null) {
-        //   this.navCtrl.setRoot("HomePage");
-        // } else {
-        //   this.levels.unshift({id: "0", title: "Όλα τα επίπεδα"});
-        // }
-        this.categoryProvider.getCategoryById(this.categoryId).then(function (category) {
-            _this.category = category;
-            if (!_this.category.has_difficulty_levels) {
-                _this.levels = [];
-            }
-            else {
-                _this.levels = _this.navParams.get("levels");
-                _this.levels.unshift({ id: "0", title: "Όλα τα επίπεδα" });
-            }
-            _this.loaderService.hideLoader();
-        });
+        this.activities = this.navParams.get("activities");
+        this.loaderService.hideLoader();
+        if (this.categoryId == null) {
+            this.navCtrl.setRoot("HomePage");
+        }
+        else {
+            this.levels = this.navParams.get("levels");
+            this.levels.unshift({ id: "0", title: "Όλα τα επίπεδα" });
+        }
     }
     DifficultyLevelsPage.prototype.getPageTitle = function () {
         return this.category != null ? this.category.title : "Δραστηριότητες";

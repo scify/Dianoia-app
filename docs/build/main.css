@@ -27054,6 +27054,10 @@ ion-content {
   margin-right: auto;
 }
 
+.text-center {
+  text-align: center;
+}
+
 buttons-list .button-inner {
   -webkit-flex-flow: column;
   -ms-flex-flow: column;
