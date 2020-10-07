@@ -16,12 +16,15 @@
         <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
           {{p.title}}
         </button>
-        <button style="padding-top: 12px; padding-bottom: 12px;" padding mode="ios" ion-button
-                *ngIf="!platform.is('cordova')"
-        (click)="openLink('https://play.google.com/store/apps/details?id=org.scify.dianoia.app&hl=el')">
-          <img style="height: 100%; margin-right: 15px;" src="assets/img/google-play.png">
-          Κατεβάστε τη διΆνοια!
-        </button>
+        <div>
+          <button style="padding-top: 12px; padding-bottom: 12px;" padding mode="ios" ion-button
+                  *ngIf="!platform.is('cordova')"
+                  (click)="openLink('https://play.google.com/store/apps/details?id=org.scify.dianoia.app&hl=el')">
+            <img style="height: 100%; margin-right: 15px;" src="assets/img/google-play.png">
+            Κατεβάστε τη διΆνοια!
+          </button>
+        </div>
+          <p ion-item padding class="version">v{{appVersionName}}</p>
       </ion-list>
     </ion-content>
 

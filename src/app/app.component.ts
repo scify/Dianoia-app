@@ -12,6 +12,7 @@ import {DifficultyLevelProvider} from "../providers/difficulty-level/difficulty-
 import {LoaderService} from "../providers/loader-service/loader-service";
 import {AnalyticsFirebase} from '@ionic-native/analytics-firebase';
 import {InAppBrowser} from "@ionic-native/in-app-browser";
+import {AppVersion} from "@ionic-native/app-version";
 
 @Component({
   templateUrl: 'app.html'
@@ -20,6 +21,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any = 'HomePage';
+  appVersionName: string = '1.4.0';
 
   pages: Array<{ title: string, id?: any, component?: any, pageFile?: string, pageCode?: string }>;
 
@@ -28,7 +30,7 @@ export class MyApp {
               private appStorage: AppStorageProvider, private http: Http, private activityCategoryProvider: ActivityCategoryProvider,
               private alertProvider: AlertProvider, private activityProvider: ActivityProvider,
               private difficultyLevelProvider: DifficultyLevelProvider, private loaderService: LoaderService,
-              private analyticsFirebase: AnalyticsFirebase, private iab: InAppBrowser) {
+              private analyticsFirebase: AnalyticsFirebase, private iab: InAppBrowser, private appVersion: AppVersion) {
     this.initializeApp(platform, statusBar);
     this.pages = [
       {title: 'Αρχική', component: "HomePage"},
@@ -51,7 +53,9 @@ export class MyApp {
 
   initializeApp(platform, statusBar) {
     this.platform.ready().then(() => {
+
       if (this.platform.is('cordova')) {
+        this.appVersion.getVersionNumber().then((version) => this.appVersionName = version);
         this.splashScreen.hide();
 
         if (platform.is('android')) {

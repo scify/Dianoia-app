@@ -62,3 +62,12 @@ ion-content { font-size: 1.6rem;}
 .text-center {
   text-align: center;
 }
+
+.version {
+  margin-top: 0;
+  .label {
+    font-size: small;
+    color: #888888;
+    margin-top: 0;
+  }
+}

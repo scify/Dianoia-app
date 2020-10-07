@@ -132,10 +132,10 @@
     <plugin name="cordova-support-google-services" spec="https://github.com/LuisEGR/cordova-support-google-services.git" />
     <plugin name="cordova-plugin-local-notification" spec="0.9.0-beta.2" />
     <plugin name="cordova-play-services-version-adapter" spec="^1.0.2" />
-    <plugin name="cordova-plugin-app-version" spec="0.1.9" />
     <plugin name="cordova-android-support-gradle-release" spec="^3.0.1">
         <variable name="ANDROID_SUPPORT_VERSION" value="27.+" />
     </plugin>
     <engine name="android" spec="8.1.0" />
     <engine name="browser" spec="5.0.4" />
+    <plugin name="cordova-plugin-app-version" spec="^0.1.9" />
 </widget>
