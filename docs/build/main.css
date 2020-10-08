@@ -27058,6 +27058,16 @@ ion-content {
   text-align: center;
 }
 
+.version {
+  margin-top: 0;
+}
+
+.version .label {
+  font-size: small;
+  color: #888888;
+  margin-top: 0;
+}
+
 buttons-list .button-inner {
   -webkit-flex-flow: column;
   -ms-flex-flow: column;
