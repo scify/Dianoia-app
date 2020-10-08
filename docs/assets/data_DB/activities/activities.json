@@ -379,24 +379,13 @@
   },
   {
     "id": "activity_35",
-    "title":"Αλφαβητική σειρά 1",
+    "title":"Αλφαβητική σειρά",
     "description": "Βάλτε σε αλφαβητική σειρά τις παρακάτω λέξεις.",
     "full_text": "",
     "video_url":"",
     "img_url":"",
     "instructions":[],
     "link": "http://go.scify.gr/dianoia26",
-    "difficulty_level_id": "difficulty_level_2"
-  },
-  {
-    "id": "activity_36",
-    "title":"Αλφαβητική σειρά 2",
-    "description": "Βάλτε σε αλφαβητική σειρά τις παρακάτω λέξεις.",
-    "full_text": "",
-    "video_url":"",
-    "img_url":"",
-    "instructions":[],
-    "link": "http://go.scify.gr/dianoia30",
     "difficulty_level_id": "difficulty_level_2"
   },
   {
