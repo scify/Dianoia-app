@@ -21,7 +21,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any = 'HomePage';
-  appVersionName: string = '1.4.0';
+  appVersionName: string = '1.5.0';
 
   pages: Array<{ title: string, id?: any, component?: any, pageFile?: string, pageCode?: string }>;
 
