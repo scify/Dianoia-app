@@ -14,10 +14,10 @@ This project was built using the following versions of nodejs and npm:
 
 ```bash
 $ node -v
-v10.16.0
+v14.18.1
 
 $ npm -v
-6.14.2
+6.14.15
 ```
 
 It is very easy to install multiple versions of nodejs and npm, by using [Node Version Manager (nvm)](https://github.com/creationix/nvm).
@@ -25,7 +25,7 @@ It is very easy to install multiple versions of nodejs and npm, by using [Node V
 ## Install project dependencies:
 
 ```bash
-$ npm install -g @ionic/cli@6.11.10 
+$ npm install -g @ionic/cli@6.11.11 
 
 $ npm install -g cordova@8.1.2
 
@@ -76,9 +76,9 @@ After the .apk file is built, you can either use Android CLI commands, or just o
 In order to generate a bundled directory that can be hosted as a web application, you need to add and build the `browser` platform:
 
 ```bash
-$ ionic cordova platform add browser
+$ ionic cordova platform add browser@5.0.4
 
-$ ionic cordova platform build browser
+$ ionic cordova build browser
 ```
 
 This will generate a `platforms/browse/www` directory that can be uploaded to a server.

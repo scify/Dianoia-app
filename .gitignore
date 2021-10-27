@@ -35,3 +35,4 @@ prepare/
 google-services.json
 resources/android
 resources/ios
+.sourcemaps
