@@ -13,6 +13,16 @@
 
     <ion-content>
       <ion-list>
+        <ion-item>
+          <ion-label mode="ios">
+            <button mode="ios" ion-button outline>{{ 'select_language' | translate }}</button>
+          </ion-label>
+          <ion-select (ionChange)="setLang($event)">
+            <ion-option [selected]="lang.code === translate.currentLang" *ngFor="let lang of languages" [value]="lang.code">
+              {{ lang.name }}
+            </ion-option>
+          </ion-select>
+        </ion-item>
         <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
           {{p.title}}
         </button>
@@ -24,7 +34,7 @@
             {{ 'download_app' | translate }}
           </button>
         </div>
-          <p ion-item padding class="version">v{{appVersionName}}</p>
+        <p ion-item padding class="version">v{{appVersionName}}</p>
       </ion-list>
     </ion-content>
 

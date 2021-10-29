@@ -25,6 +25,20 @@ export class MyApp {
   appVersionName: string = '1.5.0';
 
   pages: Array<{ title: string, id?: any, component?: any, pageFile?: string, pageCode?: string }>;
+  languages = [
+    {
+      "name": "English",
+      "code": "en"
+    },
+    {
+      "name": "Ελληνικά",
+      "code": "el"
+    },
+    {
+      "name": "Español",
+      "code": "es"
+    }
+  ];
 
   constructor(public platform: Platform, public statusBar: StatusBar,
               public splashScreen: SplashScreen, private localNotifications: NotificationProvider,
@@ -32,7 +46,7 @@ export class MyApp {
               private alertProvider: AlertProvider, private activityProvider: ActivityProvider,
               private difficultyLevelProvider: DifficultyLevelProvider, private loaderService: LoaderService,
               private analyticsFirebase: AnalyticsFirebase, private iab: InAppBrowser, private appVersion: AppVersion,
-              private translate: TranslateService) {
+              public translate: TranslateService) {
     this.initializeApp(platform, statusBar);
   }
 
@@ -41,24 +55,10 @@ export class MyApp {
       this.translate.setDefaultLang('en');
       this.translate.use('en');
       this.translate.get('app_name').subscribe((translated: string) => {
-
-        this.pages = [
-          {title: this.translate.instant('menu_home'), component: "HomePage"},
-          {title: this.translate.instant('menu_page_1'), component: "BasicInfoPage"},
-          {
-            title: this.translate.instant('menu_page_2'),
-            component: "InfoListPage",
-            pageCode: "page_tips_list",
-            pageFile: "pages/tips_list.json"
-          },
-          {title: this.translate.instant('activities_exercises'), component: "ActivityCategoriesPage"},
-          {title: this.translate.instant('stories_btn_title'), id: "stories"},
-          {title: this.translate.instant('carer_activities_btn_title'), id: "carer_activities"},
-          {title: this.translate.instant('history'), component: "StatisticsPage"},
-          {title: this.translate.instant('notification_settings'), component: "NotificationsPage"},
-          {title: this.translate.instant('help'), component: "HelpPage"},
-          {title: this.translate.instant('about'), component: "AboutPage"}
-        ];
+        this.setUpMenuPages();
+      });
+      this.translate.onLangChange.subscribe(() => {
+        this.setUpMenuPages();
       });
       if (this.platform.is('cordova')) {
         this.appVersion.getVersionNumber().then((version) => this.appVersionName = version);
@@ -78,6 +78,30 @@ export class MyApp {
         this.setUpAnalyticsLogger();
       }
     });
+  }
+
+  setUpMenuPages() {
+    this.pages = [
+      {title: this.translate.instant('menu_home'), component: "HomePage"},
+      {title: this.translate.instant('menu_page_1'), component: "BasicInfoPage"},
+      {
+        title: this.translate.instant('menu_page_2'),
+        component: "InfoListPage",
+        pageCode: "page_tips_list",
+        pageFile: "pages/tips_list.json"
+      },
+      {title: this.translate.instant('activities_exercises'), component: "ActivityCategoriesPage"},
+      {title: this.translate.instant('stories_btn_title'), id: "stories"},
+      {title: this.translate.instant('carer_activities_btn_title'), id: "carer_activities"},
+      {title: this.translate.instant('history'), component: "StatisticsPage"},
+      {title: this.translate.instant('notification_settings'), component: "NotificationsPage"},
+      {title: this.translate.instant('help'), component: "HelpPage"},
+      {title: this.translate.instant('about'), component: "AboutPage"}
+    ];
+  }
+
+  setLang(langCode) {
+    this.translate.use(langCode);
   }
 
   openPage(page) {

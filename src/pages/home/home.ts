@@ -42,7 +42,9 @@ export class HomePage {
     this.translate.get('app_name').subscribe((translated: string) => {
       this.setUpPageButtons();
     });
-
+    this.translate.onLangChange.subscribe(() => {
+      this.setUpPageButtons();
+    });
   }
 
   setUpPageButtons() {
