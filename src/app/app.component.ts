@@ -13,6 +13,7 @@ import {LoaderService} from "../providers/loader-service/loader-service";
 import {AnalyticsFirebase} from '@ionic-native/analytics-firebase';
 import {InAppBrowser} from "@ionic-native/in-app-browser";
 import {AppVersion} from "@ionic-native/app-version";
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   templateUrl: 'app.html'
@@ -30,30 +31,35 @@ export class MyApp {
               private appStorage: AppStorageProvider, private http: Http, private activityCategoryProvider: ActivityCategoryProvider,
               private alertProvider: AlertProvider, private activityProvider: ActivityProvider,
               private difficultyLevelProvider: DifficultyLevelProvider, private loaderService: LoaderService,
-              private analyticsFirebase: AnalyticsFirebase, private iab: InAppBrowser, private appVersion: AppVersion) {
+              private analyticsFirebase: AnalyticsFirebase, private iab: InAppBrowser, private appVersion: AppVersion,
+              private translate: TranslateService) {
     this.initializeApp(platform, statusBar);
-    this.pages = [
-      {title: 'Αρχική', component: "HomePage"},
-      {title: 'Ας μάθουμε τα βασικά', component: "BasicInfoPage"},
-      {
-        title: 'Τι να προσέξουμε',
-        component: "InfoListPage",
-        pageCode: "page_tips_list",
-        pageFile: "pages/tips_list.json"
-      },
-      {title: 'Ασκήσεις - Δραστηριότητες', component: "ActivityCategoriesPage"},
-      {title: 'Λέμε Ιστορίες', id: "stories"},
-      {title: 'Δραστηριότητες για φροντιστές', id: "carer_activities"},
-      {title: 'Ιστορικό', component: "StatisticsPage"},
-      {title: 'Ρυθμίσεις ειδοποιήσεων', component: "NotificationsPage"},
-      {title: 'Βοήθεια', component: "HelpPage"},
-      {title: 'About', component: "AboutPage"}
-    ];
   }
 
   initializeApp(platform, statusBar) {
     this.platform.ready().then(() => {
+      this.translate.setDefaultLang('en');
+      this.translate.use('en');
+      this.translate.get('app_name').subscribe((translated: string) => {
 
+        this.pages = [
+          {title: this.translate.instant('menu_home'), component: "HomePage"},
+          {title: this.translate.instant('menu_page_1'), component: "BasicInfoPage"},
+          {
+            title: this.translate.instant('menu_page_2'),
+            component: "InfoListPage",
+            pageCode: "page_tips_list",
+            pageFile: "pages/tips_list.json"
+          },
+          {title: this.translate.instant('activities_exercises'), component: "ActivityCategoriesPage"},
+          {title: this.translate.instant('stories_btn_title'), id: "stories"},
+          {title: this.translate.instant('carer_activities_btn_title'), id: "carer_activities"},
+          {title: this.translate.instant('history'), component: "StatisticsPage"},
+          {title: this.translate.instant('notification_settings'), component: "NotificationsPage"},
+          {title: this.translate.instant('help'), component: "HelpPage"},
+          {title: this.translate.instant('about'), component: "AboutPage"}
+        ];
+      });
       if (this.platform.is('cordova')) {
         this.appVersion.getVersionNumber().then((version) => this.appVersionName = version);
         this.splashScreen.hide();

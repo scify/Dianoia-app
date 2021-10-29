@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>διΆνοια</ion-title>
+    <ion-title>{{ 'app_name' | translate }}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -24,13 +24,11 @@
                 *ngIf="!platform.is('cordova')"
                 (click)="openLink('https://play.google.com/store/apps/details?id=org.scify.dianoia.app&hl=el')">
           <img style="height: 100%; margin-right: 15px;" src="assets/img/google-play.png">
-          Κατεβάστε τη διΆνοια!
+          {{ 'download_app' | translate }}
         </button>
       </div>
     </div>
-
-    <p padding class="text-center">Δείτε περισσότερες επιλογές στο κεντρικό μενού</p>
-    <!--<cards-list *ngIf="activities?.length > 0" [cards]="activities" (cardClick)="selectActivity($event)"></cards-list>-->
+    <p padding class="text-center">{{ 'see_more_options' | translate }}</p>
   </div>
 
 </ion-content>

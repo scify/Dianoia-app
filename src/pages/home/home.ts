@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
-import {NavController, Platform} from 'ionic-angular';
-import {IonicPage} from 'ionic-angular';
+import {IonicPage, NavController, Platform} from 'ionic-angular';
 import {ActivityProvider} from "../../providers/activity/activity";
 import {LoaderService} from "../../providers/loader-service/loader-service";
 import {ActivityCategoryProvider} from "../../providers/activity-category/activity-category";
@@ -10,6 +9,7 @@ import {AppStorageProvider} from "../../providers/app-storage/app-storage";
 import {AlertProvider} from "../../providers/alert/alert";
 import {StatusBar} from "@ionic-native/status-bar";
 import {InAppBrowser} from "@ionic-native/in-app-browser";
+import {TranslateService} from "@ngx-translate/core";
 
 @IonicPage()
 @Component({
@@ -18,9 +18,6 @@ import {InAppBrowser} from "@ionic-native/in-app-browser";
 })
 export class HomePage {
 
-  tab1Root = "RandomActivitiesPage";
-  tab2Root = "RandomActivitiesPage";
-
   activities: any[];
   buttons: any[];
 
@@ -28,8 +25,8 @@ export class HomePage {
               private loaderService: LoaderService, private activityCategoryProvider: ActivityCategoryProvider,
               private difficultyLevelProvider: DifficultyLevelProvider, private http: Http,
               private appStorage: AppStorageProvider, public statusBar: StatusBar,
-              private alertProvider: AlertProvider, private platform: Platform,  private iab: InAppBrowser) {
-
+              private alertProvider: AlertProvider, private platform: Platform, private iab: InAppBrowser,
+              private translate: TranslateService) {
     if (platform.is('cordova')) {
       if (platform.is('android')) {
         statusBar.overlaysWebView(false);
@@ -42,40 +39,50 @@ export class HomePage {
       this.checkForAnnouncement();
     }
 
+    this.translate.get('app_name').subscribe((translated: string) => {
+      this.setUpPageButtons();
+    });
+
+  }
+
+  setUpPageButtons() {
     this.buttons = [
       {
         id: "basic_info",
-        title: 'Ας μάθουμε τα βασικά',
-        subtitle: "Τι είναι - Σκοπός - Αξία",
+        title: this.translate.instant('basic_info_btn_title'),
+        subtitle: this.translate.instant('basic_info_btn_subtitle'),
         component: "BasicInfoPage"
       },
       {
         id: "mental_activities",
-        title: 'Εκτυπώστε νοητικές ασκήσεις',
-        subtitle: "Ασκήσεις με μολύβι και χαρτί",
+        title: this.translate.instant('mental_activities_btn_title'),
+        subtitle: this.translate.instant('mental_activities_btn_subtitle'),
         component: "InfoListPage",
         pageCode: "page_goal",
         pageFile: "pages/goal.json"
       },
       {
         id: "common_activities",
-        title: 'Βρείτε δημιουργικές δραστηριότητες',
-        subtitle: "Ιδέες για να περάσετε δημιουργικό χρόνο μαζί",
+        title: this.translate.instant('common_activities_btn_title'),
+        subtitle: this.translate.instant('common_activities_btn_subtitle'),
         component: "InfoListPage",
         pageCode: "page_value",
         pageFile: "pages/value.json"
       },
-      {id: "stories", title: 'Λέμε ιστορίες', subtitle: "Δημιουργικές και διασκεδασικές ιστορίες!"},
+      {
+        id: "stories",
+        title: this.translate.instant('stories_btn_title'),
+        subtitle: this.translate.instant('stories_btn_subtitle'),
+      },
       {
         id: "carer_activities",
-        title: 'Δραστηριότητες για φροντιστές',
-        subtitle: "Ιδέες και δραστηριότητες για φροντιστές",
+        title: this.translate.instant('carer_activities_btn_title'),
+        subtitle: this.translate.instant('carer_activities_btn_subtitle'),
         component: "InfoListPage",
         pageCode: "page_value",
         pageFile: "pages/value.json"
       }
     ];
-
   }
 
   checkForAnnouncement() {
@@ -84,7 +91,6 @@ export class HomePage {
 
       if (data) {
         let lastUpdatedString = data.headers.get('last-modified');
-        console.log(data);
         if (lastUpdatedString) {
           let lastUpdatedDate = new Date(lastUpdatedString);
           this.showAnnouncementIfNewerThan(lastUpdatedDate, data.text());
@@ -94,19 +100,13 @@ export class HomePage {
   }
 
   showAnnouncementIfNewerThan(date: Date, htmlToSHow: string) {
-    console.log(date);
     let lastUpdatedMills = date.getTime();
-    console.log("lastUpdatedMills", lastUpdatedMills);
     this.appStorage.get('announcement_last_modified').then(data => {
       let announcementLastUpdated = JSON.parse(data);
       if (announcementLastUpdated)
         announcementLastUpdated = parseInt(announcementLastUpdated);
 
-      console.log("announcementLastUpdated", announcementLastUpdated);
-      console.log("this.strip(htmlToSHow)", this.strip(htmlToSHow) == "");
       if (announcementLastUpdated < lastUpdatedMills && this.platform.is('cordova') && this.strip(htmlToSHow) !== "") {
-        console.log("Showing new announcement");
-        console.log("htmlToSHow", htmlToSHow);
         this.alertProvider.announcementDialog("Announcement", htmlToSHow);
         this.appStorage.set('announcement_last_modified', lastUpdatedMills);
       }
@@ -123,14 +123,6 @@ export class HomePage {
 
   selectActivity(activity) {
     this.navCtrl.push("ActivityPage", {activity: activity});
-  }
-
-  shuffle(a) {
-    for (let i = a.length; i; i--) {
-      let j = Math.floor(Math.random() * i);
-      [a[i - 1], a[j]] = [a[j], a[i - 1]];
-    }
-    return a;
   }
 
   goTo(button) {
@@ -184,7 +176,7 @@ export class HomePage {
   }
 
   handleError(error) {
-    console.log(error);
+    console.error(error);
     this.loaderService.hideLoader();
   }
 

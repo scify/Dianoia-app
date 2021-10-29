@@ -7,7 +7,7 @@
             <ion-icon name="md-close"></ion-icon>
           </button>
         </ion-buttons>
-        <ion-title>Menu</ion-title>
+        <ion-title>{{ 'menu_title' | translate }}</ion-title>
       </ion-toolbar>
     </ion-header>
 
@@ -21,7 +21,7 @@
                   *ngIf="!platform.is('cordova')"
                   (click)="openLink('https://play.google.com/store/apps/details?id=org.scify.dianoia.app&hl=el')">
             <img style="height: 100%; margin-right: 15px;" src="assets/img/google-play.png">
-            Κατεβάστε τη διΆνοια!
+            {{ 'download_app' | translate }}
           </button>
         </div>
           <p ion-item padding class="version">v{{appVersionName}}</p>
@@ -29,7 +29,5 @@
     </ion-content>
 
   </ion-menu>
-
-  <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
   <ion-nav [root]="rootPage" #content swipeBackEnabled="false" #mainNav main></ion-nav>
 </ion-split-pane>

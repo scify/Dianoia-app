@@ -33,6 +33,8 @@
         "@ionic-native/status-bar": "3.7.0",
         "@ionic-native/toast": "^3.10.3",
         "@ionic/storage": "2.0.1",
+        "@ngx-translate/core": "^7.2.2",
+        "@ngx-translate/http-loader": "^0.1.0",
         "cordova-android": "8.1.0",
         "cordova-android-support-gradle-release": "^3.0.1",
         "cordova-annotated-plugin-android": "^1.0.4",
