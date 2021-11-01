@@ -29,5 +29,7 @@
   "goal": "Σκοπός",
   "value": "Αξία",
   "select_category": "Επιλέξτε μια κατηγορία",
-  "activity_categories": "Κατηγορίες δραστηριοτήτων"
+  "activity_categories": "Κατηγορίες δραστηριοτήτων",
+  "all_difficulty_levels": "Όλα τα επίπεδα",
+  "select_difficulty_level": "Επιλέξτε επίπεδο δυσκολίας"
 }

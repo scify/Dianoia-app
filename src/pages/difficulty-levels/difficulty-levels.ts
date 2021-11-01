@@ -1,7 +1,8 @@
 import {Component} from '@angular/core';
-import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {IonicPage, NavController, NavParams, Platform} from 'ionic-angular';
 import {ActivityCategoryProvider} from "../../providers/activity-category/activity-category";
 import {LoaderService} from "../../providers/loader-service/loader-service";
+import {TranslateService} from "@ngx-translate/core";
 
 @IonicPage()
 @Component({
@@ -14,24 +15,32 @@ export class DifficultyLevelsPage {
   activities: any[];
   categoryId: string;
   category: any;
+  pageTitle: string = '';
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-              private categoryProvider: ActivityCategoryProvider, private loaderService: LoaderService) {
+              private categoryProvider: ActivityCategoryProvider, private loaderService: LoaderService,
+              public platform: Platform, public translate: TranslateService) {
 
     this.categoryId = this.navParams.get("categoryId");
     this.allActivities = this.navParams.get("activities");
     this.activities = this.navParams.get("activities");
     this.loaderService.hideLoader();
+    this.platform.ready().then(() => {
+      this.translate.get('app_name').subscribe((translated: string) => {
+        this.setUpPageElements();
+      });
+    });
+
+  }
+
+  setUpPageElements() {
     if (this.categoryId == null) {
       this.navCtrl.setRoot("HomePage");
     } else {
       this.levels = this.navParams.get("levels");
-      this.levels.unshift({id: "0", title: "Όλα τα επίπεδα"});
+      this.levels.unshift({id: "0", title: this.translate.instant('all_difficulty_levels')});
     }
-  }
-
-  getPageTitle() {
-    return this.category != null ? this.category.title : "Δραστηριότητες";
+    this.pageTitle = this.category != null ? this.category.title : this.translate.instant('activities_exercises');
   }
 
   selectLevel(levelButton: any): any {

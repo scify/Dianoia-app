@@ -29,5 +29,7 @@
   "goal": "Goal",
   "value": "Value",
   "select_category": "Select a category",
-  "activity_categories": "Activity Categories"
+  "activity_categories": "Activity Categories",
+  "all_difficulty_levels": "All levels",
+  "select_difficulty_level": "Select difficulty level"
 }

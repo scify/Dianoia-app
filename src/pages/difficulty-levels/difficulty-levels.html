@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title> {{ getPageTitle() }}</ion-title>
+    <ion-title> {{ pageTitle }}</ion-title>
     <ion-buttons end>
       <button (click)="goToHome()" class="homeBtn">
         <ion-icon name="md-home"></ion-icon>
@@ -21,7 +21,7 @@
 <ion-content>
 
   <div padding *ngIf='levels?.length > 2'>
-    <div class="description">Επιλέξτε επίπεδο δυσκολίας</div>
+    <div class="description">{{ 'select_difficulty_level' | translate }}</div>
     <buttons-list [buttons]="levels" (buttonClick)="selectLevel($event)"></buttons-list>
   </div>
 
