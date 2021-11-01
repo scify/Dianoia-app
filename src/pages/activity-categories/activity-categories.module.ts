@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { ActivityCategoriesPage } from './activity-categories';
 import {ButtonsListComponentModule} from "../../components/buttons-list/buttons-list.module";
+import {TranslateModule} from "@ngx-translate/core";
 
 
 @NgModule({
@@ -10,7 +11,8 @@ import {ButtonsListComponentModule} from "../../components/buttons-list/buttons-
   ],
   imports: [
     IonicPageModule.forChild(ActivityCategoriesPage),
-    ButtonsListComponentModule
+    ButtonsListComponentModule,
+    TranslateModule.forChild()
   ],
   exports: [
     ActivityCategoriesPage

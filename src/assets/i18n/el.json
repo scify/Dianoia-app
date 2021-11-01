@@ -27,5 +27,7 @@
   "about_youtube_link": "https://www.youtube.com/embed/Ej3T-QiBWVg",
   "what_are_activities": "Τι είναι οι Μη Φαρμακευτικές Παρεμβάσεις",
   "goal": "Σκοπός",
-  "value": "Αξία"
+  "value": "Αξία",
+  "select_category": "Επιλέξτε μια κατηγορία",
+  "activity_categories": "Κατηγορίες δραστηριοτήτων"
 }

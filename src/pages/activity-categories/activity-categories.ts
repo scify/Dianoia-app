@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {IonicPage, NavController, NavParams, Platform} from 'ionic-angular';
 import {ActivityCategoryProvider} from "../../providers/activity-category/activity-category";
 import {ActivityProvider} from "../../providers/activity/activity";
 import {DifficultyLevelProvider} from "../../providers/difficulty-level/difficulty-level";
 import {LoaderService} from "../../providers/loader-service/loader-service";
+import {TranslateService} from "@ngx-translate/core";
 
 @IonicPage()
 @Component({
@@ -12,14 +13,16 @@ import {LoaderService} from "../../providers/loader-service/loader-service";
 })
 export class ActivityCategoriesPage {
   categories: any;
-  tests: any[];
   parentCategoryId: string;
   parentCategory: any;
+  pageTitle: string = '';
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               private activityCategoryProvider: ActivityCategoryProvider,
               private activityProvider: ActivityProvider,
-              private difficultyLevelProvider: DifficultyLevelProvider, private loaderService: LoaderService) {
+              private difficultyLevelProvider: DifficultyLevelProvider,
+              private loaderService: LoaderService, public platform: Platform,
+              public translate: TranslateService) {
     this.categories = this.navParams.get("categories");
 
     // if no categories passed as parameter, load top-level categories by default
@@ -34,20 +37,22 @@ export class ActivityCategoriesPage {
       this.parentCategoryId = this.navParams.get("parentCategoryId");
       this.activityCategoryProvider.getCategoryById(this.parentCategoryId).then(category => {
         this.parentCategory = category;
+        this.platform.ready().then(() => {
+          this.translate.get('activity_categories').subscribe((translated: string) => {
+            this.pageTitle = this.parentCategory != null ?  this.parentCategory.title : translated
+          });
+        });
         this.loaderService.hideLoader();
       }).catch(error =>{
         this.handleError(error);
       });
     }
+
   }
 
   handleError(error) {
     console.error(error);
     this.loaderService.hideLoader();
-  }
-
-  getPageTitle() {
-    return this.parentCategory != null ?  this.parentCategory.title : "Κατηγορίες δραστηριοτήτων";
   }
 
   selectCategory(categoryButton: any):any {

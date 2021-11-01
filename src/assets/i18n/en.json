@@ -27,5 +27,7 @@
   "about_youtube_link": "https://www.youtube.com/embed/FAy7KH-02XY",
   "what_are_activities": "About Non-pharmaceutical Activities",
   "goal": "Goal",
-  "value": "Value"
+  "value": "Value",
+  "select_category": "Select a category",
+  "activity_categories": "Activity Categories"
 }

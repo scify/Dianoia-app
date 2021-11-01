@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{ getPageTitle() }}</ion-title>
+    <ion-title>{{ pageTitle }}</ion-title>
     <ion-buttons end>
       <button (click)="goToHome()" class="homeBtn">
         <ion-icon name="md-home"></ion-icon>
@@ -14,7 +14,7 @@
 
 <ion-content padding>
 
-  <div class="description">Επιλέξτε μια κατηγορία</div>
+  <div class="description">{{ 'select_category' | translate}}</div>
 
   <buttons-list *ngIf='categories?.length > 0' [buttons]="categories" (buttonClick)="selectCategory($event)"></buttons-list>
 
