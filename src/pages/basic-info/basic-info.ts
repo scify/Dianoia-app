@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams, Platform} from 'ionic-angular';
+import {TranslateService} from "@ngx-translate/core";
+import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
+
 
 /**
  * Generated class for the BasicInfoPage page.
@@ -15,13 +18,26 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class BasicInfoPage {
 
   buttons: any[];
+  youtubeLink: SafeResourceUrl = '';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.buttons = [
-      {title: 'Τι είναι οι Μη Φαρμακευτικές Παρεμβάσεις', component: "InfoListPage", pageCode: "page_info", pageFile: "pages/info.json"},
-      {title: 'Σκοπός', component: "InfoListPage", pageCode: "page_goal", pageFile: "pages/goal.json"},
-      {title: 'Αξία', component: "InfoListPage", pageCode: "page_value", pageFile: "pages/value.json"}
-    ];
+  constructor(public navCtrl: NavController, public navParams: NavParams, public platform: Platform,
+              public translate: TranslateService, public sanitizer: DomSanitizer) {
+
+    this.platform.ready().then(() => {
+      this.translate.get('about_youtube_link').subscribe((translated: string) => {
+        this.youtubeLink = this.sanitizer.bypassSecurityTrustResourceUrl(translated);
+        this.buttons = [
+          {
+            title: this.translate.instant('what_are_activities'),
+            component: "InfoListPage",
+            pageCode: "page_info",
+            pageFile: "pages/info.json"
+          },
+          {title: this.translate.instant('goal'), component: "InfoListPage", pageCode: "page_goal", pageFile: "pages/goal.json"},
+          {title: this.translate.instant('value'), component: "InfoListPage", pageCode: "page_value", pageFile: "pages/value.json"}
+        ];
+      });
+    });
   }
 
   goTo(button) {

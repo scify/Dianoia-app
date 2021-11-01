@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Ας μάθουμε τα βασικά</ion-title>
+    <ion-title>{{ 'basic_info_btn_title' | translate }}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -13,7 +13,7 @@
 
   <div class="videoContainer">
     <iframe frameborder="0" class="video" width="{{getContainerWidth()}}"
-            src="https://www.youtube.com/embed/Ej3T-QiBWVg">
+            [src]="youtubeLink">
     </iframe>
   </div>
 
