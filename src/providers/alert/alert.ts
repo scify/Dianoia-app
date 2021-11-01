@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
-import {AlertController} from 'ionic-angular';
+import {Injectable} from '@angular/core';
+import {AlertController, Platform} from 'ionic-angular';
 import {Toast} from "@ionic-native/toast";
+import {TranslateService} from "@ngx-translate/core";
 
 /*
   Generated class for the AlertProvider provider.
@@ -11,17 +12,30 @@ import {Toast} from "@ionic-native/toast";
 @Injectable()
 export class AlertProvider {
 
-  constructor(private alertController: AlertController, private toast: Toast) {
+  alertCloseBtnText: string = '';
+  alertCancelBtnText: string = '';
+
+  constructor(private alertController: AlertController, private toast: Toast,
+              public platform: Platform, private translate: TranslateService) {
+
+    this.platform.ready().then(() => {
+      this.translate.get('app_name').subscribe((translated: string) => {
+        this.alertCloseBtnText = this.translate.instant('close');
+        this.alertCancelBtnText = this.translate.instant('cancel');
+      });
+    });
+
   }
 
   textDialog(title: string, message: string) {
     let alert = this.alertController.create({
+      mode: 'ios',
       title: title,
       message: message,
       buttons: [
         {
-          text: 'Close',
-          role: 'Cancel'
+          text: this.alertCloseBtnText,
+          role: this.alertCancelBtnText
         }
       ]
     });
@@ -32,12 +46,13 @@ export class AlertProvider {
 
   announcementDialog(title: string, message: string) {
     let alert = this.alertController.create({
+      mode: 'ios',
       title: title,
       message: message,
       buttons: [
         {
           text: 'OK',
-          role: 'Cancel'
+          role: this.alertCancelBtnText
         }
       ]
     });

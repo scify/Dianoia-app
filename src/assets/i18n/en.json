@@ -57,5 +57,7 @@
   "see_activity": "View the activity",
   "share_and_print": "Share and Print",
   "more_info_help": "More info and help",
-  "activity_done_btn": "Activity done today"
+  "activity_done_btn": "Activity done today",
+  "close": "Close",
+  "cancel": "Cancel"
 }
