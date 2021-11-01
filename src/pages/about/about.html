@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>About</ion-title>
+    <ion-title>{{ 'about' | translate }}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -20,13 +20,14 @@
       <img src="assets/img/icon.png">
     </div>
   </div>
+  <ion-grid>
+    <ion-row justify-content-center>
+      <ion-col align-self-center col-lg-6 col-md-10 col-sm-12>
+        <div [innerHTML]="'about_text' | translate"></div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
-  Η εφαρμογή “Διάνοια” δημιουργήθηκε από τη <a href="http://www.scify.org/">Μη Κερδοσκοπική Εταιρεία SciFY</a> στο πλαίσιο του προγράμματος “Σημεία Στήριξης” που συγχρηματοδοτείται από το ΤΙΜΑ Κοινωφελές Ίδρυμα, το Κοινωφελές Ίδρυμα Ιωάννη Σ. Λάτση, τη φιλανθρωπική οργάνωση Hellenic Hope και το Ίδρυμα Μποδοσάκη.
-  <br>
-  Η έκδοση για iOS υλοποιήθηκε χάρη στη στήριξη και συνεργασία της Εταιρείας Alzheimer Αθηνών.
-  <br>
-  <br>
-  Περισσότερες πληροφορίες για το έργο <a href="http://www.scify.gr/site/el/impact-areas/assistive-technologies/dianoia">σε αυτόν τον σύνδεσμο.</a>
 
   <div class="basicInfoContainer">
     <div class="imgContainer">
@@ -34,6 +35,6 @@
     </div>
   </div>
 
-  <small>version: {{ version }}</small>
+  <small>{{ 'version' | translate }}: {{ version }}</small>
 
 </ion-content>

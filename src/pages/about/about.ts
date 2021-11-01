@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { AppVersion } from '@ionic-native/app-version';
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams, Platform} from 'ionic-angular';
+import {AppVersion} from '@ionic-native/app-version';
 
 /**
  * Generated class for the AboutPage page.
@@ -15,15 +15,17 @@ import { AppVersion } from '@ionic-native/app-version';
 })
 export class AboutPage {
 
-  version: string;
+  version: string = '1.5.0';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private appVersion: AppVersion) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private appVersion: AppVersion, public platform: Platform) {
   }
 
   ionViewDidLoad() {
-    this.appVersion.getVersionNumber().then(version => {
-      this.version = version;
-    })
+    if (this.platform.is('cordova')) {
+      this.appVersion.getVersionNumber().then(version => {
+        this.version = version;
+      })
+    }
   }
 
 }
