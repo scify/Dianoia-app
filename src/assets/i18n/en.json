@@ -22,7 +22,7 @@
   "notification_settings": "Notification settings",
   "help": "Help",
   "about": "About",
-  "about_text": "Η εφαρμογή “Διάνοια” δημιουργήθηκε από τη <a href=\"https://www.scify.org/\">Μη Κερδοσκοπική Εταιρεία SciFY</a> στο πλαίσιο του προγράμματος “Σημεία Στήριξης” που συγχρηματοδοτείται από το ΤΙΜΑ Κοινωφελές Ίδρυμα, το Κοινωφελές Ίδρυμα Ιωάννη Σ. Λάτση, τη φιλανθρωπική οργάνωση Hellenic Hope και το Ίδρυμα Μποδοσάκη. <br> Η έκδοση για iOS υλοποιήθηκε χάρη στη στήριξη και συνεργασία της Εταιρείας Alzheimer Αθηνών. <br> <br> Περισσότερες πληροφορίες για το έργο <a href=\"https://www.scify.gr/site/el/impact-areas/assistive-technologies/dianoia\">σε αυτόν τον σύνδεσμο.</a>",
+  "about_text": "The “diAnoia” app was created by <a target=\"_blank\" href=\"https://www.scify.org/en\">The not-for-profit company SciFY</a> <br> <br> More info can be found <a target=\"_blank\" href=\"https://www.scify.gr/site/en/impact-areas-en/assistive-technologies/dianoia-en\">here.</a>",
   "version": "Version",
   "about_youtube_link": "https://www.youtube.com/embed/FAy7KH-02XY",
   "what_are_activities": "About Non-pharmaceutical Activities",
@@ -31,5 +31,7 @@
   "select_category": "Select a category",
   "activity_categories": "Activity Categories",
   "all_difficulty_levels": "All levels",
-  "select_difficulty_level": "Select difficulty level"
+  "select_difficulty_level": "Select difficulty level",
+  "help_text": "<b>Print the Cognitive Exercises</b> Select the desired activity and click “Share and Print”. Then select a sharing/and or printing app to view the exercise in printable format. <br>A common practice is to send the activity to your email. By opening the email from your computer or phone, you can then print it. <br> <br> <b>Keep the exercise history</b> Keep track of how often your loved ones exercise! <br>You kan keep a calendar with useful statistics. Don't forget, the quality of exercise and the quality of your relationship matters. <br> <br> Select the exercise that was performed and click on \"Done today\". Automatically, the exercise is saved in history. You can access your history in \"My History\"."
+
 }
