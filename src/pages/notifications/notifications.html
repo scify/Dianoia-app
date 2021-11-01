@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Ρυθμίσεις ειδοποιήσεων</ion-title>
+    <ion-title>{{ 'notification_settings' | translate }}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -19,7 +19,7 @@
 
     <ion-list radio-group [(ngModel)]="selectedNotificationId">
       <ion-list-header>
-        Να λαμβάνω ειδοποιήσεις για δραστηριότητες:
+        {{ 'receive_notifications' | translate }}:
       </ion-list-header>
 
       <ion-item *ngFor="let notificationOption of notificationOptions">
@@ -28,11 +28,11 @@
       </ion-item>
 
     </ion-list>
-    <button large ion-button (click)="saveNotificationSettings()">Save</button>
+    <button large ion-button (click)="saveNotificationSettings()">{{ 'save' | translate }}</button>
   </div>
 
   <div *ngIf="!platform.is('cordova')">
-    <h4>Αυτή η συσκευή δεν υποστηρίζει ειδοποιήσεις.</h4>
+    <h4>{{ 'notifications_not_supported' | translate }}</h4>
   </div>
 
 </ion-content>

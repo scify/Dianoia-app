@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams, Platform} from 'ionic-angular';
 import {AppStorageProvider} from "../../providers/app-storage/app-storage";
 import {AlertProvider} from "../../providers/alert/alert";
 import {NotificationProvider} from "../../providers/notification/notification";
+import {TranslateService} from "@ngx-translate/core";
 
 /**
  * Generated class for the NotificationsPage page.
@@ -21,37 +22,44 @@ export class NotificationsPage {
   selectedNotificationId: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-              private platform: Platform, private appStorage: AppStorageProvider, private alert: AlertProvider, private localNotifications: NotificationProvider) {
-    this.notificationOptions = [
-      {title: "Κάθε μέρα", id: 'every_day'},
-      {title: "Μια φορά την εβδομάδα", id: 'every_week'},
-      {title: "Μια φορά το μήνα", id: 'every_month'},
-      {title: "Να μην έρχονται ειδοποιήσεις", id: 'never'}
-    ];
+              public platform: Platform, private appStorage: AppStorageProvider,
+              private alert: AlertProvider, private localNotifications: NotificationProvider,
+              private translate: TranslateService) {
+
     this.selectedNotificationId = 'every_day';
     this.appStorage.get('notification_frequency').then(frequencyId => {
-      if(JSON.parse(frequencyId)) {
-        console.log("frequency: ", JSON.parse(frequencyId));
+      if (JSON.parse(frequencyId)) {
         this.selectedNotificationId = JSON.parse(frequencyId);
       }
     })
+    this.translate.get('app_name').subscribe((translated: string) => {
+      this.setUpPageElements();
+    });
+  }
+
+  setUpPageElements() {
+    this.notificationOptions = [
+      {title: this.translate.instant('every_day'), id: 'every_day'},
+      {title: this.translate.instant('every_week'), id: 'every_week'},
+      {title: this.translate.instant('every_month'), id: 'every_month'},
+      {title: this.translate.instant('no_notifications'), id: 'never'}
+    ];
   }
 
   saveNotificationSettings() {
-    console.log(this.selectedNotificationId);
-    if(this.selectedNotificationId) {
+    if (this.selectedNotificationId) {
       this.appStorage.set('notification_frequency', this.selectedNotificationId).then(result => {
-        if(this.platform.is('cordova')) {
+        if (this.platform.is('cordova')) {
           this.localNotifications.scheduleNextNotification();
         }
         if (this.platform.is('cordova'))
-          this.alert.displayToast("Οι ρυθμίσεις αποθηκεύτηκαν.");
+          this.alert.displayToast(this.translate.instant('settings_saved'));
       });
     } else {
       if (this.platform.is('cordova')) {
-        this.alert.displayToast("Πρέπει να δηλώσετε κάποια επιλογή");
+        this.alert.displayToast(this.translate.instant('please_select'));
       } else {
-        alert("Πρέπει να δηλώσετε κάποια επιλογή");
+        alert(this.translate.instant('please_select'));
       }
     }
   }

@@ -32,6 +32,14 @@
   "activity_categories": "Activity Categories",
   "all_difficulty_levels": "All levels",
   "select_difficulty_level": "Select difficulty level",
-  "help_text": "<b>Print the Cognitive Exercises</b> Select the desired activity and click “Share and Print”. Then select a sharing/and or printing app to view the exercise in printable format. <br>A common practice is to send the activity to your email. By opening the email from your computer or phone, you can then print it. <br> <br> <b>Keep the exercise history</b> Keep track of how often your loved ones exercise! <br>You kan keep a calendar with useful statistics. Don't forget, the quality of exercise and the quality of your relationship matters. <br> <br> Select the exercise that was performed and click on \"Done today\". Automatically, the exercise is saved in history. You can access your history in \"My History\"."
-
+  "help_text": "<b>Print Cognitive Exercises</b> Select the desired activity and click “Share and Print”. Then select a sharing/and or printing app to view the exercise in printable format. <br>A common practice is to send the activity to your email. By opening the email from your computer or phone, you can then print it. <br> <br> <b>Keep the exercise history</b> Keep track of how often your loved ones exercise! <br>You kan keep a calendar with useful statistics. Don't forget, the quality of exercise and the quality of your relationship matters. <br> <br> Select the exercise that was performed and click on \"Done today\". Automatically, the exercise is saved in history. You can access your history in \"My History\".",
+  "receive_notifications": "Activities/Exercises reminders",
+  "save": "Save",
+  "notifications_not_supported": "This device does not support notifications.",
+  "every_day": "Every day",
+  "every_week": "Once a week",
+  "every_month": "Once a month",
+  "no_notifications": "I don't want to receive notifications.",
+  "settings_saved": "Settings were saved.",
+  "please_select": "Please select a choice"
 }

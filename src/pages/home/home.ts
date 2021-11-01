@@ -25,7 +25,7 @@ export class HomePage {
               private loaderService: LoaderService, private activityCategoryProvider: ActivityCategoryProvider,
               private difficultyLevelProvider: DifficultyLevelProvider, private http: Http,
               private appStorage: AppStorageProvider, public statusBar: StatusBar,
-              private alertProvider: AlertProvider, private platform: Platform, private iab: InAppBrowser,
+              private alertProvider: AlertProvider, public platform: Platform, private iab: InAppBrowser,
               private translate: TranslateService) {
     if (platform.is('cordova')) {
       if (platform.is('android')) {
