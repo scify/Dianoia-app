@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Ιστορικό Δραστηριοτήτων</ion-title>
+    <ion-title>{{ 'exercise_history' | translate }}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,7 +15,7 @@
 
 <ion-content padding>
 
-  <h4>Ημέρες που πραγματοποιήθηκαν ασκήσεις</h4>
+  <h4>{{ 'days_that_exercises_were_performed' | translate }}</h4>
   <ion-grid>
     <div class="statistics" *ngFor="let statistic of statistics">
       <ion-row>

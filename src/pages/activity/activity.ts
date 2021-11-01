@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams, Platform, ViewController} from 'ionic-angular';
 import {ActivityProvider} from "../../providers/activity/activity";
-import { InAppBrowser } from '@ionic-native/in-app-browser';
+import {InAppBrowser} from '@ionic-native/in-app-browser';
 import {AlertProvider} from "../../providers/alert/alert";
 import {SocialSharing} from "@ionic-native/social-sharing";
 import {NotificationProvider} from "../../providers/notification/notification";
+import {TranslateService} from "@ngx-translate/core";
 
 /**
  * Generated class for the ActivityPage page.
@@ -24,11 +25,12 @@ export class ActivityPage {
   activityUniqueId: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-              private activityProvider: ActivityProvider, private iab: InAppBrowser, private platform: Platform, private alert: AlertProvider, private socialSharing: SocialSharing,
-              private notificationProvider: NotificationProvider, private viewCtrl: ViewController) {
+              private activityProvider: ActivityProvider, private iab: InAppBrowser,
+              public platform: Platform, private alert: AlertProvider, private socialSharing: SocialSharing,
+              private notificationProvider: NotificationProvider, private viewCtrl: ViewController,
+              private translate: TranslateService) {
     let activityObj = this.navParams.get("activity");
-    console.log("activityObj", activityObj);
-    if(!activityObj) {
+    if (!activityObj) {
       this.activityProvider.getRandomActivity().then(randomActivity => {
         this.activity = randomActivity;
       });
@@ -38,7 +40,6 @@ export class ActivityPage {
     this.allActivities = this.navParams.get("allActivities");
     this.activityUniqueId = this.navParams.get("uniqueId");
 
-    console.log(platform.is('cordova'));
   }
 
   nextActivity() {
@@ -74,12 +75,12 @@ export class ActivityPage {
   }
 
   loadNextActivity(nextActivity, animationDirection) {
-    if(nextActivity) {
+    if (nextActivity) {
       this.navCtrl.push("ActivityPage", {
         activity: nextActivity,
         allActivities: this.allActivities,
         uniqueId: this.activityUniqueId
-      }, { animate: true, animation: 'ios-transition', direction: animationDirection }).then(() => {
+      }, {animate: true, animation: 'ios-transition', direction: animationDirection}).then(() => {
         const index = this.viewCtrl.index;
         this.navCtrl.remove(index);
       });
@@ -88,13 +89,13 @@ export class ActivityPage {
   }
 
   activityIsNotFirst() {
-    if(this.allActivities)
+    if (this.allActivities)
       return this.allActivities[0] !== this.activity;
     return false;
   }
 
   activityIsNotLast() {
-    if(this.allActivities)
+    if (this.allActivities)
       return this.allActivities[this.allActivities.length - 1] !== this.activity;
     return false;
   }
@@ -102,8 +103,10 @@ export class ActivityPage {
   activityDoneForToday() {
     this.activityProvider.setActivityCompletedForToday().then(result => {
       this.dailyActivityCompleted = true;
-      if(!this.platform.is('core')) {
-        this.alert.displayToast("Η άσκηση για σήμερα καταγράφηκε");
+      if (!this.platform.is('core')) {
+        this.translate.get('activity_done').subscribe((translated: string) => {
+          this.alert.displayToast(translated);
+        });
       }
     });
   }
@@ -114,28 +117,31 @@ export class ActivityPage {
 
 
   // tslint:disable-next-line:no-unused-variable
-  private share(activity) {
-    var options = {
-      message: 'ΔιΆνοια - δραστηριότητα: ' + activity.title + "    ",
-      subject: 'ΔιΆνοια - δραστηριότητα: ' + activity.title,
-      url: activity.link,
-      chooserTitle: 'Κοινοποίηση με...'
-    };
+  share(activity) {
+    this.translate.get('app_activity').subscribe((translated: string) => {
+      const options = {
+        message: translated + ': ' + activity.title + "    ",
+        subject: translated + ': ' + activity.title,
+        url: activity.link,
+        chooserTitle: this.translate.instant('share_with') + '...'
+      };
 
-    this.socialSharing.shareWithOptions(options).then(result => {
-      console.log(result);
-      // if(result.completed)
+      this.socialSharing.shareWithOptions(options).then(result => {
+        console.log(result);
+        // if(result.completed)
         //this.alert.displayToast("Η δραστηριοτητα κοινοποιηθηκε");
-    }).catch(error => {
-      this.alert.textDialog("Error", "Αυτή η συσκευή δεν υποστηρίζει κοινοποίηση");
+      }).catch(error => {
+        this.alert.textDialog(this.translate.instant('error'), this.translate.instant('sharing_not_supported'));
+      });
     });
+
   }
 
   swipeActivity(event) {
     console.log(event.direction);
-    if(event.direction == 2) {
+    if (event.direction == 2) {
       this.nextActivity();
-    } else if(event.direction == 4) {
+    } else if (event.direction == 4) {
       this.previousActivity();
     }
   }

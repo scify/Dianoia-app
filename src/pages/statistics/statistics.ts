@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams, Platform} from 'ionic-angular';
 import {ActivityProvider} from "../../providers/activity/activity";
 import {LoaderService} from "../../providers/loader-service/loader-service";
+import {TranslateService} from "@ngx-translate/core";
 
 /**
  * Generated class for the StatisticsPage page.
@@ -22,26 +23,35 @@ export class StatisticsPage {
   statistics = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-              private activityProvider: ActivityProvider, private loaderService: LoaderService) {
+              private activityProvider: ActivityProvider, private loaderService: LoaderService,
+              public platform: Platform, private translate: TranslateService) {
 
     this.loaderService.showLoader();
+    this.translate.get('app_name').subscribe((translated: string) => {
+      this.setUpPageElements();
+    });
+  }
 
-    activityProvider.getNumberOfActivitiesForLastMonth().then(numberOfDays => {
-      console.log(numberOfDays.filter(daysThatAreTrue).length);
+  setUpPageElements() {
+    this.activityProvider.getNumberOfActivitiesForLastMonth().then(numberOfDays => {
       this.numberOfDaysForLastMonth = numberOfDays.filter(daysThatAreTrue).length.toString();
-      this.statistics.push({title: "Για τον τελευταίο μήνα", value: this.numberOfDaysForLastMonth});
+      this.statistics.push({title: this.translate.instant('for_the_last_month'), value: this.numberOfDaysForLastMonth});
     });
 
-    activityProvider.getNumberOfActivitiesForLastTwoWeeks().then(numberOfDays => {
-      console.log(numberOfDays.filter(daysThatAreTrue).length);
+    this.activityProvider.getNumberOfActivitiesForLastTwoWeeks().then(numberOfDays => {
       this.numberOfDaysForLastTwoWeeks = numberOfDays.filter(daysThatAreTrue).length.toString();
-      this.statistics.push({title: "Για το τελευταίο 15 ήμερο", value: this.numberOfDaysForLastTwoWeeks});
+      this.statistics.push({
+        title: this.translate.instant('for_the_last_weeks'),
+        value: this.numberOfDaysForLastTwoWeeks
+      });
     });
 
-    activityProvider.getNumberOfActivitiesForLastThreeMonths().then(numberOfDays => {
-      console.log(numberOfDays.filter(daysThatAreTrue).length);
+    this.activityProvider.getNumberOfActivitiesForLastThreeMonths().then(numberOfDays => {
       this.numberOfDaysForThreeMonths = numberOfDays.filter(daysThatAreTrue).length.toString();
-      this.statistics.push({title: "Για το τελευταίο 3 μηνο", value: this.numberOfDaysForThreeMonths});
+      this.statistics.push({
+        title: this.translate.instant('for_the_last_months'),
+        value: this.numberOfDaysForThreeMonths
+      });
 
       this.loaderService.hideLoader();
     });
@@ -49,11 +59,6 @@ export class StatisticsPage {
     function daysThatAreTrue(item) {
       return item == "true";
     }
-
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad StatisticsPage');
   }
 
 }

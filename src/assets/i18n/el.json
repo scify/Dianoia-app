@@ -41,5 +41,21 @@
   "every_month": "Μια φορά το μήνα",
   "no_notifications": "Να μην έρχονται ειδοποιήσεις",
   "settings_saved": "Οι ρυθμίσεις αποθηκεύτηκαν.",
-  "please_select": "Πρέπει να δηλώσετε κάποια επιλογή"
+  "please_select": "Πρέπει να δηλώσετε κάποια επιλογή",
+  "exercise_history": "Ιστορικό Δραστηριοτήτων",
+  "days_that_exercises_were_performed": "Ημέρες που πραγματοποιήθηκαν ασκήσεις",
+  "for_the_last_month": "Για τον τελευταίο μήνα",
+  "for_the_last_weeks": "Για το τελευταίο 15 ήμερο",
+  "for_the_last_months": "Για το τελευταίο 3 μηνο",
+  "activity_done": "Η άσκηση για σήμερα καταγράφηκε",
+  "app_activity": "ΔιΆνοια - δραστηριότητα",
+  "share_with": "Κοινοποίηση με",
+  "sharing_not_supported": "Αυτή η συσκευή δεν υποστηρίζει κοινοποίηση",
+  "error": "Σφάλμα",
+  "previous": "Προηγούμενη",
+  "next": "Επόμενη",
+  "see_activity": "Δείτε την άσκηση",
+  "share_and_print": "Μοιραστείτε και εκτυπώστε",
+  "more_info_help": "Περισσότερες επιλογές και βοήθεια",
+  "activity_done_btn": "Έγινε σήμερα"
 }

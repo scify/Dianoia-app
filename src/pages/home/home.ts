@@ -40,14 +40,14 @@ export class HomePage {
     }
 
     this.translate.get('app_name').subscribe((translated: string) => {
-      this.setUpPageButtons();
+      this.setUpPageElements();
     });
     this.translate.onLangChange.subscribe(() => {
-      this.setUpPageButtons();
+      this.setUpPageElements();
     });
   }
 
-  setUpPageButtons() {
+  setUpPageElements() {
     this.buttons = [
       {
         id: "basic_info",
