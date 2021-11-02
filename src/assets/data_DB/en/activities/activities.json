@@ -2,7 +2,7 @@
   {
     "id": "activity_1",
     "title":"Word categories",
-    "description": "Complete the following categories with what is asked of you.",
+    "description": "Find words for every category that is asked of you.",
     "full_text": "",
     "video_url":"",
     "img_url":"words_categories.png",
@@ -422,7 +422,7 @@
   },
   {
     "id": "activity_40",
-    "title":"Create your weekly program with your activities.",
+    "title":"Weekly Program of Activities",
     "description": "Create your weekly program with your activities.",
     "full_text": "",
     "video_url":"",

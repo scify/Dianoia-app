@@ -60,18 +60,5 @@
   "activity_done_btn": "Έγινε σήμερα",
   "close": "Κλείσιμο",
   "cancel": "Άκυρο",
-  "please_wait": "Παρακαλώ περιμένετε",
-  "notification_title_1": "Τι να κάνετε σήμερα:",
-  "notification_title_2": "Σημερινή δραστηριότητα:",
-  "notification_text_1": "",
-  "notification_text_2": "",
-  "notification_text_3": "",
-  "notification_text_4": "",
-  "notification_text_5": "",
-  "notification_text_6": "",
-  "notification_text_7": "",
-  "notification_text_8": "",
-  "notification_text_9": "",
-  "notification_text_10": "",
-  "notification_text_11": ""
+  "please_wait": "Παρακαλώ περιμένετε"
 }

@@ -1,0 +1,10 @@
+[
+  {
+    "title": "Nivel normal",
+    "id": "difficulty_level_1"
+  },
+  {
+    "title": "Nivel difícil",
+    "id": "difficulty_level_2"
+  }
+]
