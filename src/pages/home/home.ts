@@ -1,9 +1,6 @@
 import {Component} from '@angular/core';
-import {IonicPage, NavController, Platform} from 'ionic-angular';
-import {ActivityProvider} from "../../providers/activity/activity";
+import {Events, IonicPage, NavController, Platform} from 'ionic-angular';
 import {LoaderService} from "../../providers/loader-service/loader-service";
-import {ActivityCategoryProvider} from "../../providers/activity-category/activity-category";
-import {DifficultyLevelProvider} from "../../providers/difficulty-level/difficulty-level";
 import {Http} from "@angular/http";
 import {AppStorageProvider} from "../../providers/app-storage/app-storage";
 import {AlertProvider} from "../../providers/alert/alert";
@@ -21,12 +18,11 @@ export class HomePage {
   activities: any[];
   buttons: any[];
 
-  constructor(public navCtrl: NavController, private activityProvider: ActivityProvider,
-              private loaderService: LoaderService, private activityCategoryProvider: ActivityCategoryProvider,
-              private difficultyLevelProvider: DifficultyLevelProvider, private http: Http,
+  constructor(public navCtrl: NavController,
+              private loaderService: LoaderService, private http: Http,
               private appStorage: AppStorageProvider, public statusBar: StatusBar,
               private alertProvider: AlertProvider, public platform: Platform, private iab: InAppBrowser,
-              private translate: TranslateService) {
+              private translate: TranslateService, public events: Events) {
     if (platform.is('cordova')) {
       if (platform.is('android')) {
         statusBar.overlaysWebView(false);
@@ -38,13 +34,21 @@ export class HomePage {
       }
       this.checkForAnnouncement();
     }
+  }
 
-    this.translate.get('app_name').subscribe((translated: string) => {
+  ionViewWillLoad() {
+    this.events.subscribe('lang_ready', (langCode) => {
       this.setUpPageElements();
     });
-    this.translate.onLangChange.subscribe(() => {
-      this.setUpPageElements();
+    this.platform.ready().then(() => {
+      this.translate.get('app_name').subscribe(() => {
+        this.setUpPageElements();
+      });
     });
+  }
+
+  ionViewWillUnload() {
+    this.events.unsubscribe('lang_ready');
   }
 
   setUpPageElements() {
@@ -123,10 +127,6 @@ export class HomePage {
     return str.replace(/(\r\n|\n|\r)/gm, "").trim();
   }
 
-  selectActivity(activity) {
-    this.navCtrl.push("ActivityPage", {activity: activity});
-  }
-
   goTo(button) {
     switch (button.id) {
       case "basic_info":
@@ -134,52 +134,17 @@ export class HomePage {
         break;
       case "mental_activities":
         this.loaderService.showLoader();
-        this.activityCategoryProvider.getSubcategoriesForCategory("mental_activities").then(subCategoriesIds => {
-          this.activityCategoryProvider.getCategoriesByIds(subCategoriesIds).subscribe(categories => {
-            this.navCtrl.push("ActivityCategoriesPage", {
-              categories: categories,
-              parentCategoryId: "mental_activities"
-            });
-            this.loaderService.hideLoader();
-          });
-
+        this.navCtrl.push("ActivityCategoriesPage", {
+          parentCategoryId: "mental_activities"
         });
         break;
       default:
         this.loaderService.showLoader();
-        this.getDifficultyLevelsForCategoryAndLoadPage(button.id);
+        this.navCtrl.push("DifficultyLevelsPage", {
+          categoryId: button.id,
+        });
         break;
     }
-  }
-
-  getDifficultyLevelsForCategoryAndLoadPage(categoryId: string): any {
-    this.activityCategoryProvider.getActivitiesForCategory(categoryId).subscribe(activitiesIds => {
-      if (activitiesIds != null) {
-        this.activityProvider.getActivitiesByIds(activitiesIds).subscribe(activities => {
-          this.getDifficultyLevelsForActivitiesAndLoadPage(activities, categoryId);
-        }, error => {
-          this.handleError(error);
-        });
-      }
-    }, error => {
-      this.handleError(error);
-    });
-  }
-
-
-  getDifficultyLevelsForActivitiesAndLoadPage(activities: any, categoryId) {
-    this.difficultyLevelProvider.getDifficultyLevelsForActivities(activities).then(difficultyLevels => {
-      this.navCtrl.push("DifficultyLevelsPage", {
-        levels: difficultyLevels,
-        categoryId: categoryId,
-        activities: activities
-      });
-    });
-  }
-
-  handleError(error) {
-    console.error(error);
-    this.loaderService.hideLoader();
   }
 
   openLink(url) {

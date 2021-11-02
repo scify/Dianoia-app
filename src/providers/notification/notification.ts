@@ -1,8 +1,11 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import 'rxjs/add/operator/map';
-import { LocalNotifications } from '@ionic-native/local-notifications';
+import {LocalNotifications} from '@ionic-native/local-notifications';
 import {AppStorageProvider} from "../app-storage/app-storage";
-import {Platform} from "ionic-angular";
+import {Events} from "ionic-angular";
+import {Observable} from "rxjs/Observable";
+import {Http} from "@angular/http";
+import {ApiCallsProvider} from "../api-calls/api-calls";
 
 /*
   Generated class for the NotificationProvider provider.
@@ -16,30 +19,22 @@ export class NotificationProvider {
   notificationTitles: string[];
   notificationTexts: string[];
 
-  constructor(private localNotifications: LocalNotifications, private appStorage: AppStorageProvider, private platform: Platform) {
-    this.notificationTitles = ["Τι να κάνετε σήμερα:", "Σημερινή δραστηριότητα:"];
+  constructor(private localNotifications: LocalNotifications, private appStorage: AppStorageProvider,
+              public http: Http, private apiCalls: ApiCallsProvider,
+              public events: Events) {
+    this.events.subscribe('lang_ready', (langCode) => {
+      this.getAllNotifications(langCode).subscribe((data) => {
+        this.notificationTitles = data.titles;
+        this.notificationTexts = data.texts;
+      });
+    });
+  }
 
-    this.notificationTexts = ["- Κάντε δουλειές στο σπίτι.", "- Πηγαίνετε μαζί για ψώνια.",
-      "- Κάντε μια συναλλαγή σε δημόσια υπηρεσία.", "- Συζητήστε ένα επίκαιρο θέμα.",
-      "Το Σχολείο Φοροντιστών ξεκίνησε! Παρακολουθήστε το ΔΩΡΕΑΝ. Καλέστε στο 2107013271 για πληροφορίες και δηλώσεις συμμετοχής.",
-      "Το Σχολείο Φοροντιστών ξεκίνησε! Παρακολουθήστε το ΔΩΡΕΑΝ. Καλέστε στο 2107013271 για πληροφορίες και δηλώσεις συμμετοχής.",
-      "Το Σχολείο Φοροντιστών ξεκίνησε! Παρακολουθήστε το ΔΩΡΕΑΝ. Καλέστε στο 2107013271 για πληροφορίες και δηλώσεις συμμετοχής.",
-      "Το Σχολείο Φοροντιστών ξεκίνησε! Παρακολουθήστε το ΔΩΡΕΑΝ. Καλέστε στο 2107013271 για πληροφορίες και δηλώσεις συμμετοχής.",
-      "Το Σχολείο Φοροντιστών ξεκίνησε! Παρακολουθήστε το ΔΩΡΕΑΝ. Καλέστε στο 2107013271 για πληροφορίες και δηλώσεις συμμετοχής.",
-      "Το Σχολείο Φοροντιστών ξεκίνησε! Παρακολουθήστε το ΔΩΡΕΑΝ. Καλέστε στο 2107013271 για πληροφορίες και δηλώσεις συμμετοχής.",
-      "Το Σχολείο Φοροντιστών ξεκίνησε! Παρακολουθήστε το ΔΩΡΕΑΝ. Καλέστε στο 2107013271 για πληροφορίες και δηλώσεις συμμετοχής.",
-      "Το Σχολείο Φοροντιστών ξεκίνησε! Παρακολουθήστε το ΔΩΡΕΑΝ. Καλέστε στο 2107013271 για πληροφορίες και δηλώσεις συμμετοχής.",
-      "Το Σχολείο Φοροντιστών ξεκίνησε! Παρακολουθήστε το ΔΩΡΕΑΝ. Καλέστε στο 2107013271 για πληροφορίες και δηλώσεις συμμετοχής.",
-      "Το Σχολείο Φοροντιστών ξεκίνησε! Παρακολουθήστε το ΔΩΡΕΑΝ. Καλέστε στο 2107013271 για πληροφορίες και δηλώσεις συμμετοχής.",
-      "- Μοιραστείτε ευχάριστες αναμνήσεις.", "- Δείτε ένα φωτογραφικό άλμπουμ.", "- Ακούστε αγαπημένα τραγούδια.",
-      "- Ασχοληθείτε με ένα αγαπημένο χόμπι.", "- Διαβάστε ένα βιβλίο ή εφημερίδα.", "- Παίξτε ένα επιτραπέζιο παιχνίδι.",
-      "- Παίξτε κρεμάλα ή τρίλιζα.", "- Παρακολουθήστε ένα τηλεπαιχνίδι γνώσεων και απαντήστε μαζί τις ερωτήσεις.",
-      "-  Παρακολουθήστε τις ειδήσεις και σχολιάστε την επικαιρότητα.", "- Καταγράψτε αναμνήσεις και εμπειρίες.",
-      "- Πηγαίνετε μια εκδρομή.", "- Κάντε ένα περίπατο.", "- Επιλέξτε ευχάριστες δραστηριότητες", "- Ενθαρρύνετε τη συμμετοχή σε καθημερινές δραστηριότητες",
-      "- Επιλέξτε την κατάλληλη ώρα για κάθε δραστηριότητα", "- Σταματήστε τη δραστηριότητα όταν χάνει το ενδιαφέρον του", "- Προτείνετε εξατομικευμένες δραστηριότητες",
-      "- Ενθαρρύνετε την ανεξαρτησία του", "- Επιλέξτε από κοινού δραστηριότητες", "- Παρακινήστε να αρχίσει τη δραστηριότητα", "- Προσφέρετε συνεχή υποστήριξη",
-      "- Επιβλέψτε τον διακριτικά", "- Χωρίστε τη δραστηριότητα σε βήματα", "- Βοηθήστε τον όταν δυσκολεύεται", "- Να είστε ευέλικτοι", "- Να έχετε ρεαλιστικές προσδοκίες",
-      "- Μην διορθώνετε τα λάθη τους", "- Μην ασκείτε κριτική", "- Ενθαρρύνετε τη δημιουργική έκφραση", "- Προτείνετε δραστηριότητες μαζί με άλλους", "- Διαμορφώστε ένα ασφαλές περιβάλλον"]
+  public getAllNotifications(langCode): Observable<any> {
+    return this.apiCalls.getHttpCall("notifications_" + langCode, () => {
+      return this.http.get("assets/data_DB/" + langCode + "/notifications/notifications.json")
+        .map(res => res.json());
+    });
   }
 
   public scheduleNextNotification() {
@@ -48,8 +43,8 @@ export class NotificationProvider {
       console.log("frequency: " + frequency);
       let date = new Date();
       console.log("initial date:", date);
-      let title = "Δι-Άνοια - " + this.randomArrayElement(this.notificationTitles);
-      let text = this.randomArrayElement(this.notificationTexts);
+      let title = "Δι-Άνοια - " + NotificationProvider.randomArrayElement(this.notificationTitles);
+      let text = "- " + NotificationProvider.randomArrayElement(this.notificationTexts);
       switch (frequency) {
         case 'every_day':
           date.setDate(date.getDate() + 1);
@@ -81,7 +76,7 @@ export class NotificationProvider {
   public scheduleNotificationFor(date: Date, title: string, text: string, every?, setHour: boolean = true) {
 
     //notification set for 11:00 AM.
-    if(setHour) {
+    if (setHour) {
       date.setHours(11);
       date.setMinutes(0);
     }
@@ -100,13 +95,12 @@ export class NotificationProvider {
 
   public listenForNotificationClicks() {
     this.localNotifications.on("click").subscribe(notification => {
-      console.log("notification clicked: ", notification);
       this.scheduleNextNotification();
     });
   }
 
-  private randomArrayElement(items: string[]): string {
-    return items[Math.floor(Math.random()*items.length)];
+  private static randomArrayElement(items: string[]): string {
+    return items[Math.floor(Math.random() * items.length)];
   }
 
 }

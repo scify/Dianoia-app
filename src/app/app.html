@@ -18,7 +18,7 @@
             <button mode="ios" ion-button outline>{{ 'select_language' | translate }}</button>
           </ion-label>
           <ion-select (ionChange)="setLang($event)">
-            <ion-option [selected]="lang.code === translate.currentLang" *ngFor="let lang of languages" [value]="lang.code">
+            <ion-option [selected]="lang.code === translate.store.currentLang" *ngFor="let lang of languages" [value]="lang.code">
               {{ lang.name }}
             </ion-option>
           </ion-select>

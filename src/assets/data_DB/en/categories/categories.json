@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Mental Exercises",
+    "category_id": "mental_activities",
+    "has_difficulty_levels": true
+  },
+  {
+    "title": "Common Exercises",
+    "category_id": "common_activities",
+    "has_difficulty_levels": false
+  },
+  {
+    "title": "Attention Exercises",
+    "category_id": "focus_activities",
+    "has_difficulty_levels": true
+  },
+  {
+    "title": "Memory Exercises",
+    "category_id": "memory_activities",
+    "has_difficulty_levels": true
+  },
+  {
+    "title": "Thought & Speech Exercises",
+    "category_id": "think_activities",
+    "has_difficulty_levels": true
+  },
+  {
+    "title": "Executive functions",
+    "category_id": "executive_activities",
+    "has_difficulty_levels": true
+  },
+  {
+    "title": "Storytelling",
+    "category_id": "stories",
+    "has_difficulty_levels": true
+  }
+]
+

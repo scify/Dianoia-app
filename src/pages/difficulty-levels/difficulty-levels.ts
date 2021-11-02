@@ -1,8 +1,10 @@
 import {Component} from '@angular/core';
-import {IonicPage, NavController, NavParams, Platform} from 'ionic-angular';
+import {Events, IonicPage, NavController, NavParams, Platform} from 'ionic-angular';
 import {ActivityCategoryProvider} from "../../providers/activity-category/activity-category";
 import {LoaderService} from "../../providers/loader-service/loader-service";
 import {TranslateService} from "@ngx-translate/core";
+import {DifficultyLevelProvider} from "../../providers/difficulty-level/difficulty-level";
+import {ActivityProvider} from "../../providers/activity/activity";
 
 @IonicPage()
 @Component({
@@ -19,28 +21,54 @@ export class DifficultyLevelsPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               private categoryProvider: ActivityCategoryProvider, private loaderService: LoaderService,
-              public platform: Platform, public translate: TranslateService) {
+              public events: Events, public translate: TranslateService,
+              public platform: Platform, private difficultyLevelProvider: DifficultyLevelProvider,
+              private activityCategoryProvider: ActivityCategoryProvider,
+              private activityProvider: ActivityProvider) {
 
     this.categoryId = this.navParams.get("categoryId");
-    this.allActivities = this.navParams.get("activities");
-    this.activities = this.navParams.get("activities");
-    this.loaderService.hideLoader();
+  }
+
+  ionViewWillLoad() {
+    this.events.subscribe('lang_ready', (langCode) => {
+      this.setUpPageElements();
+    });
     this.platform.ready().then(() => {
-      this.translate.get('app_name').subscribe((translated: string) => {
+      this.translate.get('app_name').subscribe(() => {
         this.setUpPageElements();
+        this.loaderService.hideLoader();
       });
     });
+  }
 
+  ionViewWillUnload() {
+    this.events.unsubscribe('lang_ready');
   }
 
   setUpPageElements() {
-    if (this.categoryId == null) {
-      this.navCtrl.setRoot("HomePage");
-    } else {
-      this.levels = this.navParams.get("levels");
-      this.levels.unshift({id: "0", title: this.translate.instant('all_difficulty_levels')});
-    }
-    this.pageTitle = this.category != null ? this.category.title : this.translate.instant('activities_exercises');
+    this.pageTitle = this.translate.instant('activities_exercises');
+    if (this.categoryId == null)
+      return this.navCtrl.setRoot("HomePage");
+
+    this.activityCategoryProvider.getActivitiesForCategory(this.categoryId).subscribe(activitiesIds => {
+      if (activitiesIds != null) {
+        this.activityProvider.getActivitiesByIds(activitiesIds).then(activities => {
+          this.allActivities = activities;
+          this.activities = activities;
+          this.difficultyLevelProvider.getDifficultyLevelsForActivities(activities).then(difficultyLevels => {
+            this.levels = difficultyLevels;
+            this.levels.unshift({id: "0", title: this.translate.instant('all_difficulty_levels')});
+            this.pageTitle = this.category != null ? this.category.title : this.translate.instant('activities_exercises');
+            this.loaderService.hideLoader();
+          });
+        }, error => {
+          this.handleError(error);
+        });
+      }
+    }, error => {
+      this.handleError(error);
+    });
+
   }
 
   selectLevel(levelButton: any): any {
@@ -65,5 +93,8 @@ export class DifficultyLevelsPage {
     this.navCtrl.setRoot('HomePage');
   }
 
-
+  handleError(error) {
+    console.error(error);
+    this.loaderService.hideLoader();
+  }
 }

@@ -1,5 +1,5 @@
 import {Component, ViewChild} from "@angular/core";
-import {Nav, Platform} from "ionic-angular";
+import {Events, Nav, Platform} from "ionic-angular";
 import {StatusBar} from "@ionic-native/status-bar";
 import {SplashScreen} from "@ionic-native/splash-screen";
 import {NotificationProvider} from "../providers/notification/notification";
@@ -46,20 +46,13 @@ export class MyApp {
               private alertProvider: AlertProvider, private activityProvider: ActivityProvider,
               private difficultyLevelProvider: DifficultyLevelProvider, private loaderService: LoaderService,
               private analyticsFirebase: AnalyticsFirebase, private iab: InAppBrowser, private appVersion: AppVersion,
-              public translate: TranslateService) {
+              public translate: TranslateService, public events: Events) {
+
     this.initializeApp(platform, statusBar);
   }
 
   initializeApp(platform, statusBar) {
     this.platform.ready().then(() => {
-      this.translate.setDefaultLang('en');
-      this.translate.use('en');
-      this.translate.get('app_name').subscribe((translated: string) => {
-        this.setUpMenuPages();
-      });
-      this.translate.onLangChange.subscribe(() => {
-        this.setUpMenuPages();
-      });
       if (this.platform.is('cordova')) {
         this.appVersion.getVersionNumber().then((version) => this.appVersionName = version);
         this.splashScreen.hide();
@@ -77,10 +70,29 @@ export class MyApp {
         this.localNotifications.scheduleNextNotification();
         this.setUpAnalyticsLogger();
       }
+      this.setTranslationSettings();
     });
   }
 
-  setUpMenuPages() {
+  setTranslationSettings() {
+    this.translate.setDefaultLang('en');
+    this.appStorage.get('app_lang').then(lang => {
+      const data = JSON.parse(lang);
+      let langCode = data ? data : this.translate.getDefaultLang();
+      this.translate.use(langCode).subscribe(() => {
+        this.events.publish('lang_ready', this.translate.currentLang);
+      });
+    });
+
+    this.events.subscribe('lang_ready', () => {
+      this.setUpPageElements();
+    });
+    this.translate.onLangChange.subscribe(() => {
+
+    });
+  }
+
+  setUpPageElements() {
     this.pages = [
       {title: this.translate.instant('menu_home'), component: "HomePage"},
       {title: this.translate.instant('menu_page_1'), component: "BasicInfoPage"},
@@ -101,7 +113,10 @@ export class MyApp {
   }
 
   setLang(langCode) {
-    this.translate.use(langCode);
+    this.translate.use(langCode).subscribe(() => {
+      this.appStorage.set('app_lang', this.translate.currentLang);
+      this.events.publish('lang_ready', this.translate.currentLang);
+    });
   }
 
   openPage(page) {
@@ -114,7 +129,7 @@ export class MyApp {
   getDifficultyLevelsForCategoryAndLoadPage(categoryId: string): any {
     this.activityCategoryProvider.getActivitiesForCategory(categoryId).subscribe(activitiesIds => {
       if (activitiesIds != null) {
-        this.activityProvider.getActivitiesByIds(activitiesIds).subscribe(activities => {
+        this.activityProvider.getActivitiesByIds(activitiesIds).then(activities => {
           console.log(activities);
           this.getDifficultyLevelsForActivitiesAndLoadPage(activities, categoryId);
         }, error => {

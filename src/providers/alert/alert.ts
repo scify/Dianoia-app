@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {AlertController, Platform} from 'ionic-angular';
+import {AlertController, Events} from 'ionic-angular';
 import {Toast} from "@ionic-native/toast";
 import {TranslateService} from "@ngx-translate/core";
 
@@ -16,13 +16,11 @@ export class AlertProvider {
   alertCancelBtnText: string = '';
 
   constructor(private alertController: AlertController, private toast: Toast,
-              public platform: Platform, private translate: TranslateService) {
+              public events: Events, private translate: TranslateService) {
 
-    this.platform.ready().then(() => {
-      this.translate.get('app_name').subscribe((translated: string) => {
-        this.alertCloseBtnText = this.translate.instant('close');
-        this.alertCancelBtnText = this.translate.instant('cancel');
-      });
+    this.events.subscribe('lang_ready', () => {
+      this.alertCloseBtnText = this.translate.instant('close');
+      this.alertCancelBtnText = this.translate.instant('cancel');
     });
 
   }

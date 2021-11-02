@@ -1,7 +1,8 @@
-import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import {Injectable} from '@angular/core';
+import {Http} from '@angular/http';
 import 'rxjs/add/operator/map';
-import {LoadingController} from "ionic-angular";
+import {Events, LoadingController} from "ionic-angular";
+import {TranslateService} from "@ngx-translate/core";
 
 /*
   Generated class for the LoaderService provider.
@@ -14,24 +15,30 @@ export class LoaderService {
 
   loader: any;
   loaderOpen: boolean = false;
+  loaderWaitText: string = '';
 
-  constructor(public http: Http,
-              private loadingCtrl: LoadingController) {
+  constructor(public http: Http, private loadingCtrl: LoadingController,
+              public events: Events, private translate: TranslateService) {
+    this.events.subscribe('lang_ready', () => {
+      this.loaderWaitText = this.translate.instant('please_wait');
+    });
   }
 
   showLoader() {
-    this.loader = this.loadingCtrl.create({
-      spinner: 'crescent',
-      content: 'Please wait...',
-      cssClass: 'loader'
-    });
+    if (!this.loaderOpen) {
+      this.loader = this.loadingCtrl.create({
+        spinner: 'crescent',
+        content: this.loaderWaitText + '...',
+        cssClass: 'loader'
+      });
 
-    this.loader.present();
-    this.loaderOpen = true;
+      this.loader.present();
+      this.loaderOpen = true;
+    }
   }
 
   hideLoader() {
-    if(this.loaderOpen) {
+    if (this.loaderOpen) {
       this.loader.dismiss();
       this.loaderOpen = false;
     }

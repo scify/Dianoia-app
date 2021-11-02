@@ -34,14 +34,12 @@ export class InfoListPage {
   ionViewDidLoad() {
     if(this.pageCode != null && this.pageFile != null)
       this.pageProvider.getDataForPage(this.pageCode, this.pageFile).subscribe(pageData => {
-        console.log("pageData", pageData);
         this.title = pageData.title;
         this.description = pageData.description;
         this.image = pageData.image;
         this.list = pageData.list;
         this.cards = pageData.cards;
         this.bottomText = pageData.bottom_text;
-        console.log(this.bottomText);
       });
   }
 
