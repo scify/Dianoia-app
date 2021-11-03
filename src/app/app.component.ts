@@ -5,7 +5,6 @@ import {SplashScreen} from "@ionic-native/splash-screen";
 import {NotificationProvider} from "../providers/notification/notification";
 import {AppStorageProvider} from "../providers/app-storage/app-storage";
 import {Http} from "@angular/http";
-import {AlertProvider} from "../providers/alert/alert";
 import {ActivityCategoryProvider} from "../providers/activity-category/activity-category";
 import {ActivityProvider} from "../providers/activity/activity";
 import {DifficultyLevelProvider} from "../providers/difficulty-level/difficulty-level";
@@ -37,13 +36,17 @@ export class MyApp {
     {
       "name": "Español",
       "code": "es"
+    },
+    {
+      "name": "Italiano",
+      "code": "it"
     }
   ];
 
   constructor(public platform: Platform, public statusBar: StatusBar,
               public splashScreen: SplashScreen, private localNotifications: NotificationProvider,
               private appStorage: AppStorageProvider, private http: Http, private activityCategoryProvider: ActivityCategoryProvider,
-              private alertProvider: AlertProvider, private activityProvider: ActivityProvider,
+              private activityProvider: ActivityProvider,
               private difficultyLevelProvider: DifficultyLevelProvider, private loaderService: LoaderService,
               private analyticsFirebase: AnalyticsFirebase, private iab: InAppBrowser, private appVersion: AppVersion,
               public translate: TranslateService, public events: Events) {

@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import {App, IonicPage, NavController, NavParams} from 'ionic-angular';
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {ActivityProvider} from "../../providers/activity/activity";
 import {LoaderService} from "../../providers/loader-service/loader-service";
 
@@ -12,7 +12,7 @@ export class RandomActivitiesPage {
   activities: any[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-              private app: App, private activityProvider: ActivityProvider,
+              private activityProvider: ActivityProvider,
               private loaderService: LoaderService) {
 
     this.loaderService.showLoader();
@@ -20,9 +20,6 @@ export class RandomActivitiesPage {
       this.activities = activities;
       this.loaderService.hideLoader();
     });
-  }
-
-  ionViewDidLoad() {
   }
 
   selectActivity(activity) {

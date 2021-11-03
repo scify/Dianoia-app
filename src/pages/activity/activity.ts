@@ -4,7 +4,6 @@ import {ActivityProvider} from "../../providers/activity/activity";
 import {InAppBrowser} from '@ionic-native/in-app-browser';
 import {AlertProvider} from "../../providers/alert/alert";
 import {SocialSharing} from "@ionic-native/social-sharing";
-import {NotificationProvider} from "../../providers/notification/notification";
 import {TranslateService} from "@ngx-translate/core";
 
 /**
@@ -28,7 +27,7 @@ export class ActivityPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,
               private activityProvider: ActivityProvider, private iab: InAppBrowser,
               public platform: Platform, private alert: AlertProvider, private socialSharing: SocialSharing,
-              private notificationProvider: NotificationProvider, private viewCtrl: ViewController,
+              private viewCtrl: ViewController,
               private translate: TranslateService, public events: Events) {
     let activityObj = this.navParams.get("activity");
     if (!activityObj) {

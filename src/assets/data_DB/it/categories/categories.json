@@ -1,36 +1,36 @@
 [
   {
-    "title": "Ejercicios Mentales",
+    "title": "Esercizi Mentali",
     "category_id": "mental_activities",
     "has_difficulty_levels": true
   },
   {
-    "title": "Actividades comunes",
+    "title": "Attività comuni",
     "category_id": "common_activities",
     "has_difficulty_levels": false
   },
   {
-    "title": "Ejercicios de concentración",
+    "title": "Esercizi di Attenzione",
     "category_id": "focus_activities",
     "has_difficulty_levels": true
   },
   {
-    "title": "Ejercicios de memoria",
+    "title": "Esercizi di memoria",
     "category_id": "memory_activities",
     "has_difficulty_levels": true
   },
   {
-    "title": "Ejercicios de Pensamiento y Discurso",
+    "title": "Esercizi di Pensiero e Parole",
     "category_id": "think_activities",
     "has_difficulty_levels": true
   },
   {
-    "title": "Funciones ejecutivas",
+    "title": "Funzioni esecutive",
     "category_id": "executive_activities",
     "has_difficulty_levels": true
   },
   {
-    "title": "Contamos historias",
+    "title": "Raccontiamo delle storie",
     "category_id": "stories",
     "has_difficulty_levels": true
   }

@@ -20,7 +20,7 @@ export class DifficultyLevelsPage {
   pageTitle: string = '';
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-              private categoryProvider: ActivityCategoryProvider, private loaderService: LoaderService,
+              private loaderService: LoaderService,
               public events: Events, public translate: TranslateService,
               public platform: Platform, private difficultyLevelProvider: DifficultyLevelProvider,
               private activityCategoryProvider: ActivityCategoryProvider,
