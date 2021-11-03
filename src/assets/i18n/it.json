@@ -60,5 +60,7 @@
   "activity_done_btn": "Attività svolta oggi",
   "close": "Chiudere",
   "cancel": "Annulla",
-  "please_wait": "Attendere prego"
+  "please_wait": "Attendere prego",
+  "activity_translation_singular": "attività",
+  "activity_translation_plural": "attività"
 }

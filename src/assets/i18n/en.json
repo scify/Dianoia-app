@@ -60,5 +60,7 @@
   "activity_done_btn": "Activity done today",
   "close": "Close",
   "cancel": "Cancel",
-  "please_wait": "Please wait"
+  "please_wait": "Please wait",
+  "activity_translation_singular": "activity",
+  "activity_translation_plural": "activities"
 }
