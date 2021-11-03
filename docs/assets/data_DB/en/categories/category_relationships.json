@@ -1,0 +1,51 @@
+[
+  {
+    "parent_category_id": "mental_activities",
+    "subcategories": ["focus_activities", "memory_activities", "think_activities", "executive_activities"],
+    "is_root": true,
+    "activities": []
+  },
+  {
+    "parent_category_id": "common_activities",
+    "subcategories": [],
+    "is_root": true,
+    "activities": ["activity_12", "activity_13", "activity_14", "activity_15", "activity_16",
+      "activity_17", "activity_18", "activity_19", "activity_20", "activity_21", "activity_22", "activity_23", "activity_24"]
+  },
+  {
+    "parent_category_id": "stories",
+    "subcategories": [],
+    "is_root": true,
+    "activities": ["activity_25", "activity_26", "activity_29", "activity_30", "activity_31"]
+  },
+  {
+    "parent_category_id": "carer_activities",
+    "subcategories": [],
+    "is_root": true,
+    "activities": ["activity_40", "activity_41", "activity_42", "activity_43"]
+  },
+  {
+    "parent_category_id": "focus_activities",
+    "subcategories": [],
+    "is_root": false,
+    "activities": ["activity_7", "activity_8", "activity_9", "activity_28", "activity_33"]
+  },
+  {
+    "parent_category_id": "memory_activities",
+    "subcategories": [],
+    "is_root": false,
+    "activities": ["activity_1", "activity_2", "activity_3"]
+  },
+  {
+    "parent_category_id": "think_activities",
+    "subcategories": [],
+    "is_root": false,
+    "activities": ["activity_10", "activity_11", "activity_27", "activity_34", "activity_37", "activity_38", "activity_39"]
+  },
+  {
+    "parent_category_id": "executive_activities",
+    "subcategories": [],
+    "is_root": false,
+    "activities": ["activity_4", "activity_5", "activity_6", "activity_32", "activity_35"]
+  }
+]

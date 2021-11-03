@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Ejercicios Mentales",
+    "category_id": "mental_activities",
+    "has_difficulty_levels": true
+  },
+  {
+    "title": "Actividades comunes",
+    "category_id": "common_activities",
+    "has_difficulty_levels": false
+  },
+  {
+    "title": "Ejercicios de concentración",
+    "category_id": "focus_activities",
+    "has_difficulty_levels": true
+  },
+  {
+    "title": "Ejercicios de memoria",
+    "category_id": "memory_activities",
+    "has_difficulty_levels": true
+  },
+  {
+    "title": "Ejercicios de Pensamiento y Discurso",
+    "category_id": "think_activities",
+    "has_difficulty_levels": true
+  },
+  {
+    "title": "Funciones ejecutivas",
+    "category_id": "executive_activities",
+    "has_difficulty_levels": true
+  },
+  {
+    "title": "Contamos historias",
+    "category_id": "stories",
+    "has_difficulty_levels": true
+  }
+]
+

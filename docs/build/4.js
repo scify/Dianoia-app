@@ -1,21 +1,23 @@
 webpackJsonp([4],{
 
-/***/ 292:
+/***/ 335:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BasicInfoPageModule", function() { return BasicInfoPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(32);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__basic_info__ = __webpack_require__(307);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_buttons_list_buttons_list_module__ = __webpack_require__(300);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__basic_info__ = __webpack_require__(350);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_buttons_list_buttons_list_module__ = __webpack_require__(343);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ngx_translate_core__ = __webpack_require__(45);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -30,7 +32,8 @@ var BasicInfoPageModule = /** @class */ (function () {
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__basic_info__["a" /* BasicInfoPage */]),
-                __WEBPACK_IMPORTED_MODULE_3__components_buttons_list_buttons_list_module__["a" /* ButtonsListComponentModule */]
+                __WEBPACK_IMPORTED_MODULE_3__components_buttons_list_buttons_list_module__["a" /* ButtonsListComponentModule */],
+                __WEBPACK_IMPORTED_MODULE_4__ngx_translate_core__["b" /* TranslateModule */].forChild()
             ],
             exports: [
                 __WEBPACK_IMPORTED_MODULE_2__basic_info__["a" /* BasicInfoPage */]
@@ -44,14 +47,14 @@ var BasicInfoPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 300:
+/***/ 343:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ButtonsListComponentModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(32);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__buttons_list__ = __webpack_require__(301);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__buttons_list__ = __webpack_require__(344);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -84,7 +87,7 @@ var ButtonsListComponentModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 301:
+/***/ 344:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -134,13 +137,15 @@ var ButtonsListComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 307:
+/***/ 350:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BasicInfoPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__ = __webpack_require__(28);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -152,6 +157,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
+
 /**
  * Generated class for the BasicInfoPage page.
  *
@@ -159,15 +166,52 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * on Ionic pages and navigation.
  */
 var BasicInfoPage = /** @class */ (function () {
-    function BasicInfoPage(navCtrl, navParams) {
+    function BasicInfoPage(navCtrl, navParams, events, translate, sanitizer, platform) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.buttons = [
-            { title: 'Τι είναι οι Μη Φαρμακευτικές Παρεμβάσεις', component: "InfoListPage", pageCode: "page_info", pageFile: "pages/info.json" },
-            { title: 'Σκοπός', component: "InfoListPage", pageCode: "page_goal", pageFile: "pages/goal.json" },
-            { title: 'Αξία', component: "InfoListPage", pageCode: "page_value", pageFile: "pages/value.json" }
-        ];
+        this.events = events;
+        this.translate = translate;
+        this.sanitizer = sanitizer;
+        this.platform = platform;
+        this.youtubeLink = '';
     }
+    BasicInfoPage.prototype.ionViewWillLoad = function () {
+        var _this = this;
+        this.events.subscribe('lang_ready', function (langCode) {
+            _this.setUpPageElements();
+        });
+        this.platform.ready().then(function () {
+            _this.translate.get('app_name').subscribe(function () {
+                _this.setUpPageElements();
+            });
+        });
+    };
+    BasicInfoPage.prototype.ionViewWillUnload = function () {
+        this.events.unsubscribe('lang_ready');
+    };
+    BasicInfoPage.prototype.setUpPageElements = function () {
+        this.youtubeLink = this.sanitizer.bypassSecurityTrustResourceUrl(this.translate.instant('about_youtube_link'));
+        this.buttons = [
+            {
+                title: this.translate.instant('what_are_activities'),
+                component: "InfoListPage",
+                pageCode: "page_info",
+                pageFile: "pages/info.json"
+            },
+            {
+                title: this.translate.instant('goal'),
+                component: "InfoListPage",
+                pageCode: "page_goal",
+                pageFile: "pages/goal.json"
+            },
+            {
+                title: this.translate.instant('value'),
+                component: "InfoListPage",
+                pageCode: "page_value",
+                pageFile: "pages/value.json"
+            }
+        ];
+    };
     BasicInfoPage.prototype.goTo = function (button) {
         this.navCtrl.push(button.component, { pageData: button });
     };
@@ -177,9 +221,11 @@ var BasicInfoPage = /** @class */ (function () {
     };
     BasicInfoPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-basic-info',template:/*ion-inline-start:"/home/paul/projects/dianoia/Dianoia-app/src/pages/basic-info/basic-info.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Ας μάθουμε τα βασικά</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <buttons-list *ngIf=\'buttons?.length > 0\' [buttons]="buttons" (buttonClick)="goTo($event)"></buttons-list>\n\n  <div class="videoContainer">\n    <iframe frameborder="0" class="video" width="{{getContainerWidth()}}"\n            src="https://www.youtube.com/embed/Ej3T-QiBWVg">\n    </iframe>\n  </div>\n\n</ion-content>\n'/*ion-inline-end:"/home/paul/projects/dianoia/Dianoia-app/src/pages/basic-info/basic-info.html"*/,
+            selector: 'page-basic-info',template:/*ion-inline-start:"/home/paul/projects/dianoia/Dianoia-app/src/pages/basic-info/basic-info.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{ \'basic_info_btn_title\' | translate }}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <buttons-list *ngIf=\'buttons?.length > 0\' [buttons]="buttons" (buttonClick)="goTo($event)"></buttons-list>\n\n  <div class="videoContainer" *ngIf="youtubeLink">\n    <iframe frameborder="0" class="video" width="{{getContainerWidth()}}"\n            [src]="youtubeLink">\n    </iframe>\n  </div>\n\n</ion-content>\n'/*ion-inline-end:"/home/paul/projects/dianoia/Dianoia-app/src/pages/basic-info/basic-info.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */],
+            __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["c" /* TranslateService */], __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__["c" /* DomSanitizer */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */]])
     ], BasicInfoPage);
     return BasicInfoPage;
 }());

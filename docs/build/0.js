@@ -1,22 +1,24 @@
 webpackJsonp([0],{
 
-/***/ 295:
+/***/ 338:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomePageModule", function() { return HomePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(32);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home__ = __webpack_require__(310);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_cards_list_cards_list_module__ = __webpack_require__(302);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_buttons_list_buttons_list_module__ = __webpack_require__(300);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home__ = __webpack_require__(353);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_cards_list_cards_list_module__ = __webpack_require__(345);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_buttons_list_buttons_list_module__ = __webpack_require__(343);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ngx_translate_core__ = __webpack_require__(45);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -30,7 +32,8 @@ var HomePageModule = /** @class */ (function () {
             declarations: [__WEBPACK_IMPORTED_MODULE_2__home__["a" /* HomePage */]],
             imports: [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__home__["a" /* HomePage */]),
                 __WEBPACK_IMPORTED_MODULE_3__components_cards_list_cards_list_module__["a" /* CardsListComponentModule */],
-                __WEBPACK_IMPORTED_MODULE_4__components_buttons_list_buttons_list_module__["a" /* ButtonsListComponentModule */]
+                __WEBPACK_IMPORTED_MODULE_4__components_buttons_list_buttons_list_module__["a" /* ButtonsListComponentModule */],
+                __WEBPACK_IMPORTED_MODULE_5__ngx_translate_core__["b" /* TranslateModule */].forChild()
             ]
         })
     ], HomePageModule);
@@ -41,14 +44,14 @@ var HomePageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 300:
+/***/ 343:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ButtonsListComponentModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(32);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__buttons_list__ = __webpack_require__(301);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__buttons_list__ = __webpack_require__(344);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -81,7 +84,7 @@ var ButtonsListComponentModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 301:
+/***/ 344:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -131,14 +134,14 @@ var ButtonsListComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 302:
+/***/ 345:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CardsListComponentModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(32);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cards_list__ = __webpack_require__(303);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cards_list__ = __webpack_require__(346);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -171,12 +174,14 @@ var CardsListComponentModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 303:
+/***/ 346:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CardsListComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(45);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -187,6 +192,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
 /**
  * Generated class for the CardsListComponent component.
  *
@@ -194,15 +201,35 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * for more info on Angular Components.
  */
 var CardsListComponent = /** @class */ (function () {
-    function CardsListComponent() {
+    function CardsListComponent(platform, translate, events) {
+        this.platform = platform;
+        this.translate = translate;
+        this.events = events;
+        this.activityTranslationSingular = '';
+        this.activityTranslationPlural = '';
         this.cardClick = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* EventEmitter */]();
     }
+    CardsListComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.platform.ready().then(function () {
+            _this.translate.get('activity_translation_singular').subscribe(function (translated) {
+                _this.activityTranslationSingular = translated;
+                _this.activityTranslationPlural = _this.translate.instant('activity_translation_plural');
+            });
+        });
+        this.events.subscribe('lang_ready', function (langCode) {
+            _this.activityTranslationSingular = _this.translate.instant('activity_translation_singular');
+            _this.activityTranslationPlural = _this.translate.instant('activity_translation_plural');
+        });
+    };
+    CardsListComponent.prototype.ngOnDestroy = function () {
+    };
     CardsListComponent.prototype.getCardsListTitle = function () {
         var title = this.cards.length;
         if (!this.cards)
             return '';
         if (this.cards[0].id) {
-            return this.cards.length == 1 ? title + " δραστηριότητα:" : title + " δραστηριότητες:";
+            return this.cards.length == 1 ? title + " " + this.activityTranslationSingular + ":" : title + " " + this.activityTranslationPlural + ":";
         }
     };
     CardsListComponent.prototype.onCardClick = function (card) {
@@ -220,7 +247,8 @@ var CardsListComponent = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'cards-list',template:/*ion-inline-start:"/home/paul/projects/dianoia/Dianoia-app/src/components/cards-list/cards-list.html"*/'\n<div class="title">{{ getCardsListTitle() }}</div>\n\n<ion-card mode="ios" *ngFor="let card of cards" (click)="onCardClick(card)">\n  <button ion-item no-padding>\n    <ion-item no-padding style="background: rgba(0,0,0,0);">\n      <ion-card-header text-wrap>\n        {{ card.title }}\n      </ion-card-header>\n      <ion-card-content>\n        <p>\n          {{ card.description }}\n        </p>\n      </ion-card-content>\n    </ion-item>\n  </button>\n\n</ion-card>\n'/*ion-inline-end:"/home/paul/projects/dianoia/Dianoia-app/src/components/cards-list/cards-list.html"*/
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["c" /* TranslateService */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */]])
     ], CardsListComponent);
     return CardsListComponent;
 }());
@@ -229,22 +257,20 @@ var CardsListComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 310:
+/***/ 353:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(32);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_activity_activity__ = __webpack_require__(103);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_loader_service_loader_service__ = __webpack_require__(104);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_activity_category_activity_category__ = __webpack_require__(105);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_difficulty_level_difficulty_level__ = __webpack_require__(107);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_http__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_app_storage_app_storage__ = __webpack_require__(35);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_alert_alert__ = __webpack_require__(106);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_status_bar__ = __webpack_require__(111);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_in_app_browser__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_loader_service_loader_service__ = __webpack_require__(120);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_app_storage_app_storage__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_alert_alert__ = __webpack_require__(233);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_status_bar__ = __webpack_require__(126);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_in_app_browser__ = __webpack_require__(123);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ngx_translate_core__ = __webpack_require__(45);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -263,23 +289,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-
 var HomePage = /** @class */ (function () {
-    function HomePage(navCtrl, activityProvider, loaderService, activityCategoryProvider, difficultyLevelProvider, http, appStorage, statusBar, alertProvider, platform, iab) {
+    function HomePage(navCtrl, loaderService, http, appStorage, statusBar, alertProvider, platform, iab, translate, events) {
         this.navCtrl = navCtrl;
-        this.activityProvider = activityProvider;
         this.loaderService = loaderService;
-        this.activityCategoryProvider = activityCategoryProvider;
-        this.difficultyLevelProvider = difficultyLevelProvider;
         this.http = http;
         this.appStorage = appStorage;
         this.statusBar = statusBar;
         this.alertProvider = alertProvider;
         this.platform = platform;
         this.iab = iab;
-        this.tab1Root = "RandomActivitiesPage";
-        this.tab2Root = "RandomActivitiesPage";
+        this.translate = translate;
+        this.events = events;
         if (platform.is('cordova')) {
             if (platform.is('android')) {
                 statusBar.overlaysWebView(false);
@@ -292,46 +313,65 @@ var HomePage = /** @class */ (function () {
             }
             this.checkForAnnouncement();
         }
+    }
+    HomePage.prototype.ionViewWillLoad = function () {
+        var _this = this;
+        this.events.subscribe('lang_ready', function (langCode) {
+            _this.setUpPageElements();
+        });
+        this.platform.ready().then(function () {
+            _this.translate.get('app_name').subscribe(function () {
+                _this.setUpPageElements();
+            });
+        });
+    };
+    HomePage.prototype.ionViewWillUnload = function () {
+        this.events.unsubscribe('lang_ready');
+    };
+    HomePage.prototype.setUpPageElements = function () {
         this.buttons = [
             {
                 id: "basic_info",
-                title: 'Ας μάθουμε τα βασικά',
-                subtitle: "Τι είναι - Σκοπός - Αξία",
+                title: this.translate.instant('basic_info_btn_title'),
+                subtitle: this.translate.instant('basic_info_btn_subtitle'),
                 component: "BasicInfoPage"
             },
             {
                 id: "mental_activities",
-                title: 'Εκτυπώστε νοητικές ασκήσεις',
-                subtitle: "Ασκήσεις με μολύβι και χαρτί",
+                title: this.translate.instant('mental_activities_btn_title'),
+                subtitle: this.translate.instant('mental_activities_btn_subtitle'),
                 component: "InfoListPage",
                 pageCode: "page_goal",
                 pageFile: "pages/goal.json"
             },
             {
                 id: "common_activities",
-                title: 'Βρείτε δημιουργικές δραστηριότητες',
-                subtitle: "Ιδέες για να περάσετε δημιουργικό χρόνο μαζί",
+                title: this.translate.instant('common_activities_btn_title'),
+                subtitle: this.translate.instant('common_activities_btn_subtitle'),
                 component: "InfoListPage",
                 pageCode: "page_value",
                 pageFile: "pages/value.json"
             },
-            { id: "stories", title: 'Λέμε ιστορίες', subtitle: "Δημιουργικές και διασκεδασικές ιστορίες!" },
+            {
+                id: "stories",
+                title: this.translate.instant('stories_btn_title'),
+                subtitle: this.translate.instant('stories_btn_subtitle'),
+            },
             {
                 id: "carer_activities",
-                title: 'Δραστηριότητες για φροντιστές',
-                subtitle: "Ιδέες και δραστηριότητες για φροντιστές",
+                title: this.translate.instant('carer_activities_btn_title'),
+                subtitle: this.translate.instant('carer_activities_btn_subtitle'),
                 component: "InfoListPage",
                 pageCode: "page_value",
                 pageFile: "pages/value.json"
             }
         ];
-    }
+    };
     HomePage.prototype.checkForAnnouncement = function () {
         var _this = this;
         this.http.get('http://scify.org/dianoiaAnnouncement.html').subscribe(function (data) {
             if (data) {
                 var lastUpdatedString = data.headers.get('last-modified');
-                console.log(data);
                 if (lastUpdatedString) {
                     var lastUpdatedDate = new Date(lastUpdatedString);
                     _this.showAnnouncementIfNewerThan(lastUpdatedDate, data.text());
@@ -341,18 +381,12 @@ var HomePage = /** @class */ (function () {
     };
     HomePage.prototype.showAnnouncementIfNewerThan = function (date, htmlToSHow) {
         var _this = this;
-        console.log(date);
         var lastUpdatedMills = date.getTime();
-        console.log("lastUpdatedMills", lastUpdatedMills);
         this.appStorage.get('announcement_last_modified').then(function (data) {
             var announcementLastUpdated = JSON.parse(data);
             if (announcementLastUpdated)
                 announcementLastUpdated = parseInt(announcementLastUpdated);
-            console.log("announcementLastUpdated", announcementLastUpdated);
-            console.log("this.strip(htmlToSHow)", _this.strip(htmlToSHow) == "");
             if (announcementLastUpdated < lastUpdatedMills && _this.platform.is('cordova') && _this.strip(htmlToSHow) !== "") {
-                console.log("Showing new announcement");
-                console.log("htmlToSHow", htmlToSHow);
                 _this.alertProvider.announcementDialog("Announcement", htmlToSHow);
                 _this.appStorage.set('announcement_last_modified', lastUpdatedMills);
             }
@@ -365,81 +399,37 @@ var HomePage = /** @class */ (function () {
         console.log(str.replace(/(\r\n|\n|\r)/gm, "").trim());
         return str.replace(/(\r\n|\n|\r)/gm, "").trim();
     };
-    HomePage.prototype.selectActivity = function (activity) {
-        this.navCtrl.push("ActivityPage", { activity: activity });
-    };
-    HomePage.prototype.shuffle = function (a) {
-        for (var i = a.length; i; i--) {
-            var j = Math.floor(Math.random() * i);
-            _a = [a[j], a[i - 1]], a[i - 1] = _a[0], a[j] = _a[1];
-        }
-        return a;
-        var _a;
-    };
     HomePage.prototype.goTo = function (button) {
-        var _this = this;
         switch (button.id) {
             case "basic_info":
                 this.navCtrl.push(button.component, { pageData: button });
                 break;
             case "mental_activities":
                 this.loaderService.showLoader();
-                this.activityCategoryProvider.getSubcategoriesForCategory("mental_activities").then(function (subCategoriesIds) {
-                    _this.activityCategoryProvider.getCategoriesByIds(subCategoriesIds).subscribe(function (categories) {
-                        _this.navCtrl.push("ActivityCategoriesPage", {
-                            categories: categories,
-                            parentCategoryId: "mental_activities"
-                        });
-                        _this.loaderService.hideLoader();
-                    });
+                this.navCtrl.push("ActivityCategoriesPage", {
+                    parentCategoryId: "mental_activities"
                 });
                 break;
             default:
                 this.loaderService.showLoader();
-                this.getDifficultyLevelsForCategoryAndLoadPage(button.id);
+                this.navCtrl.push("DifficultyLevelsPage", {
+                    categoryId: button.id,
+                });
                 break;
         }
-    };
-    HomePage.prototype.getDifficultyLevelsForCategoryAndLoadPage = function (categoryId) {
-        var _this = this;
-        this.activityCategoryProvider.getActivitiesForCategory(categoryId).subscribe(function (activitiesIds) {
-            if (activitiesIds != null) {
-                _this.activityProvider.getActivitiesByIds(activitiesIds).subscribe(function (activities) {
-                    _this.getDifficultyLevelsForActivitiesAndLoadPage(activities, categoryId);
-                }, function (error) {
-                    _this.handleError(error);
-                });
-            }
-        }, function (error) {
-            _this.handleError(error);
-        });
-    };
-    HomePage.prototype.getDifficultyLevelsForActivitiesAndLoadPage = function (activities, categoryId) {
-        var _this = this;
-        this.difficultyLevelProvider.getDifficultyLevelsForActivities(activities).then(function (difficultyLevels) {
-            _this.navCtrl.push("DifficultyLevelsPage", {
-                levels: difficultyLevels,
-                categoryId: categoryId,
-                activities: activities
-            });
-        });
-    };
-    HomePage.prototype.handleError = function (error) {
-        console.log(error);
-        this.loaderService.hideLoader();
     };
     HomePage.prototype.openLink = function (url) {
         this.iab.create(url);
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/home/paul/projects/dianoia/Dianoia-app/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>διΆνοια</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n\n  <div padding>\n    <div class="logoContainer">\n      <img class="logo" src="assets/img/icon.png">\n    </div>\n  </div>\n\n  <div class="activitiesContainer">\n    <div padding style="padding-bottom: 0">\n      <buttons-list *ngIf=\'buttons?.length > 0\' [buttons]="buttons" (buttonClick)="goTo($event)"></buttons-list>\n      <div class="buttonsContainer">\n        <button padding mode="ios" ion-button full\n                style="padding-top: 12px; padding-bottom: 12px;"\n                *ngIf="!platform.is(\'cordova\')"\n                (click)="openLink(\'https://play.google.com/store/apps/details?id=org.scify.dianoia.app&hl=el\')">\n          <img style="height: 100%; margin-right: 15px;" src="assets/img/google-play.png">\n          Κατεβάστε τη διΆνοια!\n        </button>\n      </div>\n    </div>\n\n    <p padding class="text-center">Δείτε περισσότερες επιλογές στο κεντρικό μενού</p>\n    <!--<cards-list *ngIf="activities?.length > 0" [cards]="activities" (cardClick)="selectActivity($event)"></cards-list>-->\n  </div>\n\n</ion-content>\n'/*ion-inline-end:"/home/paul/projects/dianoia/Dianoia-app/src/pages/home/home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"/home/paul/projects/dianoia/Dianoia-app/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>{{ \'app_name\' | translate }}</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n\n  <div padding>\n    <div class="logoContainer">\n      <img class="logo" src="assets/img/icon.png">\n    </div>\n  </div>\n\n  <div class="activitiesContainer">\n    <div padding style="padding-bottom: 0">\n      <buttons-list *ngIf=\'buttons?.length > 0\' [buttons]="buttons" (buttonClick)="goTo($event)"></buttons-list>\n      <div class="buttonsContainer">\n        <button padding mode="ios" ion-button full\n                style="padding-top: 12px; padding-bottom: 12px;"\n                *ngIf="!platform.is(\'cordova\')"\n                (click)="openLink(\'https://play.google.com/store/apps/details?id=org.scify.dianoia.app&hl=el\')">\n          <img style="height: 100%; margin-right: 15px;" src="assets/img/google-play.png">\n          {{ \'download_app\' | translate }}\n        </button>\n      </div>\n    </div>\n    <p padding class="text-center">{{ \'see_more_options\' | translate }}</p>\n  </div>\n\n</ion-content>\n'/*ion-inline-end:"/home/paul/projects/dianoia/Dianoia-app/src/pages/home/home.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__providers_activity_activity__["a" /* ActivityProvider */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_loader_service_loader_service__["a" /* LoaderService */], __WEBPACK_IMPORTED_MODULE_4__providers_activity_category_activity_category__["a" /* ActivityCategoryProvider */],
-            __WEBPACK_IMPORTED_MODULE_5__providers_difficulty_level_difficulty_level__["a" /* DifficultyLevelProvider */], __WEBPACK_IMPORTED_MODULE_6__angular_http__["a" /* Http */],
-            __WEBPACK_IMPORTED_MODULE_7__providers_app_storage_app_storage__["a" /* AppStorageProvider */], __WEBPACK_IMPORTED_MODULE_9__ionic_native_status_bar__["a" /* StatusBar */],
-            __WEBPACK_IMPORTED_MODULE_8__providers_alert_alert__["a" /* AlertProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */], __WEBPACK_IMPORTED_MODULE_10__ionic_native_in_app_browser__["a" /* InAppBrowser */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_loader_service_loader_service__["a" /* LoaderService */], __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Http */],
+            __WEBPACK_IMPORTED_MODULE_4__providers_app_storage_app_storage__["a" /* AppStorageProvider */], __WEBPACK_IMPORTED_MODULE_6__ionic_native_status_bar__["a" /* StatusBar */],
+            __WEBPACK_IMPORTED_MODULE_5__providers_alert_alert__["a" /* AlertProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */], __WEBPACK_IMPORTED_MODULE_7__ionic_native_in_app_browser__["a" /* InAppBrowser */],
+            __WEBPACK_IMPORTED_MODULE_8__ngx_translate_core__["c" /* TranslateService */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */]])
     ], HomePage);
     return HomePage;
 }());
