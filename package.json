@@ -8,9 +8,10 @@
         "clean": "ionic-app-scripts clean",
         "build": "ionic-app-scripts build",
         "lint": "ionic-app-scripts lint",
-        "ionic:build": "ionic-app-scripts build",
-        "ionic:serve": "ionic-app-scripts serve",
-        "build-docs": "node copy_browser_www_to_docs.js"
+        "serve": "ionic-app-scripts serve",
+        "build-docs": "del-cli --force ./docs/ && node copy_browser_www_to_docs.js",
+        "build-android": "ionic cordova build android",
+        "build-browser": "del-cli --force ./platforms/browser/www && del-cli --force ./www && ionic cordova build browser"
     },
     "dependencies": {
         "@angular/common": "4.1.0",
@@ -67,6 +68,7 @@
     },
     "devDependencies": {
         "@ionic/app-scripts": "^3.2.4",
+        "del-cli": "^4.0.1",
         "typescript": "^2.4.2"
     },
     "cordovaPlugins": [
