@@ -17,6 +17,7 @@ export class HomePage {
 
   activities: any[];
   buttons: any[];
+  iconPath: string = 'assets/img/en/icon.png';
 
   constructor(public navCtrl: NavController,
               private loaderService: LoaderService, private http: Http,
@@ -52,6 +53,7 @@ export class HomePage {
   }
 
   setUpPageElements() {
+    this.iconPath = "assets/img/" + this.translate.currentLang + "/icon.png";
     this.buttons = [
       {
         id: "basic_info",
