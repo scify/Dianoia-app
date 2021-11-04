@@ -15,7 +15,7 @@ import {AppVersion} from '@ionic-native/app-version';
 })
 export class AboutPage {
 
-  version: string = '1.5.0';
+  version: string = '2.0.0-rc.1';
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private appVersion: AppVersion, public platform: Platform) {
   }
