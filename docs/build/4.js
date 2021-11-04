@@ -196,19 +196,19 @@ var BasicInfoPage = /** @class */ (function () {
                 title: this.translate.instant('what_are_activities'),
                 component: "InfoListPage",
                 pageCode: "page_info",
-                pageFile: "pages/info.json"
+                pageFile: "pages/" + this.translate.currentLang + "/info.json"
             },
             {
                 title: this.translate.instant('goal'),
                 component: "InfoListPage",
                 pageCode: "page_goal",
-                pageFile: "pages/goal.json"
+                pageFile: "pages/" + this.translate.currentLang + "/goal.json"
             },
             {
                 title: this.translate.instant('value'),
                 component: "InfoListPage",
                 pageCode: "page_value",
-                pageFile: "pages/value.json"
+                pageFile: "pages/" + this.translate.currentLang + "/value.json"
             }
         ];
     };
