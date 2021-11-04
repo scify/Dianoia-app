@@ -76,7 +76,7 @@ var AboutPage = /** @class */ (function () {
         this.navParams = navParams;
         this.appVersion = appVersion;
         this.platform = platform;
-        this.version = '1.5.0';
+        this.version = '2.0.0-rc.1';
     }
     AboutPage.prototype.ionViewDidLoad = function () {
         var _this = this;

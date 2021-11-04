@@ -1049,7 +1049,7 @@ var MyApp = /** @class */ (function () {
         this.translate = translate;
         this.events = events;
         this.rootPage = 'HomePage';
-        this.appVersionName = '1.5.0';
+        this.appVersionName = '2.0.0-rc.1';
         this.languages = [
             {
                 "name": "English",
