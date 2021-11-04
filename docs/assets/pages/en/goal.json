@@ -1,0 +1,11 @@
+{
+  "title": "Goal",
+  "image": "goal.png",
+  "description": "The goal of non-pharmaceutical interventions is the reinforcement of the effect of the medicines, improving the therapeutic outcome. More specifically, non-pharmaceutical interventions can have a positive effect:",
+  "list" : [
+    "On the cognitive functions of people suffering from dementia",
+    "On the functionality and the quality of the person’s life",
+    "On his/her mood",
+    "On the frequency of the appearance of behavioral and psychiatric problems"
+  ]
+}

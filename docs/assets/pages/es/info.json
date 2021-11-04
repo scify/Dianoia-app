@@ -1,0 +1,14 @@
+{
+  "title": "Intervenciones no farmacológicas",
+  "image": "about.png",
+  "description": "Son intervenciones estructuradas que se adaptan al nivel mental de los pacientes y en combinación con el tratamiento médico ayudan al paciente a permanecer funcional y activo, mental y socialmente, durante un período de tiempo más largo. Incluyen una variedad de actividades. \nLas principales intervenciones no farmacológicas son:",
+  "list" : [
+    "El empoderamiento mental",
+    "Las actividades recreativas y creativas diarias",
+    "La terapia ocupacional",
+    "La terapia del lenguaje",
+    "La terapia artística",
+    "El ejercicio"
+  ],
+  "bottom_text" : "DiAnoia ofrece diariamente ideas para ejercicios de empoderamiento mental, pero también actividades recreativas y creativas."
+}

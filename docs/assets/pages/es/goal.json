@@ -1,0 +1,11 @@
+{
+  "title": "Objetivo",
+  "image": "goal.png",
+  "description": "El objetivo de las intervenciones no farmacológicas es potenciar la acción de la medicación, mejorando así el efecto terapéutico. Más específicamente, las intervenciones no farmacológicas pueden tener un efecto positivo:",
+  "list" : [
+    "En las funciones mentales de personas que padecen demencia",
+    "En la funcionalidad y calidad de vida del individuo",
+    "A su humor",
+    "En la frecuencia de problemas psiquiátricos y de comportamiento"
+  ]
+}
