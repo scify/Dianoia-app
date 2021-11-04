@@ -103,7 +103,7 @@ export class MyApp {
         title: this.translate.instant('menu_page_2'),
         component: "InfoListPage",
         pageCode: "page_tips_list",
-        pageFile: "pages/tips_list.json"
+        pageFile: "pages/" + this.translate.currentLang + "/tips_list.json"
       },
       {title: this.translate.instant('activities_exercises'), component: "ActivityCategoriesPage"},
       {title: this.translate.instant('stories_btn_title'), id: "stories"},

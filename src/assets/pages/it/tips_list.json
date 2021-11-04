@@ -1,0 +1,99 @@
+{
+  "title": "A cosa fare attenzione",
+  "image": "about.png",
+  "description": "Principi di base delle attività",
+  "cards" : [
+    {
+      "title": "Organizza attività adatte alle abitudini e agli interessi del paziente",
+      "description": "È probabile che una persona a cui è sempre piaciuto bere il caffè leggendo un giornale continui a trovare piacevole questa attività, anche se non comprende appieno il significato di ciò che sta leggendo. Inoltre, un paziente che ha lavorato in precedenza come agricoltore o giardiniere potrebbe trovare piacevole prendersi cura del giardino."
+    },
+    {
+      "title": "Incoraggia il paziente a praticare le proprie abilità",
+      "description": "Ad esempio, se il paziente è in grado di suonare al pianoforte semplici canzoni che ha imparato anni fa o se riesce a lavorare ancora abbastanza bene con ago e filo, incoraggialo a impegnarsi in questa attività"
+    },
+    {
+      "title": "Presta particolare attenzione alle emozioni che si creano nella persona con demenza quando si impegna in attività specifiche",
+      "description": "Nota se durante un'attività il paziente mostra segni di piacere, ansia o irritabilità. Ad esempio, alcuni pazienti si divertono a guardare il calcio in TV, mentre altri si irritano dal rapido cambio di immagine e dal forte rumore."
+    },
+    {
+      "title": "Incoraggia la persona affetta da demenza a intraprendere attività che inizia di propria iniziativa",
+      "description": "Forse il paziente è abituato a sparecchiare la tavola dopo cena o ad acquistare il giornale dal giornalaio ogni mattina? In questo caso, cerca di mantenere queste attività come parte della sua routine quotidiana."
+    },
+    {
+      "title": "Considera gli altri problemi di salute",
+      "description": "Molti pazienti con demenza soffrono anche di problemi di salute fisica. Ad esempio, potrebbero stancarsi facilmente, avere difficoltà a muoversi o non sentire bene. In questo caso, evita attività che potrebbero creare difficoltà al paziente."
+    },
+    {
+      "title": "Scegli attività che creano piacere, indipendentemente dal risultato",
+      "description": "Ad esempio, un paziente che è stato un pittore professionista potrebbe sentirsi turbato nello scoprire che la qualità del suo lavoro è diminuita in modo significativo, ma è probabile che un principiante apprezzerà questa attività creativa."
+    },
+    {
+      "title": "Incoraggia il paziente a partecipare alla vita quotidiana della famiglia",
+      "description": "Le attività che aiutano il paziente a sentirsi un membro attivo della vita quotidiana della famiglia, come apparecchiare la tavola o partecipare a discussioni su questioni familiari sono importanti perché aumentano la fiducia e il senso di sicurezza del paziente."
+    },
+    {
+      "title": "Per ogni attività, scegli il momento giusto della giornata",
+      "description": "Osserva a che ora del giorno il paziente risponde meglio ad attività specifiche. Di solito al mattino I pazienti hanno abbastanza energia per impegnarsi in attività complesse, come la lettura di un libro. Nel pomeriggio è meglio dedicare del tempo ad attività meno impegnative, come il rievocare eventi del passato."
+    },
+    {
+      "title": "Interrompi le attività che non creano più interesse al paziente",
+      "description": "Accetta I desideri del paziente e il cambiamento dei suoi interessi. Non è escluso che le attività che in passato gli creavano interesse, ora abbiano cessato di piacergli."
+    },
+    {
+      "title": "Preparati a modificare le attività man mano che la malattia progredisce",
+      "description": "È molto importante adattare le attività del paziente alle sue capacità esistenti, al fine di evitare la manifestazione di sentimenti di frustrazione e negatività. Ricorda che negli stadi avanzati della malattia il paziente ha un ruolo meno attivo."
+    },
+    {
+      "title": "Incoraggia l'indipendenza del paziente",
+      "description": "Mantenere l'indipendenza del paziente il più a lungo possibile è particolarmente importante. Lascia che il paziente si impegni in attività che lo soddisfano senza la tua supervisione, purché la sua sicurezza possa essere garantita. Gli accompagnatori spesso sentono il bisogno di proteggere il paziente da tutti I possibili rischi, ma a volte questo può portare il paziente a diventare completamente dipendente dalla persona che si prende cura di lui o lei."
+    },
+    {
+      "title": "Scegliete un'attività insieme",
+      "description": "Chiedi al paziente la sua opinione riguardo l’attività che hai in mente. Anche negli stadi relativamente avanzati della malattia, il paziente è in grado di farti sapere se qualcosa gli piace o no."
+    },
+    {
+      "title": "Aiuta il paziente a iniziare l'attività",
+      "description": "La maggior parte dei pazienti che soffrono di demenza hanno il desiderio e l'energia per fare varie cose, ma non hanno la motivazione necessaria per avviare un'attività e nemmeno la capacità di organizzarla."
+    },
+    {
+      "title": "Dai un significato e un obiettivo all'attività che suggerisci al paziente",
+      "description": "Fai sentire utile il paziente. Ad esempio, sottolinea quanto sia importante per te che con la sua esperienza e conoscenza ti aiuti a cucinare un pasto complesso."
+    },
+    {
+      "title": "Offri supporto e una discreta supervisione",
+      "description": "Potrebbe essere necessario mostrare al paziente il modo di svolgere un'attività, dandogli semplici istruzioni."
+    },
+    {
+      "title": "Dividi l'attività in piccoli, semplici passaggi",
+      "description": "Le attività e le istruzioni complesse possono confondere il paziente. Dividi ogni attività in piccoli e semplici passaggi e incoraggia il paziente a fare un passo alla volta."
+    },
+    {
+      "title": "Aiuta il paziente nelle parti difficili dell'attività",
+      "description": "Aiuta il paziente in un momento difficile in tempo, così che non rimanga deluso e non rinunci allo sforzo."
+    },
+    {
+      "title": "Sii flessibile",
+      "description": "Se il paziente non vuole impegnarsi in un'attività, riprova più tardi o suggeriscine un'altra. Inoltre, se il paziente insiste nel fare qualcosa a modo suo, non cercare di cambiargli idea, anche se questo modo è sbagliato."
+    },
+    {
+      "title": "Non correggere il paziente e non criticarlo",
+      "description": "Premia gli elementi positivi nello sforzo del paziente ed evita di evidenziare le sue omissioni o errori."
+    },
+    {
+      "title": "Incoraggia l'espressione creativa",
+      "description": "La conversazione, la pittura, la musica o anche il canto sono modi di espressione creativi attraverso I quali il paziente può esprimere I suoi pensieri e sentimenti."
+    },
+    {
+      "title": "Rafforza le attività che coinvolgono altre persone",
+      "description": "Se la persona amata di solito andava in chiesa con gli amici, beveva il suo caffè al bar o riuniva gli amici a casa per giocare a carte, incoraggialo a continuare queste attività con la tua discreta supervisione, se necessario. Le attività di gruppo migliorano la socialità del paziente e attivano le sue funzioni cognitive."
+    },
+    {
+      "title": "Fornisci al paziente un ambiente sicuro",
+      "description": "Incoraggia il paziente a svolgere qualsiasi attività che gli piaccia, purché si trovi in un ambiente sicuro, dove I rischi di possibili incidenti siano notevolmente ridotti. Spesso, la tua discreta presenza è sufficiente per essere al sicuro."
+    },
+    {
+      "title": "Sii realista",
+      "description": "Non cercare di riempire ogni minuto della giornata del paziente con attività che lo motivano. Ricorda che ha bisogno anche di periodi di relax e riposo."
+    }
+  ]
+}

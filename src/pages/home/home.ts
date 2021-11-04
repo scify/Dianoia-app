@@ -65,7 +65,7 @@ export class HomePage {
         subtitle: this.translate.instant('mental_activities_btn_subtitle'),
         component: "InfoListPage",
         pageCode: "page_goal",
-        pageFile: "pages/goal.json"
+        pageFile: "pages/" + this.translate.currentLang + "/goal.json"
       },
       {
         id: "common_activities",
@@ -73,7 +73,7 @@ export class HomePage {
         subtitle: this.translate.instant('common_activities_btn_subtitle'),
         component: "InfoListPage",
         pageCode: "page_value",
-        pageFile: "pages/value.json"
+        pageFile: "pages/" + this.translate.currentLang + "/value.json"
       },
       {
         id: "stories",
@@ -86,7 +86,7 @@ export class HomePage {
         subtitle: this.translate.instant('carer_activities_btn_subtitle'),
         component: "InfoListPage",
         pageCode: "page_value",
-        pageFile: "pages/value.json"
+        pageFile: "pages/" + this.translate.currentLang + "/value.json"
       }
     ];
   }
