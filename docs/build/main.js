@@ -658,11 +658,11 @@ var map = {
 		4
 	],
 	"../pages/difficulty-levels/difficulty-levels.module": [
-		337,
+		336,
 		1
 	],
 	"../pages/help/help.module": [
-		336,
+		337,
 		8
 	],
 	"../pages/home/home.module": [
@@ -932,8 +932,8 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/activity-categories/activity-categories.module#TopActivityCategoriesPageModule', name: 'ActivityCategoriesPage', segment: 'activity-categories', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/activity/activity.module#ActivityPageModule', name: 'ActivityPage', segment: 'activity', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/basic-info/basic-info.module#BasicInfoPageModule', name: 'BasicInfoPage', segment: 'basic-info', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/help/help.module#HelpPageModule', name: 'HelpPage', segment: 'help', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/difficulty-levels/difficulty-levels.module#DifficultyLevelsPageModule', name: 'DifficultyLevelsPage', segment: 'difficulty-levels', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/help/help.module#HelpPageModule', name: 'HelpPage', segment: 'help', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/info-list/info-list.module#InfoListPageModule', name: 'InfoListPage', segment: 'info-list', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/notifications/notifications.module#NotificationsPageModule', name: 'NotificationsPage', segment: 'notifications', priority: 'low', defaultHistory: [] },
@@ -1097,10 +1097,12 @@ var MyApp = /** @class */ (function () {
         this.translate.setDefaultLang('en');
         this.appStorage.get('app_lang').then(function (lang) {
             var data = JSON.parse(lang);
-            var langCode = data ? data : _this.translate.getDefaultLang();
-            _this.translate.use(langCode).subscribe(function () {
-                _this.events.publish('lang_ready', _this.translate.currentLang);
-            });
+            var langCode = 'en';
+            var acceptableLanguages = ['en', 'el', 'it', 'es'];
+            if (data && data != "" && acceptableLanguages.indexOf(data) > -1) {
+                langCode = data;
+            }
+            _this.setLang(langCode);
         });
         this.events.subscribe('lang_ready', function () {
             _this.setUpPageElements();
