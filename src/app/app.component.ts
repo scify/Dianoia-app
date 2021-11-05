@@ -81,10 +81,12 @@ export class MyApp {
     this.translate.setDefaultLang('en');
     this.appStorage.get('app_lang').then(lang => {
       const data = JSON.parse(lang);
-      let langCode = data ? data : this.translate.getDefaultLang();
-      this.translate.use(langCode).subscribe(() => {
-        this.events.publish('lang_ready', this.translate.currentLang);
-      });
+      let langCode = 'en';
+      let acceptableLanguages = ['en', 'el', 'it', 'es'];
+      if (data && data != "" && acceptableLanguages.indexOf(data) > -1) {
+        langCode = data;
+      }
+      this.setLang(langCode);
     });
 
     this.events.subscribe('lang_ready', () => {
