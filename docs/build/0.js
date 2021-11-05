@@ -301,6 +301,7 @@ var HomePage = /** @class */ (function () {
         this.iab = iab;
         this.translate = translate;
         this.events = events;
+        this.iconPath = 'assets/img/en/icon.png';
         if (platform.is('cordova')) {
             if (platform.is('android')) {
                 statusBar.overlaysWebView(false);
@@ -329,6 +330,7 @@ var HomePage = /** @class */ (function () {
         this.events.unsubscribe('lang_ready');
     };
     HomePage.prototype.setUpPageElements = function () {
+        this.iconPath = "assets/img/" + this.translate.currentLang + "/icon.png";
         this.buttons = [
             {
                 id: "basic_info",
@@ -423,7 +425,7 @@ var HomePage = /** @class */ (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/home/paul/projects/dianoia/Dianoia-app/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>{{ \'app_name\' | translate }}</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n\n  <div padding>\n    <div class="logoContainer">\n      <img class="logo" src="assets/img/icon.png">\n    </div>\n  </div>\n\n  <div class="activitiesContainer">\n    <div padding style="padding-bottom: 0">\n      <buttons-list *ngIf=\'buttons?.length > 0\' [buttons]="buttons" (buttonClick)="goTo($event)"></buttons-list>\n      <div class="buttonsContainer">\n        <button padding mode="ios" ion-button full\n                style="padding-top: 12px; padding-bottom: 12px;"\n                *ngIf="!platform.is(\'cordova\')"\n                (click)="openLink(\'https://play.google.com/store/apps/details?id=org.scify.dianoia.app&hl=el\')">\n          <img style="height: 100%; margin-right: 15px;" src="assets/img/google-play.png">\n          {{ \'download_app\' | translate }}\n        </button>\n      </div>\n    </div>\n    <p padding class="text-center">{{ \'see_more_options\' | translate }}</p>\n  </div>\n\n</ion-content>\n'/*ion-inline-end:"/home/paul/projects/dianoia/Dianoia-app/src/pages/home/home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"/home/paul/projects/dianoia/Dianoia-app/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>{{ \'app_name\' | translate }}</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n\n  <div padding>\n    <div class="logoContainer">\n      <img class="logo" [src]="iconPath">\n    </div>\n  </div>\n\n  <div class="activitiesContainer">\n    <div padding style="padding-bottom: 0">\n      <buttons-list *ngIf=\'buttons?.length > 0\' [buttons]="buttons" (buttonClick)="goTo($event)"></buttons-list>\n      <div class="buttonsContainer">\n        <button padding mode="ios" ion-button full\n                style="padding-top: 12px; padding-bottom: 12px;"\n                *ngIf="!platform.is(\'cordova\')"\n                (click)="openLink(\'https://play.google.com/store/apps/details?id=org.scify.dianoia.app&hl=el\')">\n          <img style="height: 100%; margin-right: 15px;" src="assets/img/google-play.png">\n          {{ \'download_app\' | translate }}\n        </button>\n      </div>\n    </div>\n    <p padding class="text-center">{{ \'see_more_options\' | translate }}</p>\n  </div>\n\n</ion-content>\n'/*ion-inline-end:"/home/paul/projects/dianoia/Dianoia-app/src/pages/home/home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_2__providers_loader_service_loader_service__["a" /* LoaderService */], __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Http */],

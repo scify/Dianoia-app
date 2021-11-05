@@ -27589,13 +27589,11 @@ page-about .basicInfoContainer {
 }
 
 page-about .logoContainer {
-  height: 20%;
+  height: 30%;
 }
 
 page-about .imgContainer {
   text-align: center;
-  margin-bottom: 20px;
-  margin-top: 20px;
   height: 80%;
 }
 

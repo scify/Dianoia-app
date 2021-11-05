@@ -658,11 +658,11 @@ var map = {
 		4
 	],
 	"../pages/difficulty-levels/difficulty-levels.module": [
-		336,
+		337,
 		1
 	],
 	"../pages/help/help.module": [
-		337,
+		336,
 		8
 	],
 	"../pages/home/home.module": [
@@ -932,8 +932,8 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/activity-categories/activity-categories.module#TopActivityCategoriesPageModule', name: 'ActivityCategoriesPage', segment: 'activity-categories', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/activity/activity.module#ActivityPageModule', name: 'ActivityPage', segment: 'activity', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/basic-info/basic-info.module#BasicInfoPageModule', name: 'BasicInfoPage', segment: 'basic-info', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/difficulty-levels/difficulty-levels.module#DifficultyLevelsPageModule', name: 'DifficultyLevelsPage', segment: 'difficulty-levels', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/help/help.module#HelpPageModule', name: 'HelpPage', segment: 'help', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/difficulty-levels/difficulty-levels.module#DifficultyLevelsPageModule', name: 'DifficultyLevelsPage', segment: 'difficulty-levels', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/info-list/info-list.module#InfoListPageModule', name: 'InfoListPage', segment: 'info-list', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/notifications/notifications.module#NotificationsPageModule', name: 'NotificationsPage', segment: 'notifications', priority: 'low', defaultHistory: [] },
