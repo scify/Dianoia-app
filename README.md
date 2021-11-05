@@ -54,24 +54,45 @@ In order to build for Android, Java `1.8` is required, along with Gradle `4.4.1`
 
 Verify your installations by running:
 ```bash
-java -version
+$ java -version
 
-gradle -version
+$ gradle -version
 ```
+
+You will need Java version `1.8` on your system. If you have multiple versions of Java installed, you will need to update the current one by running:
+
+```bash
+$ sudo update-alternatives --config java
+
+$ sudo update-alternatives --config javac
+```
+And selecting the correct one.
 
 #### Firebase Analytics
 Since the project uses Firebase Analytics, In order to build for Android you have to put the `google-services.json` file from Firebase Console to the root directory.
 The build process will then copy this file to the `platforms/andorid/app` directory.
 
-In order to produce e release build:
+### Creating the platform files
+
+In order to build the android platform, you will need the correct version of the cordova-android plugin:
 
 ```bash
-cordova build android --release
+$ ionic cordova platform rm android
+
+$ ionic cordova platform add android@8.1.0
+
+$ ionic cordova build android
+```
+
+If you want to build a release version:
+
+```bash
+$ ionic cordova build android --release
 ```
 #### Signing the Android .apk
 After the .apk file is built, you can either use Android CLI commands, or just open Android Studio, and sign the .apk.
 
-## Building for Browser
+## Build for Browser
 
 In order to generate a bundled directory that can be hosted as a web application, you need to add and build the `browser` platform:
 
@@ -100,27 +121,6 @@ $ ionic cordova build browser
 ```
 
 This will generate a `platforms/browse/www` directory that can be uploaded to a server.
-
-## Build for Android
-
-You will need Java version 8 on your system. If you have multiple versions of Java installed, you will need to update the current one by running:
-
-```bash
-$ sudo update-alternatives --config java
-
-$ sudo update-alternatives --config javac
-```
-And selecting the correct one.
-
-In order to build the android platform, you will need the correct version of the cordova-android plugin:
-
-```bash
-$ ionic cordova platform rm android
-
-$ ionic cordova platform add android@8.1.0
-
-$ ionic cordova build android
-```
 
 ### GitHub pages
 
