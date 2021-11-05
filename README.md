@@ -81,7 +81,44 @@ $ ionic cordova platform add browser@5.0.4
 $ ionic cordova build browser
 ```
 
+If you want to reset the browser platform:
+
+Automated way:
+
+```bash
+$ npm run build-browser
+```
+
+Manual way:
+
+```bash
+$ ionic cordova platform rm browser
+
+$ ionic cordova platform add browser@5.0.4
+
+$ ionic cordoba build browser
+```
+
 This will generate a `platforms/browse/www` directory that can be uploaded to a server.
+
+## Build for Android
+
+You will need Java version 8 on your system. If you have multiple versions of Java installed, you will need to update the current one by running:
+
+```bash
+$ sudo update-alternatives --config java
+```
+And selecting the correct one.
+
+In order to build the android platform, you will need the correct version of the cordova-android plugin:
+
+```bash
+$ ionic cordova platform rm android
+
+$ ionic cordova platform add android@8.1.0
+
+$ ionic cordova build android
+```
 
 ### GitHub pages
 
