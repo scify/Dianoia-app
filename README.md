@@ -107,6 +107,8 @@ You will need Java version 8 on your system. If you have multiple versions of Ja
 
 ```bash
 $ sudo update-alternatives --config java
+
+$ sudo update-alternatives --config javac
 ```
 And selecting the correct one.
 
