@@ -96,7 +96,7 @@ $ ionic cordova platform rm browser
 
 $ ionic cordova platform add browser@5.0.4
 
-$ ionic cordoba build browser
+$ ionic cordova build browser
 ```
 
 This will generate a `platforms/browse/www` directory that can be uploaded to a server.
