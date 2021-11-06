@@ -1,5 +1,5 @@
 import {Component, ViewChild} from "@angular/core";
-import {Events, Nav, Platform} from "ionic-angular";
+import {Events, MenuController, Nav, Platform} from "ionic-angular";
 import {StatusBar} from "@ionic-native/status-bar";
 import {SplashScreen} from "@ionic-native/splash-screen";
 import {NotificationProvider} from "../providers/notification/notification";
@@ -49,7 +49,7 @@ export class MyApp {
               private activityProvider: ActivityProvider,
               private difficultyLevelProvider: DifficultyLevelProvider, private loaderService: LoaderService,
               private analyticsFirebase: AnalyticsFirebase, private iab: InAppBrowser, private appVersion: AppVersion,
-              public translate: TranslateService, public events: Events) {
+              public translate: TranslateService, public events: Events, private menuController: MenuController) {
 
     this.initializeApp(platform, statusBar);
   }
@@ -126,6 +126,7 @@ export class MyApp {
       this.appStorage.set('app_lang', this.translate.currentLang);
       this.events.publish('lang_ready', this.translate.currentLang);
       console.log('set lang done', this.translate.currentLang);
+      this.menuController.close();
     });
   }
 
