@@ -21,7 +21,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any = 'HomePage';
-  appVersionName: string = '2.0.0-rc.1';
+  appVersionName: string = '2.0.0-rc.2';
 
   pages: Array<{ title: string, id?: any, component?: any, pageFile?: string, pageCode?: string }>;
   languages = [
@@ -58,7 +58,6 @@ export class MyApp {
     this.platform.ready().then(() => {
       if (this.platform.is('cordova')) {
         this.appVersion.getVersionNumber().then((version) => this.appVersionName = version);
-        this.splashScreen.hide();
 
         if (platform.is('android')) {
           statusBar.overlaysWebView(false);
@@ -78,12 +77,13 @@ export class MyApp {
   }
 
   setTranslationSettings() {
-    this.translate.setDefaultLang('en');
+    const defaultLangCode = this.languages[0].code;
+    this.translate.setDefaultLang(defaultLangCode);
     this.appStorage.get('app_lang').then(lang => {
       const data = JSON.parse(lang);
-      let langCode = 'en';
-      let acceptableLanguages = ['en', 'el', 'it', 'es'];
-      if (data && data != "" && acceptableLanguages.indexOf(data) > -1) {
+      let langCode = defaultLangCode;
+      let acceptableLanguageCodes = this.languages.map(l => l.code);
+      if (data && data != "" && acceptableLanguageCodes.indexOf(data) > -1) {
         langCode = data;
       }
       this.setLang(langCode);
@@ -115,12 +115,15 @@ export class MyApp {
       {title: this.translate.instant('help'), component: "HelpPage"},
       {title: this.translate.instant('about'), component: "AboutPage"}
     ];
+    this.splashScreen.hide();
   }
 
   setLang(langCode) {
+    console.log('setting lang', langCode);
     this.translate.use(langCode).subscribe(() => {
       this.appStorage.set('app_lang', this.translate.currentLang);
       this.events.publish('lang_ready', this.translate.currentLang);
+      console.log('set lang done', this.translate.currentLang);
     });
   }
 

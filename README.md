@@ -45,6 +45,24 @@ $ ionic cordova platform add android@8.1.0
 $ ionic cordova emulate android
 ```
 
+## Generating icon and splash screen for all platforms
+
+Update the following files:
+
+`resources/icon.png`
+
+and
+
+`resources/splash.png`
+
+And then run
+
+```bash
+$ ionic cordova resources
+```
+
+To generate the icon and splash screen files for all platforms and dimensions. For more info read [this page](https://ionicframework.com/docs/cli/commands/cordova-resources).
+
 ## Building
 
 ### Building for Android
@@ -84,13 +102,15 @@ $ ionic cordova platform add android@8.1.0
 $ ionic cordova build android
 ```
 
+The `build` command will generate a full Android project, located in `platforms/android`. This project can then be opened in Android Studio, in order to build and produce the .aap (bundle) or the .apk files. 
+
 If you want to build a release version:
 
 ```bash
 $ ionic cordova build android --release
 ```
-#### Signing the Android .apk
-After the .apk file is built, you can either use Android CLI commands, or just open Android Studio, and sign the .apk.
+### Signing the Android .apk
+After the android project is built, you can either use Android CLI commands, or just open Android Studio, and sign the .apk or .aap (bundle) file.
 
 ## Build for Browser
 

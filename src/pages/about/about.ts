@@ -16,7 +16,7 @@ import {TranslateService} from "@ngx-translate/core";
 })
 export class AboutPage {
 
-  version: string = '2.0.0-rc.1';
+  version: string = '2.0.0-rc.2';
   iconPath: string = 'assets/img/en/icon.png';
 
   constructor(public navCtrl: NavController, public navParams: NavParams,

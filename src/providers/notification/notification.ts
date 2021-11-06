@@ -16,8 +16,8 @@ import {ApiCallsProvider} from "../api-calls/api-calls";
 @Injectable()
 export class NotificationProvider {
 
-  notificationTitles: string[];
-  notificationTexts: string[];
+  notificationTitles: string[] = [];
+  notificationTexts: string[] = [];
 
   constructor(private localNotifications: LocalNotifications, private appStorage: AppStorageProvider,
               public http: Http, private apiCalls: ApiCallsProvider,
