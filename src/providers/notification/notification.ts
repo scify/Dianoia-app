@@ -6,6 +6,7 @@ import {Events} from "ionic-angular";
 import {Observable} from "rxjs/Observable";
 import {Http} from "@angular/http";
 import {ApiCallsProvider} from "../api-calls/api-calls";
+import {TranslateService} from "@ngx-translate/core";
 
 /*
   Generated class for the NotificationProvider provider.
@@ -21,7 +22,7 @@ export class NotificationProvider {
 
   constructor(private localNotifications: LocalNotifications, private appStorage: AppStorageProvider,
               public http: Http, private apiCalls: ApiCallsProvider,
-              public events: Events) {
+              public events: Events, public translate: TranslateService) {
     this.events.subscribe('lang_ready', (langCode) => {
       this.getAllNotifications(langCode).subscribe((data) => {
         this.notificationTitles = data.titles;
@@ -44,7 +45,7 @@ export class NotificationProvider {
       console.log("frequency: " + frequency);
       let date = new Date();
       console.log("initial date:", date);
-      let title = "Δι-Άνοια - " + NotificationProvider.randomArrayElement(this.notificationTitles);
+      let title = this.translate.instant('app_name') + " - " + NotificationProvider.randomArrayElement(this.notificationTitles);
       let text = "- " + NotificationProvider.randomArrayElement(this.notificationTexts);
       switch (frequency) {
         case 'every_day':
