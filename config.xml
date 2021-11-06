@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget android-versionCode="102144" id="org.scify.dianoia.app" version="2.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget android-versionCode="102145" id="org.scify.dianoia.app" version="2.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>diAnoia</name>
     <description>Non-pharmaceutical activities for people with dementia.</description>
     <author email="info@scify.org" href="http://www.scify.gr/site/en/">SciFY Team</author>
@@ -119,7 +119,6 @@
     <plugin name="cordova-plugin-nativestorage" spec="^2.2.2" />
     <plugin name="cordova-plugin-inappbrowser" spec="^1.7.1" />
     <plugin name="cordova-plugin-x-toast" spec="^2.6.0" />
-    <plugin name="cordova-sqlite-storage" spec="3.2.1" />
     <plugin name="cordova-plugin-x-socialsharing" spec="^5.4.0">
         <variable name="ANDROID_SUPPORT_V4_VERSION" value="27.1.1+" />
         <variable name="PHOTO_LIBRARY_ADD_USAGE_DESCRIPTION" value="This app requires photo library access to function properly." />
@@ -136,6 +135,7 @@
         <variable name="ANDROID_SUPPORT_VERSION" value="27.+" />
     </plugin>
     <plugin name="cordova-plugin-app-version" spec="^0.1.9" />
+    <plugin name="cordova-sqlite-storage" spec="^6.0.0" />
     <engine name="android" spec="8.1.0" />
     <engine name="browser" spec="^5.0.4" />
 </widget>

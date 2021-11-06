@@ -77,8 +77,11 @@ export class MyApp {
 
   setTranslationSettings() {
     const defaultLangCode = this.languages[0].code;
+    console.log('defaultLangCode', defaultLangCode);
     this.translate.setDefaultLang(defaultLangCode);
+    console.log('after set default lang');
     this.appStorage.get('app_lang').then(lang => {
+      console.log('got saved lang', JSON.parse(lang));
       const data = JSON.parse(lang);
       let langCode = defaultLangCode;
       let acceptableLanguageCodes = this.languages.map(l => l.code);
