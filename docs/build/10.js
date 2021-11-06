@@ -80,7 +80,7 @@ var AboutPage = /** @class */ (function () {
         this.platform = platform;
         this.events = events;
         this.translate = translate;
-        this.version = '2.0.0-rc.1';
+        this.version = '2.0.0-rc.2';
         this.iconPath = 'assets/img/en/icon.png';
     }
     AboutPage.prototype.ionViewWillLoad = function () {

@@ -69,7 +69,6 @@ export class MyApp {
         }
 
         this.localNotifications.listenForNotificationClicks();
-        this.localNotifications.scheduleNextNotification();
         this.setUpAnalyticsLogger();
       }
       this.setTranslationSettings();

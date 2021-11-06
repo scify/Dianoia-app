@@ -530,6 +530,8 @@ var NotificationProvider = /** @class */ (function () {
         this.http = http;
         this.apiCalls = apiCalls;
         this.events = events;
+        this.notificationTitles = [];
+        this.notificationTexts = [];
         this.events.subscribe('lang_ready', function (langCode) {
             _this.getAllNotifications(langCode).subscribe(function (data) {
                 _this.notificationTitles = data.titles;
@@ -1049,7 +1051,7 @@ var MyApp = /** @class */ (function () {
         this.translate = translate;
         this.events = events;
         this.rootPage = 'HomePage';
-        this.appVersionName = '2.0.0-rc.1';
+        this.appVersionName = '2.0.0-rc.2';
         this.languages = [
             {
                 "name": "English",
@@ -1075,7 +1077,6 @@ var MyApp = /** @class */ (function () {
         this.platform.ready().then(function () {
             if (_this.platform.is('cordova')) {
                 _this.appVersion.getVersionNumber().then(function (version) { return _this.appVersionName = version; });
-                _this.splashScreen.hide();
                 if (platform.is('android')) {
                     statusBar.overlaysWebView(false);
                     statusBar.backgroundColorByHexString("#002984");
@@ -1094,12 +1095,13 @@ var MyApp = /** @class */ (function () {
     };
     MyApp.prototype.setTranslationSettings = function () {
         var _this = this;
-        this.translate.setDefaultLang('en');
+        var defaultLangCode = this.languages[0].code;
+        this.translate.setDefaultLang(defaultLangCode);
         this.appStorage.get('app_lang').then(function (lang) {
             var data = JSON.parse(lang);
-            var langCode = 'en';
-            var acceptableLanguages = ['en', 'el', 'it', 'es'];
-            if (data && data != "" && acceptableLanguages.indexOf(data) > -1) {
+            var langCode = defaultLangCode;
+            var acceptableLanguageCodes = _this.languages.map(function (l) { return l.code; });
+            if (data && data != "" && acceptableLanguageCodes.indexOf(data) > -1) {
                 langCode = data;
             }
             _this.setLang(langCode);
@@ -1128,12 +1130,15 @@ var MyApp = /** @class */ (function () {
             { title: this.translate.instant('help'), component: "HelpPage" },
             { title: this.translate.instant('about'), component: "AboutPage" }
         ];
+        this.splashScreen.hide();
     };
     MyApp.prototype.setLang = function (langCode) {
         var _this = this;
+        console.log('setting lang', langCode);
         this.translate.use(langCode).subscribe(function () {
             _this.appStorage.set('app_lang', _this.translate.currentLang);
             _this.events.publish('lang_ready', _this.translate.currentLang);
+            console.log('set lang done', _this.translate.currentLang);
         });
     };
     MyApp.prototype.openPage = function (page) {

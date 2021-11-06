@@ -26,6 +26,7 @@ export class NotificationProvider {
       this.getAllNotifications(langCode).subscribe((data) => {
         this.notificationTitles = data.titles;
         this.notificationTexts = data.texts;
+        this.scheduleNextNotification();
       });
     });
   }
