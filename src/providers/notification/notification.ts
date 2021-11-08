@@ -42,9 +42,7 @@ export class NotificationProvider {
   public scheduleNextNotification() {
     this.appStorage.get('notification_frequency').then(data => {
       let frequency = JSON.parse(data);
-      console.log("frequency: " + frequency);
       let date = new Date();
-      console.log("initial date:", date);
       let title = this.translate.instant('app_name') + " - " + NotificationProvider.randomArrayElement(this.notificationTitles);
       let text = "- " + NotificationProvider.randomArrayElement(this.notificationTexts);
       switch (frequency) {
@@ -82,10 +80,6 @@ export class NotificationProvider {
       date.setHours(11);
       date.setMinutes(0);
     }
-
-    console.log("Scheduling notification for " + date + " every: " + every);
-    console.log("Notification title: ", title);
-    console.log("Notification text: ", text);
     let options = {
       text: text,
       title: title,

@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Events, IonicPage, NavController, NavParams, Platform} from 'ionic-angular';
+import {IonicPage, NavController, NavParams, Platform} from 'ionic-angular';
 import {TranslateService} from "@ngx-translate/core";
 import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 
@@ -20,24 +20,16 @@ export class BasicInfoPage {
   buttons: any[];
   youtubeLink: SafeResourceUrl = '';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public events: Events,
+  constructor(public navCtrl: NavController, public navParams: NavParams,
               public translate: TranslateService, public sanitizer: DomSanitizer,
               public platform: Platform) {
+    this.translate.onLangChange.subscribe(() => {
+      this.setUpPageElements();
+    });
   }
 
   ionViewWillLoad() {
-    this.events.subscribe('lang_ready', (langCode) => {
-      this.setUpPageElements();
-    });
-    this.platform.ready().then(() => {
-      this.translate.get('app_name').subscribe(() => {
-        this.setUpPageElements();
-      });
-    });
-  }
-
-  ionViewWillUnload() {
-    this.events.unsubscribe('lang_ready');
+    this.setUpPageElements();
   }
 
   setUpPageElements() {

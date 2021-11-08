@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Events, IonicPage, NavController, NavParams, Platform} from 'ionic-angular';
+import {IonicPage, NavController, NavParams, Platform} from 'ionic-angular';
 import {AppStorageProvider} from "../../providers/app-storage/app-storage";
 import {AlertProvider} from "../../providers/alert/alert";
 import {NotificationProvider} from "../../providers/notification/notification";
@@ -24,7 +24,7 @@ export class NotificationsPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public platform: Platform, private appStorage: AppStorageProvider,
               private alert: AlertProvider, private localNotifications: NotificationProvider,
-              private translate: TranslateService, public events: Events) {
+              private translate: TranslateService) {
 
     this.selectedNotificationId = 'every_day';
     this.appStorage.get('notification_frequency').then(frequencyId => {
@@ -32,21 +32,9 @@ export class NotificationsPage {
         this.selectedNotificationId = JSON.parse(frequencyId);
       }
     })
-  }
-
-  ionViewWillLoad() {
-    this.events.subscribe('lang_ready', (langCode) => {
+    this.translate.onLangChange.subscribe(() => {
       this.setUpPageElements();
     });
-    this.platform.ready().then(() => {
-      this.translate.get('app_name').subscribe(() => {
-        this.setUpPageElements();
-      });
-    });
-  }
-
-  ionViewWillUnload() {
-    this.events.unsubscribe('lang_ready');
   }
 
   setUpPageElements() {

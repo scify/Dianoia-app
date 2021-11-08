@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Events, IonicPage, NavController, NavParams, Platform, ViewController} from 'ionic-angular';
+import {IonicPage, NavController, NavParams, Platform, ViewController} from 'ionic-angular';
 import {ActivityProvider} from "../../providers/activity/activity";
 import {InAppBrowser} from '@ionic-native/in-app-browser';
 import {AlertProvider} from "../../providers/alert/alert";
@@ -27,8 +27,7 @@ export class ActivityPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,
               private activityProvider: ActivityProvider, private iab: InAppBrowser,
               public platform: Platform, private alert: AlertProvider, private socialSharing: SocialSharing,
-              private viewCtrl: ViewController,
-              private translate: TranslateService, public events: Events) {
+              private viewCtrl: ViewController, private translate: TranslateService) {
     let activityObj = this.navParams.get("activity");
     if (!activityObj) {
       this.activityProvider.getRandomActivity().then(randomActivity => {
@@ -39,25 +38,20 @@ export class ActivityPage {
     }
     this.allActivities = this.navParams.get("allActivities");
     this.activityUniqueId = this.navParams.get("uniqueId");
-
+    this.translate.onLangChange.subscribe(() => {
+      this.setUpPageElements();
+    });
   }
 
   ionViewWillLoad() {
-    this.events.subscribe('lang_ready', (langCode) => {
-      this.currentLang = langCode;
-      this.activityProvider.getActivitiesByIds([this.activity.id]).then(activities => {
-        this.activity = activities[0];
-      });
-    });
-    this.platform.ready().then(() => {
-      this.translate.get('app_name').subscribe(() => {
-        this.currentLang = this.translate.currentLang;
-      });
-    });
+    this.setUpPageElements();
   }
 
-  ionViewWillUnload() {
-    this.events.unsubscribe('lang_ready');
+  setUpPageElements() {
+    this.currentLang = this.translate.currentLang;
+    this.activityProvider.getActivitiesByIds([this.activity.id]).then(activities => {
+      this.activity = activities[0];
+    });
   }
 
   nextActivity() {
@@ -145,7 +139,6 @@ export class ActivityPage {
       };
 
       this.socialSharing.shareWithOptions(options).then(result => {
-        console.log(result);
         // if(result.completed)
         //this.alert.displayToast("Η δραστηριοτητα κοινοποιηθηκε");
       }).catch(error => {

@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Events, IonicPage, NavController, NavParams, Platform} from 'ionic-angular';
+import {IonicPage, NavController, NavParams, Platform} from 'ionic-angular';
 import {ActivityProvider} from "../../providers/activity/activity";
 import {LoaderService} from "../../providers/loader-service/loader-service";
 import {TranslateService} from "@ngx-translate/core";
@@ -24,28 +24,19 @@ export class StatisticsPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               private activityProvider: ActivityProvider, private loaderService: LoaderService,
-              public events: Events, private translate: TranslateService,
+              private translate: TranslateService,
               public platform: Platform) {
-
-    this.loaderService.showLoader();
+    this.translate.onLangChange.subscribe(() => {
+      this.setUpPageElements();
+    });
   }
 
   ionViewWillLoad() {
-    this.events.subscribe('lang_ready', (langCode) => {
-      this.setUpPageElements();
-    });
-    this.platform.ready().then(() => {
-      this.translate.get('app_name').subscribe(() => {
-        this.setUpPageElements();
-      });
-    });
-  }
-
-  ionViewWillUnload() {
-    this.events.unsubscribe('lang_ready');
+    this.setUpPageElements();
   }
 
   setUpPageElements() {
+    this.loaderService.showLoader();
     this.activityProvider.getNumberOfActivitiesForLastMonth().then(numberOfDays => {
       this.numberOfDaysForLastMonth = numberOfDays.filter(daysThatAreTrue).length.toString();
       this.statistics.push({title: this.translate.instant('for_the_last_month'), value: this.numberOfDaysForLastMonth});

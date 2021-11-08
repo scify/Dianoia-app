@@ -21,7 +21,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any = 'HomePage';
-  appVersionName: string = '2.0.0-rc.2';
+  appVersionName: string = '2.0.3';
 
   pages: Array<{ title: string, id?: any, component?: any, pageFile?: string, pageCode?: string }>;
   languages = [
@@ -77,11 +77,8 @@ export class MyApp {
 
   setTranslationSettings() {
     const defaultLangCode = this.languages[0].code;
-    console.log('defaultLangCode', defaultLangCode);
     this.translate.setDefaultLang(defaultLangCode);
-    console.log('after set default lang');
     this.appStorage.get('app_lang').then(lang => {
-      console.log('got saved lang', JSON.parse(lang));
       const data = JSON.parse(lang);
       let langCode = defaultLangCode;
       let acceptableLanguageCodes = this.languages.map(l => l.code);
@@ -89,13 +86,6 @@ export class MyApp {
         langCode = data;
       }
       this.setLang(langCode);
-    });
-
-    this.events.subscribe('lang_ready', () => {
-      this.setUpPageElements();
-    });
-    this.translate.onLangChange.subscribe(() => {
-
     });
   }
 
@@ -117,16 +107,17 @@ export class MyApp {
       {title: this.translate.instant('help'), component: "HelpPage"},
       {title: this.translate.instant('about'), component: "AboutPage"}
     ];
-    this.splashScreen.hide();
+    if (this.platform.is('cordova')) {
+      this.splashScreen.hide();
+    }
   }
 
   setLang(langCode) {
-    console.log('setting lang', langCode);
     this.translate.use(langCode).subscribe(() => {
       this.appStorage.set('app_lang', this.translate.currentLang);
       this.events.publish('lang_ready', this.translate.currentLang);
-      console.log('set lang done', this.translate.currentLang);
       this.menuController.close();
+      this.setUpPageElements();
     });
   }
 
@@ -141,7 +132,6 @@ export class MyApp {
     this.activityCategoryProvider.getActivitiesForCategory(categoryId).subscribe(activitiesIds => {
       if (activitiesIds != null) {
         this.activityProvider.getActivitiesByIds(activitiesIds).then(activities => {
-          console.log(activities);
           this.getDifficultyLevelsForActivitiesAndLoadPage(activities, categoryId);
         }, error => {
           this.handleError(error);
@@ -160,7 +150,7 @@ export class MyApp {
   }
 
   handleError(error) {
-    console.log(error);
+    console.error(error);
     this.loaderService.hideLoader();
   }
 

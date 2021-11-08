@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Events, IonicPage, NavController, Platform} from 'ionic-angular';
+import {IonicPage, NavController, Platform} from 'ionic-angular';
 import {LoaderService} from "../../providers/loader-service/loader-service";
 import {Http} from "@angular/http";
 import {AppStorageProvider} from "../../providers/app-storage/app-storage";
@@ -23,7 +23,7 @@ export class HomePage {
               private loaderService: LoaderService, private http: Http,
               private appStorage: AppStorageProvider, public statusBar: StatusBar,
               private alertProvider: AlertProvider, public platform: Platform, private iab: InAppBrowser,
-              private translate: TranslateService, public events: Events) {
+              private translate: TranslateService) {
     if (platform.is('cordova')) {
       if (platform.is('android')) {
         statusBar.overlaysWebView(false);
@@ -35,21 +35,13 @@ export class HomePage {
       }
       this.checkForAnnouncement();
     }
+    this.translate.onLangChange.subscribe(() => {
+      this.setUpPageElements();
+    });
   }
 
   ionViewWillLoad() {
-    this.events.subscribe('lang_ready', (langCode) => {
-      this.setUpPageElements();
-    });
-    this.platform.ready().then(() => {
-      this.translate.get('app_name').subscribe(() => {
-        this.setUpPageElements();
-      });
-    });
-  }
-
-  ionViewWillUnload() {
-    this.events.unsubscribe('lang_ready');
+    this.setUpPageElements();
   }
 
   setUpPageElements() {
@@ -125,7 +117,6 @@ export class HomePage {
     let tmp = document.createElement("DIV");
     tmp.innerHTML = html;
     let str = tmp.textContent || tmp.innerText || "";
-    console.log(str.replace(/(\r\n|\n|\r)/gm, "").trim());
     return str.replace(/(\r\n|\n|\r)/gm, "").trim();
   }
 

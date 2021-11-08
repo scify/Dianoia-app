@@ -10,7 +10,7 @@ import {TranslateModule} from "@ngx-translate/core";
   imports: [IonicPageModule.forChild(HomePage),
     CardsListComponentModule,
     ButtonsListComponentModule,
-    TranslateModule.forChild()
+    TranslateModule.forChild(),
   ]
 })
 export class HomePageModule {

@@ -62,8 +62,6 @@ export class ActivityProvider {
     let currentDate = new Date();
     let dateAMonthAgo = new Date();
     dateAMonthAgo.setMonth(currentDate.getMonth() - 3);
-    console.log("from", dateAMonthAgo);
-    console.log("until", currentDate);
     return this.getNumberOfActivitiesForPeriod(dateAMonthAgo, currentDate);
   }
 
@@ -71,8 +69,6 @@ export class ActivityProvider {
     let currentDate = new Date();
     let dateAMonthAgo = new Date();
     dateAMonthAgo.setMonth(currentDate.getMonth() - 1);
-    console.log("from", dateAMonthAgo);
-    console.log("until", currentDate);
     return this.getNumberOfActivitiesForPeriod(dateAMonthAgo, currentDate);
   }
 
@@ -80,8 +76,6 @@ export class ActivityProvider {
     let currentDate = new Date();
     let dateAWeekAgo = new Date();
     dateAWeekAgo.setDate(currentDate.getDate() - 14);
-    console.log("from", dateAWeekAgo);
-    console.log("until", currentDate);
     return this.getNumberOfActivitiesForPeriod(dateAWeekAgo, currentDate);
   }
 

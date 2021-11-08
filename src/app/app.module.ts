@@ -3,7 +3,6 @@ import {ErrorHandler, NgModule} from '@angular/core';
 import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
 
 import {MyApp} from './app.component';
-import {ListPage} from '../pages/list/list';
 
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
@@ -29,8 +28,7 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 @NgModule({
   declarations: [
-    MyApp,
-    ListPage
+    MyApp
   ],
   imports: [
     HttpModule,
@@ -47,8 +45,7 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    ListPage
+    MyApp
   ],
   providers: [
     StatusBar,

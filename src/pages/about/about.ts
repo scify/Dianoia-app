@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Events, IonicPage, NavController, NavParams, Platform} from 'ionic-angular';
+import {IonicPage, NavController, NavParams, Platform} from 'ionic-angular';
 import {AppVersion} from '@ionic-native/app-version';
 import {TranslateService} from "@ngx-translate/core";
 
@@ -16,12 +16,16 @@ import {TranslateService} from "@ngx-translate/core";
 })
 export class AboutPage {
 
-  version: string = '2.0.0-rc.2';
+  version: string = '2.0.3';
   iconPath: string = 'assets/img/en/icon.png';
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               private appVersion: AppVersion, public platform: Platform,
-              public events: Events, public translate: TranslateService,) {
+              public translate: TranslateService,) {
+
+    this.translate.onLangChange.subscribe(() => {
+      this.setUpPageElements();
+    });
   }
 
   ionViewWillLoad() {
@@ -30,18 +34,7 @@ export class AboutPage {
         this.version = version;
       })
     }
-    this.events.subscribe('lang_ready', (langCode) => {
-      this.setUpPageElements();
-    });
-    this.platform.ready().then(() => {
-      this.translate.get('app_name').subscribe(() => {
-        this.setUpPageElements();
-      });
-    });
-  }
-
-  ionViewWillUnload() {
-    this.events.unsubscribe('lang_ready');
+    this.setUpPageElements();
   }
 
   setUpPageElements() {

@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Events, IonicPage, NavController, NavParams, Platform} from 'ionic-angular';
+import {IonicPage, NavController, NavParams, Platform} from 'ionic-angular';
 import {ActivityCategoryProvider} from "../../providers/activity-category/activity-category";
 import {LoaderService} from "../../providers/loader-service/loader-service";
 import {TranslateService} from "@ngx-translate/core";
@@ -17,21 +17,16 @@ export class ActivityCategoriesPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               private activityCategoryProvider: ActivityCategoryProvider,
-              private loaderService: LoaderService, public events: Events,
-              public translate: TranslateService,
+              private loaderService: LoaderService, public translate: TranslateService,
               public platform: Platform) {
     this.categories = this.navParams.get("categories");
+    this.translate.onLangChange.subscribe(() => {
+      this.setUpPageElements();
+    });
   }
 
   ionViewWillLoad() {
-    this.events.subscribe('lang_ready', (langCode) => {
-      this.setUpPageElements();
-    });
-    this.platform.ready().then(() => {
-      this.translate.get('app_name').subscribe(() => {
-        this.setUpPageElements();
-      });
-    });
+    this.setUpPageElements();
   }
 
   setUpPageElements() {
@@ -67,10 +62,6 @@ export class ActivityCategoriesPage {
     }).catch(error => {
       this.handleError(error);
     });
-  }
-
-  ionViewWillUnload() {
-    this.events.unsubscribe('lang_ready');
   }
 
   handleError(error) {

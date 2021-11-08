@@ -1,15 +1,15 @@
 webpackJsonp([9],{
 
-/***/ 334:
+/***/ 333:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ActivityPageModule", function() { return ActivityPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__activity__ = __webpack_require__(349);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__activity__ = __webpack_require__(348);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__ = __webpack_require__(37);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -44,18 +44,18 @@ var ActivityPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 349:
+/***/ 348:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ActivityPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_activity_activity__ = __webpack_require__(121);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_in_app_browser__ = __webpack_require__(123);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_alert_alert__ = __webpack_require__(233);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_social_sharing__ = __webpack_require__(234);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ngx_translate_core__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ngx_translate_core__ = __webpack_require__(37);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -79,7 +79,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * on Ionic pages and navigation.
  */
 var ActivityPage = /** @class */ (function () {
-    function ActivityPage(navCtrl, navParams, activityProvider, iab, platform, alert, socialSharing, viewCtrl, translate, events) {
+    function ActivityPage(navCtrl, navParams, activityProvider, iab, platform, alert, socialSharing, viewCtrl, translate) {
         var _this = this;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
@@ -90,7 +90,6 @@ var ActivityPage = /** @class */ (function () {
         this.socialSharing = socialSharing;
         this.viewCtrl = viewCtrl;
         this.translate = translate;
-        this.events = events;
         this.dailyActivityCompleted = false;
         this.allActivities = [];
         this.currentLang = 'en';
@@ -105,23 +104,19 @@ var ActivityPage = /** @class */ (function () {
         }
         this.allActivities = this.navParams.get("allActivities");
         this.activityUniqueId = this.navParams.get("uniqueId");
+        this.translate.onLangChange.subscribe(function () {
+            _this.setUpPageElements();
+        });
     }
     ActivityPage.prototype.ionViewWillLoad = function () {
-        var _this = this;
-        this.events.subscribe('lang_ready', function (langCode) {
-            _this.currentLang = langCode;
-            _this.activityProvider.getActivitiesByIds([_this.activity.id]).then(function (activities) {
-                _this.activity = activities[0];
-            });
-        });
-        this.platform.ready().then(function () {
-            _this.translate.get('app_name').subscribe(function () {
-                _this.currentLang = _this.translate.currentLang;
-            });
-        });
+        this.setUpPageElements();
     };
-    ActivityPage.prototype.ionViewWillUnload = function () {
-        this.events.unsubscribe('lang_ready');
+    ActivityPage.prototype.setUpPageElements = function () {
+        var _this = this;
+        this.currentLang = this.translate.currentLang;
+        this.activityProvider.getActivitiesByIds([this.activity.id]).then(function (activities) {
+            _this.activity = activities[0];
+        });
     };
     ActivityPage.prototype.nextActivity = function () {
         for (var i = 0; i < this.allActivities.length; i++) {
@@ -203,7 +198,6 @@ var ActivityPage = /** @class */ (function () {
                 chooserTitle: _this.translate.instant('share_with') + '...'
             };
             _this.socialSharing.shareWithOptions(options).then(function (result) {
-                console.log(result);
                 // if(result.completed)
                 //this.alert.displayToast("Η δραστηριοτητα κοινοποιηθηκε");
             }).catch(function (error) {
@@ -224,11 +218,10 @@ var ActivityPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-activity',template:/*ion-inline-start:"/home/paul/projects/dianoia/Dianoia-app/src/pages/activity/activity.html"*/'<!--\n  Generated template for the ActivityPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{ activity?.title }}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n\n  <ion-card (swipe)="swipeActivity($event)">\n\n    <ion-card-content>\n      <ion-row class="navigationContainer">\n        <ion-col col-6 style="text-align: left">\n          <button mode="ios" *ngIf="activityIsNotFirst()" class="activityNavigationBtn" no-padding ion-button icon-left\n                  clear small (click)="previousActivity()">\n            <ion-icon class="navLeft" name="ios-arrow-back"></ion-icon>\n            <div>{{ \'previous\' | translate }}</div>\n          </button>\n        </ion-col>\n        <ion-col col-6 style="text-align: right">\n          <button mode="ios" *ngIf="activityIsNotLast()" class="activityNavigationBtn" no-padding ion-button icon-left\n                  clear small (click)="nextActivity()">\n            <div>{{ \'next\' | translate }}</div>\n            <ion-icon class="navRight" name="ios-arrow-forward"></ion-icon>\n          </button>\n        </ion-col>\n      </ion-row>\n      <h2 class="activityTitle">{{ activity?.title }}</h2>\n      <p class="activityBody">{{ activity?.description }}</p>\n      <img class="activityImg" *ngIf="activity?.img_url" [src]="\'assets/img/activities/\' + currentLang + \'/\' + activity.img_url">\n    </ion-card-content>\n    <ion-list no-lines class="activityActionsContainer">\n      <ion-item text-wrap *ngIf="activity?.link">\n        <a *ngIf="activity?.link && platform.is(\'core\')" href="{{ activity.link }}" target="_blank">\n          <button ion-button icon-left clear small>\n            <ion-icon name="ios-link"></ion-icon>\n            <div>{{ \'see_activity\' | translate }}</div>\n          </button>\n        </a>\n        <button mode="ios" *ngIf="activity?.link && !platform.is(\'core\')" ion-button icon-left clear small\n                (click)="openLink(activity.link)">\n          <ion-icon name="ios-link"></ion-icon>\n          <div>{{ \'see_activity\' | translate }}</div>\n        </button>\n      </ion-item>\n      <ion-item text-wrap *ngIf="activity?.link && platform.is(\'cordova\')">\n        <button mode="ios" *ngIf="activity?.link" ion-button icon-left clear small (click)="share(activity)">\n          <ion-icon name="ios-share-alt"></ion-icon>\n          <div>{{ \'share_and_print\' | translate }}</div>\n        </button>\n      </ion-item>\n      <ion-item text-wrap *ngIf="activity?.help_link">\n        <a *ngIf="activity?.help_link && platform.is(\'core\')" href="{{ activity.help_link }}" target="_blank">\n          <button mode="ios" ion-button icon-left clear small>\n            <ion-icon name="ios-help-buoy"></ion-icon>\n            <div>{{ \'more_info_help\' | translate }}</div>\n          </button>\n        </a>\n        <button mode="ios" *ngIf="activity?.help_link && !platform.is(\'core\')" ion-button icon-left clear small\n                (click)="openLink(activity.help_link)">\n          <ion-icon name="ios-help-buoy"></ion-icon>\n          <div>{{ \'more_info_help\' | translate }}</div>\n        </button>\n      </ion-item>\n      <ion-item text-wrap *ngIf="activity?.link && platform.is(\'cordova\')">\n        <button mode="ios" style="margin-bottom: 10px" *ngIf="activity?.id" clear ion-button icon-left small\n                [disabled]="dailyActivityCompleted"\n                (click)="activityDoneForToday()">\n          <ion-icon name="thumbs-up"></ion-icon>\n          <div>{{ \'activity_done_btn\' | translate }}</div>\n        </button>\n      </ion-item>\n    </ion-list>\n  </ion-card>\n\n</ion-content>\n'/*ion-inline-end:"/home/paul/projects/dianoia/Dianoia-app/src/pages/activity/activity.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_2__providers_activity_activity__["a" /* ActivityProvider */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_in_app_browser__["a" /* InAppBrowser */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */], __WEBPACK_IMPORTED_MODULE_4__providers_alert_alert__["a" /* AlertProvider */], __WEBPACK_IMPORTED_MODULE_5__ionic_native_social_sharing__["a" /* SocialSharing */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ViewController */],
-            __WEBPACK_IMPORTED_MODULE_6__ngx_translate_core__["c" /* TranslateService */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */]])
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */], __WEBPACK_IMPORTED_MODULE_4__providers_alert_alert__["a" /* AlertProvider */], __WEBPACK_IMPORTED_MODULE_5__ionic_native_social_sharing__["a" /* SocialSharing */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ViewController */], __WEBPACK_IMPORTED_MODULE_6__ngx_translate_core__["c" /* TranslateService */]])
     ], ActivityPage);
     return ActivityPage;
 }());
