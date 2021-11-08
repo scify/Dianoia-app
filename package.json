@@ -1,6 +1,6 @@
 {
     "name": "dianoia",
-    "version": "2.0.3",
+    "version": "2.0.4",
     "author": "SciFY",
     "homepage": "https://dianoia-app.scify.org/",
     "private": true,
@@ -26,6 +26,7 @@
         "@ionic-native/app-version": "^4.20.0",
         "@ionic-native/core": "^3.10.3",
         "@ionic-native/fcm": "^4.20.0",
+        "@ionic-native/globalization": "^4.20.0",
         "@ionic-native/in-app-browser": "^3.10.3",
         "@ionic-native/local-notifications": "^4.20.0",
         "@ionic-native/native-storage": "^3.10.3",
@@ -48,6 +49,7 @@
         "cordova-plugin-console": "^1.1.0",
         "cordova-plugin-device": "^1.1.7",
         "cordova-plugin-firebase-analytics": "^3.0.0",
+        "cordova-plugin-globalization": "^1.11.0",
         "cordova-plugin-inappbrowser": "^3.2.0",
         "cordova-plugin-local-notification": "^0.9.0-beta.2",
         "cordova-plugin-nativestorage": "^2.3.2",
@@ -109,7 +111,8 @@
             "cordova-android-support-gradle-release": {
                 "ANDROID_SUPPORT_VERSION": "27.+"
             },
-            "cordova-sqlite-storage": {}
+            "cordova-sqlite-storage": {},
+            "cordova-plugin-globalization": {}
         },
         "platforms": [
             "android",

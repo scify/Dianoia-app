@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget android-versionCode="102146" id="org.scify.dianoia.app" version="2.0.3" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget android-versionCode="102147" id="org.scify.dianoia.app" version="2.0.4" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>diAnoia</name>
     <description>Non-pharmaceutical activities for people with dementia.</description>
     <author email="info@scify.org" href="http://www.scify.gr/site/en/">SciFY Team</author>
@@ -136,6 +136,7 @@
     </plugin>
     <plugin name="cordova-plugin-app-version" spec="^0.1.9" />
     <plugin name="cordova-sqlite-storage" spec="^6.0.0" />
+    <plugin name="cordova-plugin-globalization" spec="^1.11.0" />
     <engine name="android" spec="8.1.0" />
     <engine name="browser" spec="^5.0.4" />
 </widget>

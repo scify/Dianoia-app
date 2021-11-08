@@ -13,6 +13,7 @@ import {AnalyticsFirebase} from '@ionic-native/analytics-firebase';
 import {InAppBrowser} from "@ionic-native/in-app-browser";
 import {AppVersion} from "@ionic-native/app-version";
 import {TranslateService} from '@ngx-translate/core';
+import {Globalization} from '@ionic-native/globalization';
 
 @Component({
   templateUrl: 'app.html'
@@ -21,7 +22,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any = 'HomePage';
-  appVersionName: string = '2.0.3';
+  appVersionName: string = '2.0.4';
 
   pages: Array<{ title: string, id?: any, component?: any, pageFile?: string, pageCode?: string }>;
   languages = [
@@ -49,7 +50,8 @@ export class MyApp {
               private activityProvider: ActivityProvider,
               private difficultyLevelProvider: DifficultyLevelProvider, private loaderService: LoaderService,
               private analyticsFirebase: AnalyticsFirebase, private iab: InAppBrowser, private appVersion: AppVersion,
-              public translate: TranslateService, public events: Events, private menuController: MenuController) {
+              public translate: TranslateService, public events: Events, private menuController: MenuController,
+              private globalization: Globalization) {
 
     this.initializeApp(platform, statusBar);
   }
@@ -70,23 +72,31 @@ export class MyApp {
 
         this.localNotifications.listenForNotificationClicks();
         this.setUpAnalyticsLogger();
+        this.globalization.getPreferredLanguage().then((res) => {
+          this.setTranslationSettings(res.value.substring(0, 2));
+        });
+      } else {
+        this.setTranslationSettings(window.navigator.language.substring(0, 2));
       }
-      this.setTranslationSettings();
     });
   }
 
-  setTranslationSettings() {
-    const defaultLangCode = this.languages[0].code;
+  setTranslationSettings(langCodeToTry) {
+    const acceptableLanguageCodes = this.languages.map(l => l.code);
+    let defaultLangCode = acceptableLanguageCodes[0];
+    if (acceptableLanguageCodes.indexOf(langCodeToTry) > -1)
+      defaultLangCode = langCodeToTry;
+
     this.translate.setDefaultLang(defaultLangCode);
     this.appStorage.get('app_lang').then(lang => {
       const data = JSON.parse(lang);
       let langCode = defaultLangCode;
-      let acceptableLanguageCodes = this.languages.map(l => l.code);
       if (data && data != "" && acceptableLanguageCodes.indexOf(data) > -1) {
         langCode = data;
       }
       this.setLang(langCode);
     });
+
   }
 
   setUpPageElements() {
@@ -159,7 +169,7 @@ export class MyApp {
     eventParams[this.analyticsFirebase.DEFAULT_PARAMS.LEVEL] = 29;
     eventParams['page'] = 'home';
     this.analyticsFirebase.logEvent('page_view', eventParams)
-      .then((res: any) => console.log(res))
+      .then((res: any) => console.log('Firebase: ' + res))
       .catch((error: any) => console.error(error));
   }
 

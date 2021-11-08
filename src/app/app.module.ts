@@ -25,6 +25,7 @@ import {AnalyticsFirebase} from '@ionic-native/analytics-firebase';
 import {AppVersion} from '@ionic-native/app-version';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {Globalization} from "@ionic-native/globalization";
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
     LocalNotifications,
     NotificationProvider,
     AnalyticsFirebase,
-    AppVersion
+    AppVersion,
+    Globalization
   ]
 })
 export class AppModule {
