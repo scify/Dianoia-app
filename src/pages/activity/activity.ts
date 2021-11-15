@@ -51,6 +51,7 @@ export class ActivityPage {
     this.currentLang = this.translate.currentLang;
     this.activityProvider.getActivitiesByIds([this.activity.id]).then(activities => {
       this.activity = activities[0];
+      console.log("DIANOIA_EXERCISE_STARTED_" + this.activity.title + "_" + this.activity.description + "_LANG_" + this.translate.currentLang);
     });
   }
 
@@ -120,6 +121,7 @@ export class ActivityPage {
           this.alert.displayToast(translated);
         });
       }
+      console.log("DIANOIA_EXERCISE_COMPLETED_LANG_" + this.translate.currentLang);
     });
   }
 

@@ -22,7 +22,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any = 'HomePage';
-  appVersionName: string = '2.1.0';
+  appVersionName: string = '2.1.1';
 
   pages: Array<{ title: string, id?: any, component?: any, pageFile?: string, pageCode?: string }>;
   languages = [
@@ -119,6 +119,7 @@ export class MyApp {
     ];
     if (this.platform.is('cordova')) {
       this.splashScreen.hide();
+      console.log("DIANOIA_APP_STARTED_LANG_" + this.translate.currentLang);
     }
   }
 
