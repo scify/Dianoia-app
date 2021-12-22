@@ -51,7 +51,8 @@ export class HomePage {
         id: "basic_info",
         title: this.translate.instant('basic_info_btn_title'),
         subtitle: this.translate.instant('basic_info_btn_subtitle'),
-        component: "BasicInfoPage"
+        component: "BasicInfoPage",
+        pageName: 'basic-info'
       },
       {
         id: "mental_activities",
@@ -123,7 +124,7 @@ export class HomePage {
   goTo(button) {
     switch (button.id) {
       case "basic_info":
-        this.navCtrl.push(button.component, {pageData: button});
+        this.navCtrl.push(button.pageName, {pageData: button});
         break;
       case "mental_activities":
         this.loaderService.showLoader();

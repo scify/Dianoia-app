@@ -12,7 +12,10 @@ import {TranslateService} from "@ngx-translate/core";
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
-@IonicPage()
+@IonicPage({
+  name: 'activity-page',
+  segment: 'activities/:id'
+})
 @Component({
   selector: 'page-activity',
   templateUrl: 'activity.html',
@@ -23,36 +26,60 @@ export class ActivityPage {
   allActivities: any = [];
   activityUniqueId: string;
   currentLang: string = 'en';
+  setUpInProgress: boolean = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               private activityProvider: ActivityProvider, private iab: InAppBrowser,
               public platform: Platform, private alert: AlertProvider, private socialSharing: SocialSharing,
               private viewCtrl: ViewController, private translate: TranslateService) {
-    let activityObj = this.navParams.get("activity");
-    if (!activityObj) {
-      this.activityProvider.getRandomActivity().then(randomActivity => {
-        this.activity = randomActivity;
-      });
-    } else {
-      this.activity = activityObj;
-    }
-    this.allActivities = this.navParams.get("allActivities");
+
     this.activityUniqueId = this.navParams.get("uniqueId");
     this.translate.onLangChange.subscribe(() => {
       this.setUpPageElements();
     });
   }
 
-  ionViewWillLoad() {
+  ionViewDidEnter() {
     this.setUpPageElements();
   }
 
   setUpPageElements() {
+    if (this.setUpInProgress)
+      return;
+    this.setUpInProgress = true;
     this.currentLang = this.translate.currentLang;
-    this.activityProvider.getActivitiesByIds([this.activity.id]).then(activities => {
-      this.activity = activities[0];
-      console.log("DIANOIA_EXERCISE_STARTED_" + this.activity.title + "_" + this.activity.description + "_LANG_" + this.translate.currentLang);
-    });
+    this.loadAllActivitiesForPage();
+  }
+
+  loadActivityForPage() {
+    const activityObj = this.navParams.get("activity");
+    if (!activityObj) {
+      // todo: check id in url
+      const paramId = this.navParams.get("id");
+      this.activityProvider.getActivitiesByIds([paramId]).then(activities => {
+        if (!activities.length)
+          this.activity = this.getRandomActivity();
+        else
+          this.activity = activities[0];
+      });
+      this.activity = this.getRandomActivity();
+    } else {
+      this.activity = activityObj;
+    }
+    console.log("DIANOIA_EXERCISE_STARTED_" + this.activity.title + "_" + this.activity.description + "_LANG_" + this.translate.currentLang);
+    this.setUpInProgress = false;
+  }
+
+  loadAllActivitiesForPage() {
+    let activities = this.navParams.get("activity");
+    if (activities && activities.length) {
+      this.allActivities = activities;
+      this.loadActivityForPage();
+    } else
+      this.activityProvider.getAllActivities().subscribe(activities => {
+        this.allActivities = activities;
+        this.loadActivityForPage();
+      });
   }
 
   nextActivity() {
@@ -97,7 +124,6 @@ export class ActivityPage {
         const index = this.viewCtrl.index;
         this.navCtrl.remove(index);
       });
-
     }
   }
 
@@ -129,7 +155,6 @@ export class ActivityPage {
     this.iab.create(url);
   }
 
-
   // tslint:disable-next-line:no-unused-variable
   share(activity) {
     this.translate.get('app_activity').subscribe((translated: string) => {
@@ -151,7 +176,6 @@ export class ActivityPage {
   }
 
   swipeActivity(event) {
-    console.log(event.direction);
     if (event.direction == 2) {
       this.nextActivity();
     } else if (event.direction == 4) {
@@ -160,4 +184,7 @@ export class ActivityPage {
   }
 
 
+  private getRandomActivity() {
+    return this.allActivities[Math.floor(Math.random() * this.allActivities.length)];
+  }
 }

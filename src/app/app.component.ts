@@ -22,9 +22,9 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any = 'HomePage';
-  appVersionName: string = '2.1.1';
+  appVersionName: string = '2.2.0';
 
-  pages: Array<{ title: string, id?: any, component?: any, pageFile?: string, pageCode?: string }>;
+  pages: Array<{ title: string, id?: any, component?: any, pageFile?: string, pageCode?: string, pageName?: string }>;
   languages = [
     {
       "name": "English",
@@ -102,7 +102,7 @@ export class MyApp {
   setUpPageElements() {
     this.pages = [
       {title: this.translate.instant('menu_home'), component: "HomePage"},
-      {title: this.translate.instant('menu_page_1'), component: "BasicInfoPage"},
+      {title: this.translate.instant('menu_page_1'), component: "BasicInfoPage", pageName: 'basic-info'},
       {
         title: this.translate.instant('menu_page_2'),
         component: "InfoListPage",
@@ -136,7 +136,7 @@ export class MyApp {
     if (page.id)
       this.getDifficultyLevelsForCategoryAndLoadPage(page.id);
     else
-      this.nav.push(page.component, {pageData: page});
+      this.nav.push(page.pageName ? page.pageName : page.component, {pageData: page});
   }
 
   getDifficultyLevelsForCategoryAndLoadPage(categoryId: string): any {

@@ -18,6 +18,7 @@ export class DifficultyLevelsPage {
   categoryId: string;
   category: any;
   pageTitle: string = '';
+  setUpInProgress: boolean = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               private loaderService: LoaderService,
@@ -32,11 +33,14 @@ export class DifficultyLevelsPage {
     });
   }
 
-  ionViewWillLoad() {
+  ionViewDidEnter() {
     this.setUpPageElements();
   }
 
   setUpPageElements() {
+    if(this.setUpInProgress)
+      return;
+    this.setUpInProgress = true;
     this.pageTitle = this.translate.instant('activities_exercises');
     if (this.categoryId == null)
       return this.navCtrl.setRoot("HomePage");
@@ -51,6 +55,7 @@ export class DifficultyLevelsPage {
             this.levels.unshift({id: "0", title: this.translate.instant('all_difficulty_levels')});
             this.pageTitle = this.category != null ? this.category.title : this.translate.instant('activities_exercises');
             this.loaderService.hideLoader();
+            this.setUpInProgress = false;
           });
         }, error => {
           this.handleError(error);
@@ -77,7 +82,7 @@ export class DifficultyLevelsPage {
   }
 
   selectActivity(activity: any) {
-    this.navCtrl.push("ActivityPage", {activity: activity, allActivities: this.activities, uniqueId: 'id'});
+    this.navCtrl.push("activity-page", {id: activity.id, activity: activity, allActivities: this.activities, uniqueId: 'id'});
   }
 
   goToHome() {

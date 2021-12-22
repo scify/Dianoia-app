@@ -10,7 +10,10 @@ import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
-@IonicPage()
+@IonicPage({
+  name: 'basic-info',
+  segment: 'basics'
+})
 @Component({
   selector: 'page-basic-info',
   templateUrl: 'basic-info.html',
