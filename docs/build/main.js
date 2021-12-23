@@ -657,11 +657,11 @@ var map = {
 		1
 	],
 	"../pages/help/help.module": [
-		341,
+		342,
 		8
 	],
 	"../pages/home/home.module": [
-		342,
+		341,
 		0
 	],
 	"../pages/info-list/info-list.module": [
@@ -669,11 +669,11 @@ var map = {
 		3
 	],
 	"../pages/notifications/notifications.module": [
-		345,
+		344,
 		7
 	],
 	"../pages/random-activities/random-activities.module": [
-		344,
+		345,
 		2
 	],
 	"../pages/statistics/statistics.module": [
@@ -927,11 +927,11 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/activity/activity.module#ActivityPageModule', name: 'activity-page', segment: 'activities/:lang/:id', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/basic-info/basic-info.module#BasicInfoPageModule', name: 'basic-info', segment: 'basics', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/difficulty-levels/difficulty-levels.module#DifficultyLevelsPageModule', name: 'DifficultyLevelsPage', segment: 'difficulty-levels', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/help/help.module#HelpPageModule', name: 'HelpPage', segment: 'help', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/help/help.module#HelpPageModule', name: 'HelpPage', segment: 'help', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/info-list/info-list.module#InfoListPageModule', name: 'InfoListPage', segment: 'info-list', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/random-activities/random-activities.module#RandomActivitiesPageModule', name: 'RandomActivitiesPage', segment: 'random-activities', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/notifications/notifications.module#NotificationsPageModule', name: 'NotificationsPage', segment: 'notifications', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/random-activities/random-activities.module#RandomActivitiesPageModule', name: 'RandomActivitiesPage', segment: 'random-activities', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/statistics/statistics.module#StatisticsPageModule', name: 'StatisticsPage', segment: 'statistics', priority: 'low', defaultHistory: [] }
                     ]
                 }),
