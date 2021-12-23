@@ -1,10 +1,11 @@
 import {Component} from '@angular/core';
-import {IonicPage, NavController, NavParams, Platform, ViewController} from 'ionic-angular';
+import {Events, IonicPage, NavController, NavParams, Platform, ViewController} from 'ionic-angular';
 import {ActivityProvider} from "../../providers/activity/activity";
 import {InAppBrowser} from '@ionic-native/in-app-browser';
 import {AlertProvider} from "../../providers/alert/alert";
 import {SocialSharing} from "@ionic-native/social-sharing";
 import {TranslateService} from "@ngx-translate/core";
+import {AppStorageProvider} from "../../providers/app-storage/app-storage";
 
 /**
  * Generated class for the ActivityPage page.
@@ -14,7 +15,7 @@ import {TranslateService} from "@ngx-translate/core";
  */
 @IonicPage({
   name: 'activity-page',
-  segment: 'activities/:id'
+  segment: 'activities/:lang/:id'
 })
 @Component({
   selector: 'page-activity',
@@ -31,55 +32,73 @@ export class ActivityPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,
               private activityProvider: ActivityProvider, private iab: InAppBrowser,
               public platform: Platform, private alert: AlertProvider, private socialSharing: SocialSharing,
-              private viewCtrl: ViewController, private translate: TranslateService) {
+              private viewCtrl: ViewController, private translate: TranslateService, public appStorage: AppStorageProvider,
+              public events: Events) {
 
     this.activityUniqueId = this.navParams.get("uniqueId");
+    const paramLang = this.navParams.get("lang");
+    const langs = ['en', 'el', 'it', 'es'];
     this.translate.onLangChange.subscribe(() => {
       this.setUpPageElements();
     });
+    if (paramLang && langs.indexOf(paramLang) > -1) {
+      const lang = this.navParams.get("lang");
+      this.translate.use(paramLang).subscribe(() => {
+        this.appStorage.set('app_lang', lang);
+        this.events.publish('lang_ready', lang);
+      });
+    }
   }
 
   ionViewDidEnter() {
     this.setUpPageElements();
   }
 
-  setUpPageElements() {
+  async setUpPageElements() {
     if (this.setUpInProgress)
       return;
     this.setUpInProgress = true;
     this.currentLang = this.translate.currentLang;
-    this.loadAllActivitiesForPage();
-  }
-
-  loadActivityForPage() {
-    const activityObj = this.navParams.get("activity");
-    if (!activityObj) {
-      // todo: check id in url
-      const paramId = this.navParams.get("id");
-      this.activityProvider.getActivitiesByIds([paramId]).then(activities => {
-        if (!activities.length)
-          this.activity = this.getRandomActivity();
-        else
-          this.activity = activities[0];
-      });
-      this.activity = this.getRandomActivity();
-    } else {
-      this.activity = activityObj;
-    }
+    this.allActivities = await this.getActivities();
+    this.activity = await this.getActivity();
     console.log("DIANOIA_EXERCISE_STARTED_" + this.activity.title + "_" + this.activity.description + "_LANG_" + this.translate.currentLang);
     this.setUpInProgress = false;
   }
 
-  loadAllActivitiesForPage() {
-    let activities = this.navParams.get("activity");
-    if (activities && activities.length) {
-      this.allActivities = activities;
-      this.loadActivityForPage();
-    } else
-      this.activityProvider.getAllActivities().subscribe(activities => {
-        this.allActivities = activities;
-        this.loadActivityForPage();
-      });
+  async getActivities(): Promise<any> {
+    const instance = this;
+    return new Promise(function callback(resolve, reject) {
+      let activities = instance.navParams.get("activity");
+      if (activities && activities.length) {
+        resolve(activities);
+      } else {
+        instance.activityProvider.getAllActivities().subscribe(activities => {
+          resolve(activities);
+        });
+      }
+    });
+  }
+
+  async getActivity(): Promise<any> {
+    const instance = this;
+    return new Promise(function callback(resolve, reject) {
+      const activityObj = instance.navParams.get("activity");
+      if (activityObj)
+        resolve(activityObj);
+      else {
+        const paramId = instance.navParams.get("id");
+        if (paramId) {
+          instance.activityProvider.getActivitiesByIds([paramId]).then(activities => {
+            if (!activities.length)
+              resolve(instance.getRandomActivity());
+            else
+              resolve(activities[0]);
+          });
+        } else {
+          resolve(instance.getRandomActivity());
+        }
+      }
+    });
   }
 
   nextActivity() {

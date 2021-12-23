@@ -38,7 +38,7 @@ export class DifficultyLevelsPage {
   }
 
   setUpPageElements() {
-    if(this.setUpInProgress)
+    if (this.setUpInProgress)
       return;
     this.setUpInProgress = true;
     this.pageTitle = this.translate.instant('activities_exercises');
@@ -82,7 +82,13 @@ export class DifficultyLevelsPage {
   }
 
   selectActivity(activity: any) {
-    this.navCtrl.push("activity-page", {id: activity.id, activity: activity, allActivities: this.activities, uniqueId: 'id'});
+    this.navCtrl.push("activity-page", {
+      lang: this.translate.currentLang,
+      id: activity.id,
+      activity: activity,
+      allActivities: this.activities,
+      uniqueId: 'id'
+    });
   }
 
   goToHome() {

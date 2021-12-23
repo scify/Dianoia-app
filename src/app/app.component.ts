@@ -14,6 +14,10 @@ import {InAppBrowser} from "@ionic-native/in-app-browser";
 import {AppVersion} from "@ionic-native/app-version";
 import {TranslateService} from '@ngx-translate/core';
 import {Globalization} from '@ionic-native/globalization';
+import enTranslations from "./../assets/i18n/en.json";
+import elTranslations from "./../assets/i18n/el.json";
+import esTranslations from "./../assets/i18n/es.json";
+import itTranslations from "./../assets/i18n/it.json";
 
 @Component({
   templateUrl: 'app.html'
@@ -23,6 +27,7 @@ export class MyApp {
 
   rootPage: any = 'HomePage';
   appVersionName: string = '2.2.0';
+  onDemandLang: string;
 
   pages: Array<{ title: string, id?: any, component?: any, pageFile?: string, pageCode?: string, pageName?: string }>;
   languages = [
@@ -52,8 +57,17 @@ export class MyApp {
               private analyticsFirebase: AnalyticsFirebase, private iab: InAppBrowser, private appVersion: AppVersion,
               public translate: TranslateService, public events: Events, private menuController: MenuController,
               private globalization: Globalization) {
+    translate.setTranslation('en', enTranslations);
+    translate.setTranslation('es', esTranslations);
+    translate.setTranslation('el', elTranslations);
+    translate.setTranslation('it', itTranslations);
 
     this.initializeApp(platform, statusBar);
+    this.translate.onLangChange.subscribe(data => {
+      this.onDemandLang = data.lang;
+      this.setLang(data.lang);
+      this.setUpPageElements();
+    });
   }
 
   initializeApp(platform, statusBar) {
@@ -87,14 +101,14 @@ export class MyApp {
     if (acceptableLanguageCodes.indexOf(langCodeToTry) > -1)
       defaultLangCode = langCodeToTry;
 
-    this.translate.setDefaultLang(defaultLangCode);
     this.appStorage.get('app_lang').then(lang => {
       const data = JSON.parse(lang);
       let langCode = defaultLangCode;
       if (data && data != "" && acceptableLanguageCodes.indexOf(data) > -1) {
         langCode = data;
       }
-      this.setLang(langCode);
+      if (!this.onDemandLang)
+        this.setLang(langCode);
     });
 
   }
@@ -124,11 +138,12 @@ export class MyApp {
   }
 
   setLang(langCode) {
+    this.translate.setDefaultLang(langCode);
     this.translate.use(langCode).subscribe(() => {
-      this.appStorage.set('app_lang', this.translate.currentLang);
-      this.events.publish('lang_ready', this.translate.currentLang);
-      this.menuController.close();
-      this.setUpPageElements();
+      this.appStorage.set('app_lang', langCode).then(() => {
+        this.events.publish('lang_ready', langCode);
+        this.menuController.close();
+      });
     });
   }
 
