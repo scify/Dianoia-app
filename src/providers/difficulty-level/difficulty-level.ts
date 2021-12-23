@@ -22,7 +22,7 @@ export class DifficultyLevelProvider {
   }
 
   public getAllDifficultyLevels(): Observable<any> {
-    return this.apiCalls.getHttpCall("activities_all_" + this.currentLang, () => {
+    return this.apiCalls.getHttpCall("difficulty_levels_" + this.currentLang, () => {
       return this.http.get("assets/data_DB/" + this.currentLang + "/difficulty_levels/difficulty_levels.json")
         .map(res => res.json());
     });
