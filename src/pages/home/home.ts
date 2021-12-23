@@ -122,6 +122,7 @@ export class HomePage {
   }
 
   goTo(button) {
+    console.log(button);
     switch (button.id) {
       case "basic_info":
         this.navCtrl.push(button.pageName, {pageData: button});

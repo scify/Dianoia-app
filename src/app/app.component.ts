@@ -148,6 +148,7 @@ export class MyApp {
   }
 
   openPage(page) {
+    console.log(page);
     if (page.id)
       this.getDifficultyLevelsForCategoryAndLoadPage(page.id);
     else
@@ -155,6 +156,7 @@ export class MyApp {
   }
 
   getDifficultyLevelsForCategoryAndLoadPage(categoryId: string): any {
+    console.log(categoryId);
     this.activityCategoryProvider.getActivitiesForCategory(categoryId).subscribe(activitiesIds => {
       if (activitiesIds != null) {
         this.activityProvider.getActivitiesByIds(activitiesIds).then(activities => {
