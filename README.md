@@ -140,7 +140,7 @@ $ ionic cordova platform add browser@5.0.4
 $ ionic cordova build browser
 ```
 
-This will generate a `platforms/browse/www` directory that can be uploaded to a server.
+This will generate a `platforms/browser/www` directory that can be uploaded to a server.
 
 ### GitHub pages
 

@@ -135,7 +135,9 @@ export class ActivityPage {
 
   loadNextActivity(nextActivity, animationDirection) {
     if (nextActivity) {
-      this.navCtrl.push("ActivityPage", {
+      this.navCtrl.push("activity-page", {
+        lang: this.translate.currentLang,
+        id: nextActivity.id,
         activity: nextActivity,
         allActivities: this.allActivities,
         uniqueId: this.activityUniqueId
