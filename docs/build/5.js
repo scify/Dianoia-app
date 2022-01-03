@@ -171,7 +171,7 @@ var ActivityCategoriesPage = /** @class */ (function () {
         this.translate = translate;
         this.platform = platform;
         this.pageTitle = '';
-        this.categories = this.navParams.get("categories");
+        this.categories = this.navParams.get("categories") || [];
         this.translate.onLangChange.subscribe(function () {
             _this.setUpPageElements();
         });
