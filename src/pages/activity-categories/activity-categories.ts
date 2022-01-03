@@ -19,7 +19,7 @@ export class ActivityCategoriesPage {
               private activityCategoryProvider: ActivityCategoryProvider,
               private loaderService: LoaderService, public translate: TranslateService,
               public platform: Platform) {
-    this.categories = this.navParams.get("categories");
+    this.categories = this.navParams.get("categories") || [];
     this.translate.onLangChange.subscribe(() => {
       this.setUpPageElements();
     });
