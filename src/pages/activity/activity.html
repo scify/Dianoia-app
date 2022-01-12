@@ -43,7 +43,7 @@
         <a *ngIf="activity?.link && platform.is('core')" href="{{ activity.link }}" target="_blank">
           <button ion-button icon-left clear small>
             <ion-icon name="ios-link"></ion-icon>
-            <div>{{ 'see_activity' | translate }}</div>
+            <div>{{ 'see_and_print_activity' | translate }}</div>
           </button>
         </a>
         <button mode="ios" *ngIf="activity?.link && !platform.is('core')" ion-button icon-left clear small
