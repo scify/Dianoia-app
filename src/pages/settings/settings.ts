@@ -20,6 +20,7 @@ export class SettingsPage {
 
   notificationOptions: any;
   selectedNotificationId: string;
+  authMode: false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public platform: Platform, private appStorage: AppStorageProvider,
@@ -35,6 +36,7 @@ export class SettingsPage {
     this.translate.onLangChange.subscribe(() => {
       this.setUpPageElements();
     });
+
   }
 
   setUpPageElements() {
@@ -44,6 +46,11 @@ export class SettingsPage {
       {title: this.translate.instant('every_month'), id: 'every_month'},
       {title: this.translate.instant('no_notifications'), id: 'never'}
     ];
+    this.appStorage.get('auth_mode').then(authMode => {
+      if (JSON.parse(authMode)) {
+        this.authMode = JSON.parse(authMode);
+      }
+    })
   }
 
   saveNotificationSettings() {
@@ -64,5 +71,9 @@ export class SettingsPage {
     }
   }
 
+  authModeChanged(event) {
+    this.authMode = event.value;
+    this.appStorage.set('auth_mode', this.authMode);
+  }
 
 }
