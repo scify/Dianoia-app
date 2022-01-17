@@ -18,15 +18,21 @@
             <button mode="ios" ion-button outline>{{ 'select_language' | translate }}</button>
           </ion-label>
           <ion-select (ionChange)="setLang($event)">
-            <ion-option [selected]="lang.code === translate.store.currentLang" *ngFor="let lang of languages" [value]="lang.code">
+            <ion-option [selected]="lang.code === translate.store.currentLang" *ngFor="let lang of languages"
+                        [value]="lang.code">
               {{ lang.name }}
             </ion-option>
           </ion-select>
         </ion-item>
+        <ion-item *ngIf="shapesMode">
+          <ion-label mode="ios">
+            <button mode="ios" ion-button color="danger" large (click)="exitApp()">{{ 'exit' | translate }}</button>
+          </ion-label>
+        </ion-item>
         <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
           {{p.title}}
         </button>
-        <div>
+        <div *ngIf="!shapesMode">
           <button style="padding-top: 12px; padding-bottom: 12px;" padding mode="ios" ion-button
                   *ngIf="!platform.is('cordova')"
                   (click)="openLink('https://play.google.com/store/apps/details?id=org.scify.dianoia.app&hl=el')">

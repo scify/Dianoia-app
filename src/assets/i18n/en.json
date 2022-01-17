@@ -64,5 +64,6 @@
   "cancel": "Cancel",
   "please_wait": "Please wait",
   "activity_translation_singular": "activity",
-  "activity_translation_plural": "activities"
+  "activity_translation_plural": "activities",
+  "exit": "Exit"
 }

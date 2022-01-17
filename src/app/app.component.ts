@@ -28,6 +28,7 @@ export class MyApp {
   rootPage: any = 'HomePage';
   appVersionName: string = '2.2.0';
   onDemandLang: string;
+  shapesMode: false;
 
   pages: Array<{ title: string, id?: any, component?: any, pageFile?: string, pageCode?: string, pageName?: string }>;
   languages = [
@@ -135,6 +136,11 @@ export class MyApp {
       this.splashScreen.hide();
       console.log("DIANOIA_APP_STARTED_LANG_" + this.translate.currentLang);
     }
+    this.appStorage.get('auth_mode').then(authMode => {
+      if (JSON.parse(authMode)) {
+        this.shapesMode = JSON.parse(authMode);
+      }
+    })
   }
 
   setLang(langCode) {
@@ -193,5 +199,16 @@ export class MyApp {
 
   openLink(url) {
     this.iab.create(url);
+  }
+
+  exitApp() {
+    console.log("exitApp");
+    this.http.post("http://ari-8c/action/dianoia_state", {}).subscribe(data => {
+    }, error => {
+      console.error(error);
+      console.log("DIANOIA_APP_FINISHED_LANG_" + this.translate.currentLang);
+    }, () => {
+      console.log("DIANOIA_APP_FINISHED_LANG_" + this.translate.currentLang);
+    });
   }
 }
