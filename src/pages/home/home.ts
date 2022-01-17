@@ -84,6 +84,17 @@ export class HomePage {
         pageFile: "pages/" + this.translate.currentLang + "/value.json"
       }
     ];
+    this.appStorage.get('auth_mode').then(authMode => {
+      if (JSON.parse(authMode)) {
+        console.log(authMode);
+        this.http.post("http://ari-8c/action/dianoia_state", {
+          game_status: "started"
+        }).subscribe(data => {
+        }, error => {
+          console.error(error);
+        });
+      }
+    });
   }
 
   checkForAnnouncement() {

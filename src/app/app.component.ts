@@ -154,7 +154,6 @@ export class MyApp {
   }
 
   openPage(page) {
-    console.log(page);
     if (page.id)
       this.getDifficultyLevelsForCategoryAndLoadPage(page.id);
     else
@@ -202,8 +201,9 @@ export class MyApp {
   }
 
   exitApp() {
-    console.log("exitApp");
-    this.http.post("http://ari-8c/action/dianoia_state", {}).subscribe(data => {
+    this.http.post("http://ari-8c/action/dianoia_state", {
+      game_status: "finished"
+    }).subscribe(data => {
     }, error => {
       console.error(error);
       console.log("DIANOIA_APP_FINISHED_LANG_" + this.translate.currentLang);
