@@ -6,17 +6,17 @@ import {NotificationProvider} from "../../providers/notification/notification";
 import {TranslateService} from "@ngx-translate/core";
 
 /**
- * Generated class for the NotificationsPage page.
+ * Generated class for the SettingsPage page.
  *
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
 @IonicPage()
 @Component({
-  selector: 'page-notifications',
-  templateUrl: 'notifications.html',
+  selector: 'page-settings',
+  templateUrl: 'settings.html',
 })
-export class NotificationsPage {
+export class SettingsPage {
 
   notificationOptions: any;
   selectedNotificationId: string;

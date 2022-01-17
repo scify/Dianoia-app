@@ -127,7 +127,7 @@ export class MyApp {
       {title: this.translate.instant('stories_btn_title'), id: "stories"},
       {title: this.translate.instant('carer_activities_btn_title'), id: "carer_activities"},
       {title: this.translate.instant('history'), component: "StatisticsPage"},
-      {title: this.translate.instant('notification_settings'), component: "NotificationsPage"},
+      {title: this.translate.instant('settings'), component: "SettingsPage"},
       {title: this.translate.instant('help'), component: "HelpPage"},
       {title: this.translate.instant('about'), component: "AboutPage"}
     ];
