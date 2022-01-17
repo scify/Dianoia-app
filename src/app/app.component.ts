@@ -26,7 +26,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any = 'HomePage';
-  appVersionName: string = '2.2.0';
+  appVersionName: string = '2.2.1';
   onDemandLang: string;
   shapesMode: false;
 
