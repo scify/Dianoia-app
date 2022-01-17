@@ -39,6 +39,10 @@ export class SettingsPage {
 
   }
 
+  ionViewWillLoad() {
+    this.setUpPageElements();
+  }
+
   setUpPageElements() {
     this.notificationOptions = [
       {title: this.translate.instant('every_day'), id: 'every_day'},
