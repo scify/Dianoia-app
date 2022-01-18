@@ -4,7 +4,7 @@ import {StatusBar} from "@ionic-native/status-bar";
 import {SplashScreen} from "@ionic-native/splash-screen";
 import {NotificationProvider} from "../providers/notification/notification";
 import {AppStorageProvider} from "../providers/app-storage/app-storage";
-import {Http} from "@angular/http";
+import {Http, URLSearchParams} from "@angular/http";
 import {ActivityCategoryProvider} from "../providers/activity-category/activity-category";
 import {ActivityProvider} from "../providers/activity/activity";
 import {DifficultyLevelProvider} from "../providers/difficulty-level/difficulty-level";
@@ -18,6 +18,7 @@ import enTranslations from "./../assets/i18n/en.json";
 import elTranslations from "./../assets/i18n/el.json";
 import esTranslations from "./../assets/i18n/es.json";
 import itTranslations from "./../assets/i18n/it.json";
+import {ShapesApiProvider} from "../providers/shapes-api/shapes-api";
 
 @Component({
   templateUrl: 'app.html'
@@ -57,7 +58,8 @@ export class MyApp {
               private difficultyLevelProvider: DifficultyLevelProvider, private loaderService: LoaderService,
               private analyticsFirebase: AnalyticsFirebase, private iab: InAppBrowser, private appVersion: AppVersion,
               public translate: TranslateService, public events: Events, private menuController: MenuController,
-              private globalization: Globalization) {
+              private globalization: Globalization,
+              public shapesApiProvider: ShapesApiProvider) {
     translate.setTranslation('en', enTranslations);
     translate.setTranslation('es', esTranslations);
     translate.setTranslation('el', elTranslations);
@@ -93,6 +95,7 @@ export class MyApp {
       } else {
         this.setTranslationSettings(window.navigator.language.substring(0, 2));
       }
+
     });
   }
 
@@ -111,7 +114,12 @@ export class MyApp {
       if (!this.onDemandLang)
         this.setLang(langCode);
     });
+    this.shouldShowLoginPage().then(answer => {
+      if(answer) {
+        this.appStorage.set('auth_token', null);
 
+      }
+    });
   }
 
   setUpPageElements() {
@@ -151,6 +159,40 @@ export class MyApp {
         this.menuController.close();
       });
     });
+  }
+
+  async shouldShowLoginPage(): Promise<any> {
+    return new Promise(async (resolve, reject) => {
+      const authMode = JSON.parse(await this.appStorage.get('auth_mode'));
+      if (!authMode)
+        return resolve(false);
+
+      const tokenParam = this.getAuthTokenURLParam();
+      if (tokenParam) {
+        await this.appStorage.set('auth_token', tokenParam);
+        return resolve(false);
+      }
+      const token = JSON.parse(await this.appStorage.get('auth_token'));
+      if (!token) {
+        return resolve(true);
+      }
+      this.shapesApiProvider.getIsTokenValid(token).subscribe(data => {
+        resolve(false);
+      }, error => {
+        resolve(true)
+      });
+    });
+  }
+
+  getAuthTokenURLParam() {
+    const params = new URLSearchParams(window.location.search);
+    let tokenParamArr = params.paramsMap.get("?auth_token");
+    if(!tokenParamArr)
+      tokenParamArr = [];
+    let tokenParam = null;
+    if(tokenParamArr.length)
+      tokenParam = tokenParamArr[0];
+    return tokenParam;
   }
 
   openPage(page) {

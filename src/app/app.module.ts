@@ -26,6 +26,7 @@ import {AppVersion} from '@ionic-native/app-version';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {Globalization} from "@ionic-native/globalization";
+import {ShapesApiProvider} from "../providers/shapes-api/shapes-api";
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import {Globalization} from "@ionic-native/globalization";
     NotificationProvider,
     AnalyticsFirebase,
     AppVersion,
-    Globalization
+    Globalization,
+    ShapesApiProvider,
   ]
 })
 export class AppModule {

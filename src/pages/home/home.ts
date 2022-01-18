@@ -8,16 +8,20 @@ import {StatusBar} from "@ionic-native/status-bar";
 import {InAppBrowser} from "@ionic-native/in-app-browser";
 import {TranslateService} from "@ngx-translate/core";
 
+let robotAPIStartCalled = false;
+
 @IonicPage()
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
+
 export class HomePage {
 
   activities: any[];
   buttons: any[];
   iconPath: string = 'assets/img/en/icon.png';
+
 
   constructor(public navCtrl: NavController,
               private loaderService: LoaderService, private http: Http,
@@ -85,8 +89,8 @@ export class HomePage {
       }
     ];
     this.appStorage.get('auth_mode').then(authMode => {
-      if (JSON.parse(authMode)) {
-        console.log(authMode);
+      if (JSON.parse(authMode) && !robotAPIStartCalled) {
+        robotAPIStartCalled = true;
         this.http.post("http://ari-8c/action/dianoia_state", {
           game_status: "started"
         }).subscribe(data => {
