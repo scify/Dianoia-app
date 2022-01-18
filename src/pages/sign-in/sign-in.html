@@ -15,80 +15,89 @@
 
 
 <ion-content padding>
+  <ion-grid>
 
-  <form novalidate [formGroup]="signInForm">
+    <ion-row style="margin-bottom: 5rem">
+      <ion-col col-lg-4 col-md-6 col-sm-12 offset-lg-4 offset-md-3 offset-sm-0>
+        <form novalidate [formGroup]="signInForm">
 
-    <ion-item>
-      <ion-label floating>Email</ion-label>
-      <ion-input [formControl]="convertToFormControl(signInForm.controls['email'])"
-                 type="email"></ion-input>
-    </ion-item>
-    <ion-item no-lines
-              *ngIf="( signInForm.get('email').hasError('minlength') || signInForm.get('email').hasError('pattern') ||signInForm.get('email').hasError('required') ) && signInForm.get('email').touched">
-      <div class="error" *ngIf="signInForm.get('email').hasError('required') && signInForm.get('email').touched">
-        Please input your email
-      </div>
-      <div class="error" *ngIf="signInForm.get('email').hasError('pattern') && signInForm.get('email').touched">
-        Email address invalid
-      </div>
-    </ion-item>
-    <ion-item>
-      <ion-label floating>Password</ion-label>
-      <ion-input [formControl]="convertToFormControl(signInForm.controls['password'])"
-                 type="password"></ion-input>
-    </ion-item>
-    <ion-item *ngIf="newAccountMode">
-      <ion-label floating>Password Confirmation</ion-label>
-      <ion-input [formControl]="convertToFormControl(signInForm.controls['password_confirmation'])"
-                 type="password"></ion-input>
-    </ion-item>
-    <ion-item no-lines *ngIf="newAccountMode
+          <ion-item>
+            <ion-label floating>Email</ion-label>
+            <ion-input [formControl]="convertToFormControl(signInForm.controls['email'])"
+                       type="email"></ion-input>
+          </ion-item>
+          <ion-item no-lines
+                    *ngIf="( signInForm.get('email').hasError('minlength') || signInForm.get('email').hasError('pattern') ||signInForm.get('email').hasError('required') ) && signInForm.get('email').touched">
+            <div class="error" *ngIf="signInForm.get('email').hasError('required') && signInForm.get('email').touched">
+              Please input your email
+            </div>
+            <div class="error" *ngIf="signInForm.get('email').hasError('pattern') && signInForm.get('email').touched">
+              Email address invalid
+            </div>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Password</ion-label>
+            <ion-input [formControl]="convertToFormControl(signInForm.controls['password'])"
+                       type="password"></ion-input>
+          </ion-item>
+          <ion-item *ngIf="newAccountMode">
+            <ion-label floating>Password Confirmation</ion-label>
+            <ion-input [formControl]="convertToFormControl(signInForm.controls['password_confirmation'])"
+                       type="password"></ion-input>
+          </ion-item>
+          <ion-item no-lines *ngIf="newAccountMode
     && signInForm.get('password_confirmation').touched
     && signInForm.hasError('mismatchedPasswords')
     && signInForm.get('password').valid">
-      <div class="error">
-        Passwords do not match
-      </div>
-    </ion-item>
-    <ion-item no-lines
-              *ngIf="( signInForm.get('password').hasError('minlength') || signInForm.get('password').hasError('maxlength') ||signInForm.get('password').hasError('required') ) && signInForm.get('password').touched">
-      <div class="error" *ngIf="signInForm.get('password').hasError('required') && signInForm.get('password').touched">
-        Please enter your password
-      </div>
-      <div class="error" *ngIf="signInForm.get('password').hasError('minlength') && signInForm.get('password').touched">
-        Minimum 6 characters
-      </div>
-      <div class="error" *ngIf="signInForm.get('password').hasError('maxlength') && signInForm.get('password').touched">
-        Maximum 12 characters
-      </div>
-    </ion-item>
-    <ion-row style="margin-top: 2rem">
-      <ion-col text-center>
-        <h5 *ngIf="errorText" ion-text color="danger">{{ errorText }}</h5>
-      </ion-col>
-    </ion-row>
-    <ion-row style="margin-top: 2rem">
-      <ion-col text-center>
-        <button *ngIf="newAccountMode" [disabled]="signInForm.invalid" mode="ios" ion-button block color="primary"
-                (click)="onSignUp()">
-          Sign Up
-        </button>
-        <button *ngIf="!newAccountMode" [disabled]="signInForm.invalid" mode="ios" ion-button block color="primary"
-                (click)="onLogIn()">
-          Login
-        </button>
-      </ion-col>
-    </ion-row>
-    <ion-row style="margin-top: 2rem" class="mode-buttons">
-      <ion-col text-left>
-        <h5 *ngIf="!newAccountMode" ion-text color="primary">No Account? Click <a
-          (click)="setNewAccountMode(true)">here</a> to create one.</h5>
-        <h5 *ngIf="newAccountMode" ion-text color="primary">Already a member? Click <a
-          (click)="setNewAccountMode(false)">here</a>
-          to sign in.</h5>
-      </ion-col>
-    </ion-row>
+            <div class="error">
+              Passwords do not match
+            </div>
+          </ion-item>
+          <ion-item no-lines
+                    *ngIf="( signInForm.get('password').hasError('minlength') || signInForm.get('password').hasError('maxlength') ||signInForm.get('password').hasError('required') ) && signInForm.get('password').touched">
+            <div class="error"
+                 *ngIf="signInForm.get('password').hasError('required') && signInForm.get('password').touched">
+              Please enter your password
+            </div>
+            <div class="error"
+                 *ngIf="signInForm.get('password').hasError('minlength') && signInForm.get('password').touched">
+              Minimum 6 characters
+            </div>
+            <div class="error"
+                 *ngIf="signInForm.get('password').hasError('maxlength') && signInForm.get('password').touched">
+              Maximum 12 characters
+            </div>
+          </ion-item>
+          <ion-row style="margin-top: 2rem">
+            <ion-col text-center>
+              <h5 *ngIf="errorText" ion-text color="danger">{{ errorText }}</h5>
+            </ion-col>
+          </ion-row>
+          <ion-row style="margin-top: 2rem">
+            <ion-col text-center>
+              <button *ngIf="newAccountMode" [disabled]="signInForm.invalid" mode="ios" ion-button block color="primary"
+                      (click)="onSignUp()">
+                Sign Up
+              </button>
+              <button *ngIf="!newAccountMode" [disabled]="signInForm.invalid" mode="ios" ion-button block
+                      color="primary"
+                      (click)="onLogIn()">
+                Login
+              </button>
+            </ion-col>
+          </ion-row>
+          <ion-row style="margin-top: 2rem" class="mode-buttons">
+            <ion-col text-left>
+              <h5 *ngIf="!newAccountMode" ion-text color="primary">No Account? Click <a
+                (click)="setNewAccountMode(true)">here</a> to create one.</h5>
+              <h5 *ngIf="newAccountMode" ion-text color="primary">Already a member? Click <a
+                (click)="setNewAccountMode(false)">here</a>
+                to sign in.</h5>
+            </ion-col>
+          </ion-row>
 
-  </form>
-
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
