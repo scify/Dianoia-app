@@ -37,4 +37,17 @@ export class ShapesApiProvider {
     return this.http.get(this.BASE_URL + "token/verify", httpOptions);
   }
 
+  public signUpUser(data) {
+    const httpOptions = {
+      headers: new Headers(this.COMMON_HEADERS)
+    };
+    return this.http.post(this.BASE_URL + "register", data, httpOptions);
+  }
+
+  public logInUser(data) {
+    const httpOptions = {
+      headers: new Headers(this.COMMON_HEADERS)
+    };
+    return this.http.post(this.BASE_URL + "login", data, httpOptions);
+  }
 }

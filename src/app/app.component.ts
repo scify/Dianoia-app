@@ -115,9 +115,10 @@ export class MyApp {
         this.setLang(langCode);
     });
     this.shouldShowLoginPage().then(answer => {
-      if(answer) {
+      if (answer) {
         this.appStorage.set('auth_token', null);
-
+        console.log("going to sign up page");
+        this.nav.setRoot("SignInPage");
       }
     });
   }
@@ -187,10 +188,10 @@ export class MyApp {
   getAuthTokenURLParam() {
     const params = new URLSearchParams(window.location.search);
     let tokenParamArr = params.paramsMap.get("?auth_token");
-    if(!tokenParamArr)
+    if (!tokenParamArr)
       tokenParamArr = [];
     let tokenParam = null;
-    if(tokenParamArr.length)
+    if (tokenParamArr.length)
       tokenParam = tokenParamArr[0];
     return tokenParam;
   }
