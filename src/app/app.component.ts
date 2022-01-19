@@ -73,54 +73,54 @@ export class MyApp {
     });
   }
 
-  initializeApp(platform, statusBar) {
-    this.platform.ready().then(() => {
-      if (this.platform.is('cordova')) {
-        this.appVersion.getVersionNumber().then((version) => this.appVersionName = version);
+  async initializeApp(platform, statusBar) {
+    this.loaderService.showLoader();
+    await this.platform.ready();
+    if (this.platform.is('cordova')) {
+      this.appVersion.getVersionNumber().then((version) => this.appVersionName = version);
 
-        if (platform.is('android')) {
-          statusBar.overlaysWebView(false);
-          statusBar.backgroundColorByHexString("#002984");
-          statusBar.styleBlackOpaque();
-        } else {
-          statusBar.overlaysWebView(true);
-          statusBar.styleDefault();
-        }
-
-        this.localNotifications.listenForNotificationClicks();
-        this.setUpAnalyticsLogger();
-        this.globalization.getPreferredLanguage().then((res) => {
-          this.setTranslationSettings(res.value.substring(0, 2));
-        });
+      if (platform.is('android')) {
+        statusBar.overlaysWebView(false);
+        statusBar.backgroundColorByHexString("#002984");
+        statusBar.styleBlackOpaque();
       } else {
-        this.setTranslationSettings(window.navigator.language.substring(0, 2));
+        statusBar.overlaysWebView(true);
+        statusBar.styleDefault();
       }
 
-    });
+      this.localNotifications.listenForNotificationClicks();
+      this.setUpAnalyticsLogger();
+      this.globalization.getPreferredLanguage().then((res) => {
+        this.setTranslationSettings(res.value.substring(0, 2));
+      });
+    } else {
+      this.setTranslationSettings(window.navigator.language.substring(0, 2));
+    }
+
   }
 
-  setTranslationSettings(langCodeToTry) {
+  async setTranslationSettings(langCodeToTry) {
     const acceptableLanguageCodes = this.languages.map(l => l.code);
     let defaultLangCode = acceptableLanguageCodes[0];
     if (acceptableLanguageCodes.indexOf(langCodeToTry) > -1)
       defaultLangCode = langCodeToTry;
 
-    this.appStorage.get('app_lang').then(lang => {
-      const data = JSON.parse(lang);
-      let langCode = defaultLangCode;
-      if (data && data != "" && acceptableLanguageCodes.indexOf(data) > -1) {
-        langCode = data;
-      }
-      if (!this.onDemandLang)
-        this.setLang(langCode);
-    });
-    this.shouldShowLoginPage().then(answer => {
-      if (answer) {
-        this.appStorage.set('auth_token', null);
-        console.log("going to sign up page");
-        this.nav.setRoot("SignInPage");
-      }
-    });
+    let appLang = JSON.parse(await this.appStorage.get('app_lang'));
+    let langCode = defaultLangCode;
+    if (appLang && appLang != "" && acceptableLanguageCodes.indexOf(appLang) > -1) {
+      langCode = appLang;
+    }
+    if (!this.onDemandLang)
+      this.setLang(langCode);
+    const shouldShowLoginPage = await this.shouldShowLoginPage()
+    if (shouldShowLoginPage) {
+      await this.appStorage.set('auth_token', null);
+      this.nav.setRoot("SignInPage").then(() => {
+        this.loaderService.hideLoader();
+      });
+    } else {
+      this.loaderService.hideLoader();
+    }
   }
 
   setUpPageElements() {
