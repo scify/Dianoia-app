@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {IonicPage, ModalController, NavController, NavParams} from 'ionic-angular';
 import {PageProvider} from "../../providers/page/page";
+import {SimpleCardComponent} from "../../components/simple-card/simple-card";
 
 /**
  * Generated class for the InfoListPage page.
@@ -25,14 +26,18 @@ export class InfoListPage {
   cards: [any];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-              private pageProvider: PageProvider) {
+              private pageProvider: PageProvider, public modalCtrl: ModalController) {
     let pageData = this.navParams.get("pageData");
-    this.pageFile = pageData.pageFile;
-    this.pageCode = pageData.pageCode;
+    if (!pageData)
+      this.navCtrl.setRoot("HomePage");
+    else {
+      this.pageFile = pageData.pageFile;
+      this.pageCode = pageData.pageCode;
+    }
   }
 
   ionViewDidLoad() {
-    if(this.pageCode != null && this.pageFile != null)
+    if (this.pageCode != null && this.pageFile != null)
       this.pageProvider.getDataForPage(this.pageCode, this.pageFile).subscribe(pageData => {
         this.title = pageData.title;
         this.description = pageData.description;
@@ -43,8 +48,11 @@ export class InfoListPage {
       });
   }
 
-  selectCard(card) {
-    this.navCtrl.push("ActivityPage", {activity: card, allActivities: this.cards, uniqueId: 'title'});
+  showCard(card) {
+    let modal = this.modalCtrl.create(SimpleCardComponent, {
+      card: card
+    });
+    modal.present();
   }
 
 }

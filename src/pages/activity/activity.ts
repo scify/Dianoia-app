@@ -15,7 +15,7 @@ import {AppStorageProvider} from "../../providers/app-storage/app-storage";
  */
 @IonicPage({
   name: 'activity-page',
-  segment: 'activities/:lang/:id'
+  segment: 'activities/:lang/:slug'
 })
 @Component({
   selector: 'page-activity',
@@ -25,7 +25,6 @@ export class ActivityPage {
   activity: any;
   dailyActivityCompleted: boolean = false;
   allActivities: any = [];
-  activityUniqueId: string;
   currentLang: string = 'en';
   setUpInProgress: boolean = false;
 
@@ -35,7 +34,7 @@ export class ActivityPage {
               private viewCtrl: ViewController, private translate: TranslateService, public appStorage: AppStorageProvider,
               public events: Events) {
 
-    this.activityUniqueId = this.navParams.get("uniqueId");
+
     const paramLang = this.navParams.get("lang");
     const langs = ['en', 'el', 'it', 'es'];
     this.translate.onLangChange.subscribe(() => {
@@ -86,9 +85,9 @@ export class ActivityPage {
       if (activityObj)
         resolve(activityObj);
       else {
-        const paramId = instance.navParams.get("id");
-        if (paramId) {
-          instance.activityProvider.getActivitiesByIds([paramId]).then(activities => {
+        const slug = instance.navParams.get("slug");
+        if (slug) {
+          instance.activityProvider.getActivitiesBySlugs([slug]).then(activities => {
             if (!activities.length)
               resolve(instance.getRandomActivity());
             else
@@ -101,46 +100,24 @@ export class ActivityPage {
     });
   }
 
-  nextActivity() {
+  nextActivity(next) {
+    const direction = next ? 'forward' : 'back';
     for (let i = 0; i < this.allActivities.length; i++) {
-      if (this.activityUniqueId == 'title') {
-        if (this.activity.title == this.allActivities[i].title) {
-          this.loadNextActivity(this.allActivities[i + 1], 'forward');
-          break;
-        }
-      } else if (this.activityUniqueId == 'id') {
-        if (this.activity.id == this.allActivities[i].id) {
-          this.loadNextActivity(this.allActivities[i + 1], 'forward');
-          break;
-        }
+      if (this.activity.slug == this.allActivities[i].slug) {
+        const index = next ? (i + 1) : (i - 1);
+        this.loadActivity(this.allActivities[index], direction);
+        break;
       }
     }
   }
 
-  previousActivity() {
-    for (let i = 0; i < this.allActivities.length; i++) {
-      if (this.activityUniqueId == 'title') {
-        if (this.activity.title == this.allActivities[i].title) {
-          this.loadNextActivity(this.allActivities[i - 1], 'back');
-          break;
-        }
-      } else if (this.activityUniqueId == 'id') {
-        if (this.activity.id == this.allActivities[i].id) {
-          this.loadNextActivity(this.allActivities[i - 1], 'back');
-          break;
-        }
-      }
-    }
-  }
-
-  loadNextActivity(nextActivity, animationDirection) {
+  loadActivity(nextActivity, animationDirection) {
     if (nextActivity) {
       this.navCtrl.push("activity-page", {
         lang: this.translate.currentLang,
-        id: nextActivity.id,
+        slug: nextActivity.slug,
         activity: nextActivity,
-        allActivities: this.allActivities,
-        uniqueId: this.activityUniqueId
+        allActivities: this.allActivities
       }, {animate: true, animation: 'ios-transition', direction: animationDirection}).then(() => {
         const index = this.viewCtrl.index;
         this.navCtrl.remove(index);
@@ -198,9 +175,9 @@ export class ActivityPage {
 
   swipeActivity(event) {
     if (event.direction == 2) {
-      this.nextActivity();
+      this.nextActivity(true);
     } else if (event.direction == 4) {
-      this.previousActivity();
+      this.nextActivity(true);
     }
   }
 

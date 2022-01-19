@@ -43,20 +43,6 @@ export class ActivityProvider {
     });
   }
 
-  public getRandomActivity() {
-    return new Promise((resolve, reject) => {
-      if (!this.activities.length) {
-        this.getAllActivities().subscribe(activities => {
-          let randomActivity = activities[Math.floor(Math.random() * activities.length)];
-          resolve(randomActivity);
-        });
-      } else {
-        let randomActivity = this.activities[Math.floor(Math.random() * this.activities.length)];
-        resolve(randomActivity);
-      }
-    });
-  }
-
 
   public getNumberOfActivitiesForLastThreeMonths() {
     let currentDate = new Date();
@@ -94,14 +80,14 @@ export class ActivityProvider {
     return Promise.all(promises);
   }
 
-  public getActivitiesByIds(activityIds: Array<string>): Promise<any> {
+  public getActivitiesBySlugs(activitySlugs: Array<string>): Promise<any> {
     let activitiesToReturn = [];
     return new Promise((resolve, reject) => {
       if (!this.activities.length) {
         this.getAllActivities().subscribe(activities => {
           this.activities = activities;
           for (let activity of activities) {
-            if (activityIds.indexOf(activity.id) > -1) {
+            if (activitySlugs.indexOf(activity.slug) > -1) {
               activitiesToReturn.push(activity);
             }
           }
@@ -109,7 +95,7 @@ export class ActivityProvider {
         });
       } else {
         for (let activity of this.activities) {
-          if (activityIds.indexOf(activity.id) > -1) {
+          if (activitySlugs.indexOf(activity.slug) > -1) {
             activitiesToReturn.push(activity);
           }
         }

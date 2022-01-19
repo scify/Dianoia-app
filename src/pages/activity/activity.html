@@ -21,14 +21,14 @@
       <ion-row class="navigationContainer">
         <ion-col col-6 style="text-align: left">
           <button mode="ios" *ngIf="activityIsNotFirst()" class="activityNavigationBtn" no-padding ion-button icon-left
-                  clear small (click)="previousActivity()">
+                  clear small (click)="nextActivity(false)">
             <ion-icon class="navLeft" name="ios-arrow-back"></ion-icon>
             <div>{{ 'previous' | translate }}</div>
           </button>
         </ion-col>
         <ion-col col-6 style="text-align: right">
           <button mode="ios" *ngIf="activityIsNotLast()" class="activityNavigationBtn" no-padding ion-button icon-left
-                  clear small (click)="nextActivity()">
+                  clear small (click)="nextActivity(true)">
             <div>{{ 'next' | translate }}</div>
             <ion-icon class="navRight" name="ios-arrow-forward"></ion-icon>
           </button>
@@ -72,7 +72,7 @@
         </button>
       </ion-item>
       <ion-item text-wrap *ngIf="activity?.link && platform.is('cordova')">
-        <button mode="ios" style="margin-bottom: 10px" *ngIf="activity?.id" clear ion-button icon-left small
+        <button mode="ios" style="margin-bottom: 10px" *ngIf="activity?.slug" clear ion-button icon-left small
                 [disabled]="dailyActivityCompleted"
                 (click)="activityDoneForToday()">
           <ion-icon name="thumbs-up"></ion-icon>

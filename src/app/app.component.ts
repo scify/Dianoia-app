@@ -113,8 +113,9 @@ export class MyApp {
     if (!this.onDemandLang)
       this.setLang(langCode);
     const shouldShowLoginPage = await this.shouldShowLoginPage()
+    console.log('shouldShowLoginPage', shouldShowLoginPage);
     if (shouldShowLoginPage) {
-      await this.appStorage.set('auth_token', null);
+      // await this.appStorage.set('auth_token', null);
       this.nav.setRoot("SignInPage").then(() => {
         this.loaderService.hideLoader();
       });
@@ -178,6 +179,7 @@ export class MyApp {
         return resolve(true);
       }
       this.shapesApiProvider.getIsTokenValid(token).subscribe(data => {
+        console.log('token valid', data.json());
         resolve(false);
       }, error => {
         resolve(true)
@@ -207,7 +209,7 @@ export class MyApp {
     console.log(categoryId);
     this.activityCategoryProvider.getActivitiesForCategory(categoryId).subscribe(activitiesIds => {
       if (activitiesIds != null) {
-        this.activityProvider.getActivitiesByIds(activitiesIds).then(activities => {
+        this.activityProvider.getActivitiesBySlugs(activitiesIds).then(activities => {
           this.getDifficultyLevelsForActivitiesAndLoadPage(activities, categoryId);
         }, error => {
           this.handleError(error);

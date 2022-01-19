@@ -1,6 +1,6 @@
 [
   {
-    "id": "activity_1",
+    "slug": "activity_1",
     "title":"Word categories",
     "description": "Find words for every category that is asked of you.",
     "full_text": "",
@@ -11,7 +11,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_2",
+    "slug": "activity_2",
     "title":"Memorize word list",
     "description": "Try to keep in mind the words list",
     "full_text": "",
@@ -22,7 +22,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_3",
+    "slug": "activity_3",
     "title":"Remember the shopping list",
     "description": "Try to keep in mind the grocery list",
     "full_text": "",
@@ -33,7 +33,7 @@
     "difficulty_level_id": "difficulty_level_2"
   },
   {
-    "id": "activity_4",
+    "slug": "activity_4",
     "title":"Complete the sentences",
     "description": "Complete the following sentences with the appropriate words, so that they have meaning.",
     "full_text": "",
@@ -44,7 +44,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_5",
+    "slug": "activity_5",
     "title":"Find the word",
     "description": "Read the three key-words and try to find which word they describe, like in the example.",
     "full_text": "",
@@ -55,7 +55,7 @@
     "difficulty_level_id": "difficulty_level_2"
   },
   {
-    "id": "activity_6",
+    "slug": "activity_6",
     "title":"Color and think - Double work exercise",
     "description": "Color the following shapes and at the same time name what is asked of you.",
     "full_text": "",
@@ -66,7 +66,7 @@
     "difficulty_level_id": "difficulty_level_2"
   },
   {
-    "id": "activity_7",
+    "slug": "activity_7",
     "title":"Shading shapes",
     "description": "Copy the shapes, shading the respective squares.",
     "full_text": "",
@@ -77,7 +77,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_8",
+    "slug": "activity_8",
     "title":"Copy correctly",
     "description": "Try to copy the numbers on the same positions.",
     "full_text": "",
@@ -88,7 +88,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_9",
+    "slug": "activity_9",
     "title":"Semantic categories",
     "description": "Circle the relevant words",
     "full_text": "",
@@ -99,7 +99,7 @@
     "difficulty_level_id": "difficulty_level_2"
   },
   {
-    "id": "activity_10",
+    "slug": "activity_10",
     "title":"Name - Animal - Object - Plant",
     "description": "Find a word in each category, that begins with the letter given to you.",
     "full_text": "",
@@ -110,7 +110,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_11",
+    "slug": "activity_11",
     "title":"Synonyms - Antonyms",
     "description": "Find a synonym and an antonym for everyone of the following words.",
     "full_text": "",
@@ -121,7 +121,7 @@
     "difficulty_level_id": "difficulty_level_2"
   },
   {
-    "id": "activity_12",
+    "slug": "activity_12",
     "title":"Participation in housekeeping",
     "description": "The participation of a patient in daily housekeeping is important, because it contributes to the maintenance of crucial autonomy skills. Also, this process makes the patient feel useful and boosts his/her self-esteem. Most patients are willing to participate, if you suggest to them to do housework that they did in the past. If the patient needs guidance, offer it discreetly.",
     "full_text": "",
@@ -132,7 +132,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_13",
+    "slug": "activity_13",
     "title":"Transactions with public services - Shopping",
     "description": "Transactions with public services (banks, IRS) are a good way for the patient to manage his/her personal affairs. Also, shopping in various stores is a chance for him/her to exercise his/her ability to handle money. Remember that your discreet help during the mentioned activities may be necessary.",
     "full_text": "",
@@ -143,7 +143,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_14",
+    "slug": "activity_14",
     "title":"Conversation",
     "description": "The participation of the patient in conversations of various subjects is one of the most basic ways to activate his/her cognitive functions. The subjects on which you can talk about are endless: talk about family issues, for current affairs, for the activities of the previous days or ask the patient to give you his/her advice on a matter. His/Her active participation in discussions exercises not only the production of oral speech but also a multitude of other functions, like for example memory and judgement.",
     "full_text": "",
@@ -154,7 +154,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_15",
+    "slug": "activity_15",
     "title":"Reminiscing the past",
     "description": "A characteristic symptom of the Alzheimer's disease is that the patient that suffers from it forgets the current events, while he/she is able to recall detailed events from the past. Take advantage of that ability to share memories of past decades. Use all the means available to you, to wake up memories: photographs, personal items of the patient, objects of his/her childhood, familiar scents, old favourite songs, mementos from travels. Do not pressure the patient to remember people or events. That would cause feelings of angst, disappointment and frustration. If he/she is not able to, help him/her by telling him/her the information he/she is looking for.",
     "full_text": "",
@@ -165,7 +165,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_16",
+    "slug": "activity_16",
     "title":"Music and singing",
     "description": "Try to listen with the patient to the genre of music that he/she likes. Sing together old favourite songs. Ask from the patient to play a simple melody to the piano. The positive effect of music to the patient’s mood will be apparent no matter what form of it you use.",
     "full_text": "",
@@ -176,7 +176,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_17",
+    "slug": "activity_17",
     "title":"Hobbies",
     "description": "If there is a hobby which brings the patient pleasure, encourage him/her to continue with it. Activities like embroidery, knitting, painting or even fishing, exercise various of his/her skills and give him/her a chance to experience the gratification of achieving a goal. The skills associated with the hobbies are usually maintained for years after the manifestation of the disease. Remember that the patients that are in the middle stages of the disease usually need the help of the carer to begin and complete successfully the activity.",
     "full_text": "",
@@ -187,7 +187,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_18",
+    "slug": "activity_18",
     "title":"Reading",
     "description": "Reading is an excellent form of mental exercise and that is why it is recommended to the patients with a mild or moderate form of Alzheimer’s disease as a particularly beneficial activity. The kind of reading material chosen is dependent on the abilities and the interests of the patient. Some patients enjoy reading literary works, while others prefer reading the paper or magazines.",
     "full_text": "",
@@ -198,7 +198,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_19",
+    "slug": "activity_19",
     "title":"Board games",
     "description": "Cards, backgammon, chess, Scrabble and puzzles are some of the board games that people of all ages enjoy. Play with your loved one games that you know that he/she knew and enjoyed in the past or try playing some of them for the first time.",
     "full_text": "",
@@ -209,7 +209,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_20",
+    "slug": "activity_20",
     "title":"Games with pencil and paper",
     "description": "Spend a pleasant afternoon with the patient, playing with him/her simple games that only requires paper and a pencil. Games like hangman, tic/tac/toe and connect the dots will remind him/her of his/her childhood and mobilize him/her mentally. Print games can be another form of mental exercise, mainly for patients with a mild case of Alzheimer’s disease. A prime example are crosswords, who exercise effectively the memory and the ability of the patients to express themselves, using the appropriate words.",
     "full_text": "",
@@ -220,7 +220,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_21",
+    "slug": "activity_21",
     "title":"Television",
     "description": "Television channels offer a wide variety of shows from which you can choose those that will benefit the patient most. Watch quiz shows and try to find together the correct answers. Watch the news and exchange opinions about current events. Watch a movie and talk about its plot.",
     "full_text": "",
@@ -231,7 +231,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_22",
+    "slug": "activity_22",
     "title":"Writing",
     "description": "Many older people find the idea of writing their memories and their personal experiences interesting, that way leaving behind a written text that they could read to their children and grandchildren. That is a creative activity with which the patients in the early stages of the disease can be occupied.",
     "full_text": "",
@@ -242,7 +242,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_23",
+    "slug": "activity_23",
     "title":"Excursions - Travels",
     "description": "Choose and organize together with your loved one an outing. For example, you can drink your coffee next to the sea, enjoy your meal at a tavern, visit a museum, watch a play in the theatre or go to the cinema. After the completion of the activity, talk about it.",
     "full_text": "",
@@ -253,7 +253,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_24",
+    "slug": "activity_24",
     "title":"Physical exercise",
     "description": "Physical exercise helps maintain the existing physical and mental abilities of the patient for longer. The kind of exercise that is suggested, is dependent on the condition of the patient. On many occasions, physical exercise can be achieved through other activities. For example, a patient walking the dog, going shopping to the market or being a member of the traditional dances group in the Senior Center of his/her area, is an indirect way to exercise.",
     "full_text": "",
@@ -264,7 +264,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_25",
+    "slug": "activity_25",
     "title":"\"The lost necklace\"",
     "description": "You are on a cruise to the islands of the Aegean. You have looked forward to this trip for a while! We all need some rest, and the greek islands are the perfect destination for that.",
     "full_text": "",
@@ -275,7 +275,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_26",
+    "slug": "activity_26",
     "title":"\"The surprise party\"",
     "description": "The whole gang knows that in a little while it’s Antonia’s 70th birthday. Someone had the idea to organise a little surprise party...",
     "full_text": "",
@@ -287,7 +287,7 @@
     "help_link": "https://go.scify.gr/dianoia17"
   },
   {
-    "id": "activity_27",
+    "slug": "activity_27",
     "title":"Chatter Boxing",
     "description": "Find 10 words that begin with the letters that you are given each time and then create full sentences.",
     "full_text": "",
@@ -298,7 +298,7 @@
     "difficulty_level_id": "difficulty_level_2"
   },
   {
-    "id": "activity_28",
+    "slug": "activity_28",
     "title":"Correct the mistake (normal difficulty)",
     "description": "From the following words erase those that are written wrong and rewrite them correctly on the right.",
     "full_text": "",
@@ -309,7 +309,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_29",
+    "slug": "activity_29",
     "title":"\"In Labrini’s Garden\"",
     "description": "Labrini from the old town house next door is holding up well for her age. She lives alone and manages everything: the house plus a little garden full of flowers. How in the world did she fit all those flowers?",
     "full_text": "",
@@ -320,7 +320,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_30",
+    "slug": "activity_30",
     "title": "\"Proud of the grandchildren\"",
     "description": "Monica’s grandchildren, three boys and three girls, are one of the usual topics of conversation among our gang. We meet them often in Monica’s garden when they visit her. Once we actually heard them say that they are lucky, because they have many grandfathers and grandmothers.",
     "full_text": "",
@@ -332,7 +332,7 @@
     "help_link": "https://go.scify.gr/dianoia20"
   },
   {
-    "id": "activity_31",
+    "slug": "activity_31",
     "title": "\"The secret storyteller\"",
     "description": "Nicolas the teacher is one of the oldest members of our gang. Now retired and single, Nicolas is a sweet and likable man, but always serious. A kind, patient and quiet man.",
     "full_text": "",
@@ -344,7 +344,7 @@
     "help_link": "https://go.scify.gr/dianoia22"
   },
   {
-    "id": "activity_32",
+    "slug": "activity_32",
     "title": "Alternate",
     "description": "Find animals and plants for every alphabet letter, alternating between them: an animal for the first letter, a plant (tree, flower ect.) for the next and so on.",
     "full_text": "",
@@ -355,7 +355,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_33",
+    "slug": "activity_33",
     "title":"Correct the mistake (hard difficulty)",
     "description": "Something is wrong with the following words. They have some typographical error. Correct it, so that there is a meaning.",
     "full_text": "",
@@ -366,7 +366,7 @@
     "difficulty_level_id": "difficulty_level_2"
   },
   {
-    "id": "activity_34",
+    "slug": "activity_34",
     "title": "Possible reasons",
     "description": "Give possible reasons that may have led to the following circumstances.",
     "full_text": "",
@@ -377,7 +377,7 @@
     "difficulty_level_id": "difficulty_level_2"
   },
   {
-    "id": "activity_35",
+    "slug": "activity_35",
     "title":"Alphabetical order",
     "description": "Put the following words in alphabetical order.",
     "full_text": "",
@@ -388,7 +388,7 @@
     "difficulty_level_id": "difficulty_level_2"
   },
   {
-    "id": "activity_37",
+    "slug": "activity_37",
     "title":"Speech Flow",
     "description": "Find as many words as you can in each category.",
     "full_text": "",
@@ -399,7 +399,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_38",
+    "slug": "activity_38",
     "title":"Associations",
     "description": "For every word given to you below, find five associated words that come to mind.",
     "full_text": "",
@@ -410,7 +410,7 @@
     "difficulty_level_id": "difficulty_level_2"
   },
   {
-    "id": "activity_39",
+    "slug": "activity_39",
     "title":"Creation of Sentences",
     "description": "For every word you are given below, make a sentence.",
     "full_text": "",
@@ -421,7 +421,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_40",
+    "slug": "activity_40",
     "title":"Weekly Program of Activities",
     "description": "Create your weekly program with your activities.",
     "full_text": "",
@@ -432,7 +432,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_41",
+    "slug": "activity_41",
     "title":"Mindfulness Technique",
     "description": "Use of the Mindfulness technique to decrease the symptoms of stress and depression.",
     "full_text": "",
@@ -443,7 +443,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_42",
+    "slug": "activity_42",
     "title":"Relaxation Techniques",
     "description": "Relaxation techniques (Diaphragmatic breathing, Guided fantasy) to relieve stress.",
     "full_text": "",
@@ -454,7 +454,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_43",
+    "slug": "activity_43",
     "title":"Sources & Bibliography",
     "description": "Links of bibliographic sources for the carers’s exercises.",
     "full_text": "",

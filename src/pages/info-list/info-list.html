@@ -38,7 +38,7 @@
 
 
   <div class="activitiesContainer" *ngIf='cards?.length > 0'>
-    <cards-list [cards]="cards" (cardClick)="selectCard($event)"></cards-list>
+    <cards-list [cards]="cards" (cardClick)="showCard($event)"></cards-list>
   </div>
 
 </ion-content>

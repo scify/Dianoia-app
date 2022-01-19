@@ -27,10 +27,12 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {Globalization} from "@ionic-native/globalization";
 import {ShapesApiProvider} from "../providers/shapes-api/shapes-api";
+import {SimpleCardComponent} from "../components/simple-card/simple-card";
 
 @NgModule({
   declarations: [
-    MyApp
+    MyApp,
+    SimpleCardComponent
   ],
   imports: [
     HttpModule,
@@ -47,7 +49,8 @@ import {ShapesApiProvider} from "../providers/shapes-api/shapes-api";
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp
+    MyApp,
+    SimpleCardComponent
   ],
   providers: [
     StatusBar,

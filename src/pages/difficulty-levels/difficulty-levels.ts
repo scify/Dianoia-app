@@ -47,7 +47,7 @@ export class DifficultyLevelsPage {
 
     this.activityCategoryProvider.getActivitiesForCategory(this.categoryId).subscribe(activitiesIds => {
       if (activitiesIds != null) {
-        this.activityProvider.getActivitiesByIds(activitiesIds).then(activities => {
+        this.activityProvider.getActivitiesBySlugs(activitiesIds).then(activities => {
           this.allActivities = activities;
           this.activities = activities;
           this.difficultyLevelProvider.getDifficultyLevelsForActivities(activities).then(difficultyLevels => {
@@ -84,10 +84,9 @@ export class DifficultyLevelsPage {
   selectActivity(activity: any) {
     this.navCtrl.push("activity-page", {
       lang: this.translate.currentLang,
-      id: activity.id,
+      slug: activity.slug,
       activity: activity,
-      allActivities: this.activities,
-      uniqueId: 'id'
+      allActivities: this.activities
     });
   }
 

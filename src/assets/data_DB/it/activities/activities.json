@@ -1,6 +1,6 @@
 [
   {
-    "id": "activity_1",
+    "slug": "activity_1",
     "title":"Categorie di parole",
     "description": "Trova parole per ogni categoria che ti viene richiesta",
     "full_text": "",
@@ -11,7 +11,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_2",
+    "slug": "activity_2",
     "title":"Memorizza l'elenco delle parole",
     "description": "L'utente deve memorizzare le parole e vedere quale di esse è cambiata.",
     "full_text": "",
@@ -22,7 +22,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_3",
+    "slug": "activity_3",
     "title":"Ricorda la lista",
     "description": "Cerca di mantenere nella tua memoria una lista di elementi.",
     "full_text": "",
@@ -33,7 +33,7 @@
     "difficulty_level_id": "difficulty_level_2"
   },
   {
-    "id": "activity_4",
+    "slug": "activity_4",
     "title":"Completa le frasi",
     "description": "Completa le seguenti frasi con le parole appropriate in modo che esse abbiano senso.",
     "full_text": "",
@@ -44,7 +44,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_5",
+    "slug": "activity_5",
     "title":"Trova la parola",
     "description": "Leggi le 3 parole chiave e cerca di trovare quale parola descrivono",
     "full_text": "",
@@ -55,7 +55,7 @@
     "difficulty_level_id": "difficulty_level_2"
   },
   {
-    "id": "activity_6",
+    "slug": "activity_6",
     "title":"Coloro e penso",
     "description": "Colora le seguenti forme e allo stesso tempo elenca quello che ti viene richiesto.",
     "full_text": "",
@@ -66,7 +66,7 @@
     "difficulty_level_id": "difficulty_level_2"
   },
   {
-    "id": "activity_7",
+    "slug": "activity_7",
     "title":"Disegno di forme",
     "description": "Copia I disegni disegnando I quadrati corrispondenti.",
     "full_text": "",
@@ -77,7 +77,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_8",
+    "slug": "activity_8",
     "title":"Copia correttamente",
     "description": "Prova a copiare I numeri nelle stesse posizioni.",
     "full_text": "",
@@ -88,7 +88,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_9",
+    "slug": "activity_9",
     "title":"Categorie semantiche",
     "description": "Sottolinea o cerchia le parole che appartengono alle categorie.",
     "full_text": "",
@@ -99,7 +99,7 @@
     "difficulty_level_id": "difficulty_level_2"
   },
   {
-    "id": "activity_10",
+    "slug": "activity_10",
     "title":"Nome Animale Cosa Pianta",
     "description": "Trova una parola in ogni categoria che inizi con la lettera che ti viene data.",
     "full_text": "",
@@ -110,7 +110,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_11",
+    "slug": "activity_11",
     "title":"Sinonimi - Contrari",
     "description": "Trova un sinonimo e un contrario per ciascuna delle parole che ti viene data.",
     "full_text": "",
@@ -121,7 +121,7 @@
     "difficulty_level_id": "difficulty_level_2"
   },
   {
-    "id": "activity_12",
+    "slug": "activity_12",
     "title":"Partecipazione ai lavori domestici",
     "description": "La partecipazione del paziente alle faccende quotidiane della casa è importante, siccome contribuisce al mantenimento di capacità essenziali per la sua autonomia. Inoltre, questo processo fa sentire il paziente utile e aumenta la sua autostima e la sua confidenza. La maggior parte dei pazienti è disposta a partecipare se gli viene suggerito di impegnarsi in un lavoro che ha svolto in passato. Se il paziente ha bisogno di una guida, offrila con discrezione.",
     "full_text": "",
@@ -132,7 +132,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_13",
+    "slug": "activity_13",
     "title":"Transazioni con servizi pubblici - Spesa",
     "description": "Le transazioni con I servizi pubblici (banche, imposte) sono un buon modo per aiutare il paziente a mantenere la sua capacità di gestire I suoi affari personali. Inoltre, fare acquisti nei negozi è un'opportunità per esercitare la sua capacità di gestire il denaro. Ricorda che potrebbe essere necessario un aiuto discreto da parte tua durante le attività di cui sopra.",
     "full_text": "",
@@ -143,7 +143,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_14",
+    "slug": "activity_14",
     "title":"Conversazione",
     "description": "La partecipazione del paziente a discussioni su vari argomenti è uno dei mezzi più basilari per attivare le sue funzioni cognitive. Gli argomenti che puoi affrontare sono infiniti: discuti di questioni familiari, eventi attuali, attività passate o chiedi consiglio al paziente su un argomento. La partecipazione attiva alle discussioni non solo svolge la produzione di un discorso orale, ma attiva anche una serie di altre funzioni, come la memoria e il giudizio.",
     "full_text": "",
@@ -154,7 +154,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_15",
+    "slug": "activity_15",
     "title":"Ricordo del passato",
     "description": "Uno dei sintomi caratteristici della malattia di Alzheimer è che il paziente affetto dalla malattia dimentica gli eventi recenti, mentre allo stesso tempo è in grado di ricordare in dettaglio eventi del passato. Approfitta di questa capacità per condividere con lui I ricordi dei decenni passati. Usa tutti I mezzi a tua disposizione per risvegliare I ricordi: foto, oggetti personali del paziente, oggetti della sua infanzia, odori familiari, vecchie canzoni preferite, souvenir di viaggio. Non forzare il paziente a ricordare persone ed eventi. In questo modo provocherai sentimenti di ansia, frustrazione e negatività. Se non ci riesce, aiutalo dandogli le informazioni che sta cercando.",
     "full_text": "",
@@ -165,7 +165,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_16",
+    "slug": "activity_16",
     "title":"Musica e canto",
     "description": "Prova ad ascoltare con il paziente il tipo di musica che gli piace. Cantate insieme vecchie canzoni preferite. Chiedi al paziente di suonare una semplice melodia al pianoforte. L'effetto positivo della musica sull'umore del paziente sarà evidente in qualunque forma tu la usi.",
     "full_text": "",
@@ -176,7 +176,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_17",
+    "slug": "activity_17",
     "title":"Hobby",
     "description": "Se c'è un hobby che piace al paziente, incoraggialo a continuarlo. Attività come il ricamo, l’uncinetto, la pittura o anche la pesca esercitano varie abilità e gli danno l'opportunità di provare la soddisfazione offerta dal raggiungimento di un obiettivo. Le abilità legate all'hobby di solito vengono conservate per molti anni dopo l'inizio della malattia. Ricorda che I pazienti nelle fasi intermedie della malattia di solito hanno bisogno dell'aiuto di un accompagnatore per iniziare e completare l'attività con successo.",
     "full_text": "",
@@ -187,7 +187,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_18",
+    "slug": "activity_18",
     "title":"Lettura",
     "description": "La lettura è un'ottima forma di esercizio mentale ed è quindi consigliata ai pazienti che soffrono di Alzheimer con problemi di intensità da lieve a moderata come attività particolarmente benefica. Il tipo di lettura che verrà scelto dipende dalle capacità e dagli interessi del paziente. Ad alcuni pazienti piace leggere opere letterarie, mentre altri preferiscono leggere giornali o riviste.",
     "full_text": "",
@@ -198,7 +198,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_19",
+    "slug": "activity_19",
     "title":"Giochi da tavola",
     "description": "Carte, dama, scacchi, Scrabble e puzzle sono alcuni dei giochi da tavolo apprezzati da persone di tutte le età. Gioca con la persona amata ai giochi che sai che essa conosceva e adorava in passato o prova a giocarne alcuni per la prima volta!",
     "full_text": "",
@@ -209,7 +209,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_20",
+    "slug": "activity_20",
     "title":"Giochi con carta e penna",
     "description": "Trascorri un piacevole pomeriggio con il paziente, giocando con lui a semplici giochi che richiedono solo carta e penna. Giochi come trova la parola e tris gli ricorderanno la sua infanzia, lo divertiranno e lo mobiliteranno spiritualmente. I giochi stampati in carta possono essere un'altra forma di esercizio mentale, soprattutto per I pazienti che soffrono di Alzheimer lieve. Un tipico esempio sono le parole crociate, che esercitano efficacemente la memoria e la capacità di esprimersi dei pazienti, utilizzando parole appropriate.",
     "full_text": "",
@@ -220,7 +220,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_21",
+    "slug": "activity_21",
     "title":"Televisione",
     "description": "I canali della televisione offrono un'ampia varietà di programmi tra I quali è possibile scegliere quelli che forniranno il massimo beneficio al paziente. Guardate giochi di quiz e cercate di trovare insieme le risposte giuste. Guardate le notizie e scambiatevi opinioni sull'attualità. Guardate un film e discutete la trama.",
     "full_text": "",
@@ -231,7 +231,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_22",
+    "slug": "activity_22",
     "title":"Scrittura",
     "description": "Molti anziani trovano interessante l'idea di scrivere I propri ricordi e le proprie esperienze personali, lasciando dietro di loro un testo scritto che potrebbe essere letto dai propri figli e nipoti. Questa è un'attività creativa che potrebbe essere utilizzata dai pazienti che si trovano nelle fasi iniziali della malattia.",
     "full_text": "",
@@ -242,7 +242,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_23",
+    "slug": "activity_23",
     "title":"Escursioni - Viaggi",
     "description": "Scegli e organizza un'uscita con la persona amata. Ad esempio, potete bere un caffè vicino al mare, godervi un pasto in un'osteria, visitare un museo o vedere uno spettacolo in teatro o al cinema. Dopo aver completato l'attività, discutetene a riguardo.",
     "full_text": "",
@@ -253,7 +253,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_24",
+    "slug": "activity_24",
     "title":"Esercizio fisico",
     "description": "L'esercizio fisico aiuta a mantenere a lungo le capacità fisiche e mentali esistenti del paziente. Il tipo di esercizio indicato dipende dalle condizioni del paziente. In molti casi, l'esercizio fisico può essere ottenuto attraverso altre attività. Ad esempio, un paziente che porta a spasso il cane, fa la spesa al mercato o fa parte del gruppo di danza tradizionale della casa di cura nella sua zona, si esercita fisicamente indirettamente.",
     "full_text": "",
@@ -264,7 +264,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_25",
+    "slug": "activity_25",
     "title":"\"La collana perduta\"",
     "description": "Sei in crociera in Sardegna. Aspettavi questo viaggio da molto tempo! Abbiamo tutti bisogno di un po' di riposo e la Sardegna è la destinazione ideale per qualcosa di simile.",
     "full_text": "",
@@ -275,7 +275,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_26",
+    "slug": "activity_26",
     "title":"\"La festa a sorpresa\"",
     "description": "Tutto il piccolo gruppo sa che Giovanna compierà presto Ι suoi 70 anni. È nata l'idea di organizzare una piccola festa a sorpresa...",
     "full_text": "",
@@ -287,7 +287,7 @@
     "help_link": "https://go.scify.gr/dianoia17"
   },
   {
-    "id": "activity_27",
+    "slug": "activity_27",
     "title":"Usa la lingua",
     "description": "Trova 10 parole che iniziano con il prefisso che ti viene dato ogni volta, quindi crea delle frasi complete.",
     "full_text": "",
@@ -298,7 +298,7 @@
     "difficulty_level_id": "difficulty_level_2"
   },
   {
-    "id": "activity_28",
+    "slug": "activity_28",
     "title":"Correggi l'errore (difficoltà media)",
     "description": "Dalle seguenti parole, elimina quelle che sono state scritte in modo errato e riscrivile di fianco correttamente accanto ad esse.",
     "full_text": "",
@@ -309,7 +309,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_29",
+    "slug": "activity_29",
     "title":"\"Nel cortile di Margherita\"",
     "description": "Margherita che abita nella vecchia casa affianco, spesso ci invita nel suo piccolo cortile. Come è riuscita a farci stare tutti questi fiori insieme?",
     "full_text": "",
@@ -320,7 +320,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_30",
+    "slug": "activity_30",
     "title": "\"Orgogliosa dei nipoti\"",
     "description": "Margherita ha sei nipoti. Li incontriamo anche noi abbastanza spesso, tanto che ci considerano I loro nonni!",
     "full_text": "",
@@ -332,7 +332,7 @@
     "help_link": "https://go.scify.gr/dianoia20"
   },
   {
-    "id": "activity_31",
+    "slug": "activity_31",
     "title": "\"Il cantastorie nascosto\"",
     "description": "Nicola, l'insegnante che credevamo fosse una persona di poche parole, sembra avere anche un lato molto diverso. Quella domenica di primavera ci ha sorpresi tutti!",
     "full_text": "",
@@ -344,7 +344,7 @@
     "help_link": "https://go.scify.gr/dianoia22"
   },
   {
-    "id": "activity_32",
+    "slug": "activity_32",
     "title": "Alternanze",
     "description": "Trova animali e piante per ogni lettera dell’alfabeto, alternandoli.",
     "full_text": "",
@@ -355,7 +355,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_33",
+    "slug": "activity_33",
     "title":"Correggi l'errore (difficile)",
     "description": "C'è qualcosa che non va nelle seguenti parole. Hanno un errore tipografico. Correggilo in modo che le parole abbiano un senso.",
     "full_text": "",
@@ -366,7 +366,7 @@
     "difficulty_level_id": "difficulty_level_2"
   },
   {
-    "id": "activity_34",
+    "slug": "activity_34",
     "title": "Cause probabili",
     "description": "Elenca cause probabili che possono aver portato alle seguenti condizioni.",
     "full_text": "",
@@ -377,7 +377,7 @@
     "difficulty_level_id": "difficulty_level_2"
   },
   {
-    "id": "activity_35",
+    "slug": "activity_35",
     "title":"Ordine alfabetico",
     "description": "Metti in ordine alfabetico le parole seguenti.",
     "full_text": "",
@@ -388,7 +388,7 @@
     "difficulty_level_id": "difficulty_level_2"
   },
   {
-    "id": "activity_37",
+    "slug": "activity_37",
     "title":"Flusso Verbale",
     "description": "Trova quante più parole possibili per ogni categoria.",
     "full_text": "",
@@ -399,7 +399,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_38",
+    "slug": "activity_38",
     "title":"Associazioni",
     "description": "Per ogni parola data di seguito, trova altre cinque parole relative che ti vengono in mente.",
     "full_text": "",
@@ -410,7 +410,7 @@
     "difficulty_level_id": "difficulty_level_2"
   },
   {
-    "id": "activity_39",
+    "slug": "activity_39",
     "title":"Crea una frase",
     "description": "Per ogni parola data di seguito, crea una frase.",
     "full_text": "",
@@ -421,7 +421,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_40",
+    "slug": "activity_40",
     "title":"Programma Settimanale di Attività",
     "description": "Crea il tuo programma settimanale con le tue attività.",
     "full_text": "",
@@ -432,7 +432,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_41",
+    "slug": "activity_41",
     "title":"Tecnica Mindfulness",
     "description": "Usa la tecnica Mindfulness per ridurre I sintomi di stress e depressione.",
     "full_text": "",
@@ -443,7 +443,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_42",
+    "slug": "activity_42",
     "title":"Tecniche di Rilassamento",
     "description": "Tecniche di Rilassamento (Respirazione diaframmatica, Fantasia diretta) per ridurre lo stress.",
     "full_text": "",
@@ -454,7 +454,7 @@
     "difficulty_level_id": "difficulty_level_1"
   },
   {
-    "id": "activity_43",
+    "slug": "activity_43",
     "title":"Fonti e bibliografia",
     "description": "Collegamenti a fonti bibliografiche per esercizi per Accompagnatori.",
     "full_text": "",
