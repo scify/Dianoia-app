@@ -23,7 +23,7 @@
 
           <ion-item>
             <ion-label floating>Email</ion-label>
-            <ion-input [formControl]="convertToFormControl(signInForm.controls['email'])"
+            <ion-input (focus)="errorText = null" [formControl]="convertToFormControl(signInForm.controls['email'])"
                        type="email"></ion-input>
           </ion-item>
           <ion-item no-lines
@@ -37,12 +37,13 @@
           </ion-item>
           <ion-item>
             <ion-label floating>Password</ion-label>
-            <ion-input [formControl]="convertToFormControl(signInForm.controls['password'])"
+            <ion-input (focus)="errorText = null" [formControl]="convertToFormControl(signInForm.controls['password'])"
                        type="password"></ion-input>
           </ion-item>
           <ion-item *ngIf="newAccountMode">
             <ion-label floating>Password Confirmation</ion-label>
-            <ion-input [formControl]="convertToFormControl(signInForm.controls['password_confirmation'])"
+            <ion-input (focus)="errorText = null"
+                       [formControl]="convertToFormControl(signInForm.controls['password_confirmation'])"
                        type="password"></ion-input>
           </ion-item>
           <ion-item no-lines *ngIf="newAccountMode

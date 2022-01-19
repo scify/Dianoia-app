@@ -117,5 +117,6 @@ export class SignInPage {
   setNewAccountMode(mode) {
     this.resetForms(mode);
     this.newAccountMode = mode;
+    this.errorText = null;
   }
 }
