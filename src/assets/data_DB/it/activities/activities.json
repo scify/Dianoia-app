@@ -8,7 +8,8 @@
     "img_url":"words_categories.png",
     "instructions":["Fare clic sul collegamento per visualizzare e stampare il documento dell'attività."],
     "link": "https://drive.google.com/file/d/1XmNEtAJCu6tokzGbSR3IXo05IR4Rxrvo/view?usp=sharing",
-    "difficulty_level_id": "difficulty_level_1"
+    "difficulty_level_id": "difficulty_level_1",
+    "category": "memory_activities"
   },
   {
     "slug": "activity_2",
@@ -19,7 +20,8 @@
     "img_url":"remembering_list.png",
     "instructions":["Fare clic sul collegamento per visualizzare e stampare il documento dell'attività.", "Memorise the words of the first list", "Then cover that list.","Read the second list and find out which of the words have changed."],
     "link": "https://drive.google.com/file/d/1T6cwIvJdMJCkEJNSeku9SmEw8H2ZHxlJ/view?usp=sharing",
-    "difficulty_level_id": "difficulty_level_1"
+    "difficulty_level_id": "difficulty_level_1",
+    "category": "memory_activities"
   },
   {
     "slug": "activity_3",
@@ -30,7 +32,8 @@
     "img_url":"remembering_list_by_heart.png",
     "instructions":["Fare clic sul collegamento per visualizzare e stampare il documento dell'attività.", "Quieren comprar los siguientes productos de una tienda de electrónica.", "Traten de memorizarlos y luego volteen la página y anoten lo que puedan recordar."],
     "link": "https://drive.google.com/file/d/1od1SZcg_dG3UBCMo1TmS59dCIYVNMTVX/view?usp=sharing",
-    "difficulty_level_id": "difficulty_level_2"
+    "difficulty_level_id": "difficulty_level_2",
+    "category": "executive_activities"
   },
   {
     "slug": "activity_4",
@@ -41,7 +44,8 @@
     "img_url":"sentences.png",
     "instructions":["Fare clic sul collegamento per visualizzare e stampare il documento dell'attività."],
     "link": "https://drive.google.com/file/d/14ROjto8oELTY6ZtyqcQh7rTgdkc4m7J4/view?usp=sharing",
-    "difficulty_level_id": "difficulty_level_1"
+    "difficulty_level_id": "difficulty_level_1",
+    "category": "executive_activities"
   },
   {
     "slug": "activity_5",
@@ -52,7 +56,8 @@
     "img_url":"find_the_word.png",
     "instructions":["Fare clic sul collegamento per visualizzare e stampare il documento dell'attività."],
     "link": "https://drive.google.com/file/d/1aW_xbVVix1iOGXEjdazoCWx_U1j3H4u6/view?usp=sharing",
-    "difficulty_level_id": "difficulty_level_2"
+    "difficulty_level_id": "difficulty_level_2",
+    "category": "executive_activities"
   },
   {
     "slug": "activity_6",
@@ -63,7 +68,8 @@
     "img_url":"draw_and_think.png",
     "instructions":["Fare clic sul collegamento per visualizzare e stampare il documento dell'attività."],
     "link": "https://drive.google.com/file/d/1CAJgy-HvWXCZm50472wfeMUNHK91nCYh/view?usp=sharing",
-    "difficulty_level_id": "difficulty_level_2"
+    "difficulty_level_id": "difficulty_level_2",
+    "category": "executive_activities"
   },
   {
     "slug": "activity_7",
@@ -74,7 +80,8 @@
     "img_url":"shapes.png",
     "instructions":["Fare clic sul collegamento per visualizzare e stampare il documento dell'attività."],
     "link": "https://drive.google.com/file/d/1vTuF_serHA6zg_QlpnhGgB6rswuzrb4T/view?usp=sharing",
-    "difficulty_level_id": "difficulty_level_1"
+    "difficulty_level_id": "difficulty_level_1",
+    "category": "focus_activities"
   },
   {
     "slug": "activity_8",
@@ -85,7 +92,8 @@
     "img_url":"copy_correctly.png",
     "instructions":["Fare clic sul collegamento per visualizzare e stampare il documento dell'attività."],
     "link": "https://drive.google.com/file/d/1TlSq-sCGsbt3Z1WiFcWdhOjhxt1l2QlO/view?usp=sharing",
-    "difficulty_level_id": "difficulty_level_1"
+    "difficulty_level_id": "difficulty_level_1",
+    "category": "focus_activities"
   },
   {
     "slug": "activity_9",
@@ -96,7 +104,8 @@
     "img_url":"semantic_categories.png",
     "instructions":["Fare clic sul collegamento per visualizzare e stampare il documento dell'attività.", "Subrayen las palabras relacionadas con las frutas.", "Encierren en un círculo las palabras relacionadas con tipos de danza y ropa"],
     "link": "https://drive.google.com/file/d/1Dczf673pSPYBxuxl8hq1tfwqHUIOxxZ3/view?usp=sharing",
-    "difficulty_level_id": "difficulty_level_2"
+    "difficulty_level_id": "difficulty_level_2",
+    "category": "focus_activities"
   },
   {
     "slug": "activity_10",
@@ -107,7 +116,8 @@
     "img_url":"name_animal.png",
     "instructions":["Fare clic sul collegamento per visualizzare e stampare il documento dell'attività."],
     "link": "https://drive.google.com/file/d/1pQ6i9jS5RpzjFmvWIiP16C8oJDy0koA8/view?usp=sharing",
-    "difficulty_level_id": "difficulty_level_1"
+    "difficulty_level_id": "difficulty_level_1",
+    "category": "think_activities"
   },
   {
     "slug": "activity_11",
@@ -118,7 +128,8 @@
     "img_url":"synonyms.png",
     "instructions":["Fare clic sul collegamento per visualizzare e stampare il documento dell'attività."],
     "link": "https://drive.google.com/file/d/1WN5O_dGfuxfEsFpZQnJElT0z6aSPqUll/view?usp=sharing",
-    "difficulty_level_id": "difficulty_level_2"
+    "difficulty_level_id": "difficulty_level_2",
+    "category": "think_activities"
   },
   {
     "slug": "activity_12",
@@ -129,7 +140,8 @@
     "img_url":"",
     "instructions":[],
     "link": "",
-    "difficulty_level_id": "difficulty_level_1"
+    "difficulty_level_id": "difficulty_level_1",
+    "category": "common_activities"
   },
   {
     "slug": "activity_13",
@@ -140,7 +152,8 @@
     "img_url":"",
     "instructions":[],
     "link": "",
-    "difficulty_level_id": "difficulty_level_1"
+    "difficulty_level_id": "difficulty_level_1",
+    "category": "common_activities"
   },
   {
     "slug": "activity_14",
@@ -151,7 +164,8 @@
     "img_url":"",
     "instructions":[],
     "link": "",
-    "difficulty_level_id": "difficulty_level_1"
+    "difficulty_level_id": "difficulty_level_1",
+    "category": "common_activities"
   },
   {
     "slug": "activity_15",
@@ -162,7 +176,8 @@
     "img_url":"",
     "instructions":[],
     "link": "",
-    "difficulty_level_id": "difficulty_level_1"
+    "difficulty_level_id": "difficulty_level_1",
+    "category": "common_activities"
   },
   {
     "slug": "activity_16",
@@ -173,7 +188,8 @@
     "img_url":"",
     "instructions":[],
     "link": "",
-    "difficulty_level_id": "difficulty_level_1"
+    "difficulty_level_id": "difficulty_level_1",
+    "category": "common_activities"
   },
   {
     "slug": "activity_17",
@@ -184,7 +200,8 @@
     "img_url":"",
     "instructions":[],
     "link": "",
-    "difficulty_level_id": "difficulty_level_1"
+    "difficulty_level_id": "difficulty_level_1",
+    "category": "common_activities"
   },
   {
     "slug": "activity_18",
@@ -195,7 +212,8 @@
     "img_url":"",
     "instructions":[],
     "link": "",
-    "difficulty_level_id": "difficulty_level_1"
+    "difficulty_level_id": "difficulty_level_1",
+    "category": "common_activities"
   },
   {
     "slug": "activity_19",
@@ -206,7 +224,8 @@
     "img_url":"",
     "instructions":[],
     "link": "",
-    "difficulty_level_id": "difficulty_level_1"
+    "difficulty_level_id": "difficulty_level_1",
+    "category": "common_activities"
   },
   {
     "slug": "activity_20",
@@ -217,7 +236,8 @@
     "img_url":"",
     "instructions":[],
     "link": "",
-    "difficulty_level_id": "difficulty_level_1"
+    "difficulty_level_id": "difficulty_level_1",
+    "category": "common_activities"
   },
   {
     "slug": "activity_21",
@@ -228,7 +248,8 @@
     "img_url":"",
     "instructions":[],
     "link": "",
-    "difficulty_level_id": "difficulty_level_1"
+    "difficulty_level_id": "difficulty_level_1",
+    "category": "common_activities"
   },
   {
     "slug": "activity_22",
@@ -239,7 +260,8 @@
     "img_url":"",
     "instructions":[],
     "link": "",
-    "difficulty_level_id": "difficulty_level_1"
+    "difficulty_level_id": "difficulty_level_1",
+    "category": "common_activities"
   },
   {
     "slug": "activity_23",
@@ -250,7 +272,8 @@
     "img_url":"",
     "instructions":[],
     "link": "",
-    "difficulty_level_id": "difficulty_level_1"
+    "difficulty_level_id": "difficulty_level_1",
+    "category": "common_activities"
   },
   {
     "slug": "activity_24",
@@ -261,7 +284,8 @@
     "img_url":"",
     "instructions":[],
     "link": "",
-    "difficulty_level_id": "difficulty_level_1"
+    "difficulty_level_id": "difficulty_level_1",
+    "category": "common_activities"
   },
   {
     "slug": "activity_25",
@@ -272,7 +296,8 @@
     "img_url":"story_1.jpg",
     "instructions":[],
     "link": "https://drive.google.com/file/d/1KFgO_Q5-KBbNfNVzhzdYszgTh2A104dT/view?usp=sharing",
-    "difficulty_level_id": "difficulty_level_1"
+    "difficulty_level_id": "difficulty_level_1",
+    "category": "stories"
   },
   {
     "slug": "activity_26",
@@ -284,7 +309,8 @@
     "instructions":[],
     "link": "https://drive.google.com/file/d/1m9IUZLUW8UmY8TZFd8yMa8QEe7fpxkjn/view?usp=sharing",
     "difficulty_level_id": "difficulty_level_1",
-    "help_link": "https://go.scify.gr/dianoia17"
+    "help_link": "https://go.scify.gr/dianoia17",
+    "category": "stories"
   },
   {
     "slug": "activity_27",
@@ -295,7 +321,8 @@
     "img_url":"",
     "instructions":[],
     "link": "https://drive.google.com/file/d/1jNH6AIxRW_XWUS8jAfnjPLo4nCZ7zzmV/view?usp=sharing",
-    "difficulty_level_id": "difficulty_level_2"
+    "difficulty_level_id": "difficulty_level_2",
+    "category": "think_activities"
   },
   {
     "slug": "activity_28",
@@ -306,7 +333,8 @@
     "img_url":"",
     "instructions":[],
     "link": "https://drive.google.com/file/d/1A4XzY4IF1QZ7Fm7N4YKJrVQ95pqLzqjQ/view?usp=sharing",
-    "difficulty_level_id": "difficulty_level_1"
+    "difficulty_level_id": "difficulty_level_1",
+    "category": "focus_activities"
   },
   {
     "slug": "activity_29",
@@ -317,7 +345,8 @@
     "img_url":"auli_lamprinis.jpg",
     "instructions":[],
     "link": "https://drive.google.com/file/d/12UiGpCnII_J_55DWzxxD5GzN17lA2IKz/view?usp=sharing",
-    "difficulty_level_id": "difficulty_level_1"
+    "difficulty_level_id": "difficulty_level_1",
+    "category": "stories"
   },
   {
     "slug": "activity_30",
@@ -329,7 +358,8 @@
     "instructions": [],
     "link": "https://drive.google.com/file/d/1rp2V8grSeyG5swRvCR6fGZCOND-2XKx3/view?usp=sharing",
     "difficulty_level_id": "difficulty_level_1",
-    "help_link": "https://go.scify.gr/dianoia20"
+    "help_link": "https://go.scify.gr/dianoia20",
+    "category": "stories"
   },
   {
     "slug": "activity_31",
@@ -341,7 +371,8 @@
     "instructions": [],
     "link": "https://drive.google.com/file/d/1R8r_SZrg6mACRqVzK5NMlmcwqIE2Dk12/view?usp=sharing",
     "difficulty_level_id": "difficulty_level_1",
-    "help_link": "https://go.scify.gr/dianoia22"
+    "help_link": "https://go.scify.gr/dianoia22",
+    "category": "stories"
   },
   {
     "slug": "activity_32",
@@ -352,7 +383,8 @@
     "img_url": "",
     "instructions": [],
     "link": "https://drive.google.com/file/d/1A5BwD3_sxbkhgezZElGaiQGBMRzdR48k/view?usp=sharing",
-    "difficulty_level_id": "difficulty_level_1"
+    "difficulty_level_id": "difficulty_level_1",
+    "category": "executive_activities"
   },
   {
     "slug": "activity_33",
@@ -363,7 +395,8 @@
     "img_url":"",
     "instructions":[],
     "link": "https://drive.google.com/file/d/1v290VdOrwc2F1s8ZIPXiG1gwHJdCehEK/view?usp=sharing",
-    "difficulty_level_id": "difficulty_level_2"
+    "difficulty_level_id": "difficulty_level_2",
+    "category": "focus_activities"
   },
   {
     "slug": "activity_34",
@@ -374,7 +407,8 @@
     "img_url": "",
     "instructions": [],
     "link": "https://drive.google.com/file/d/1XVxdhsl9G5C54G4S8qP5prccEYDR0dvo/view?usp=sharing",
-    "difficulty_level_id": "difficulty_level_2"
+    "difficulty_level_id": "difficulty_level_2",
+    "category": "think_activities"
   },
   {
     "slug": "activity_35",
@@ -385,7 +419,8 @@
     "img_url":"",
     "instructions":[],
     "link": "https://drive.google.com/file/d/1ishCeoJXULEKcGEkD5lp4vTt3rsPJWWp/view?usp=sharing",
-    "difficulty_level_id": "difficulty_level_2"
+    "difficulty_level_id": "difficulty_level_2",
+    "category": "executive_activities"
   },
   {
     "slug": "activity_37",
@@ -396,7 +431,8 @@
     "img_url":"",
     "instructions":[],
     "link": "https://drive.google.com/file/d/1hx5PJBeM6KgZ03dMgYE9DMuNkCMYdKwK/view?usp=sharing",
-    "difficulty_level_id": "difficulty_level_1"
+    "difficulty_level_id": "difficulty_level_1",
+    "category": "think_activities"
   },
   {
     "slug": "activity_38",
@@ -407,7 +443,8 @@
     "img_url":"",
     "instructions":[],
     "link": "https://drive.google.com/file/d/1278-xEIdEehdcpIYyqZK9ebKDQiRLYQX/view?usp=sharing",
-    "difficulty_level_id": "difficulty_level_2"
+    "difficulty_level_id": "difficulty_level_2",
+    "category": "think_activities"
   },
   {
     "slug": "activity_39",
@@ -418,7 +455,8 @@
     "img_url":"",
     "instructions":[],
     "link": "https://drive.google.com/file/d/1bXVhNN0bZXjKDnV0cir8n5vXVJJomUg_/view?usp=sharing",
-    "difficulty_level_id": "difficulty_level_1"
+    "difficulty_level_id": "difficulty_level_1",
+    "category": "think_activities"
   },
   {
     "slug": "activity_40",
@@ -429,7 +467,8 @@
     "img_url":"",
     "instructions":[],
     "link": "https://drive.google.com/file/d/1IEXjV7gmzbEZb8E-39jB_W8x6Hj1cbT-/view?usp=sharing",
-    "difficulty_level_id": "difficulty_level_1"
+    "difficulty_level_id": "difficulty_level_1",
+    "category": "carer_activities"
   },
   {
     "slug": "activity_41",
@@ -440,7 +479,8 @@
     "img_url":"",
     "instructions":[],
     "link": "https://drive.google.com/file/d/1cjrL-AoShIIMHuPP3XAahxjFEUhLZ8K_/view?usp=sharingg",
-    "difficulty_level_id": "difficulty_level_1"
+    "difficulty_level_id": "difficulty_level_1",
+    "category": "carer_activities"
   },
   {
     "slug": "activity_42",
@@ -451,7 +491,8 @@
     "img_url":"",
     "instructions":[],
     "link": "https://drive.google.com/file/d/1IDHEH6dlwH1_OtEP1TZnPO99b8Jya8ht/view?usp=sharing",
-    "difficulty_level_id": "difficulty_level_1"
+    "difficulty_level_id": "difficulty_level_1",
+    "category": "carer_activities"
   },
   {
     "slug": "activity_43",
@@ -462,6 +503,7 @@
     "img_url":"",
     "instructions":[],
     "link": "https://drive.google.com/file/d/1QMlYUdvEyOKJqnD2rLSslVhOCipDZEc3/view?usp=sharing",
-    "difficulty_level_id": "difficulty_level_1"
+    "difficulty_level_id": "difficulty_level_1",
+    "category": "carer_activities"
   }
 ]
