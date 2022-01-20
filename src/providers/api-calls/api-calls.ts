@@ -4,7 +4,7 @@ import 'rxjs/add/operator/map';
 import {Observable} from "rxjs/Observable";
 import {AppStorageProvider} from "../app-storage/app-storage";
 
-const API_BASE_URL = "https://dianoia.scify.org/api/";
+const API_BASE_URL = "https://dianoia.scify.org/mobile/";
 const COMMON_HEADERS = {
   'Content-Type': 'application/json',
   'Accept': 'application/json'
@@ -41,7 +41,7 @@ export class ApiCallsProvider {
   }
 
   logAnalytics(payload: any) {
-    return this.http.post(API_BASE_URL + "analytics/store", payload, this.httpOptions);
+    this.http.post(API_BASE_URL + "analytics/store", payload, this.httpOptions).subscribe({ error: e => console.error(e) });
   }
 
 }
