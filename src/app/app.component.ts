@@ -9,7 +9,6 @@ import {ActivityCategoryProvider} from "../providers/activity-category/activity-
 import {ActivityProvider} from "../providers/activity/activity";
 import {DifficultyLevelProvider} from "../providers/difficulty-level/difficulty-level";
 import {LoaderService} from "../providers/loader-service/loader-service";
-import {AnalyticsFirebase} from '@ionic-native/analytics-firebase';
 import {InAppBrowser} from "@ionic-native/in-app-browser";
 import {AppVersion} from "@ionic-native/app-version";
 import {TranslateService} from '@ngx-translate/core';
@@ -19,6 +18,7 @@ import elTranslations from "./../assets/i18n/el.json";
 import esTranslations from "./../assets/i18n/es.json";
 import itTranslations from "./../assets/i18n/it.json";
 import {ShapesApiProvider} from "../providers/shapes-api/shapes-api";
+import {AnalyticsProvider} from "../providers/analytics/analytics";
 
 @Component({
   templateUrl: 'app.html'
@@ -56,7 +56,7 @@ export class MyApp {
               private appStorage: AppStorageProvider, private http: Http, private activityCategoryProvider: ActivityCategoryProvider,
               private activityProvider: ActivityProvider,
               private difficultyLevelProvider: DifficultyLevelProvider, private loaderService: LoaderService,
-              private analyticsFirebase: AnalyticsFirebase, private iab: InAppBrowser, private appVersion: AppVersion,
+              private analyticsProvider: AnalyticsProvider, private iab: InAppBrowser, private appVersion: AppVersion,
               public translate: TranslateService, public events: Events, private menuController: MenuController,
               private globalization: Globalization,
               public shapesApiProvider: ShapesApiProvider) {
@@ -89,7 +89,7 @@ export class MyApp {
       }
 
       this.localNotifications.listenForNotificationClicks();
-      this.setUpAnalyticsLogger();
+      this.analyticsProvider.setUpAnalyticsLogger();
       this.globalization.getPreferredLanguage().then((res) => {
         this.setTranslationSettings(res.value.substring(0, 2));
       });
@@ -230,15 +230,6 @@ export class MyApp {
   handleError(error) {
     console.error(error);
     this.loaderService.hideLoader();
-  }
-
-  setUpAnalyticsLogger() {
-    const eventParams = {};
-    eventParams[this.analyticsFirebase.DEFAULT_PARAMS.LEVEL] = 29;
-    eventParams['page'] = 'home';
-    this.analyticsFirebase.logEvent('page_view', eventParams)
-      .then((res: any) => console.log('Firebase: ' + res))
-      .catch((error: any) => console.error(error));
   }
 
   openLink(url) {

@@ -1,13 +1,26 @@
-import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import {Injectable} from '@angular/core';
+import {Headers, Http} from '@angular/http';
 import 'rxjs/add/operator/map';
 import {Observable} from "rxjs/Observable";
 import {AppStorageProvider} from "../app-storage/app-storage";
 
+const API_BASE_URL = "https://dianoia.scify.org/api/";
+const COMMON_HEADERS = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+};
+
 @Injectable()
 export class ApiCallsProvider {
 
+  httpOptions: any;
+
   constructor(public http: Http, private storage: AppStorageProvider) {
+    this.httpOptions = {
+      headers: new Headers({
+        ...COMMON_HEADERS
+      })
+    };
   }
 
   getHttpCall(cacheKey, httpCall) {
@@ -25,6 +38,10 @@ export class ApiCallsProvider {
         observer.complete();// call complete if you want to close this stream (like a promise)
       });
     });
+  }
+
+  logAnalytics(payload: any) {
+    return this.http.post(API_BASE_URL + "analytics/store", payload, this.httpOptions);
   }
 
 }
