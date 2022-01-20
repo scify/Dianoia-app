@@ -6,6 +6,7 @@ import {AlertProvider} from "../../providers/alert/alert";
 import {SocialSharing} from "@ionic-native/social-sharing";
 import {TranslateService} from "@ngx-translate/core";
 import {AppStorageProvider} from "../../providers/app-storage/app-storage";
+import {AnalyticsProvider} from "../../providers/analytics/analytics";
 
 /**
  * Generated class for the ActivityPage page.
@@ -32,7 +33,7 @@ export class ActivityPage {
               private activityProvider: ActivityProvider, private iab: InAppBrowser,
               public platform: Platform, private alert: AlertProvider, private socialSharing: SocialSharing,
               private viewCtrl: ViewController, private translate: TranslateService, public appStorage: AppStorageProvider,
-              public events: Events) {
+              public events: Events, public analyticsProvider: AnalyticsProvider) {
 
 
     const paramLang = this.navParams.get("lang");
@@ -60,7 +61,15 @@ export class ActivityPage {
     this.currentLang = this.translate.currentLang;
     this.allActivities = await this.getActivities();
     this.activity = await this.getActivity();
-    console.log("DIANOIA_EXERCISE_STARTED_" + this.activity.title + "_" + this.activity.description + "_LANG_" + this.translate.currentLang);
+    const title = "DIANOIA_EXERCISE_STARTED_" + this.activity.title + "_" + this.activity.description + "_LANG_" + this.translate.currentLang;
+    this.analyticsProvider.logAction(
+      title,
+      {
+        title: this.activity.title,
+        slug: this.activity.slug,
+        category: this.activity.category,
+        difficulty_level_id: this.activity.difficulty_level_id
+      }, title);
     this.setUpInProgress = false;
   }
 

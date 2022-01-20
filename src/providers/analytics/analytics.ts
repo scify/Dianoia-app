@@ -25,15 +25,17 @@ export class AnalyticsProvider {
     this.firebaseSupported = this.platform.is('cordova');
   }
 
-  public async logAction(actionTitle: string, payload: any = {}) {
+  public async logAction(actionTitle: string, payload: any = {}, consoleMessage: string = null) {
     const token = JSON.parse(await this.appStorageProvider.get("auth_token"));
     const lang = this.translate.currentLang;
+    if(!consoleMessage)
+      consoleMessage = "DIANOIA_" + actionTitle + "_LANG_" + this.translate.currentLang + "_" + JSON.stringify(payload);
     payload = {
       ...payload,
       token: token,
       lang: lang
     }
-    console.log("DIANOIA_" + actionTitle + "_LANG_" + this.translate.currentLang + "_" + JSON.stringify(payload));
+    console.log(consoleMessage);
     if (this.firebaseSupported)
       await this.analyticsFirebase.logEvent(actionTitle, payload);
     this.apiCalls.logAnalytics(payload);
