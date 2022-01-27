@@ -19,7 +19,6 @@ import esTranslations from "./../assets/i18n/es.json";
 import itTranslations from "./../assets/i18n/it.json";
 import {ShapesApiProvider} from "../providers/shapes-api/shapes-api";
 import {AnalyticsProvider} from "../providers/analytics/analytics";
-import {ApiCallsProvider} from "../providers/api-calls/api-calls";
 import consts from "../consts";
 
 @Component({
@@ -61,8 +60,7 @@ export class MyApp {
               private analyticsProvider: AnalyticsProvider, private iab: InAppBrowser, private appVersion: AppVersion,
               public translate: TranslateService, public events: Events, private menuController: MenuController,
               private globalization: Globalization,
-              public shapesApiProvider: ShapesApiProvider,
-              public apiCallsProvider: ApiCallsProvider) {
+              public shapesApiProvider: ShapesApiProvider) {
     translate.setTranslation('en', enTranslations);
     translate.setTranslation('es', esTranslations);
     translate.setTranslation('el', elTranslations);
@@ -79,6 +77,9 @@ export class MyApp {
   async initializeApp(platform, statusBar) {
     this.loaderService.showLoader();
     await this.platform.ready();
+    const authMode = this.getURLParam("auth_mode");
+    if (authMode)
+      await this.appStorage.set("auth_mode", authMode);
     if (this.platform.is('cordova')) {
       this.appVersion.getVersionNumber().then((version) => this.appVersionName = version);
 
@@ -93,16 +94,23 @@ export class MyApp {
 
       this.localNotifications.listenForNotificationClicks();
       this.analyticsProvider.setUpAnalyticsLogger();
-      this.globalization.getPreferredLanguage().then((res) => {
-        this.setTranslationSettings(res.value.substring(0, 2));
-      });
-    } else {
-      this.setTranslationSettings(window.navigator.language.substring(0, 2));
     }
+    await this.setTranslationSettings();
     console.log("DIANOIA_APP_FINISHED_LANG_" + this.translate.currentLang);
   }
 
-  async setTranslationSettings(langCodeToTry) {
+  async setTranslationSettings() {
+    let langCodeToTry = this.getURLParam("lang");
+    if (!langCodeToTry) {
+      if (this.platform.is('cordova')) {
+        const langFromGlobalization = await this.globalization.getPreferredLanguage();
+        if (langFromGlobalization && langFromGlobalization.value)
+          langCodeToTry = langFromGlobalization.value.substring(0, 2);
+      } else {
+        langCodeToTry = window.navigator.language.substring(0, 2);
+      }
+    }
+
     const acceptableLanguageCodes = this.languages.map(l => l.code);
     let defaultLangCode = acceptableLanguageCodes[0];
     if (acceptableLanguageCodes.indexOf(langCodeToTry) > -1)
@@ -110,7 +118,7 @@ export class MyApp {
 
     let appLang = JSON.parse(await this.appStorage.get('app_lang'));
     let langCode = defaultLangCode;
-    if (appLang && appLang != "" && acceptableLanguageCodes.indexOf(appLang) > -1) {
+    if (appLang && appLang != "" && acceptableLanguageCodes.indexOf(appLang) > -1 && !this.getURLParam("lang")) {
       langCode = appLang;
     }
     if (!this.onDemandLang)
@@ -171,7 +179,7 @@ export class MyApp {
       if (!authMode)
         return resolve(false);
 
-      const tokenParam = this.getAuthTokenURLParam();
+      const tokenParam = this.getURLParam("auth_token");
       if (tokenParam) {
         await this.appStorage.set('auth_token', tokenParam);
         return resolve(false);
@@ -189,9 +197,9 @@ export class MyApp {
     });
   }
 
-  getAuthTokenURLParam() {
+  getURLParam(paramName) {
     const params = new URLSearchParams(window.location.search);
-    let tokenParamArr = params.paramsMap.get("?auth_token");
+    let tokenParamArr = params.paramsMap.get("?" + paramName) ? params.paramsMap.get("?" + paramName) : params.paramsMap.get(paramName);
     if (!tokenParamArr)
       tokenParamArr = [];
     let tokenParam = null;
