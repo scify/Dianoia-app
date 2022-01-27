@@ -26,14 +26,26 @@
         <div [innerHTML]="'about_text' | translate"></div>
       </ion-col>
     </ion-row>
+    <ion-row style="margin-bottom: 3rem">
+      <ion-col align-self-center col-lg-2 col-md-4 col-sm-6 style="margin: 0 auto; text-align: center;">
+        <img style="max-width: 200px;" src="assets/img/scify_logo_big.png">
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col align-self-center offset-lg-4 col-lg-1 col-md-6 col-sm-10 style="margin: 0 auto; text-align: center;">
+        <img style="width: 100%" src="assets/img/eu_logo.jpg">
+      </ion-col>
+      <ion-col align-self-center col-lg-1 col-md-6 col-sm-10 style="margin: 0 auto; text-align: center;">
+        <img style="width: 100%" src="assets/img/shapes_logo.png">
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col align-self-center col-lg-6 col-md-10 col-sm-12 style="margin: 0 auto; text-align: center;">
+        <p>This project has received funding from the European Union's
+          Horizon 2020 research and innovation programme under grant agreement No. 857159.</p>
+      </ion-col>
+    </ion-row>
   </ion-grid>
-
-
-  <div class="basicInfoContainer">
-    <div class="imgContainer">
-      <img src="assets/img/scify_logo_big.png">
-    </div>
-  </div>
 
   <small>{{ 'version' | translate }}: {{ version }}</small>
 

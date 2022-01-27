@@ -7,7 +7,7 @@ import {AppStorageProvider} from "../../providers/app-storage/app-storage";
 
 const EMAIL_PATTERN = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
 const PASSWORD_MIN_LENGTH = 4;
-const PASSWORD_MAX_LENGTH = 12;
+const PASSWORD_MAX_LENGTH = 16;
 
 /**
  * Generated class for the SignInPage page.

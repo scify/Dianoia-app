@@ -19,6 +19,8 @@ import esTranslations from "./../assets/i18n/es.json";
 import itTranslations from "./../assets/i18n/it.json";
 import {ShapesApiProvider} from "../providers/shapes-api/shapes-api";
 import {AnalyticsProvider} from "../providers/analytics/analytics";
+import {ApiCallsProvider} from "../providers/api-calls/api-calls";
+import consts from "../consts";
 
 @Component({
   templateUrl: 'app.html'
@@ -27,7 +29,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any = 'HomePage';
-  appVersionName: string = '2.2.2';
+  appVersionName: string = consts.APP_VERSION;
   onDemandLang: string;
   shapesMode: false;
 
@@ -59,7 +61,8 @@ export class MyApp {
               private analyticsProvider: AnalyticsProvider, private iab: InAppBrowser, private appVersion: AppVersion,
               public translate: TranslateService, public events: Events, private menuController: MenuController,
               private globalization: Globalization,
-              public shapesApiProvider: ShapesApiProvider) {
+              public shapesApiProvider: ShapesApiProvider,
+              public apiCallsProvider: ApiCallsProvider) {
     translate.setTranslation('en', enTranslations);
     translate.setTranslation('es', esTranslations);
     translate.setTranslation('el', elTranslations);
@@ -96,7 +99,7 @@ export class MyApp {
     } else {
       this.setTranslationSettings(window.navigator.language.substring(0, 2));
     }
-
+    console.log("DIANOIA_APP_FINISHED_LANG_" + this.translate.currentLang);
   }
 
   async setTranslationSettings(langCodeToTry) {
@@ -112,8 +115,7 @@ export class MyApp {
     }
     if (!this.onDemandLang)
       this.setLang(langCode);
-    const shouldShowLoginPage = await this.shouldShowLoginPage()
-    console.log('shouldShowLoginPage', shouldShowLoginPage);
+    const shouldShowLoginPage = await this.shouldShowLoginPage();
     if (shouldShowLoginPage) {
       // await this.appStorage.set('auth_token', null);
       this.nav.setRoot("SignInPage").then(() => {

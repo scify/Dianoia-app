@@ -29,6 +29,7 @@ import {Globalization} from "@ionic-native/globalization";
 import {ShapesApiProvider} from "../providers/shapes-api/shapes-api";
 import {SimpleCardComponent} from "../components/simple-card/simple-card";
 import { AnalyticsProvider } from '../providers/analytics/analytics';
+import {Device} from "@ionic-native/device";
 
 @NgModule({
   declarations: [
@@ -75,6 +76,7 @@ import { AnalyticsProvider } from '../providers/analytics/analytics';
     Globalization,
     ShapesApiProvider,
     AnalyticsProvider,
+    Device
   ]
 })
 export class AppModule {

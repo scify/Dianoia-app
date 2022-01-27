@@ -25,6 +25,7 @@
         "@ionic-native/analytics-firebase": "^4.20.0",
         "@ionic-native/app-version": "^4.20.0",
         "@ionic-native/core": "^3.10.3",
+        "@ionic-native/device": "^4.20.0",
         "@ionic-native/fcm": "^4.20.0",
         "@ionic-native/globalization": "^4.20.0",
         "@ionic-native/in-app-browser": "^3.10.3",

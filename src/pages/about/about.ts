@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams, Platform} from 'ionic-angular';
 import {AppVersion} from '@ionic-native/app-version';
 import {TranslateService} from "@ngx-translate/core";
+import consts from "../../consts";
 
 /**
  * Generated class for the AboutPage page.
@@ -16,7 +17,7 @@ import {TranslateService} from "@ngx-translate/core";
 })
 export class AboutPage {
 
-  version: string = '2.2.2';
+  version: string = consts.APP_VERSION;
   iconPath: string = 'assets/img/en/icon.png';
 
   constructor(public navCtrl: NavController, public navParams: NavParams,

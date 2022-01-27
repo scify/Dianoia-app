@@ -7,8 +7,8 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title *ngIf="newAccountMode">Create a new account</ion-title>
-    <ion-title *ngIf="!newAccountMode">Log in to your account</ion-title>
+    <ion-title *ngIf="newAccountMode">{{ 'create_new_account' | translate }}</ion-title>
+    <ion-title *ngIf="!newAccountMode">{{ 'log_in_account' | translate }}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -16,32 +16,35 @@
 
 <ion-content padding>
   <ion-grid>
-
+    <ion-row style="margin-bottom: 3rem">
+      <ion-col align-self-center col-lg-4 col-md-6 col-sm-12 style="margin: 0 auto; text-align: center;">
+        <img src="assets/img/shapes_logo.png">
+      </ion-col>
+    </ion-row>
     <ion-row style="margin-bottom: 5rem">
       <ion-col col-lg-4 col-md-6 col-sm-12 offset-lg-4 offset-md-3 offset-sm-0>
         <form novalidate [formGroup]="signInForm">
-
           <ion-item>
-            <ion-label floating>Email</ion-label>
+            <ion-label floating>{{ 'email_label' | translate }}</ion-label>
             <ion-input (focus)="errorText = null" [formControl]="convertToFormControl(signInForm.controls['email'])"
                        type="email"></ion-input>
           </ion-item>
           <ion-item no-lines
                     *ngIf="( signInForm.get('email').hasError('minlength') || signInForm.get('email').hasError('pattern') ||signInForm.get('email').hasError('required') ) && signInForm.get('email').touched">
             <div class="error" *ngIf="signInForm.get('email').hasError('required') && signInForm.get('email').touched">
-              Please input your email
+              {{ 'type_mail' | translate }}
             </div>
             <div class="error" *ngIf="signInForm.get('email').hasError('pattern') && signInForm.get('email').touched">
-              Email address invalid
+              {{ 'email_invalid' | translate }}
             </div>
           </ion-item>
           <ion-item>
-            <ion-label floating>Password</ion-label>
+            <ion-label floating>{{ 'password_label' | translate }}</ion-label>
             <ion-input (focus)="errorText = null" [formControl]="convertToFormControl(signInForm.controls['password'])"
                        type="password"></ion-input>
           </ion-item>
           <ion-item *ngIf="newAccountMode">
-            <ion-label floating>Password Confirmation</ion-label>
+            <ion-label floating>{{ 'confirm_password_label' | translate }}</ion-label>
             <ion-input (focus)="errorText = null"
                        [formControl]="convertToFormControl(signInForm.controls['password_confirmation'])"
                        type="password"></ion-input>
@@ -51,22 +54,22 @@
     && signInForm.hasError('mismatchedPasswords')
     && signInForm.get('password').valid">
             <div class="error">
-              Passwords do not match
+              {{ 'passwords_dont_match' | translate }}
             </div>
           </ion-item>
           <ion-item no-lines
                     *ngIf="( signInForm.get('password').hasError('minlength') || signInForm.get('password').hasError('maxlength') ||signInForm.get('password').hasError('required') ) && signInForm.get('password').touched">
             <div class="error"
                  *ngIf="signInForm.get('password').hasError('required') && signInForm.get('password').touched">
-              Please enter your password
+              {{ 'type_password' | translate }}
             </div>
             <div class="error"
                  *ngIf="signInForm.get('password').hasError('minlength') && signInForm.get('password').touched">
-              Minimum 6 characters
+              {{ 'minimum_characters' | translate }}
             </div>
             <div class="error"
                  *ngIf="signInForm.get('password').hasError('maxlength') && signInForm.get('password').touched">
-              Maximum 12 characters
+              {{ 'maximum_characters' | translate }}
             </div>
           </ion-item>
           <ion-row style="margin-top: 2rem">
@@ -78,25 +81,31 @@
             <ion-col text-center>
               <button *ngIf="newAccountMode" [disabled]="signInForm.invalid" mode="ios" ion-button block color="primary"
                       (click)="onSignUp()">
-                Sign Up
+                {{ 'sign_up' | translate }}
               </button>
               <button *ngIf="!newAccountMode" [disabled]="signInForm.invalid" mode="ios" ion-button block
                       color="primary"
                       (click)="onLogIn()">
-                Login
+                {{ 'login_btn' | translate }}
               </button>
             </ion-col>
           </ion-row>
           <ion-row style="margin-top: 2rem" class="mode-buttons">
             <ion-col text-left>
-              <h5 *ngIf="!newAccountMode" ion-text color="primary">No Account? Click <a
-                (click)="setNewAccountMode(true)">here</a> to create one.</h5>
-              <h5 *ngIf="newAccountMode" ion-text color="primary">Already a member? Click <a
-                (click)="setNewAccountMode(false)">here</a>
-                to sign in.</h5>
+              <h5 *ngIf="!newAccountMode" ion-text color="primary">{{ 'no_account' | translate }} <a
+                (click)="setNewAccountMode(true)">{{ 'register_here' | translate }}</a></h5>
+              <h5 *ngIf="newAccountMode" ion-text color="primary"><a
+                (click)="setNewAccountMode(false)">{{ 'already_account' | translate }}</a>
+              </h5>
             </ion-col>
           </ion-row>
-
+          <ion-row style="margin-top: 1rem" class="mode-buttons">
+            <ion-col text-left>
+              <h5 ion-text color="primary">{{ 'forgot_password_link' | translate }} <a
+                href="https://kubernetes.pasiphae.eu/shapes/asapa/auth/password/recovery" target="_blank">
+                {{ 'click_here' | translate }}</a></h5>
+            </ion-col>
+          </ion-row>
         </form>
       </ion-col>
     </ion-row>
