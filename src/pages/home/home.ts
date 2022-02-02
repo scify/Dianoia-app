@@ -7,6 +7,7 @@ import {AlertProvider} from "../../providers/alert/alert";
 import {StatusBar} from "@ionic-native/status-bar";
 import {InAppBrowser} from "@ionic-native/in-app-browser";
 import {TranslateService} from "@ngx-translate/core";
+import {ShapesApiProvider} from "../../providers/shapes-api/shapes-api";
 
 let robotAPIStartCalled = false;
 
@@ -27,7 +28,7 @@ export class HomePage {
               private loaderService: LoaderService, private http: Http,
               private appStorage: AppStorageProvider, public statusBar: StatusBar,
               private alertProvider: AlertProvider, public platform: Platform, private iab: InAppBrowser,
-              private translate: TranslateService) {
+              private translate: TranslateService, public shapesApiProvider: ShapesApiProvider) {
     if (platform.is('cordova')) {
       if (platform.is('android')) {
         statusBar.overlaysWebView(false);
@@ -91,12 +92,7 @@ export class HomePage {
     this.appStorage.get('auth_mode').then(authMode => {
       if (JSON.parse(authMode) && !robotAPIStartCalled) {
         robotAPIStartCalled = true;
-        this.http.post("http://ari-8c/action/dianoia_state", {
-          game_status: "started"
-        }).subscribe(data => {
-        }, error => {
-          console.error(error);
-        });
+        this.shapesApiProvider.postAppStateToRobotAPI("started");
       }
     });
   }

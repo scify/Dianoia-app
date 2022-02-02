@@ -80,6 +80,9 @@ export class MyApp {
     const authMode = this.getURLParam("auth_mode");
     if (authMode)
       await this.appStorage.set("auth_mode", authMode);
+    const robot_api = this.getURLParam("robot_api");
+    if (robot_api)
+      await this.appStorage.set("robot_api", robot_api);
     if (this.platform.is('cordova')) {
       this.appVersion.getVersionNumber().then((version) => this.appVersionName = version);
 
@@ -216,7 +219,6 @@ export class MyApp {
   }
 
   getDifficultyLevelsForCategoryAndLoadPage(categoryId: string): any {
-    console.log(categoryId);
     this.activityCategoryProvider.getActivitiesForCategory(categoryId).subscribe(activitiesIds => {
       if (activitiesIds != null) {
         this.activityProvider.getActivitiesBySlugs(activitiesIds).then(activities => {
@@ -232,7 +234,6 @@ export class MyApp {
 
   getDifficultyLevelsForActivitiesAndLoadPage(activities: any, categoryId) {
     this.difficultyLevelProvider.getDifficultyLevelsForActivities(activities).then(difficultyLevels => {
-      // this.loaderService.hideLoader();
       this.nav.push("DifficultyLevelsPage", {levels: difficultyLevels, categoryId: categoryId, activities: activities});
     });
   }
@@ -247,14 +248,6 @@ export class MyApp {
   }
 
   exitApp() {
-    this.http.post("http://ari-8c/action/dianoia_state", {
-      game_status: "finished"
-    }).subscribe(data => {
-    }, error => {
-      console.error(error);
-      console.log("DIANOIA_APP_FINISHED_LANG_" + this.translate.currentLang);
-    }, () => {
-      console.log("DIANOIA_APP_FINISHED_LANG_" + this.translate.currentLang);
-    });
+    this.shapesApiProvider.postAppStateToRobotAPI("finished");
   }
 }

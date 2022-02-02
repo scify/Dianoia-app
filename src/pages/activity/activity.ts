@@ -7,6 +7,8 @@ import {SocialSharing} from "@ionic-native/social-sharing";
 import {TranslateService} from "@ngx-translate/core";
 import {AppStorageProvider} from "../../providers/app-storage/app-storage";
 import {AnalyticsProvider} from "../../providers/analytics/analytics";
+import {ShapesApiProvider} from "../../providers/shapes-api/shapes-api";
+import {URLSearchParams} from "@angular/http";
 
 /**
  * Generated class for the ActivityPage page.
@@ -33,7 +35,7 @@ export class ActivityPage {
               private activityProvider: ActivityProvider, private iab: InAppBrowser,
               public platform: Platform, private alert: AlertProvider, private socialSharing: SocialSharing,
               private viewCtrl: ViewController, private translate: TranslateService, public appStorage: AppStorageProvider,
-              public events: Events, public analyticsProvider: AnalyticsProvider) {
+              public events: Events, public analyticsProvider: AnalyticsProvider, public shapesApiProvider: ShapesApiProvider) {
 
 
     const paramLang = this.navParams.get("lang");
@@ -59,10 +61,15 @@ export class ActivityPage {
       return;
     this.setUpInProgress = true;
     this.currentLang = this.translate.currentLang;
+    const robot_api = this.getURLParam("robot_api");
+    if (robot_api)
+      await this.appStorage.set("robot_api", robot_api);
+    if (this.pageOpenedFromDirectLink())
+      this.shapesApiProvider.postAppStateToRobotAPI("started");
     this.allActivities = await this.getActivities();
     this.activity = await this.getActivity();
     const title = "DIANOIA_EXERCISE_STARTED_" + this.activity.title + "_" + this.activity.description + "_LANG_" + this.translate.currentLang;
-    this.analyticsProvider.logAction(
+    await this.analyticsProvider.logAction(
       title,
       {
         title: this.activity.title,
@@ -71,12 +78,13 @@ export class ActivityPage {
         difficulty_level_id: this.activity.difficulty_level_id
       }, title);
     this.setUpInProgress = false;
+
   }
 
   async getActivities(): Promise<any> {
     const instance = this;
     return new Promise(function callback(resolve, reject) {
-      let activities = instance.navParams.get("activity");
+      let activities = instance.navParams.get("allActivities");
       if (activities && activities.length) {
         resolve(activities);
       } else {
@@ -193,5 +201,21 @@ export class ActivityPage {
 
   private getRandomActivity() {
     return this.allActivities[Math.floor(Math.random() * this.allActivities.length)];
+  }
+
+  private pageOpenedFromDirectLink() {
+    let activity = this.navParams.get("activity");
+    return activity == null;
+  }
+
+  getURLParam(paramName) {
+    const params = new URLSearchParams(window.location.search);
+    let tokenParamArr = params.paramsMap.get("?" + paramName) ? params.paramsMap.get("?" + paramName) : params.paramsMap.get(paramName);
+    if (!tokenParamArr)
+      tokenParamArr = [];
+    let tokenParam = null;
+    if (tokenParamArr.length)
+      tokenParam = tokenParamArr[0];
+    return tokenParam;
   }
 }

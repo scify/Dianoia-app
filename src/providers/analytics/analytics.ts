@@ -43,6 +43,7 @@ export class AnalyticsProvider {
       ...payload,
       token: token,
       lang: lang,
+      name: actionTitle,
       source: this.platformName,
       platform_version: this.platformVersion,
       version: this.appVersion
