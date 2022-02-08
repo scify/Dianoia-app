@@ -58,7 +58,7 @@ export class ShapesApiProvider {
     if (!robot_api)
       robot_api = "control";
     this.http.post("http://" + robot_api + "/action/dianoia_state", {
-      game_status: state
+      state: state
     }).subscribe(data => {
     }, error => {
       console.error(error);
