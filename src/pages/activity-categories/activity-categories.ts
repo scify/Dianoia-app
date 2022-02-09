@@ -46,7 +46,7 @@ export class ActivityCategoriesPage {
   }
 
   initParentCategoryPage() {
-    this.activityCategoryProvider.getCategoryById(this.parentCategoryId).then(category => {
+    this.activityCategoryProvider.getCategoryBySlug(this.parentCategoryId).then(category => {
       this.parentCategory = category;
       this.pageTitle = this.parentCategory != null ? this.parentCategory.title : this.translate.instant('activity_categories')
       this.activityCategoryProvider.getSubcategoriesForCategory(this.parentCategoryId).then(subcategoriesIds => {

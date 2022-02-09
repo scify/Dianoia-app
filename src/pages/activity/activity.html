@@ -7,7 +7,13 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{ activity?.title }}</ion-title>
+    <ion-title><h5>{{ activity?.title }}</h5></ion-title>
+    <ion-buttons end padding-right *ngIf="category && category.title">
+      <button ion-button icon-end (click)="openCategoryPage()">
+        {{ 'see_more' | translate }}: {{ category.title }}
+        <ion-icon name="folder-open" margin-left="1"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -36,7 +42,8 @@
       </ion-row>
       <h2 class="activityTitle">{{ activity?.title }}</h2>
       <p class="activityBody">{{ activity?.description }}</p>
-      <img class="activityImg" *ngIf="activity?.img_url" [src]="'assets/img/activities/' + currentLang + '/' + activity.img_url">
+      <img class="activityImg" *ngIf="activity?.img_url"
+           [src]="'assets/img/activities/' + currentLang + '/' + activity.img_url">
     </ion-card-content>
     <ion-list no-lines class="activityActionsContainer">
       <ion-item text-wrap *ngIf="activity?.link">

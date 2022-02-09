@@ -31,6 +31,7 @@ export class ActivityPage {
   allActivities: any = [];
   currentLang: string = 'en';
   setUpInProgress: boolean = false;
+  category: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               private activityProvider: ActivityProvider, private iab: InAppBrowser,
@@ -70,6 +71,7 @@ export class ActivityPage {
       this.shapesApiProvider.postAppStateToRobotAPI("started");
     this.activity = await this.getActivity();
     this.allActivities = await this.getActivities();
+    this.category = await this.activityCategoryProvider.getCategoryBySlug(this.activity.category);
     const title = "DIANOIA_EXERCISE_STARTED_" + this.activity.title + "_" + this.activity.description + "_LANG_" + this.translate.currentLang;
     await this.analyticsProvider.logAction(
       title,
@@ -219,5 +221,11 @@ export class ActivityPage {
     if (tokenParamArr.length)
       tokenParam = tokenParamArr[0];
     return tokenParam;
+  }
+
+  openCategoryPage() {
+    this.navCtrl.push("DifficultyLevelsPage", {
+      categoryId: this.category.category_id
+    });
   }
 }

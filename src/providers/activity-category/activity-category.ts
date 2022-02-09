@@ -58,15 +58,15 @@ export class ActivityCategoryProvider {
     });
   }
 
-  public getCategoryById(categoryId): Promise<any> {
+  public getCategoryBySlug(categorySlug): Promise<any> {
     return new Promise((resolve, reject) => {
       this.getAllCategories().subscribe(categories => {
         for (let category of categories) {
-          if (category.category_id == categoryId) {
+          if (category.category_id == categorySlug) {
             resolve(category);
           }
         }
-        reject("category with id: " + categoryId + " was not found");
+        reject("category with slug: " + categorySlug + " was not found");
       });
     });
   }

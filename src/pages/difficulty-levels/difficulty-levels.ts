@@ -48,7 +48,7 @@ export class DifficultyLevelsPage {
       if (activitySlugs != null) {
         const activities = await this.activityProvider.getActivitiesBySlugs(activitySlugs);
         try {
-          const category = await this.activityCategoryProvider.getCategoryById(this.categoryId);
+          const category = await this.activityCategoryProvider.getCategoryBySlug(this.categoryId);
           if (category)
             this.category = category;
           console.log(this.category);
