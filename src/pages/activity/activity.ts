@@ -9,6 +9,7 @@ import {AppStorageProvider} from "../../providers/app-storage/app-storage";
 import {AnalyticsProvider} from "../../providers/analytics/analytics";
 import {ShapesApiProvider} from "../../providers/shapes-api/shapes-api";
 import {URLSearchParams} from "@angular/http";
+import {ActivityCategoryProvider} from "../../providers/activity-category/activity-category";
 
 /**
  * Generated class for the ActivityPage page.
@@ -35,7 +36,8 @@ export class ActivityPage {
               private activityProvider: ActivityProvider, private iab: InAppBrowser,
               public platform: Platform, private alert: AlertProvider, private socialSharing: SocialSharing,
               private viewCtrl: ViewController, private translate: TranslateService, public appStorage: AppStorageProvider,
-              public events: Events, public analyticsProvider: AnalyticsProvider, public shapesApiProvider: ShapesApiProvider) {
+              public events: Events, public analyticsProvider: AnalyticsProvider, public shapesApiProvider: ShapesApiProvider,
+              private activityCategoryProvider: ActivityCategoryProvider) {
 
 
     const paramLang = this.navParams.get("lang");
@@ -66,8 +68,8 @@ export class ActivityPage {
       await this.appStorage.set("robot_api", robot_api);
     if (this.pageOpenedFromDirectLink())
       this.shapesApiProvider.postAppStateToRobotAPI("started");
-    this.allActivities = await this.getActivities();
     this.activity = await this.getActivity();
+    this.allActivities = await this.getActivities();
     const title = "DIANOIA_EXERCISE_STARTED_" + this.activity.title + "_" + this.activity.description + "_LANG_" + this.translate.currentLang;
     await this.analyticsProvider.logAction(
       title,
@@ -88,8 +90,8 @@ export class ActivityPage {
       if (activities && activities.length) {
         resolve(activities);
       } else {
-        instance.activityProvider.getAllActivities().subscribe(activities => {
-          resolve(activities);
+        instance.activityCategoryProvider.getActivitySlugsForCategory(instance.activity.category).subscribe(activitySlugs => {
+          resolve(instance.activityProvider.getActivitiesBySlugs(activitySlugs));
         });
       }
     });
@@ -194,7 +196,7 @@ export class ActivityPage {
     if (event.direction == 2) {
       this.nextActivity(true);
     } else if (event.direction == 4) {
-      this.nextActivity(true);
+      this.nextActivity(false);
     }
   }
 

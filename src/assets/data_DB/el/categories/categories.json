@@ -10,17 +10,17 @@
     "has_difficulty_levels": false
   },
   {
-    "title": "Ασκήσεις Προσοχής",
+    "title": "Προσοχής",
     "category_id": "focus_activities",
     "has_difficulty_levels": true
   },
   {
-    "title": "Ασκήσεις Μνήμης",
+    "title": "Μνήμης",
     "category_id": "memory_activities",
     "has_difficulty_levels": true
   },
   {
-    "title": "Ασκήσεις Σκέψης & λόγου",
+    "title": "Σκέψης & λόγου",
     "category_id": "think_activities",
     "has_difficulty_levels": true
   },

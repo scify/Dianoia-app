@@ -10,22 +10,22 @@
     "has_difficulty_levels": false
   },
   {
-    "title": "Attention Exercises",
+    "title": "Attention",
     "category_id": "focus_activities",
     "has_difficulty_levels": true
   },
   {
-    "title": "Memory Exercises",
+    "title": "Memory",
     "category_id": "memory_activities",
     "has_difficulty_levels": true
   },
   {
-    "title": "Thought & Speech Exercises",
+    "title": "Thought & Speech",
     "category_id": "think_activities",
     "has_difficulty_levels": true
   },
   {
-    "title": "Executive functions",
+    "title": "Executive Functions",
     "category_id": "executive_activities",
     "has_difficulty_levels": true
   },

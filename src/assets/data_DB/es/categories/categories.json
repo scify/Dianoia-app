@@ -10,27 +10,27 @@
     "has_difficulty_levels": false
   },
   {
-    "title": "Ejercicios de concentración",
+    "title": "Atención",
     "category_id": "focus_activities",
     "has_difficulty_levels": true
   },
   {
-    "title": "Ejercicios de memoria",
+    "title": "Memoria",
     "category_id": "memory_activities",
     "has_difficulty_levels": true
   },
   {
-    "title": "Ejercicios de Pensamiento y Discurso",
+    "title": "Lenguaje",
     "category_id": "think_activities",
     "has_difficulty_levels": true
   },
   {
-    "title": "Funciones ejecutivas",
+    "title": "Lógica",
     "category_id": "executive_activities",
     "has_difficulty_levels": true
   },
   {
-    "title": "Contamos historias",
+    "title": "Cuentos",
     "category_id": "stories",
     "has_difficulty_levels": true
   }

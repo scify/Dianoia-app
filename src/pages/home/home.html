@@ -21,7 +21,7 @@
       <div class="buttonsContainer">
         <button padding mode="ios" ion-button full
                 style="padding-top: 12px; padding-bottom: 12px;"
-                *ngIf="!platform.is('cordova')"
+                *ngIf="!platform.is('cordova') && !authMode"
                 (click)="openLink('https://play.google.com/store/apps/details?id=org.scify.dianoia.app&hl=el')">
           <img style="height: 100%; margin-right: 15px;" src="assets/img/google-play.png">
           {{ 'download_app' | translate }}

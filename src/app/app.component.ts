@@ -32,7 +32,7 @@ export class MyApp {
   onDemandLang: string;
   shapesMode: false;
 
-  pages: Array<{ title: string, id?: any, component?: any, pageFile?: string, pageCode?: string, pageName?: string }>;
+  pages: Array<any>;
   languages = [
     {
       "name": "English",
@@ -147,10 +147,11 @@ export class MyApp {
         pageCode: "page_tips_list",
         pageFile: "pages/" + this.translate.currentLang + "/tips_list.json"
       },
-      {title: this.translate.instant('activities_exercises'), component: "ActivityCategoriesPage"},
-      {title: this.translate.instant('stories_btn_title'), id: "stories"},
       {title: this.translate.instant('carer_activities_btn_title'), id: "carer_activities"},
-      {title: this.translate.instant('history'), component: "StatisticsPage"},
+      {title: this.translate.instant('activities_exercises'), component: "ActivityCategoriesPage", parentCategoryId: "mental_activities"},
+      {title: this.translate.instant('common_activities_btn_title'), id: "common_activities"},
+      {title: this.translate.instant('stories_btn_title'), id: "stories"},
+      //{title: this.translate.instant('history'), component: "StatisticsPage"},
       {title: this.translate.instant('settings'), component: "SettingsPage"},
       {title: this.translate.instant('help'), component: "HelpPage"},
       {title: this.translate.instant('about'), component: "AboutPage"}
@@ -215,13 +216,13 @@ export class MyApp {
     if (page.id)
       this.getDifficultyLevelsForCategoryAndLoadPage(page.id);
     else
-      this.nav.push(page.pageName ? page.pageName : page.component, {pageData: page});
+      this.nav.push(page.pageName ? page.pageName : page.component, {pageData: page, parentCategoryId: page.parentCategoryId});
   }
 
   getDifficultyLevelsForCategoryAndLoadPage(categoryId: string): any {
-    this.activityCategoryProvider.getActivitiesForCategory(categoryId).subscribe(activitiesIds => {
-      if (activitiesIds != null) {
-        this.activityProvider.getActivitiesBySlugs(activitiesIds).then(activities => {
+    this.activityCategoryProvider.getActivitySlugsForCategory(categoryId).subscribe(activitySlugs => {
+      if (activitySlugs != null) {
+        this.activityProvider.getActivitiesBySlugs(activitySlugs).then(activities => {
           this.getDifficultyLevelsForActivitiesAndLoadPage(activities, categoryId);
         }, error => {
           this.handleError(error);
@@ -250,4 +251,6 @@ export class MyApp {
   exitApp() {
     this.shapesApiProvider.postAppStateToRobotAPI("finished");
   }
+
+
 }

@@ -41,25 +41,30 @@ export class DifficultyLevelsPage {
     if (this.setUpInProgress)
       return;
     this.setUpInProgress = true;
-    this.pageTitle = this.translate.instant('activities_exercises');
     if (this.categoryId == null)
       return this.navCtrl.setRoot("HomePage");
 
-    this.activityCategoryProvider.getActivitiesForCategory(this.categoryId).subscribe(activitiesIds => {
-      if (activitiesIds != null) {
-        this.activityProvider.getActivitiesBySlugs(activitiesIds).then(activities => {
-          this.allActivities = activities;
-          this.activities = activities;
-          this.difficultyLevelProvider.getDifficultyLevelsForActivities(activities).then(difficultyLevels => {
-            this.levels = difficultyLevels;
-            this.levels.unshift({id: "0", title: this.translate.instant('all_difficulty_levels')});
-            this.pageTitle = this.category != null ? this.category.title : this.translate.instant('activities_exercises');
-            this.loaderService.hideLoader();
-            this.setUpInProgress = false;
-          });
-        }, error => {
-          this.handleError(error);
+    this.activityCategoryProvider.getActivitySlugsForCategory(this.categoryId).subscribe(async activitySlugs => {
+      if (activitySlugs != null) {
+        const activities = await this.activityProvider.getActivitiesBySlugs(activitySlugs);
+        try {
+          const category = await this.activityCategoryProvider.getCategoryById(this.categoryId);
+          if (category)
+            this.category = category;
+          console.log(this.category);
+        } catch (e) {
+          console.error(e);
+        }
+        this.allActivities = activities;
+        this.activities = activities;
+        this.difficultyLevelProvider.getDifficultyLevelsForActivities(activities).then(difficultyLevels => {
+          this.levels = difficultyLevels;
+          this.levels.unshift({id: "0", title: this.translate.instant('all_difficulty_levels')});
+          this.pageTitle = this.category != null ? this.category.title : '';
+          this.loaderService.hideLoader();
+          this.setUpInProgress = false;
         });
+
       }
     }, error => {
       this.handleError(error);

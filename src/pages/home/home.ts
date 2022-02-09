@@ -22,7 +22,7 @@ export class HomePage {
   activities: any[];
   buttons: any[];
   iconPath: string = 'assets/img/en/icon.png';
-
+  authMode: boolean = false;
 
   constructor(public navCtrl: NavController,
               private loaderService: LoaderService, private http: Http,
@@ -43,6 +43,10 @@ export class HomePage {
     this.translate.onLangChange.subscribe(() => {
       this.setUpPageElements();
     });
+    this.appStorage.get("auth_mode").then((authMode) => {
+      if (JSON.parse(authMode))
+        this.authMode = JSON.parse(authMode);
+    })
   }
 
   ionViewWillLoad() {
@@ -58,6 +62,14 @@ export class HomePage {
         subtitle: this.translate.instant('basic_info_btn_subtitle'),
         component: "BasicInfoPage",
         pageName: 'basic-info'
+      },
+      {
+        id: "carer_activities",
+        title: this.translate.instant('carer_activities_btn_title'),
+        subtitle: this.translate.instant('carer_activities_btn_subtitle'),
+        component: "InfoListPage",
+        pageCode: "page_value",
+        pageFile: "pages/" + this.translate.currentLang + "/value.json"
       },
       {
         id: "mental_activities",
@@ -79,14 +91,6 @@ export class HomePage {
         id: "stories",
         title: this.translate.instant('stories_btn_title'),
         subtitle: this.translate.instant('stories_btn_subtitle'),
-      },
-      {
-        id: "carer_activities",
-        title: this.translate.instant('carer_activities_btn_title'),
-        subtitle: this.translate.instant('carer_activities_btn_subtitle'),
-        component: "InfoListPage",
-        pageCode: "page_value",
-        pageFile: "pages/" + this.translate.currentLang + "/value.json"
       }
     ];
     this.appStorage.get('auth_mode').then(authMode => {
@@ -133,7 +137,6 @@ export class HomePage {
   }
 
   goTo(button) {
-    console.log(button);
     switch (button.id) {
       case "basic_info":
         this.navCtrl.push(button.pageName, {pageData: button});

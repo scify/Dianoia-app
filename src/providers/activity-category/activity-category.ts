@@ -66,6 +66,7 @@ export class ActivityCategoryProvider {
             resolve(category);
           }
         }
+        reject("category with id: " + categoryId + " was not found");
       });
     });
   }
@@ -83,7 +84,7 @@ export class ActivityCategoryProvider {
     });
   }
 
-  public getActivitiesForCategory(categoryId): Observable<any> {
+  public getActivitySlugsForCategory(categoryId): Observable<any> {
     return Observable.create(observer => {
       this.getRelationshipsForCategory(categoryId).subscribe(category => {
         observer.next(category.activities);

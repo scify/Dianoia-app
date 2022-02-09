@@ -10,17 +10,17 @@
     "has_difficulty_levels": false
   },
   {
-    "title": "Esercizi di Attenzione",
+    "title": "Attenzione",
     "category_id": "focus_activities",
     "has_difficulty_levels": true
   },
   {
-    "title": "Esercizi di memoria",
+    "title": "Memoria",
     "category_id": "memory_activities",
     "has_difficulty_levels": true
   },
   {
-    "title": "Esercizi di Pensiero e Parole",
+    "title": "Pensiero e Parole",
     "category_id": "think_activities",
     "has_difficulty_levels": true
   },
