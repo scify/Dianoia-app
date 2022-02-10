@@ -42,6 +42,7 @@ export class ActivityCategoryProvider {
         let topLevelCategories = [];
         let allCategories = [];
         this.getAllCategories().subscribe(c => {
+          console.log(c);
           allCategories = c;
           for (let category of categories) {
             if (category.is_root) {
@@ -105,18 +106,20 @@ export class ActivityCategoryProvider {
     let categories = [];
     let allCategories = [];
     return Observable.create(observer => {
-      for (let categoryId of categoriesIds) {
-        this.getAllCategories().subscribe(c => {
-          allCategories = c;
-          for (let cat of allCategories) {
-            if (cat.category_id === categoryId) {
-              categories.push(cat);
-            }
+      this.getAllCategories().subscribe(c => {
+        allCategories = c;
+        categories = [];
+        for (let cat of allCategories) {
+          if (categoriesIds.indexOf(cat.category_id) > -1) {
+            categories.push(cat);
           }
-        });
-      }
-      observer.next(categories);
-      observer.complete();
+        }
+        observer.next(categories);
+      }, error => {
+        observer.error(error);
+      }, complete => {
+        observer.complete();
+      });
     });
   }
 

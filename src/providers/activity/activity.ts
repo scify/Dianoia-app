@@ -90,6 +90,7 @@ export class ActivityProvider {
     return new Promise((resolve, reject) => {
       if (!this.activities.length) {
         this.getAllActivities().subscribe(activities => {
+          activitiesToReturn = [];
           this.activities = activities;
           for (let activity of activities) {
             if (activitySlugs.indexOf(activity.slug) > -1) {

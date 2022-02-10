@@ -46,23 +46,19 @@ export class ActivityCategoriesPage {
     }
   }
 
-  initParentCategoryPage() {
-    this.activityCategoryProvider.getCategoryBySlug(this.parentCategoryId).then(category => {
-      this.parentCategory = category;
-      this.pageTitle = this.parentCategory != null ? this.parentCategory.title : this.translate.instant('activity_categories')
-      this.activityCategoryProvider.getSubcategoriesForCategory(this.parentCategoryId).then(subcategoriesIds => {
-        if (subcategoriesIds != null) {
-          this.activityCategoryProvider.getCategoriesByIds(subcategoriesIds).subscribe(subcategories => {
-            this.categories = subcategories;
-            this.loaderService.hideLoader();
-          });
-        } else {
-          this.loaderService.hideLoader();
-        }
+  async initParentCategoryPage() {
+    this.parentCategory = await this.activityCategoryProvider.getCategoryBySlug(this.parentCategoryId)
+
+    this.pageTitle = this.parentCategory != null ? this.parentCategory.title : this.translate.instant('activity_categories')
+    const subcategoriesIds = await this.activityCategoryProvider.getSubcategoriesForCategory(this.parentCategoryId)
+    if (subcategoriesIds != null) {
+      this.activityCategoryProvider.getCategoriesByIds(subcategoriesIds).subscribe(subcategories => {
+        this.categories = subcategories;
+        this.loaderService.hideLoader();
       });
-    }).catch(error => {
-      this.handleError(error);
-    });
+    } else {
+      this.loaderService.hideLoader();
+    }
   }
 
   handleError(error) {

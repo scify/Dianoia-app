@@ -72,7 +72,6 @@ export class ActivityPage {
     if (this.pageOpenedFromDirectLink())
       this.shapesApiProvider.postAppStateToRobotAPI("started");
     this.activity = await this.getActivity();
-    console.log(this.activity);
     this.allActivities = await this.getActivities();
     this.category = await this.activityCategoryProvider.getCategoryBySlug(this.activity.category);
     const title = "DIANOIA_EXERCISE_STARTED_" + this.activity.title + "_" + this.activity.description + "_LANG_" + this.translate.currentLang;
