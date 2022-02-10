@@ -87,5 +87,6 @@
   "type_mail" : "Per favore digita la tua email",
   "type_password" : "Per favore digita la tua password",
   "email_invalid": "Indirizzo e-mail non valido",
-  "see_more": "Vedi altro"
+  "see_more": "Vedi altro",
+  "instructions": "Istruzioni"
 }

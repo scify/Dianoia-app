@@ -32,6 +32,7 @@ export class ActivityPage {
   currentLang: string = 'en';
   setUpInProgress: boolean = false;
   category: any;
+  imgIndex: number = 0;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               private activityProvider: ActivityProvider, private iab: InAppBrowser,
@@ -43,16 +44,17 @@ export class ActivityPage {
 
     const paramLang = this.navParams.get("lang");
     const langs = ['en', 'el', 'it', 'es'];
-    this.translate.onLangChange.subscribe(() => {
-      this.setUpPageElements();
-    });
     if (paramLang && langs.indexOf(paramLang) > -1) {
       const lang = this.navParams.get("lang");
-      this.translate.use(paramLang).subscribe(() => {
-        this.appStorage.set('app_lang', lang);
+      activityProvider.currentLang = lang;
+      this.translate.use(paramLang).subscribe(async () => {
+        await this.appStorage.set('app_lang', lang);
         this.events.publish('lang_ready', lang);
       });
     }
+    this.translate.onLangChange.subscribe(() => {
+      this.setUpPageElements();
+    });
   }
 
   ionViewDidEnter() {
@@ -70,6 +72,7 @@ export class ActivityPage {
     if (this.pageOpenedFromDirectLink())
       this.shapesApiProvider.postAppStateToRobotAPI("started");
     this.activity = await this.getActivity();
+    console.log(this.activity);
     this.allActivities = await this.getActivities();
     this.category = await this.activityCategoryProvider.getCategoryBySlug(this.activity.category);
     const title = "DIANOIA_EXERCISE_STARTED_" + this.activity.title + "_" + this.activity.description + "_LANG_" + this.translate.currentLang;
@@ -227,5 +230,32 @@ export class ActivityPage {
     this.navCtrl.push("DifficultyLevelsPage", {
       categoryId: this.category.category_id
     });
+  }
+
+  shouldShowSingleImg() {
+    return this.activity.img_url && !Array.isArray(this.activity.img_url);
+  }
+
+  shouldShowMultipleImg() {
+    return this.activity.img_url && Array.isArray(this.activity.img_url) && !this.activity.images_exclusive;
+  }
+
+  shouldShowMultipleExclusiveImg() {
+    return this.activity.img_url && Array.isArray(this.activity.img_url) && this.activity.images_exclusive;
+  }
+
+  getCurrentImg() {
+    return 'assets/img/activities/' + this.currentLang + '/' + this.activity.img_url[this.imgIndex];
+  }
+
+  getCurrentImgBtn() {
+    return this.activity.image_btns[this.imgIndex];
+  }
+
+  loadNextImg() {
+    if (this.imgIndex + 1 == this.activity.img_url.length)
+      this.imgIndex = 0;
+    else
+      this.imgIndex += 1;
   }
 }

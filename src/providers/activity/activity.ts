@@ -6,6 +6,7 @@ import {Observable} from "rxjs/Observable";
 import "rxjs/add/observable/forkJoin";
 import {AppStorageProvider} from "../app-storage/app-storage";
 import {Events} from "ionic-angular";
+import {TranslateService} from "@ngx-translate/core";
 
 /*
   Generated class for the ActivityProvider provider.
@@ -21,19 +22,23 @@ export class ActivityProvider {
   currentLang: string = 'en';
 
   constructor(public http: Http, private apiCalls: ApiCallsProvider,
-              private appStorage: AppStorageProvider, public events: Events) {
+              private appStorage: AppStorageProvider, public events: Events,
+              private translate: TranslateService) {
     this.events.subscribe('lang_ready', (langCode) => {
-      this.activities = [];
-      this.currentLang = langCode;
+      this.reset(langCode);
     });
-
-    this.getAllActivities().subscribe(data => {
-      this.activities = data;
+    this.translate.onLangChange.subscribe((lang) => {
+      this.reset(lang.lang);
     });
 
     const currentDate = new Date();
     currentDate.setDate(currentDate.getDate() - 4);
     this.currentDateFormatted = currentDate.toDateString();
+  }
+
+  reset(langCode) {
+    this.activities = [];
+    this.currentLang = langCode;
   }
 
   public getAllActivities(): Observable<any> {

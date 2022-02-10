@@ -23,7 +23,7 @@
 
   <ion-card (swipe)="swipeActivity($event)">
 
-    <ion-card-content>
+    <ion-card-content *ngIf="activity">
       <ion-row class="navigationContainer">
         <ion-col col-6 style="text-align: left">
           <button mode="ios" *ngIf="activityIsNotFirst()" class="activityNavigationBtn" no-padding ion-button icon-left
@@ -42,30 +42,42 @@
       </ion-row>
       <h2 class="activityTitle">{{ activity?.title }}</h2>
       <p class="activityBody">{{ activity?.description }}</p>
-      <img class="activityImg" *ngIf="activity?.img_url"
+      <h5 *ngIf="activity?.instructions && activity?.instructions.length"
+          style="margin-top: 25px">{{ 'instructions' | translate }}:</h5>
+      <ion-list *ngIf="activity?.instructions && activity?.instructions.length"
+                class="activityActionsContainer">
+        <ion-item text-wrap *ngFor="let instruction of activity.instructions">
+          <p>{{ instruction }}</p>
+        </ion-item>
+      </ion-list>
+      <img class="activityImg" *ngIf="shouldShowSingleImg()"
            [src]="'assets/img/activities/' + currentLang + '/' + activity.img_url">
-    </ion-card-content>
-    <ion-list no-lines class="activityActionsContainer">
-      <ion-item text-wrap *ngIf="activity?.link">
+      <div *ngIf="shouldShowMultipleExclusiveImg()">
+        <img class="activityImg"
+             [src]="getCurrentImg()">
+        <button mode="ios" ion-button (click)="loadNextImg()">
+          <div>{{ getCurrentImgBtn() }}</div>
+        </button>
+      </div>
+      <div class="activityActionsContainer">
+
         <a *ngIf="activity?.link && platform.is('core')" href="{{ activity.link }}" target="_blank">
-          <button ion-button icon-left clear small>
+          <button ion-button icon-left mode="ios">
             <ion-icon name="ios-link"></ion-icon>
             <div>{{ 'see_and_print_activity' | translate }}</div>
           </button>
         </a>
-        <button mode="ios" *ngIf="activity?.link && !platform.is('core')" ion-button icon-left clear small
+        <button mode="ios" *ngIf="activity?.link && !platform.is('core')" ion-button icon-left
                 (click)="openLink(activity.link)">
           <ion-icon name="ios-link"></ion-icon>
           <div>{{ 'see_activity' | translate }}</div>
         </button>
-      </ion-item>
-      <ion-item text-wrap *ngIf="activity?.link && platform.is('cordova')">
-        <button mode="ios" *ngIf="activity?.link" ion-button icon-left clear small (click)="share(activity)">
+
+        <button mode="ios" *ngIf="activity?.link && platform.is('cordova')" ion-button icon-left
+                (click)="share(activity)">
           <ion-icon name="ios-share-alt"></ion-icon>
           <div>{{ 'share_and_print' | translate }}</div>
         </button>
-      </ion-item>
-      <ion-item text-wrap *ngIf="activity?.help_link">
         <a *ngIf="activity?.help_link && platform.is('core')" href="{{ activity.help_link }}" target="_blank">
           <button mode="ios" ion-button icon-left clear small>
             <ion-icon name="ios-help-buoy"></ion-icon>
@@ -77,16 +89,17 @@
           <ion-icon name="ios-help-buoy"></ion-icon>
           <div>{{ 'more_info_help' | translate }}</div>
         </button>
-      </ion-item>
-      <ion-item text-wrap *ngIf="activity?.link && platform.is('cordova')">
-        <button mode="ios" style="margin-bottom: 10px" *ngIf="activity?.slug" clear ion-button icon-left small
+
+        <button mode="ios" style="margin-bottom: 10px" *ngIf="activity?.slug && platform.is('cordova')" clear ion-button
+                icon-left small
                 [disabled]="dailyActivityCompleted"
                 (click)="activityDoneForToday()">
           <ion-icon name="thumbs-up"></ion-icon>
           <div>{{ 'activity_done_btn' | translate }}</div>
         </button>
-      </ion-item>
-    </ion-list>
+      </div>
+    </ion-card-content>
+
   </ion-card>
 
 </ion-content>

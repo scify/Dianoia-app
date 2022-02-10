@@ -17,8 +17,10 @@
     "description": "Try to keep in mind the words list",
     "full_text": "",
     "video_url":"",
-    "img_url":"remembering_list.png",
-    "instructions":["Click the link to view and print the activity document", "Memorise the words of the first list", "Then cover that list.","Read the second list and find out which of the words have changed."],
+    "img_url":["remembering_list.png", "remembering_list2.png"],
+    "images_exclusive": true,
+    "image_btns": ["See the second list", "See the first list"],
+    "instructions":["Click the link to view more lists", "Memorise the words of the first list", "Then cover that list.","Read the second list and find out which of the words have changed."],
     "link": "https://drive.google.com/file/d/1ZTqNmydadRqn7DR0p-g39CkeS2Da-VfW/view?usp=sharing",
     "difficulty_level_id": "difficulty_level_1",
     "category": "memory_activities"
