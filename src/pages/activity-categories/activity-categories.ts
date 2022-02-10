@@ -25,11 +25,12 @@ export class ActivityCategoriesPage {
     });
   }
 
-  ionViewWillLoad() {
+  ionViewDidEnter() {
     this.setUpPageElements();
   }
 
   setUpPageElements() {
+    this.categories = [];
     this.pageTitle = this.translate.instant('activity_categories')
     this.loaderService.showLoader();
     this.parentCategoryId = this.navParams.get("parentCategoryId");

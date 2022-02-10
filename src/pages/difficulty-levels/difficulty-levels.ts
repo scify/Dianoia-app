@@ -43,7 +43,8 @@ export class DifficultyLevelsPage {
     this.setUpInProgress = true;
     if (this.categoryId == null)
       return this.navCtrl.setRoot("HomePage");
-
+    this.allActivities = [];
+    this.activities = [];
     this.activityCategoryProvider.getActivitySlugsForCategory(this.categoryId).subscribe(async activitySlugs => {
       if (activitySlugs != null) {
         const activities = await this.activityProvider.getActivitiesBySlugs(activitySlugs);
