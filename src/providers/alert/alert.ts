@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
-import {AlertController, Events} from 'ionic-angular';
-import {Toast} from "@ionic-native/toast";
+import {AlertController, Events, ToastController} from 'ionic-angular';
 import {TranslateService} from "@ngx-translate/core";
 
 /*
@@ -15,7 +14,7 @@ export class AlertProvider {
   alertCloseBtnText: string = '';
   alertCancelBtnText: string = '';
 
-  constructor(private alertController: AlertController, private toast: Toast,
+  constructor(private alertController: AlertController, private toastCtrl: ToastController,
               public events: Events, private translate: TranslateService) {
 
     this.events.subscribe('lang_ready', () => {
@@ -54,17 +53,16 @@ export class AlertProvider {
         }
       ]
     });
-
     alert.present();
-
   }
 
   displayToast(message: string) {
-    this.toast.show(message, '5000', 'center').subscribe(
-      toast => {
-        console.log(toast);
-      }
-    );
+    const toast = this.toastCtrl.create({
+      message: message,
+      duration: 3000,
+      position: 'bottom'
+    });
+    toast.present();
   }
 
 

@@ -163,10 +163,8 @@ export class ActivityPage {
   activityDoneForToday() {
     this.activityProvider.setActivityCompletedForToday().then(result => {
       this.dailyActivityCompleted = true;
-      if (!this.platform.is('core')) {
-        this.translate.get('activity_done').subscribe((translated: string) => {
-          this.alert.displayToast(translated);
-        });
+      if (this.platform.is('cordova')) {
+        this.alert.displayToast(this.translate.instant('activity_done'));
       }
       console.log("DIANOIA_EXERCISE_COMPLETED_LANG_" + this.translate.currentLang);
     });

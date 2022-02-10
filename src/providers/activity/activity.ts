@@ -18,7 +18,7 @@ import {TranslateService} from "@ngx-translate/core";
 export class ActivityProvider {
 
   activities = [];
-  currentDateFormatted: string;
+  currentDateFormatted: string = '';
   currentLang: string = 'en';
 
   constructor(public http: Http, private apiCalls: ApiCallsProvider,

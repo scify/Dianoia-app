@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title><h5>{{ activity?.title }}</h5></ion-title>
+    <ion-title><h5 *ngIf="platform.is('core')">{{ activity?.title }}</h5></ion-title>
     <ion-buttons end padding-right *ngIf="category && category.title">
       <button ion-button icon-end (click)="openCategoryPage()">
         {{ 'see_more' | translate }}: {{ category.title }}
