@@ -161,13 +161,13 @@ export class ActivityPage {
   }
 
   activityDoneForToday() {
-    this.activityProvider.setActivityCompletedForToday().then(result => {
-      this.dailyActivityCompleted = true;
-      if (this.platform.is('cordova')) {
+    if (this.platform.is('cordova')) {
+      this.activityProvider.setActivityCompletedForToday().then(result => {
+        this.dailyActivityCompleted = true;
         this.alert.displayToast(this.translate.instant('activity_done'));
-      }
-      console.log("DIANOIA_EXERCISE_COMPLETED_LANG_" + this.translate.currentLang);
-    });
+        console.log("DIANOIA_EXERCISE_COMPLETED_LANG_" + this.translate.currentLang);
+      });
+    }
   }
 
   openLink(url) {
