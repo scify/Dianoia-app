@@ -33,6 +33,11 @@
     "title": "Λέμε ιστορίες",
     "category_id": "stories",
     "has_difficulty_levels": true
+  },
+  {
+    "title": "Για φροντιστές",
+    "category_id": "carer_activities",
+    "has_difficulty_levels": true
   }
 ]
 

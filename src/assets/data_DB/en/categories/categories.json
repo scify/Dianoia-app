@@ -33,6 +33,11 @@
     "title": "Storytelling",
     "category_id": "stories",
     "has_difficulty_levels": true
+  },
+  {
+    "title": "For carers",
+    "category_id": "carer_activities",
+    "has_difficulty_levels": true
   }
 ]
 

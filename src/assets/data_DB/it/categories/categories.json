@@ -33,6 +33,11 @@
     "title": "Raccontiamo delle storie",
     "category_id": "stories",
     "has_difficulty_levels": true
+  },
+  {
+    "title": "Per badanti",
+    "category_id": "carer_activities",
+    "has_difficulty_levels": true
   }
 ]
 

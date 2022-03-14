@@ -33,6 +33,11 @@
     "title": "Cuentos",
     "category_id": "stories",
     "has_difficulty_levels": true
+  },
+  {
+    "title": "Para cuidadores",
+    "category_id": "carer_activities",
+    "has_difficulty_levels": true
   }
 ]
 
