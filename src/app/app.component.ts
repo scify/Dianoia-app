@@ -4,7 +4,7 @@ import {StatusBar} from "@ionic-native/status-bar";
 import {SplashScreen} from "@ionic-native/splash-screen";
 import {NotificationProvider} from "../providers/notification/notification";
 import {AppStorageProvider} from "../providers/app-storage/app-storage";
-import {Http, URLSearchParams} from "@angular/http";
+import {Http} from "@angular/http";
 import {ActivityCategoryProvider} from "../providers/activity-category/activity-category";
 import {ActivityProvider} from "../providers/activity/activity";
 import {DifficultyLevelProvider} from "../providers/difficulty-level/difficulty-level";
@@ -20,6 +20,7 @@ import itTranslations from "./../assets/i18n/it.json";
 import {ShapesApiProvider} from "../providers/shapes-api/shapes-api";
 import {AnalyticsProvider} from "../providers/analytics/analytics";
 import consts from "../consts";
+import {Helpers} from "../helpers";
 
 @Component({
   templateUrl: 'app.html'
@@ -77,10 +78,10 @@ export class MyApp {
   async initializeApp(platform, statusBar) {
     this.loaderService.showLoader();
     await this.platform.ready();
-    const authMode = this.getURLParam("auth_mode");
+    const authMode = Helpers.getURLParam("auth_mode");
     if (authMode)
       await this.appStorage.set("auth_mode", authMode);
-    const robot_api = this.getURLParam("robot_api");
+    const robot_api = Helpers.getURLParam("robot_api");
     if (robot_api)
       await this.appStorage.set("robot_api", robot_api);
     if (this.platform.is('cordova')) {
@@ -103,7 +104,7 @@ export class MyApp {
   }
 
   async setTranslationSettings() {
-    let langCodeToTry = this.getURLParam("lang");
+    let langCodeToTry = Helpers.getURLParam("lang");
     if (!langCodeToTry) {
       if (this.platform.is('cordova')) {
         const langFromGlobalization = await this.globalization.getPreferredLanguage();
@@ -121,7 +122,7 @@ export class MyApp {
 
     let appLang = JSON.parse(await this.appStorage.get('app_lang'));
     let langCode = defaultLangCode;
-    if (appLang && appLang != "" && acceptableLanguageCodes.indexOf(appLang) > -1 && !this.getURLParam("lang")) {
+    if (appLang && appLang != "" && acceptableLanguageCodes.indexOf(appLang) > -1 && !Helpers.getURLParam("lang")) {
       langCode = appLang;
     }
     if (!this.onDemandLang)
@@ -183,7 +184,7 @@ export class MyApp {
       if (!authMode)
         return resolve(false);
 
-      const tokenParam = this.getURLParam("auth_token");
+      const tokenParam = Helpers.getURLParam("auth_token");
       if (tokenParam) {
         await this.appStorage.set('auth_token', tokenParam);
         return resolve(false);
@@ -201,47 +202,11 @@ export class MyApp {
     });
   }
 
-  getURLParam(paramName) {
-    const params = new URLSearchParams(window.location.search);
-    let tokenParamArr = params.paramsMap.get("?" + paramName) ? params.paramsMap.get("?" + paramName) : params.paramsMap.get(paramName);
-    if (!tokenParamArr)
-      tokenParamArr = [];
-    let tokenParam = null;
-    if (tokenParamArr.length)
-      tokenParam = tokenParamArr[0];
-    return tokenParam;
-  }
-
   openPage(page) {
     if (page.id)
-      this.getDifficultyLevelsForCategoryAndLoadPage(page.id);
+      this.nav.push("DifficultyLevelsPage", {categoryId: page.id});
     else
       this.nav.push(page.pageName ? page.pageName : page.component, {pageData: page, parentCategoryId: page.parentCategoryId});
-  }
-
-  getDifficultyLevelsForCategoryAndLoadPage(categoryId: string): any {
-    this.activityCategoryProvider.getActivitySlugsForCategory(categoryId).subscribe(activitySlugs => {
-      if (activitySlugs != null) {
-        this.activityProvider.getActivitiesBySlugs(activitySlugs).then(activities => {
-          this.getDifficultyLevelsForActivitiesAndLoadPage(activities, categoryId);
-        }, error => {
-          this.handleError(error);
-        });
-      }
-    }, error => {
-      this.handleError(error);
-    });
-  }
-
-  getDifficultyLevelsForActivitiesAndLoadPage(activities: any, categoryId) {
-    this.difficultyLevelProvider.getDifficultyLevelsForActivities(activities).then(difficultyLevels => {
-      this.nav.push("DifficultyLevelsPage", {levels: difficultyLevels, categoryId: categoryId, activities: activities});
-    });
-  }
-
-  handleError(error) {
-    console.error(error);
-    this.loaderService.hideLoader();
   }
 
   openLink(url) {
@@ -251,6 +216,5 @@ export class MyApp {
   exitApp() {
     this.shapesApiProvider.postAppStateToRobotAPI("finished");
   }
-
 
 }

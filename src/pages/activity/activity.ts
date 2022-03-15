@@ -8,8 +8,8 @@ import {TranslateService} from "@ngx-translate/core";
 import {AppStorageProvider} from "../../providers/app-storage/app-storage";
 import {AnalyticsProvider} from "../../providers/analytics/analytics";
 import {ShapesApiProvider} from "../../providers/shapes-api/shapes-api";
-import {URLSearchParams} from "@angular/http";
 import {ActivityCategoryProvider} from "../../providers/activity-category/activity-category";
+import {Helpers} from "../../helpers";
 
 /**
  * Generated class for the ActivityPage page.
@@ -66,7 +66,7 @@ export class ActivityPage {
       return;
     this.setUpInProgress = true;
     this.currentLang = this.translate.currentLang;
-    const robot_api = this.getURLParam("robot_api");
+    const robot_api = Helpers.getURLParam("robot_api");
     if (robot_api)
       await this.appStorage.set("robot_api", robot_api);
     if (this.pageOpenedFromDirectLink())
@@ -210,17 +210,6 @@ export class ActivityPage {
   private pageOpenedFromDirectLink() {
     let activity = this.navParams.get("activity");
     return activity == null;
-  }
-
-  getURLParam(paramName) {
-    const params = new URLSearchParams(window.location.search);
-    let tokenParamArr = params.paramsMap.get("?" + paramName) ? params.paramsMap.get("?" + paramName) : params.paramsMap.get(paramName);
-    if (!tokenParamArr)
-      tokenParamArr = [];
-    let tokenParam = null;
-    if (tokenParamArr.length)
-      tokenParam = tokenParamArr[0];
-    return tokenParam;
   }
 
   openCategoryPage() {

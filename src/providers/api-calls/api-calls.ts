@@ -49,7 +49,7 @@ export class ApiCallsProvider {
     this.http.post(API_BASE_URL + "analytics/store", payload, this.httpOptions).subscribe({error: e => console.error(e)});
   }
 
-  getExercises() {
+  getActivities() {
     this.http.get(API_BASE_URL + "exercises").subscribe((res) => {
       console.log(res.json());
     }, error => {
