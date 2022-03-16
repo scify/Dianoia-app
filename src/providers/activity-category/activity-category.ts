@@ -42,7 +42,6 @@ export class ActivityCategoryProvider {
         let topLevelCategories = [];
         let allCategories = [];
         this.getAllCategories().subscribe(c => {
-          console.log(c);
           allCategories = c;
           for (let category of categories) {
             if (category.is_root) {
@@ -117,7 +116,7 @@ export class ActivityCategoryProvider {
         observer.next(categories);
       }, error => {
         observer.error(error);
-      }, complete => {
+      }, () => {
         observer.complete();
       });
     });

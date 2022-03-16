@@ -151,6 +151,7 @@ export class HomePage {
         this.loaderService.showLoader();
         this.navCtrl.push("DifficultyLevelsPage", {
           categoryId: button.id,
+          lang: this.translate.currentLang
         });
         break;
     }

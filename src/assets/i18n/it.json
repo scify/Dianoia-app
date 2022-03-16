@@ -88,5 +88,6 @@
   "type_password" : "Per favore digita la tua password",
   "email_invalid": "Indirizzo e-mail non valido",
   "see_more": "Vedi altro",
-  "instructions": "Istruzioni"
+  "instructions": "Istruzioni",
+  "load_more": "Carica di più"
 }

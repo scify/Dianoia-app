@@ -28,5 +28,26 @@
   <div class="activitiesContainer">
     <cards-list *ngIf='activities?.length > 0' [cards]="activities" (cardClick)="selectActivity($event)"></cards-list>
   </div>
+  <div class="activitiesContainer" id="activitiesFromServer" no-padding>
+    <ion-grid no-padding padding-bottom>
+      <ion-row justify-content-center no-padding>
+        <ion-col align-self-center col-12 text-center>
+          <cards-list *ngIf='activitiesFromServer?.length > 0' [cards]="activitiesFromServer"
+                      (cardClick)="selectActivity($event)"></cards-list>
+        </ion-col>
+      </ion-row>
+      <ion-row justify-content-center *ngIf="activitiesFromServerLoading">
+        <ion-col align-self-center col-lg-6 col-md-10 col-sm-12 text-center>
+          <ion-spinner></ion-spinner>
+        </ion-col>
+      </ion-row>
+      <ion-row justify-content-center padding-bottom>
+        <ion-col align-self-center col-lg-12 col-md-12 col-sm-12 text-center>
+          <button ion-button mode="ios" id="loadMoreBtn" [disabled]="!loadMoreActivitiesFromServerBtnIsEnabled()"
+                  (click)="loadActivitiesFromServer(true)">{{ 'load_more' | translate }}</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
 
 </ion-content>

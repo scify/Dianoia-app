@@ -149,7 +149,11 @@ export class MyApp {
         pageFile: "pages/" + this.translate.currentLang + "/tips_list.json"
       },
       {title: this.translate.instant('carer_activities_btn_title'), id: "carer_activities"},
-      {title: this.translate.instant('activities_exercises'), component: "ActivityCategoriesPage", parentCategoryId: "mental_activities"},
+      {
+        title: this.translate.instant('activities_exercises'),
+        component: "ActivityCategoriesPage",
+        parentCategoryId: "mental_activities"
+      },
       {title: this.translate.instant('common_activities_btn_title'), id: "common_activities"},
       {title: this.translate.instant('stories_btn_title'), id: "stories"},
       //{title: this.translate.instant('history'), component: "StatisticsPage"},
@@ -204,9 +208,12 @@ export class MyApp {
 
   openPage(page) {
     if (page.id)
-      this.nav.push("DifficultyLevelsPage", {categoryId: page.id});
+      this.nav.push("DifficultyLevelsPage", {categoryId: page.id, lang: this.translate.currentLang});
     else
-      this.nav.push(page.pageName ? page.pageName : page.component, {pageData: page, parentCategoryId: page.parentCategoryId});
+      this.nav.push(page.pageName ? page.pageName : page.component, {
+        pageData: page,
+        parentCategoryId: page.parentCategoryId
+      });
   }
 
   openLink(url) {

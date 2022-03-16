@@ -75,7 +75,8 @@ export class ActivityCategoriesPage {
       // else, if the selected has activities, get the activities and load the activities page
       else if (categoryRelationships.activities.length > 0) {
         this.navCtrl.push("DifficultyLevelsPage", {
-          categoryId: categoryButton.category_id
+          categoryId: categoryButton.category_id,
+          lang: this.translate.currentLang
         });
       }
     }, error => {

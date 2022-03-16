@@ -214,7 +214,8 @@ export class ActivityPage {
 
   openCategoryPage() {
     this.navCtrl.push("DifficultyLevelsPage", {
-      categoryId: this.category.category_id
+      categoryId: this.category.category_id,
+      lang: this.translate.currentLang
     });
   }
 

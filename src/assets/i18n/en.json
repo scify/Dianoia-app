@@ -88,5 +88,6 @@
   "type_password" : "Please type your password",
   "email_invalid": "Email address invalid",
   "see_more": "See more",
-  "instructions": "Instructions"
+  "instructions": "Instructions",
+  "load_more": "Show more"
 }

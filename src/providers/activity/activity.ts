@@ -20,6 +20,7 @@ export class ActivityProvider {
   activities = [];
   currentDateFormatted: string = '';
   currentLang: string = 'en';
+  activitiesResponseFromServer: any;
 
   constructor(public http: Http, private apiCalls: ApiCallsProvider,
               private appStorage: AppStorageProvider, public events: Events,
@@ -47,7 +48,6 @@ export class ActivityProvider {
         .map(res => res.json());
     });
   }
-
 
   public getNumberOfActivitiesForLastThreeMonths() {
     let currentDate = new Date();
@@ -112,5 +112,42 @@ export class ActivityProvider {
 
   public setActivityCompletedForToday() {
     return this.appStorage.set("activity_completed_" + this.currentDateFormatted, true);
+  }
+
+  getActivitiesFromAPI(categorySlug: string, forceLoadMore: boolean = false): Observable<any> {
+    if (!forceLoadMore && this.shouldReturnOnlyCachedActivities())
+      return Observable.of(this.activitiesResponseFromServer.data);
+
+    let url = this.apiCalls.API_BASE_URL + "exercises";
+    if (this.activitiesResponseFromServer && this.activitiesResponseFromServer.next_page_url)
+      url = this.activitiesResponseFromServer.next_page_url;
+    url += url.includes("?") ? "&" : "?";
+    url += "lang=" + this.currentLang + "&category=" + categorySlug;
+
+    return Observable.create(observer => {
+      this.apiCalls.getHttpCall("activities_api_" + this.currentLang, () => {
+        return this.http.get(url)
+          .map(res => res.json());
+      }).subscribe(res => {
+          this.activitiesResponseFromServer = res;
+          observer.next(res.data);
+        }, error => observer.error(error),
+        () =>
+          observer.complete()
+      );
+    });
+  }
+
+  shouldReturnOnlyCachedActivities(): boolean {
+    return this.activitiesResponseFromServer
+      && !this.activitiesResponseFromServer.next_page_url;
+  }
+
+  activitiesNotLoadedBefore(): boolean {
+    return !this.activitiesResponseFromServer;
+  }
+
+  moreActivitiesExist(): boolean {
+    return this.activitiesResponseFromServer && this.activitiesResponseFromServer.next_page_url;
   }
 }

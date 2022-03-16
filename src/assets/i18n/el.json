@@ -88,5 +88,6 @@
   "type_password" : "Παρακαλώ εισάγετε τον κωδικό προσβασής σας",
   "email_invalid": "Λάθος διεύθυνση email",
   "see_more": "Δείτε περισσότερα",
-  "instructions": "Οδηγίες"
+  "instructions": "Οδηγίες",
+  "load_more": "Φόρτωση περισσότερων"
 }
