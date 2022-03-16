@@ -4,10 +4,6 @@ import {StatusBar} from "@ionic-native/status-bar";
 import {SplashScreen} from "@ionic-native/splash-screen";
 import {NotificationProvider} from "../providers/notification/notification";
 import {AppStorageProvider} from "../providers/app-storage/app-storage";
-import {Http} from "@angular/http";
-import {ActivityCategoryProvider} from "../providers/activity-category/activity-category";
-import {ActivityProvider} from "../providers/activity/activity";
-import {DifficultyLevelProvider} from "../providers/difficulty-level/difficulty-level";
 import {LoaderService} from "../providers/loader-service/loader-service";
 import {InAppBrowser} from "@ionic-native/in-app-browser";
 import {AppVersion} from "@ionic-native/app-version";
@@ -55,9 +51,7 @@ export class MyApp {
 
   constructor(public platform: Platform, public statusBar: StatusBar,
               public splashScreen: SplashScreen, private localNotifications: NotificationProvider,
-              private appStorage: AppStorageProvider, private http: Http, private activityCategoryProvider: ActivityCategoryProvider,
-              private activityProvider: ActivityProvider,
-              private difficultyLevelProvider: DifficultyLevelProvider, private loaderService: LoaderService,
+              private appStorage: AppStorageProvider, private loaderService: LoaderService,
               private analyticsProvider: AnalyticsProvider, private iab: InAppBrowser, private appVersion: AppVersion,
               public translate: TranslateService, public events: Events, private menuController: MenuController,
               private globalization: Globalization,

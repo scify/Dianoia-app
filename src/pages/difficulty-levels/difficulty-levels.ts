@@ -5,7 +5,6 @@ import {LoaderService} from "../../providers/loader-service/loader-service";
 import {TranslateService} from "@ngx-translate/core";
 import {DifficultyLevelProvider} from "../../providers/difficulty-level/difficulty-level";
 import {ActivityProvider} from "../../providers/activity/activity";
-import {ApiCallsProvider} from "../../providers/api-calls/api-calls";
 import * as _ from 'lodash';
 
 @IonicPage({
@@ -32,8 +31,7 @@ export class DifficultyLevelsPage {
               public translate: TranslateService, public platform: Platform,
               private difficultyLevelProvider: DifficultyLevelProvider,
               private activityCategoryProvider: ActivityCategoryProvider,
-              private activityProvider: ActivityProvider,
-              private apiCallsProvider: ApiCallsProvider) {
+              private activityProvider: ActivityProvider) {
 
     this.categoryId = this.navParams.get("categoryId");
     this.activityCategoryProvider.currentLang = this.navParams.get("lang");

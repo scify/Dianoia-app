@@ -78,7 +78,7 @@ export class ActivityProvider {
 
       promise.then(result => {
         if (result)
-          numberOfDays++;
+          return numberOfDays++;
       });
       promises.push(promise);
     }
