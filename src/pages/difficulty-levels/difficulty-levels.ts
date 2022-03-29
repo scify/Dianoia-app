@@ -53,7 +53,7 @@ export class DifficultyLevelsPage {
 
     this.allActivities = [];
     this.activities = [];
-
+    this.activitiesFromServer = [];
     this.activityCategoryProvider.getActivitySlugsForCategory(this.categoryId).subscribe(async activitySlugs => {
       if (!activitySlugs)
         return;
@@ -67,6 +67,7 @@ export class DifficultyLevelsPage {
   async setUpPageActivities(activitySlugs: Array<any>) {
     const activities = await this.activityProvider.getActivitiesBySlugs(activitySlugs);
     this.category = await this.activityCategoryProvider.getCategoryBySlug(this.categoryId);
+    this.activitiesFromServer = [];
     this.allActivities = activities;
     this.activities = activities;
     await this.loadActivitiesFromServer();
@@ -117,6 +118,7 @@ export class DifficultyLevelsPage {
 
   async loadActivitiesFromServer(forceLoadMore: boolean = false) {
     this.activityProvider.getActivitiesFromAPI(this.categoryId, forceLoadMore).subscribe((activities) => {
+      console.log(activities);
       this.addActivities(activities);
       this.activitiesFromServerLoading = false;
     })

@@ -21,6 +21,7 @@ export class ActivityProvider {
   currentDateFormatted: string = '';
   currentLang: string = 'en';
   activitiesResponseFromServer: any;
+  currentCategorySlug: string;
 
   constructor(public http: Http, private apiCalls: ApiCallsProvider,
               private appStorage: AppStorageProvider, public events: Events,
@@ -115,9 +116,12 @@ export class ActivityProvider {
   }
 
   getActivitiesFromAPI(categorySlug: string, forceLoadMore: boolean = false): Observable<any> {
-    if (!forceLoadMore && this.shouldReturnOnlyCachedActivities())
+    if (!forceLoadMore && this.shouldReturnOnlyCachedActivities(categorySlug))
       return Observable.of(this.activitiesResponseFromServer.data);
+    if (categorySlug !== this.currentCategorySlug)
+      this.activitiesResponseFromServer = {};
 
+    this.currentCategorySlug = categorySlug;
     let url = this.apiCalls.API_BASE_URL + "exercises";
     if (this.activitiesResponseFromServer && this.activitiesResponseFromServer.next_page_url)
       url = this.activitiesResponseFromServer.next_page_url;
@@ -125,7 +129,7 @@ export class ActivityProvider {
     url += "lang=" + this.currentLang + "&category=" + categorySlug;
 
     return Observable.create(observer => {
-      this.apiCalls.getHttpCall("activities_api_" + this.currentLang, () => {
+      this.apiCalls.getHttpCall("activities_api_" + this.currentLang + "_category_" + categorySlug, () => {
         return this.http.get(url)
           .map(res => res.json());
       }).subscribe(res => {
@@ -138,9 +142,9 @@ export class ActivityProvider {
     });
   }
 
-  shouldReturnOnlyCachedActivities(): boolean {
+  shouldReturnOnlyCachedActivities(categorySlug): boolean {
     return this.activitiesResponseFromServer
-      && !this.activitiesResponseFromServer.next_page_url;
+      && !this.activitiesResponseFromServer.next_page_url && this.currentCategorySlug == categorySlug;
   }
 
   activitiesNotLoadedBefore(): boolean {
