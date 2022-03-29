@@ -32,6 +32,10 @@
         <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
           {{p.title}}
         </button>
+        <button menuClose ion-item (click)="openLink('https://dianoia.scify.org/')">
+          Dianoia Marketplace
+          <ion-badge item-end>NEW</ion-badge>
+        </button>
         <div *ngIf="!shapesMode">
           <button style="padding-top: 12px; padding-bottom: 12px;" padding mode="ios" ion-button
                   *ngIf="!platform.is('cordova')"
