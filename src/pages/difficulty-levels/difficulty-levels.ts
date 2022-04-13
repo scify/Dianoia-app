@@ -118,7 +118,6 @@ export class DifficultyLevelsPage {
 
   async loadActivitiesFromServer(forceLoadMore: boolean = false) {
     this.activityProvider.getActivitiesFromAPI(this.categoryId, forceLoadMore).subscribe((activities) => {
-      console.log(activities);
       this.addActivities(activities);
       this.activitiesFromServerLoading = false;
     })

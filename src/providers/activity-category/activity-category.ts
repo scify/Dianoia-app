@@ -4,6 +4,7 @@ import 'rxjs/add/operator/map';
 import {ApiCallsProvider} from "../api-calls/api-calls";
 import {Observable} from "rxjs/Observable";
 import {Events} from "ionic-angular";
+import {TranslateService} from "@ngx-translate/core";
 
 /*
   Generated class for the ActivityCategoryProvider provider.
@@ -16,10 +17,18 @@ export class ActivityCategoryProvider {
   currentLang: string = 'en';
 
   constructor(public http: Http, private apiCalls: ApiCallsProvider,
-              public events: Events) {
+              public events: Events, private translate: TranslateService) {
     this.events.subscribe('lang_ready', (langCode) => {
-      this.currentLang = langCode;
+      this.reset(langCode);
     });
+    this.translate.onLangChange.subscribe((lang) => {
+      this.reset(lang.lang);
+    });
+    this.currentLang = this.translate.currentLang;
+  }
+
+  reset(langCode) {
+    this.currentLang = langCode;
   }
 
   public getAllCategoryRelationships() {

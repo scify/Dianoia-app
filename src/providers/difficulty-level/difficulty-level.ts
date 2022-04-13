@@ -4,6 +4,7 @@ import 'rxjs/add/operator/map';
 import {Observable} from "rxjs/Observable";
 import {ApiCallsProvider} from "../api-calls/api-calls";
 import {Events} from "ionic-angular";
+import {TranslateService} from "@ngx-translate/core";
 
 @Injectable()
 export class DifficultyLevelProvider {
@@ -12,13 +13,21 @@ export class DifficultyLevelProvider {
   currentLang: string = 'en';
 
   constructor(public http: Http, private apiCalls: ApiCallsProvider,
-              public events: Events) {
+              public events: Events, private translate: TranslateService) {
     this.getAllDifficultyLevels().subscribe(data => {
       this.difficultyLevels = data;
     });
     this.events.subscribe('lang_ready', (langCode) => {
-      this.currentLang = langCode;
+      this.reset(langCode);
     });
+    this.translate.onLangChange.subscribe((lang) => {
+      this.reset(lang.lang);
+    });
+    this.currentLang = this.translate.currentLang;
+  }
+
+  reset(langCode) {
+    this.currentLang = langCode;
   }
 
   public getAllDifficultyLevels(): Observable<any> {

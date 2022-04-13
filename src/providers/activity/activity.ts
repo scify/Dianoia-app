@@ -36,6 +36,7 @@ export class ActivityProvider {
     const currentDate = new Date();
     currentDate.setDate(currentDate.getDate() - 4);
     this.currentDateFormatted = currentDate.toDateString();
+    this.currentLang = this.translate.currentLang;
   }
 
   reset(langCode) {
