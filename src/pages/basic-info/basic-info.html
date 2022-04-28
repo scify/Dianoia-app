@@ -12,7 +12,7 @@
   <buttons-list *ngIf='buttons?.length > 0' [buttons]="buttons" (buttonClick)="goTo($event)"></buttons-list>
 
   <div class="videoContainer" *ngIf="youtubeLink">
-    <iframe frameborder="0" class="video" width="{{getContainerWidth()}}"
+    <iframe frameborder="0" class="video" width="{{getContainerWidth()}}" height="{{ getContainerWidth() / 2}}"
             [src]="youtubeLink">
     </iframe>
   </div>

@@ -21,6 +21,13 @@
     </div>
   </div>
   <ion-grid>
+    <ion-row justify-content-center margin-bottom>
+      <ion-col align-self-center col-lg-6 col-md-10 col-sm-12>
+        <iframe frameborder="0" class="video" width="{{getContainerWidth()}}" height="{{ getContainerWidth() / 2}}"
+                [src]="youtubeLink">
+        </iframe>
+      </ion-col>
+    </ion-row>
     <ion-row justify-content-center>
       <ion-col align-self-center col-lg-6 col-md-10 col-sm-12>
         <div [innerHTML]="'about_text' | translate"></div>

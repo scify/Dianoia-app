@@ -65,7 +65,10 @@ export class BasicInfoPage {
 
   getContainerWidth() {
     // left + right padding of page is 32 pixels.
-    return screen.width - 32;
+    let width = screen.width;
+    if (!this.platform.is('cordova'))
+      width = 1000;
+    return width - 32;
   }
 
 }
