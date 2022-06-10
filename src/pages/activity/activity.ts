@@ -160,7 +160,7 @@ export class ActivityPage {
     return false;
   }
 
-  activityDoneForToday() {
+  async activityDoneForToday() {
     if (this.platform.is('cordova')) {
       this.activityProvider.setActivityCompletedForToday().then(result => {
         this.dailyActivityCompleted = true;
@@ -168,6 +168,15 @@ export class ActivityPage {
         console.log("DIANOIA_EXERCISE_COMPLETED_LANG_" + this.translate.currentLang);
       });
     }
+    const title = "DIANOIA_EXERCISE_COMPLETED_" + this.activity.title + "_" + this.activity.description + "_LANG_" + this.translate.currentLang;
+    await this.analyticsProvider.logAction(
+      title,
+      {
+        title: this.activity.title,
+        slug: this.activity.slug,
+        category: this.activity.category,
+        difficulty_level_id: this.activity.difficulty_level_id
+      }, title);
   }
 
   openLink(url) {
@@ -191,7 +200,15 @@ export class ActivityPage {
         this.alert.textDialog(this.translate.instant('error'), this.translate.instant('sharing_not_supported'));
       });
     });
-
+    const title = "DIANOIA_EXERCISE_PRINTED_" + this.activity.title + "_" + this.activity.description + "_LANG_" + this.translate.currentLang;
+    this.analyticsProvider.logAction(
+      title,
+      {
+        title: this.activity.title,
+        slug: this.activity.slug,
+        category: this.activity.category,
+        difficulty_level_id: this.activity.difficulty_level_id
+      }, title);
   }
 
   swipeActivity(event) {

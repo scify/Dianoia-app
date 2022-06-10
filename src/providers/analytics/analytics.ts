@@ -37,6 +37,8 @@ export class AnalyticsProvider {
   public async logAction(actionTitle: string, payload: any = {}, consoleMessage: string = null) {
     const token = JSON.parse(await this.appStorageProvider.get("auth_token"));
     const lang = this.translate.currentLang;
+    if(token)
+      actionTitle += "_SHAPES";
     if (!consoleMessage)
       consoleMessage = "DIANOIA_" + actionTitle + "_LANG_" + this.translate.currentLang + "_" + JSON.stringify(payload);
     payload = {

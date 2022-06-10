@@ -1,3 +1,3 @@
 export default class consts {
-  static APP_VERSION: string = '2.3.12';
+  static APP_VERSION: string = '2.3.13';
 }
