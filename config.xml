@@ -138,5 +138,4 @@
     <plugin name="cordova-plugin-globalization" spec="^1.11.0" />
     <plugin name="cordova-plugin-device" spec="^1.1.7" />
     <engine name="browser" spec="^5.0.4" />
-    <engine name="android" spec="^8.1.0" />
 </widget>

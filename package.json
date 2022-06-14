@@ -17,7 +17,7 @@
         "@angular/common": "4.1.0",
         "@angular/compiler": "4.1.0",
         "@angular/compiler-cli": "4.1.0",
-        "@angular/core": "11.0.5",
+        "@angular/core": "4.1.0",
         "@angular/forms": "4.1.0",
         "@angular/http": "4.1.0",
         "@angular/platform-browser": "4.1.0",
@@ -35,10 +35,9 @@
         "@ionic-native/splash-screen": "3.7.0",
         "@ionic-native/sqlite": "^5.36.0",
         "@ionic-native/status-bar": "3.7.0",
-        "@ionic/storage": "2.0.1",
+        "@ionic/storage": "^2.0.1",
         "@ngx-translate/core": "^7.2.2",
         "@ngx-translate/http-loader": "^0.1.0",
-        "cordova-android": "^8.1.0",
         "cordova-android-support-gradle-release": "^3.0.1",
         "cordova-annotated-plugin-android": "^1.0.4",
         "cordova-browser": "^5.0.4",
@@ -115,8 +114,7 @@
             "cordova-plugin-globalization": {}
         },
         "platforms": [
-            "browser",
-            "android"
+            "browser"
         ]
     }
 }
