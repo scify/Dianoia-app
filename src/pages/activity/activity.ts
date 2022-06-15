@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Events, IonicPage, NavController, NavParams, Platform, ViewController} from 'ionic-angular';
+import {Events, IonicPage, ModalController, NavController, NavParams, Platform, ViewController} from 'ionic-angular';
 import {ActivityProvider} from "../../providers/activity/activity";
 import {InAppBrowser} from '@ionic-native/in-app-browser';
 import {AlertProvider} from "../../providers/alert/alert";
@@ -10,6 +10,8 @@ import {AnalyticsProvider} from "../../providers/analytics/analytics";
 import {ShapesApiProvider} from "../../providers/shapes-api/shapes-api";
 import {ActivityCategoryProvider} from "../../providers/activity-category/activity-category";
 import {Helpers} from "../../helpers";
+import {ActivityRatingProvider} from "../../providers/activity-rating/activity-rating";
+import {RateComponent} from "../../components/rate/rate";
 
 /**
  * Generated class for the ActivityPage page.
@@ -33,13 +35,16 @@ export class ActivityPage {
   setUpInProgress: boolean = false;
   category: any;
   imgIndex: number = 0;
+  numOfRatings: number = 0;
+  avgRating: number = 0;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               private activityProvider: ActivityProvider, private iab: InAppBrowser,
               public platform: Platform, private alert: AlertProvider, private socialSharing: SocialSharing,
               private viewCtrl: ViewController, private translate: TranslateService, public appStorage: AppStorageProvider,
               public events: Events, public analyticsProvider: AnalyticsProvider, public shapesApiProvider: ShapesApiProvider,
-              private activityCategoryProvider: ActivityCategoryProvider) {
+              private activityCategoryProvider: ActivityCategoryProvider, private activityRatingProvider: ActivityRatingProvider,
+              private modalCtrl: ModalController) {
 
 
     const paramLang = this.navParams.get("lang");
@@ -84,7 +89,10 @@ export class ActivityPage {
         difficulty_level_id: this.activity.difficulty_level_id
       }, title);
     this.setUpInProgress = false;
-
+    this.activityRatingProvider.getAvgRatingForActivity(this.activity).subscribe((data) => {
+      this.numOfRatings = data.num_of_ratings;
+      this.avgRating = data.avg_rating;
+    });
   }
 
   async getActivities(): Promise<any> {
@@ -261,5 +269,21 @@ export class ActivityPage {
       this.imgIndex = 0;
     else
       this.imgIndex += 1;
+  }
+
+  rateActivity() {
+    let modal = this.modalCtrl.create(RateComponent, {
+      avgRating: this.avgRating,
+      activity: this.activity,
+      numOfRatings: this.numOfRatings
+    });
+    modal.present();
+    modal.onDidDismiss(data => {
+      // update average rating
+      if (data.avg_rating && data.num_of_ratings) {
+        this.numOfRatings = data.num_of_ratings;
+        this.avgRating = data.avg_rating;
+      }
+    });
   }
 }

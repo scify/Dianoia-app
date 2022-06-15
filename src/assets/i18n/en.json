@@ -90,5 +90,8 @@
   "email_invalid": "Email address invalid",
   "see_more": "See more",
   "instructions": "Instructions",
-  "load_more": "Show more"
+  "load_more": "Show more",
+  "ratings": "ratings",
+  "give_your_rating": "Rate the activity",
+  "activity_rating_thanks": "Your rating was submitted!"
 }

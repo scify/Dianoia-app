@@ -90,5 +90,8 @@
   "email_invalid": "Indirizzo e-mail non valido",
   "see_more": "Vedi altro",
   "instructions": "Istruzioni",
-  "load_more": "Carica di più"
+  "load_more": "Carica di più",
+  "ratings": "giudizi",
+  "give_your_rating": "Valuta l'attività",
+  "activity_rating_thanks": "La tua valutazione è stata inviata!"
 }

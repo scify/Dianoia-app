@@ -29,6 +29,9 @@ import {ShapesApiProvider} from "../providers/shapes-api/shapes-api";
 import {SimpleCardComponent} from "../components/simple-card/simple-card";
 import { AnalyticsProvider } from '../providers/analytics/analytics';
 import {Device} from "@ionic-native/device";
+import { ActivityRatingProvider } from '../providers/activity-rating/activity-rating';
+import {ComponentsModule} from "../components/components.module";
+import {RateComponent} from "../components/rate/rate";
 
 @NgModule({
   declarations: [
@@ -38,6 +41,7 @@ import {Device} from "@ionic-native/device";
   imports: [
     HttpModule,
     BrowserModule,
+    ComponentsModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
     TranslateModule.forRoot({
@@ -51,7 +55,8 @@ import {Device} from "@ionic-native/device";
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    SimpleCardComponent
+    SimpleCardComponent,
+    RateComponent
   ],
   providers: [
     StatusBar,
@@ -74,7 +79,8 @@ import {Device} from "@ionic-native/device";
     Globalization,
     ShapesApiProvider,
     AnalyticsProvider,
-    Device
+    Device,
+    ActivityRatingProvider
   ]
 })
 export class AppModule {

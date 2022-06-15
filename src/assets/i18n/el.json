@@ -90,5 +90,8 @@
   "email_invalid": "Λάθος διεύθυνση email",
   "see_more": "Δείτε περισσότερα",
   "instructions": "Οδηγίες",
-  "load_more": "Φόρτωση περισσότερων"
+  "load_more": "Φόρτωση περισσότερων",
+  "ratings": "αξιολογήσεις",
+  "give_your_rating": "Αξιολογήστε την άσκηση",
+  "activity_rating_thanks": "Η αξιολόγηση καταχωρήθηκε!"
 }

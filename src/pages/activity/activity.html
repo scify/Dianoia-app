@@ -41,6 +41,19 @@
         </ion-col>
       </ion-row>
       <h2 class="activityTitle">{{ activity?.title }}</h2>
+      <span>
+        <div class="activityRating">
+          <span><ion-icon class="rating-icon" ios="ios-star" md="ios-star"></ion-icon></span>
+          <span class="rating-num"><b class="rating-avg">{{ avgRating }}</b> ({{ numOfRatings }} {{ 'ratings' | translate }})</span>
+          <br>
+          <button no-padding mode="ios" *ngIf="activity?.slug" clear ion-button
+                  class="rate-btn"
+                  [disabled]="dailyActivityCompleted"
+                  (click)="rateActivity()">
+          <div>{{ 'give_your_rating' | translate }}</div>
+        </button>
+        </div>
+      </span>
       <p class="activityBody">{{ activity?.description }}</p>
       <h5 *ngIf="activity?.instructions && activity?.instructions.length"
           style="margin-top: 25px">{{ 'instructions' | translate }}:</h5>

@@ -13,7 +13,7 @@ const COMMON_HEADERS = {
 @Injectable()
 export class ApiCallsProvider {
 
-  httpOptions: any;
+  public httpOptions: any;
   public API_BASE_URL = "//dianoia.scify.org/mobile/";
 
   constructor(public http: Http, private storage: AppStorageProvider) {

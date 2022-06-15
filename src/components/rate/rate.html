@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar mode="ios">
+    <ion-title mode="ios">
+      <h4>{{activity.title}}</h4>
+    </ion-title>
+    <ion-buttons start>
+      <button mode="ios" ion-button (click)="dismiss()">
+        Close
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding mode="ios">
+  <ion-grid>
+    <ion-row justify-content-center>
+      <ion-col align-self-center>
+        <ion-card>
+          <ion-card-content>
+            <ion-card-title>
+              <h2>{{ 'give_your_rating' | translate }}:</h2>
+            </ion-card-title>
+            <p class="rateContainer">
+              <span *ngFor="let index of  [1,2,3,4,5]" class="rating-icon">
+                <button class="rateBtn" ion-button icon-only color="light" mode="ios"
+                        (click)="rate(index)">
+                  <ion-icon ios="{{ getIconName(index) }}" md="{{ getIconName(index) }}"></ion-icon>
+                </button>
+              </span>
+            </p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row justify-content-center style="text-align: center; margin-top: 2rem;">
+      <ion-col align-self-center>
+        <button ion-button mode="ios" outline (click)="dismiss()">Close</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
