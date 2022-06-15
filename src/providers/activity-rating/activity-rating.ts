@@ -49,11 +49,18 @@ export class ActivityRatingProvider {
   }
 
   public rateActivity(rating, activity) {
+    let update = false;
+    const existingUserRating = this.getUserRatingForActivity(activity)
+    if (existingUserRating)
+      update = true;
     let url = this.apiCalls.API_BASE_URL + "resources/user-rating";
     const data = {
+      resources_id: activity.id ? activity.id : undefined,
       resources_slug: activity.slug,
       rating: rating,
-      activity_id: undefined
+      activity_id: undefined,
+      update: update,
+      previous_rating: existingUserRating
     }
     if (activity.id)
       data.activity_id = activity.id;

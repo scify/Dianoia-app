@@ -286,4 +286,8 @@ export class ActivityPage {
       }
     });
   }
+
+  getRounded(avgRating: number) {
+    return Math.round(avgRating * 10) / 10
+  }
 }
