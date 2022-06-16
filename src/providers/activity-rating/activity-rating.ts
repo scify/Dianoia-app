@@ -60,7 +60,7 @@ export class ActivityRatingProvider {
       rating: rating,
       activity_id: undefined,
       update: update,
-      previous_rating: existingUserRating ? existingUserRating : 0
+      previous_rating: existingUserRating
     }
     if (activity.id)
       data.activity_id = activity.id;
