@@ -3,6 +3,7 @@ import {NavParams, ViewController} from "ionic-angular";
 import {ActivityRatingProvider} from "../../providers/activity-rating/activity-rating";
 import {AlertProvider} from "../../providers/alert/alert";
 import {TranslateService} from "@ngx-translate/core";
+import {AnalyticsProvider} from "../../providers/analytics/analytics";
 
 /**
  * Generated class for the RateComponent component.
@@ -16,13 +17,14 @@ import {TranslateService} from "@ngx-translate/core";
 })
 export class RateComponent {
 
-  activity = {};
+  activity: any;
   userRating: number = 0;
   userRatingResponse = {};
 
   constructor(public navParams: NavParams, public viewCtrl: ViewController,
               private activityRatingProvider: ActivityRatingProvider,
-              private alert: AlertProvider, private translate: TranslateService) {
+              private alert: AlertProvider, private translate: TranslateService,
+              private analyticsProvider: AnalyticsProvider) {
     this.activity = this.navParams.get('activity');
     this.userRating = this.activityRatingProvider.getUserRatingForActivity(this.activity);
   }
@@ -41,6 +43,17 @@ export class RateComponent {
       this.userRatingResponse = response;
       this.alert.displayToast(this.translate.instant('activity_rating_thanks'));
     });
+
+    const title = "DIANOIA_EXERCISE_RATED_" + this.activity.title + "_LANG_" + this.translate.currentLang;
+    this.analyticsProvider.logAction(
+      title,
+      {
+        title: this.activity.title,
+        slug: this.activity.slug,
+        category: this.activity.category,
+        difficulty_level_id: this.activity.difficulty_level_id
+      }, title);
+
   }
 
 }

@@ -6,6 +6,7 @@ import {TranslateService} from "@ngx-translate/core";
 import {DifficultyLevelProvider} from "../../providers/difficulty-level/difficulty-level";
 import {ActivityProvider} from "../../providers/activity/activity";
 import * as _ from 'lodash';
+import {AnalyticsProvider} from "../../providers/analytics/analytics";
 
 @IonicPage({
   name: 'DifficultyLevelsPage',
@@ -31,7 +32,8 @@ export class DifficultyLevelsPage {
               public translate: TranslateService, public platform: Platform,
               private difficultyLevelProvider: DifficultyLevelProvider,
               private activityCategoryProvider: ActivityCategoryProvider,
-              private activityProvider: ActivityProvider) {
+              private activityProvider: ActivityProvider,
+              private analyticsProvider: AnalyticsProvider) {
 
     this.categoryId = this.navParams.get("categoryId");
     this.activityCategoryProvider.currentLang = this.navParams.get("lang");
@@ -76,6 +78,12 @@ export class DifficultyLevelsPage {
     this.pageTitle = this.category != null ? this.category.title : '';
     this.loaderService.hideLoader();
     this.setUpInProgress = false;
+    const title = "DIANOIA_CATEGORY_VIEWED_" + this.category.title + "_LANG_" + this.translate.currentLang;
+    this.analyticsProvider.logAction(
+      title,
+      {
+        title: this.category.title,
+      }, title);
   }
 
   selectLevel(levelButton: any): any {

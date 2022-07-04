@@ -32,6 +32,10 @@
         <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
           {{p.title}}
         </button>
+        <button ion-item (click)="login()">
+          {{ 'login_btn' | translate }}
+          <ion-badge item-end>SHAPES</ion-badge>
+        </button>
         <button menuClose ion-item (click)="openLink('https://dianoia.scify.org/')">
           Dianoia Marketplace
           <ion-badge item-end>NEW</ion-badge>

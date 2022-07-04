@@ -132,6 +132,13 @@ export class MyApp {
     }
   }
 
+  login() {
+    this.loaderService.showLoader();
+    this.nav.push("SignInPage").then(() => {
+      this.loaderService.hideLoader();
+    });
+  }
+
   setUpPageElements() {
     this.pages = [
       {title: this.translate.instant('menu_home'), component: "HomePage"},
