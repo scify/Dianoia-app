@@ -32,7 +32,7 @@
         <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
           {{p.title}}
         </button>
-        <button ion-item (click)="login()">
+        <button ion-item (click)="login()" *ngIf="platformAndroid()">
           {{ 'login_btn' | translate }}
           <ion-badge item-end>SHAPES</ion-badge>
         </button>

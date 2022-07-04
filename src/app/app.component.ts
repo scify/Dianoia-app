@@ -97,6 +97,10 @@ export class MyApp {
     console.log("DIANOIA_APP_FINISHED_LANG_" + this.translate.currentLang);
   }
 
+  platformAndroid() {
+    return this.platform.is('android');
+  }
+
   async setTranslationSettings() {
     let langCodeToTry = Helpers.getURLParam("lang");
     if (!langCodeToTry) {
@@ -187,6 +191,9 @@ export class MyApp {
     return new Promise(async (resolve, reject) => {
       const authMode = JSON.parse(await this.appStorage.get('auth_mode'));
       if (!authMode)
+        return resolve(false);
+
+      if (!this.platformAndroid())
         return resolve(false);
 
       const tokenParam = Helpers.getURLParam("auth_token");

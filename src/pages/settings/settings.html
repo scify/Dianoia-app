@@ -17,7 +17,7 @@
         <h2>{{ 'settings' | translate }}</h2>
       </ion-col>
     </ion-row>
-    <ion-row style="margin-bottom: 5rem">
+    <ion-row style="margin-bottom: 5rem" *ngIf="platformAndroid()">
       <ion-col col-lg-4 col-md-6 col-sm-12>
         <ion-item>
           <ion-label>SHAPES Mode</ion-label>

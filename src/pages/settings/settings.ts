@@ -97,4 +97,8 @@ export class SettingsPage {
     }
   }
 
+  platformAndroid() {
+    return this.platform.is('android');
+  }
+
 }
