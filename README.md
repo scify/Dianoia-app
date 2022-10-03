@@ -65,6 +65,14 @@ To generate the icon and splash screen files for all platforms and dimensions. F
 
 ## Building
 
+### How to change app version before building for release
+
+The app has several places where the app version is defined. Change the following:
+
+1. In the `config.xml` file, change the `android-versionCode` parameter, as well as the `version` (`widget` tag).
+2. Change the `version` in `package.json` file.
+3. Change the `APP_VERSION` constant, defined in `src/consts.ts` file.
+
 ### Building for Android
 
 #### Java - Gradle
