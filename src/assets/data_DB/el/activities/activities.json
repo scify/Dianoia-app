@@ -348,7 +348,8 @@
     "instructions":[],
     "link": "http://go.scify.gr/dianoia16",
     "difficulty_level_id": "difficulty_level_1",
-    "help_link": "http://go.scify.gr/dianoia18"
+    "help_link": "http://go.scify.gr/dianoia18",
+    "category": "stories"
   },
   {
     "slug": "activity_30",
