@@ -12,7 +12,7 @@ A demo of the app (in Greek) can be found [here](https://scify.github.io/Dianoia
 
 ## Pre-setup steps
 
-It is very easy to install multiple versions of nodejs and npm, by using [Node Version Manager (nvm)](https://github.com/creationix/nvm).
+It is very easy to install multiple versions of NodeJS and npm, by using [Node Version Manager (nvm)](https://github.com/creationix/nvm).
 
 This project was built using the following versions of nodejs and npm:
 
