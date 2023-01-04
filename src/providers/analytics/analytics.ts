@@ -28,7 +28,7 @@ export class AnalyticsProvider {
               public analyticsFirebase: AnalyticsFirebase,
               public platform: Platform, public apiCalls: ApiCallsProvider,
               public device: Device) {
-    this.firebaseSupported = this.platform.is('cordova');
+    this.firebaseSupported = this.platform && this.platform.is('cordova');
     this.platformName = this.device.platform ? this.device.platform : 'web';
     this.platformVersion = this.device.version;
     this.appVersion = consts.APP_VERSION;
