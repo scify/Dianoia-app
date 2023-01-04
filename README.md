@@ -10,6 +10,10 @@ A demo of the app (in Greek) can be found [here](https://scify.github.io/Dianoia
 
 ## Non-pharmaceutical activities for people with dementia.
 
+## Pre-setup steps
+
+It is very easy to install multiple versions of nodejs and npm, by using [Node Version Manager (nvm)](https://github.com/creationix/nvm).
+
 This project was built using the following versions of nodejs and npm:
 
 ```bash
@@ -27,8 +31,6 @@ Alternatively, if you are using [`nvm`](https://github.com/nvm-sh/nvm), run this
 ```bash
 nvm use
 ```
-
-It is very easy to install multiple versions of nodejs and npm, by using [Node Version Manager (nvm)](https://github.com/creationix/nvm).
 
 ## Install project dependencies:
 
