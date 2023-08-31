@@ -42,6 +42,7 @@
         "cordova-android-support-gradle-release": "^3.0.1",
         "cordova-annotated-plugin-android": "^1.0.4",
         "cordova-browser": "^5.0.4",
+        "cordova-custom-config": "^5.1.1",
         "cordova-play-services-version-adapter": "^1.1.0",
         "cordova-plugin-analytics": "^2.0.0",
         "cordova-plugin-app-version": "^0.1.14",
@@ -112,11 +113,12 @@
                 "ANDROID_SUPPORT_VERSION": "27.+"
             },
             "cordova-sqlite-storage": {},
-            "cordova-plugin-globalization": {}
+            "cordova-plugin-globalization": {},
+            "cordova-custom-config": {}
         },
         "platforms": [
-            "android",
-            "browser"
+            "browser",
+            "android"
         ]
     }
 }
