@@ -25,35 +25,35 @@
         </ion-item>
       </ion-col>
     </ion-row>
-    <ion-row>
-      <ion-col>
-        <h2>{{ 'notification_settings' | translate }}</h2>
-        <hr>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <div *ngIf="platform.is('cordova')">
+<!--    <ion-row>-->
+<!--      <ion-col>-->
+<!--        <h2>{{ 'notification_settings' | translate }}</h2>-->
+<!--        <hr>-->
+<!--      </ion-col>-->
+<!--    </ion-row>-->
+<!--    <ion-row>-->
+<!--      <ion-col>-->
+<!--        <div *ngIf="platform.is('cordova')">-->
 
-          <ion-list radio-group [(ngModel)]="selectedNotificationId">
-            <ion-list-header>
-              {{ 'receive_notifications' | translate }}:
-            </ion-list-header>
+<!--          <ion-list radio-group [(ngModel)]="selectedNotificationId">-->
+<!--            <ion-list-header>-->
+<!--              {{ 'receive_notifications' | translate }}:-->
+<!--            </ion-list-header>-->
 
-            <ion-item *ngFor="let notificationOption of notificationOptions">
-              <ion-label>{{ notificationOption.title }}</ion-label>
-              <ion-radio value="{{ notificationOption.id }}"></ion-radio>
-            </ion-item>
+<!--            <ion-item *ngFor="let notificationOption of notificationOptions">-->
+<!--              <ion-label>{{ notificationOption.title }}</ion-label>-->
+<!--              <ion-radio value="{{ notificationOption.id }}"></ion-radio>-->
+<!--            </ion-item>-->
 
-          </ion-list>
-          <button large ion-button (click)="saveNotificationSettings()">{{ 'save' | translate }}</button>
-        </div>
+<!--          </ion-list>-->
+<!--          <button large ion-button (click)="saveNotificationSettings()">{{ 'save' | translate }}</button>-->
+<!--        </div>-->
 
-        <div *ngIf="!platform.is('cordova')">
-          <h5>{{ 'notifications_not_supported' | translate }}</h5>
-        </div>
-      </ion-col>
-    </ion-row>
+<!--        <div *ngIf="!platform.is('cordova')">-->
+<!--          <h5>{{ 'notifications_not_supported' | translate }}</h5>-->
+<!--        </div>-->
+<!--      </ion-col>-->
+<!--    </ion-row>-->
   </ion-grid>
 
 </ion-content>

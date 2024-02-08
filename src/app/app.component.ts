@@ -90,7 +90,7 @@ export class MyApp {
         statusBar.styleDefault();
       }
 
-      this.localNotifications.listenForNotificationClicks();
+      // this.localNotifications.listenForNotificationClicks();
       this.analyticsProvider.setUpAnalyticsLogger();
     }
     await this.setTranslationSettings();

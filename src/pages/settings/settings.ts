@@ -61,7 +61,7 @@ export class SettingsPage {
     if (this.selectedNotificationId) {
       this.appStorage.set('notification_frequency', this.selectedNotificationId).then(result => {
         if (this.platform.is('cordova')) {
-          this.localNotifications.scheduleNextNotification();
+          // this.localNotifications.scheduleNextNotification();
         }
         if (this.platform.is('cordova'))
           this.alert.displayToast(this.translate.instant('settings_saved'));

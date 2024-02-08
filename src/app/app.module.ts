@@ -18,7 +18,7 @@ import {LoaderService} from '../providers/loader-service/loader-service';
 import {InAppBrowser} from "@ionic-native/in-app-browser";
 import {AlertProvider} from '../providers/alert/alert';
 import {SocialSharing} from "@ionic-native/social-sharing";
-import {LocalNotifications} from '@ionic-native/local-notifications';
+// import {LocalNotifications} from '@ionic-native/local-notifications';
 import {NotificationProvider} from '../providers/notification/notification';
 import {AnalyticsFirebase} from '@ionic-native/analytics-firebase';
 import {AppVersion} from '@ionic-native/app-version';
@@ -72,7 +72,7 @@ import {RateComponent} from "../components/rate/rate";
     InAppBrowser,
     AlertProvider,
     SocialSharing,
-    LocalNotifications,
+    // LocalNotifications,
     NotificationProvider,
     AnalyticsFirebase,
     AppVersion,

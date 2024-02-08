@@ -28,7 +28,7 @@
     <preference name="SplashScreenDelay" value="10000" />
     <preference name="loadUrlTimeoutValue" value="700000" />
     <platform name="android">
-        <custom-preference name="android-manifest/application/receiver[@android:name='nl.xservices.plugins.ShareChooserPendingIntent']/@android:exported" value="false" />
+        <preference name="AndroidXEnabled" value="true" />
         <resource-file src="google-services.json" target="app/google-services.json" />
         <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application/activity" xmlns:android="http://schemas.android.com/apk/res/android">
             <activity android:exported="true" />
@@ -56,6 +56,9 @@
         <splash density="port-xhdpi" src="resources/android/splash/drawable-port-xhdpi-screen.png" />
         <splash density="port-xxhdpi" src="resources/android/splash/drawable-port-xxhdpi-screen.png" />
         <splash density="port-xxxhdpi" src="resources/android/splash/drawable-port-xxxhdpi-screen.png" />
+        <preference name="android-minSdkVersion" value="22" />
+        <preference name="android-targetSdkVersion" value="33" />
+        <preference name="android-compileSdkVersion " value="33" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
@@ -119,18 +122,11 @@
     <plugin name="cordova-plugin-nativestorage" spec="^2.2.2" />
     <plugin name="cordova-plugin-inappbrowser" spec="^1.7.1" />
     <plugin name="cordova-plugin-x-toast" spec="^2.6.0" />
-    <plugin name="cordova-plugin-x-socialsharing" spec="^5.4.0">
-        <custom-preference name="android-manifest/@android:exported" value="false" />
-        <variable name="ANDROID_SUPPORT_V4_VERSION" value="27.1.1+" />
-        <variable name="PHOTO_LIBRARY_ADD_USAGE_DESCRIPTION" value="This app requires photo library access to function properly." />
-        <variable name="PHOTO_LIBRARY_USAGE_DESCRIPTION" value="This app requires photo library access to function properly." />
-    </plugin>
     <plugin name="cordova-plugin-firebase-analytics" spec="^3.0.0">
         <variable name="FIREBASE_CORE_VERSION" value="17.0.+" />
     </plugin>
     <plugin name="cordova-plugin-analytics" spec="2.0.0" />
     <plugin name="cordova-support-google-services" spec="https://github.com/LuisEGR/cordova-support-google-services.git" />
-    <plugin name="cordova-plugin-local-notification" spec="0.9.0-beta.2" />
     <plugin name="cordova-play-services-version-adapter" spec="^1.0.2" />
     <plugin name="cordova-android-support-gradle-release" spec="^3.0.1">
         <variable name="ANDROID_SUPPORT_VERSION" value="27.+" />
@@ -138,8 +134,9 @@
     <plugin name="cordova-plugin-app-version" spec="^0.1.9" />
     <plugin name="cordova-sqlite-storage" spec="^6.0.0" />
     <plugin name="cordova-plugin-globalization" spec="^1.11.0" />
-    <plugin name="cordova-plugin-device" spec="^1.1.7" />
     <plugin name="cordova-custom-config" spec="^5.1.1" />
-    <engine name="browser" spec="^5.0.4" />
-    <engine name="android" spec="^8.1.0" />
+    <plugin name="cordova-plugin-androidx" spec="^3.0.0" />
+    <plugin name="cordova-plugin-androidx-adapter" spec="^1.1.3" />
+    <plugin name="cordova-plugin-x-socialsharing" spec="^6.0.4" />
+    <engine name="android" spec="^9.1.0" />
 </widget>

@@ -115,7 +115,7 @@ In order to build the android platform, you will need the correct version of the
 ```bash
 $ ionic cordova platform rm android
 
-$ ionic cordova platform add android@8.1.0
+$ ionic cordova platform add android@9.1.0
 
 $ ionic cordova build android
 ```
