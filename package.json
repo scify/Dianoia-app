@@ -1,6 +1,6 @@
 {
     "name": "dianoia",
-    "version": "2.4.3",
+    "version": "2.4.4",
     "author": "SciFY",
     "homepage": "https://dianoia-app.scify.org/",
     "private": true,
@@ -37,7 +37,7 @@
         "@ionic/storage": "^2.0.1",
         "@ngx-translate/core": "^7.2.2",
         "@ngx-translate/http-loader": "^0.1.0",
-        "cordova-android": "^9.1.0",
+        "cordova-android": "^8.1.0",
         "cordova-android-support-gradle-release": "^3.0.1",
         "cordova-annotated-plugin-android": "^1.0.4",
         "cordova-custom-config": "^5.1.1",
@@ -86,7 +86,6 @@
     "cordova": {
         "plugins": {
             "cordova-plugin-console": {},
-            "cordova-plugin-device": {},
             "cordova-plugin-splashscreen": {},
             "cordova-plugin-statusbar": {},
             "cordova-plugin-whitelist": {},

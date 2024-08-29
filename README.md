@@ -115,8 +115,29 @@ In order to build the android platform, you will need the correct version of the
 ```bash
 $ ionic cordova platform rm android
 
-$ ionic cordova platform add android@9.1.0
+$ ionic cordova platform add android@8.1.0
+```
 
+### Building the Android project
+
+You will need to open the `platforms/android/CordovaLib/build.gradle` file and change the `repositories` in `buildscript`, in order to have this:
+
+```gradle
+buildscript {
+    repositories {
+        mavenCentral()
+        google()
+        gradlePluginPortal()
+        jcenter()
+        maven { url "https://repo.grails.org/grails/core/" }
+    }
+    ...
+}
+```
+
+Then, you can build the Android project by running:
+
+```bash
 $ ionic cordova build android
 ```
 
