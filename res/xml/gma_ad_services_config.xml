@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ad-services-config>
+    <!-- Enable 16KB page size support for Android 15+ -->
+    <include-data-collection-api>true</include-data-collection-api>
+</ad-services-config>
