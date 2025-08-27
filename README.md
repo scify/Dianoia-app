@@ -17,8 +17,6 @@ It is very easy to install multiple versions of NodeJS and npm, by using [Node V
 This project was built using the following versions of nodejs and npm:
 
 ```bash
-nvm install lts/fermium # (or nvm install v14.21.1)
-
 node -v
 v14.21.1
 
@@ -29,6 +27,8 @@ npm -v
 Alternatively, if you are using [`nvm`](https://github.com/nvm-sh/nvm), run this command in order to sync to the correct NodeJS version for the project:
 
 ```bash
+nvm install
+
 nvm use
 ```
 
