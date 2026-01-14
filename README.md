@@ -192,48 +192,13 @@ ionic cordova platform add android@8.1.0
 
 ### Building the Android project
 
-After adding the Android platform, you need to fix the Gradle configuration because **JCenter/Bintray was shut down in 2021**.
-
-Open `platforms/android/CordovaLib/build.gradle` and make these changes:
-
-1. Replace `jcenter()` with `mavenCentral()` in all `repositories` blocks
-2. Remove the bintray plugin dependencies and configuration
-
-The `buildscript` section should look like this:
-
-```gradle
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
-    }
-
-    dependencies {
-        classpath 'com.android.tools.build:gradle:3.3.0'
-    }
-}
-
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-    }
-}
-
-apply plugin: 'com.android.library'
-```
-
-Also remove the `install { ... }` and `bintray { ... }` blocks at the end of the file (they were for publishing to Bintray which no longer exists).
-
-Similarly, replace `jcenter()` with `mavenCentral()` in:
-- `platforms/android/build.gradle`
-- `platforms/android/app/build.gradle`
-
-Then, you can build the Android project by running:
+Build the Android project by running:
 
 ```bash
 ionic cordova build android
 ```
+
+**Note:** The project includes Cordova hooks that automatically fix the JCenter/Bintray deprecation issue (JCenter was shut down in 2021). The `hooks/after_platform_add.js` hook runs automatically when adding the Android platform and replaces `jcenter()` with `mavenCentral()` in all Gradle files.
 
 The `build` command will generate a full Android project, located in `platforms/android`. This project can then be opened in Android Studio, in order to build and produce the .aap (bundle) or the .apk files.
 
@@ -254,14 +219,35 @@ In order to sign the unsigned .apk, run:
 ```bash
 cd platforms/android/app/build/outputs/apk/release
 
-jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore /path/to/SciFY.keystore app-release-unsigned.apk SciFY
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore ~/projects/dianoia/Dianoia-app/SciFY app-release-unsigned.apk SciFY
 
-/home/paul/Android/Sdk/build-tools/32.0.0/zipalign -v 4 app-release-unsigned.apk app-release-signed.apk
+/home/paul/Android/Sdk/build-tools/36.1.0/zipalign -v 4 app-release-unsigned.apk app-release-signed.apk
 
-/home/paul/Android/Sdk/build-tools/32.0.0/apksigner sign --ks /path/to/SciFY.keystore --v1-signing-enabled true --v2-signing-enabled true app-release-signed.apk
+/home/paul/Android/Sdk/build-tools/36.1.0/apksigner sign --ks ~/projects/dianoia/Dianoia-app/SciFY --v1-signing-enabled true --v2-signing-enabled true app-release-signed.apk
 ```
 
 Then, upload the `app-release-signed.apk` to the Google Play Developer Console.
+
+## Error Tracking with GlitchTip
+
+The app uses [GlitchTip](https://glitchtip.com/) for crash reporting and error tracking. GlitchTip is an open-source alternative to Sentry.
+
+### Configuration
+
+The GlitchTip DSN is configured in `src/consts.ts`:
+
+```typescript
+static GLITCHTIP_DSN: string = 'https://YOUR_KEY@app.glitchtip.com/PROJECT_ID';
+```
+
+The error tracking is initialized in `src/app/app.component.ts` after the platform is ready.
+
+### Cordova Hooks
+
+The project includes hooks in the `hooks/` directory:
+
+- `before_prepare.js` - Disables Sentry auto-release features (not supported by GlitchTip)
+- `after_platform_add.js` - Fixes JCenter deprecation in Gradle files
 
 ## Build for Browser
 

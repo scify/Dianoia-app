@@ -1,5 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget android-versionCode="102167" id="org.scify.dianoia.app" version="2.4.7" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget android-versionCode="102168" id="org.scify.dianoia.app" version="2.4.7" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <hook src="hooks/before_prepare.js" type="before_prepare" />
+    <hook src="hooks/after_platform_add.js" type="after_platform_add" />
     <name>diAnoia</name>
     <description>Non-pharmaceutical activities for people with dementia.</description>
     <author email="info@scify.org" href="https://www.scify.gr/site/en/">SciFY Team</author>
@@ -127,7 +129,6 @@
     <plugin name="cordova-support-google-services" spec="https://github.com/LuisEGR/cordova-support-google-services.git" />
     <plugin name="cordova-play-services-version-adapter" spec="^1.0.2" />
     <plugin name="cordova-plugin-app-version" spec="^0.1.9" />
-    <plugin name="cordova-sqlite-storage" spec="^6.0.0" />
     <plugin name="cordova-plugin-globalization" spec="^1.11.0" />
     <plugin name="cordova-custom-config" spec="^5.1.1" />
     <plugin name="cordova-plugin-androidx" spec="^3.0.0" />

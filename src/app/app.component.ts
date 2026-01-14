@@ -17,6 +17,7 @@ import {ShapesApiProvider} from "../providers/shapes-api/shapes-api";
 import {AnalyticsProvider} from "../providers/analytics/analytics";
 import consts from "../consts";
 import {Helpers} from "../helpers";
+import * as Sentry from '@sentry/browser';
 
 @Component({
   templateUrl: 'app.html'
@@ -79,6 +80,7 @@ export class MyApp {
     if (robot_api)
       await this.appStorage.set("robot_api", robot_api);
     if (this.platform.is('cordova')) {
+      this.initGlitchTip();
       this.appVersion.getVersionNumber().then((version) => this.appVersionName = version);
 
       if (platform.is('android')) {
@@ -230,6 +232,23 @@ export class MyApp {
 
   exitApp() {
     this.shapesApiProvider.postAppStateToRobotAPI("finished");
+  }
+
+  initGlitchTip() {
+    if (!consts.GLITCHTIP_DSN) {
+      console.log('GlitchTip DSN not configured, skipping error tracking');
+      return;
+    }
+    try {
+      Sentry.init({
+        dsn: consts.GLITCHTIP_DSN,
+        release: consts.APP_VERSION,
+        environment: 'production'
+      });
+      console.log('GlitchTip error tracking initialized');
+    } catch (e) {
+      console.error('Failed to initialize GlitchTip:', e);
+    }
   }
 
 }
