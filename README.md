@@ -12,6 +12,10 @@ A demo of the app (in Greek) can be found at [scify.github.io/Dianoia-app](https
 
 ## Pre-setup steps
 
+This is a legacy Ionic 3 / Cordova 8 project that requires specific older versions of tools. Follow these steps carefully.
+
+### 1. Node.js
+
 It is very easy to install multiple versions of NodeJS and npm, by using [Node Version Manager (nvm)](https://github.com/creationix/nvm).
 
 This project was built using the following versions of nodejs and npm:
@@ -24,12 +28,83 @@ npm -v
 6.14.17
 ```
 
-Alternatively, if you are using [`nvm`](https://github.com/nvm-sh/nvm), run this command in order to sync to the correct NodeJS version for the project:
+If you are using [`nvm`](https://github.com/nvm-sh/nvm), run this command in order to sync to the correct NodeJS version for the project:
 
 ```bash
 nvm install
-
 nvm use
+```
+
+### 2. Java 8
+
+This project requires **Java 8 (1.8)** - newer versions are not compatible with Gradle 4.x.
+
+Install OpenJDK 8:
+
+```bash
+sudo apt update
+sudo apt install openjdk-8-jdk
+```
+
+If you have multiple Java versions installed, select Java 8 as the default:
+
+```bash
+sudo update-alternatives --config java
+sudo update-alternatives --config javac
+```
+
+### 3. Gradle 4.10.3
+
+Install Gradle 4.10.3 manually:
+
+```bash
+cd /opt
+sudo wget https://services.gradle.org/distributions/gradle-4.10.3-bin.zip
+sudo unzip gradle-4.10.3-bin.zip
+sudo rm gradle-4.10.3-bin.zip
+```
+
+### 4. Android SDK
+
+Install Android Studio from [developer.android.com](https://developer.android.com/studio) which includes the Android SDK.
+
+The SDK is typically installed at `~/Android/Sdk`.
+
+### 5. Environment Variables
+
+Add the following to your `~/.bashrc` (or `~/.zshrc`):
+
+```bash
+# Java
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+
+# Gradle
+export GRADLE_HOME=/opt/gradle-4.10.3
+
+# Android SDK
+export ANDROID_SDK_ROOT=$HOME/Android/Sdk
+export ANDROID_HOME=$HOME/Android/Sdk
+
+# PATH
+export PATH=$PATH:$JAVA_HOME/bin
+export PATH=$PATH:$GRADLE_HOME/bin
+export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
+export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
+export PATH=$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin
+```
+
+Reload your shell configuration:
+
+```bash
+source ~/.bashrc
+```
+
+Verify your setup:
+
+```bash
+java -version    # Should show 1.8.x
+gradle -v        # Should show 4.10.3
+echo $ANDROID_SDK_ROOT  # Should show your SDK path
 ```
 
 ## Install project dependencies
@@ -86,32 +161,24 @@ The app has several places where the app version is defined. Change the followin
 
 ### Building for Android
 
-#### Java - Gradle
+#### Prerequisites
 
-In order to build for Android, Java `1.8` is required, along with Gradle `4.4.1`.
+Make sure you have completed the [Pre-setup steps](#pre-setup-steps) section, including:
+- Java 8 (1.8)
+- Gradle 4.10.3
+- Android SDK with environment variables configured
 
-Verify your installations by running:
-
-```bash
-java -version
-
-gradle -version
-```
-
-You will need Java version `1.8` on your system. If you have multiple versions of Java installed, you will need to update the current one by running:
+Verify your setup:
 
 ```bash
-sudo update-alternatives --config java
-
-sudo update-alternatives --config javac
+java -version    # Should show 1.8.x
+gradle -v        # Should show 4.10.3
 ```
-
-And selecting the correct one.
 
 #### Firebase Analytics
 
 Since the project uses Firebase Analytics, In order to build for Android you have to put the `google-services.json` file from Firebase Console to the root directory.
-The build process will then copy this file to the `platforms/andorid/app` directory.
+The build process will then copy this file to the `platforms/android/app` directory.
 
 ### Creating the platform files
 
@@ -125,20 +192,42 @@ ionic cordova platform add android@8.1.0
 
 ### Building the Android project
 
-You will need to open the `platforms/android/CordovaLib/build.gradle` file and change the `repositories` in `buildscript`, in order to have this:
+After adding the Android platform, you need to fix the Gradle configuration because **JCenter/Bintray was shut down in 2021**.
+
+Open `platforms/android/CordovaLib/build.gradle` and make these changes:
+
+1. Replace `jcenter()` with `mavenCentral()` in all `repositories` blocks
+2. Remove the bintray plugin dependencies and configuration
+
+The `buildscript` section should look like this:
 
 ```gradle
 buildscript {
     repositories {
-        mavenCentral()
         google()
-        gradlePluginPortal()
-        jcenter()
-        maven { url "https://repo.grails.org/grails/core/" }
+        mavenCentral()
     }
-    ...
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.3.0'
+    }
 }
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+apply plugin: 'com.android.library'
 ```
+
+Also remove the `install { ... }` and `bintray { ... }` blocks at the end of the file (they were for publishing to Bintray which no longer exists).
+
+Similarly, replace `jcenter()` with `mavenCentral()` in:
+- `platforms/android/build.gradle`
+- `platforms/android/app/build.gradle`
 
 Then, you can build the Android project by running:
 
