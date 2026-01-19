@@ -243,7 +243,8 @@ export class MyApp {
       Sentry.init({
         dsn: consts.GLITCHTIP_DSN,
         release: consts.APP_VERSION,
-        environment: 'production'
+        environment: 'production',
+        tracesSampleRate: 0
       });
       console.log('GlitchTip error tracking initialized');
     } catch (e) {
