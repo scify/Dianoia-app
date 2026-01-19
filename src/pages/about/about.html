@@ -23,9 +23,14 @@
   <ion-grid>
     <ion-row justify-content-center margin-bottom>
       <ion-col align-self-center col-lg-6 col-md-10 col-sm-12>
-        <iframe frameborder="0" class="video" width="{{getContainerWidth()}}" height="{{ getContainerWidth() / 2}}"
-                [src]="youtubeLink">
-        </iframe>
+        <div class="videoContainer" *ngIf="youtubeThumbnail" (click)="openYoutubeVideo()">
+          <div class="video-thumbnail" [style.width.px]="getContainerWidth()" [style.height.px]="getContainerWidth() / 1.77">
+            <img [src]="youtubeThumbnail" alt="Video thumbnail">
+            <div class="play-button">
+              <ion-icon name="play"></ion-icon>
+            </div>
+          </div>
+        </div>
       </ion-col>
     </ion-row>
     <ion-row justify-content-center>

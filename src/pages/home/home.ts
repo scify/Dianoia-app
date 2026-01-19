@@ -102,17 +102,20 @@ export class HomePage {
   }
 
   checkForAnnouncement() {
+    try {
+      this.http.get('http://scify.org/dianoiaAnnouncement.html').subscribe(data => {
 
-    this.http.get('http://scify.org/dianoiaAnnouncement.html').subscribe(data => {
-
-      if (data) {
-        let lastUpdatedString = data.headers.get('last-modified');
-        if (lastUpdatedString) {
-          let lastUpdatedDate = new Date(lastUpdatedString);
-          this.showAnnouncementIfNewerThan(lastUpdatedDate, data.text());
+        if (data) {
+          let lastUpdatedString = data.headers.get('last-modified');
+          if (lastUpdatedString) {
+            let lastUpdatedDate = new Date(lastUpdatedString);
+            this.showAnnouncementIfNewerThan(lastUpdatedDate, data.text());
+          }
         }
-      }
-    });
+      });
+    } catch (e) {
+      console.error("Error checking for announcement: " + e);
+    }
   }
 
   showAnnouncementIfNewerThan(date: Date, htmlToSHow: string) {

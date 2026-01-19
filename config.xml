@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget android-versionCode="102168" id="org.scify.dianoia.app" version="2.4.7" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget android-versionCode="102169" id="org.scify.dianoia.app" version="2.4.8" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <hook src="hooks/before_prepare.js" type="before_prepare" />
     <hook src="hooks/after_platform_add.js" type="after_platform_add" />
     <name>diAnoia</name>

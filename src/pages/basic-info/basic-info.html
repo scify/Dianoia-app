@@ -11,10 +11,13 @@
 
   <buttons-list *ngIf='buttons?.length > 0' [buttons]="buttons" (buttonClick)="goTo($event)"></buttons-list>
 
-  <div class="videoContainer" *ngIf="youtubeLink">
-    <iframe frameborder="0" class="video" width="{{getContainerWidth()}}" height="{{ getContainerWidth() / 2}}"
-            [src]="youtubeLink">
-    </iframe>
+  <div class="videoContainer" *ngIf="youtubeThumbnail" (click)="openYoutubeVideo()">
+    <div class="video-thumbnail" [style.width.px]="getContainerWidth()" [style.height.px]="getContainerWidth() / 1.77">
+      <img [src]="youtubeThumbnail" alt="Video thumbnail">
+      <div class="play-button">
+        <ion-icon name="play"></ion-icon>
+      </div>
+    </div>
   </div>
 
 </ion-content>

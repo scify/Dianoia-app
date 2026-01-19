@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams, Platform} from 'ionic-angular';
 import {TranslateService} from "@ngx-translate/core";
-import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
+import {InAppBrowser} from '@ionic-native/in-app-browser';
 
 
 /**
@@ -21,11 +21,12 @@ import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 export class BasicInfoPage {
 
   buttons: any[];
-  youtubeLink: SafeResourceUrl = '';
+  youtubeVideoId: string = '';
+  youtubeThumbnail: string = '';
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-              public translate: TranslateService, public sanitizer: DomSanitizer,
-              public platform: Platform) {
+              public translate: TranslateService, public platform: Platform,
+              private iab: InAppBrowser) {
     this.translate.onLangChange.subscribe(() => {
       this.setUpPageElements();
     });
@@ -36,7 +37,11 @@ export class BasicInfoPage {
   }
 
   setUpPageElements() {
-    this.youtubeLink = this.sanitizer.bypassSecurityTrustResourceUrl(this.translate.instant('about_youtube_link'));
+    const youtubeEmbedUrl = this.translate.instant('about_youtube_link');
+    // Extract video ID from embed URL (format: https://www.youtube.com/embed/VIDEO_ID)
+    const videoIdMatch = youtubeEmbedUrl.match(/\/embed\/([^?&]+)/);
+    this.youtubeVideoId = videoIdMatch ? videoIdMatch[1] : '';
+    this.youtubeThumbnail = this.youtubeVideoId ? `https://img.youtube.com/vi/${this.youtubeVideoId}/hqdefault.jpg` : '';
     this.buttons = [
       {
         title: this.translate.instant('what_are_activities'),
@@ -69,6 +74,16 @@ export class BasicInfoPage {
     if (!this.platform.is('cordova'))
       width = 1000;
     return width - 32;
+  }
+
+  openYoutubeVideo() {
+    if (!this.youtubeVideoId) return;
+    const youtubeUrl = `https://www.youtube.com/watch?v=${this.youtubeVideoId}`;
+    if (this.platform.is('cordova')) {
+      this.iab.create(youtubeUrl, '_system');
+    } else {
+      window.open(youtubeUrl, '_blank');
+    }
   }
 
 }
