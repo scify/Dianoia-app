@@ -38,7 +38,6 @@ export class HomePage {
         statusBar.overlaysWebView(true);
         statusBar.styleDefault();
       }
-      this.checkForAnnouncement();
     }
     this.translate.onLangChange.subscribe(() => {
       this.setUpPageElements();
@@ -97,37 +96,6 @@ export class HomePage {
       if (JSON.parse(authMode) && !robotAPIStartCalled) {
         robotAPIStartCalled = true;
         this.shapesApiProvider.postAppStateToRobotAPI("started");
-      }
-    });
-  }
-
-  checkForAnnouncement() {
-    try {
-      this.http.get('http://scify.org/dianoiaAnnouncement.html').subscribe(data => {
-
-        if (data) {
-          let lastUpdatedString = data.headers.get('last-modified');
-          if (lastUpdatedString) {
-            let lastUpdatedDate = new Date(lastUpdatedString);
-            this.showAnnouncementIfNewerThan(lastUpdatedDate, data.text());
-          }
-        }
-      });
-    } catch (e) {
-      console.error("Error checking for announcement: " + e);
-    }
-  }
-
-  showAnnouncementIfNewerThan(date: Date, htmlToSHow: string) {
-    let lastUpdatedMills = date.getTime();
-    this.appStorage.get('announcement_last_modified').then(data => {
-      let announcementLastUpdated = JSON.parse(data);
-      if (announcementLastUpdated)
-        announcementLastUpdated = parseInt(announcementLastUpdated);
-
-      if (announcementLastUpdated < lastUpdatedMills && this.platform.is('cordova') && this.strip(htmlToSHow) !== "") {
-        this.alertProvider.announcementDialog("Announcement", htmlToSHow);
-        this.appStorage.set('announcement_last_modified', lastUpdatedMills);
       }
     });
   }

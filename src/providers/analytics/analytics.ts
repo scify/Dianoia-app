@@ -36,7 +36,12 @@ export class AnalyticsProvider {
   }
 
   public async logAction(actionTitle: string, payload: any = {}, consoleMessage: string = null) {
-    const token = JSON.parse(await this.appStorageProvider.get("auth_token"));
+    let token: string = null;
+    try {
+      token = JSON.parse(await this.appStorageProvider.get("auth_token"));
+    } catch (e) {
+      token = null;
+    }
     const lang = this.translate.currentLang;
     if(token)
       actionTitle += "_SHAPES";
