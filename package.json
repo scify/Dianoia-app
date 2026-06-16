@@ -51,7 +51,7 @@
         "cordova-plugin-device": "^2.1.0",
         "cordova-plugin-firebase-analytics": "^3.0.0",
         "cordova-plugin-globalization": "^1.11.0",
-        "cordova-plugin-inappbrowser": "^3.2.0",
+        "cordova-plugin-inappbrowser": "^6.0.1",
         "cordova-plugin-nativestorage": "^2.3.2",
         "cordova-plugin-splashscreen": "^4.1.0",
         "cordova-plugin-statusbar": "^2.4.3",
