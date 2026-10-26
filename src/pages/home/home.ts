@@ -2,14 +2,10 @@ import {Component} from '@angular/core';
 import {IonicPage, NavController, Platform} from 'ionic-angular';
 import {LoaderService} from "../../providers/loader-service/loader-service";
 import {Http} from "@angular/http";
-import {AppStorageProvider} from "../../providers/app-storage/app-storage";
 import {AlertProvider} from "../../providers/alert/alert";
 import {StatusBar} from "@ionic-native/status-bar";
 import {InAppBrowser} from "@ionic-native/in-app-browser";
 import {TranslateService} from "@ngx-translate/core";
-import {ShapesApiProvider} from "../../providers/shapes-api/shapes-api";
-
-let robotAPIStartCalled = false;
 
 @IonicPage()
 @Component({
@@ -22,13 +18,12 @@ export class HomePage {
   activities: any[];
   buttons: any[];
   iconPath: string = 'assets/img/en/icon.png';
-  authMode: boolean = false;
 
   constructor(public navCtrl: NavController,
               private loaderService: LoaderService, private http: Http,
-              private appStorage: AppStorageProvider, public statusBar: StatusBar,
+              public statusBar: StatusBar,
               private alertProvider: AlertProvider, public platform: Platform, private iab: InAppBrowser,
-              private translate: TranslateService, public shapesApiProvider: ShapesApiProvider) {
+              private translate: TranslateService) {
     if (platform.is('cordova')) {
       if (platform.is('android')) {
         statusBar.overlaysWebView(false);
@@ -42,10 +37,6 @@ export class HomePage {
     this.translate.onLangChange.subscribe(() => {
       this.setUpPageElements();
     });
-    this.appStorage.get("auth_mode").then((authMode) => {
-      if (JSON.parse(authMode))
-        this.authMode = JSON.parse(authMode);
-    })
   }
 
   ionViewWillLoad() {
@@ -92,12 +83,6 @@ export class HomePage {
         subtitle: this.translate.instant('stories_btn_subtitle'),
       }
     ];
-    this.appStorage.get('auth_mode').then(authMode => {
-      if (JSON.parse(authMode) && !robotAPIStartCalled) {
-        robotAPIStartCalled = true;
-        this.shapesApiProvider.postAppStateToRobotAPI("started");
-      }
-    });
   }
 
   strip(html) {

@@ -25,7 +25,6 @@ import {AppVersion} from '@ionic-native/app-version';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {Globalization} from "@ionic-native/globalization";
-import {ShapesApiProvider} from "../providers/shapes-api/shapes-api";
 import {SimpleCardComponent} from "../components/simple-card/simple-card";
 import { AnalyticsProvider } from '../providers/analytics/analytics';
 import {Device} from "@ionic-native/device";
@@ -77,7 +76,6 @@ import {RateComponent} from "../components/rate/rate";
     AnalyticsFirebase,
     AppVersion,
     Globalization,
-    ShapesApiProvider,
     AnalyticsProvider,
     Device,
     ActivityRatingProvider

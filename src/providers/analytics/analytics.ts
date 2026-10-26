@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {Http} from '@angular/http';
 import 'rxjs/add/operator/map';
 import {TranslateService} from "@ngx-translate/core";
-import {AppStorageProvider} from "../app-storage/app-storage";
 import {AnalyticsFirebase} from "@ionic-native/analytics-firebase";
 import {Platform} from "ionic-angular";
 import {ApiCallsProvider} from "../api-calls/api-calls";
@@ -24,7 +23,6 @@ export class AnalyticsProvider {
   appVersion: string = null;
 
   constructor(public http: Http, private translate: TranslateService,
-              public appStorageProvider: AppStorageProvider,
               public analyticsFirebase: AnalyticsFirebase,
               public platform: Platform, public apiCalls: ApiCallsProvider,
               public device: Device) {
@@ -36,20 +34,11 @@ export class AnalyticsProvider {
   }
 
   public async logAction(actionTitle: string, payload: any = {}, consoleMessage: string = null) {
-    let token: string = null;
-    try {
-      token = JSON.parse(await this.appStorageProvider.get("auth_token"));
-    } catch (e) {
-      token = null;
-    }
     const lang = this.translate.currentLang;
-    if(token)
-      actionTitle += "_SHAPES";
     if (!consoleMessage)
       consoleMessage = "DIANOIA_" + actionTitle + "_LANG_" + this.translate.currentLang + "_" + JSON.stringify(payload);
     payload = {
       ...payload,
-      token: token,
       lang: lang,
       name: actionTitle,
       source: this.platformName,
