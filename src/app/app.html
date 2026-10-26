@@ -24,23 +24,14 @@
             </ion-option>
           </ion-select>
         </ion-item>
-        <ion-item *ngIf="shapesMode">
-          <ion-label mode="ios">
-            <button mode="ios" ion-button color="danger" large (click)="exitApp()">{{ 'exit' | translate }}</button>
-          </ion-label>
-        </ion-item>
         <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
           {{p.title}}
-        </button>
-        <button ion-item (click)="login()" *ngIf="platformAndroid()">
-          {{ 'login_btn' | translate }}
-          <ion-badge item-end>SHAPES</ion-badge>
         </button>
         <button menuClose ion-item (click)="openLink('https://dianoia.scify.org/')">
           Dianoia Marketplace
           <ion-badge item-end>NEW</ion-badge>
         </button>
-        <div *ngIf="!shapesMode">
+        <div>
           <button style="padding-top: 12px; padding-bottom: 12px;" padding mode="ios" ion-button
                   *ngIf="!platform.is('cordova')"
                   (click)="openLink('https://play.google.com/store/apps/details?id=org.scify.dianoia.app&hl=el')">

@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {AlertController, IonicPage, NavController, NavParams, Platform} from 'ionic-angular';
+import {IonicPage, NavController, NavParams, Platform} from 'ionic-angular';
 import {AppStorageProvider} from "../../providers/app-storage/app-storage";
 import {AlertProvider} from "../../providers/alert/alert";
 import {NotificationProvider} from "../../providers/notification/notification";
@@ -20,12 +20,11 @@ export class SettingsPage {
 
   notificationOptions: any;
   selectedNotificationId: string;
-  authMode: false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public platform: Platform, private appStorage: AppStorageProvider,
               private alert: AlertProvider, private localNotifications: NotificationProvider,
-              private translate: TranslateService, private alertController: AlertController) {
+              private translate: TranslateService) {
 
     this.selectedNotificationId = 'every_day';
     this.appStorage.get('notification_frequency').then(frequencyId => {
@@ -50,11 +49,6 @@ export class SettingsPage {
       {title: this.translate.instant('every_month'), id: 'every_month'},
       {title: this.translate.instant('no_notifications'), id: 'never'}
     ];
-    this.appStorage.get('auth_mode').then(authMode => {
-      if (JSON.parse(authMode)) {
-        this.authMode = JSON.parse(authMode);
-      }
-    })
   }
 
   saveNotificationSettings() {
@@ -73,32 +67,6 @@ export class SettingsPage {
         alert(this.translate.instant('please_select'));
       }
     }
-  }
-
-  authModeChanged(event) {
-    this.authMode = event.value;
-    this.appStorage.set('auth_mode', this.authMode);
-    if (this.authMode) {
-      let alert = this.alertController.create({
-        mode: 'ios',
-        title: this.translate.instant("mode_enabled_title"),
-        message: this.translate.instant("mode_enabled_text"),
-        buttons: [
-          {
-            text: 'OK',
-            handler: () => {
-              window.location.hash = "";
-              window.location.reload();
-            }
-          }]
-      });
-
-      alert.present();
-    }
-  }
-
-  platformAndroid() {
-    return this.platform.is('android');
   }
 
 }

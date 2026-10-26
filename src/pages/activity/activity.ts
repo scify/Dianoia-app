@@ -7,9 +7,7 @@ import {SocialSharing} from "@ionic-native/social-sharing";
 import {TranslateService} from "@ngx-translate/core";
 import {AppStorageProvider} from "../../providers/app-storage/app-storage";
 import {AnalyticsProvider} from "../../providers/analytics/analytics";
-import {ShapesApiProvider} from "../../providers/shapes-api/shapes-api";
 import {ActivityCategoryProvider} from "../../providers/activity-category/activity-category";
-import {Helpers} from "../../helpers";
 import {ActivityRatingProvider} from "../../providers/activity-rating/activity-rating";
 import {RateComponent} from "../../components/rate/rate";
 
@@ -42,7 +40,7 @@ export class ActivityPage {
               private activityProvider: ActivityProvider, private iab: InAppBrowser,
               public platform: Platform, private alert: AlertProvider, private socialSharing: SocialSharing,
               private viewCtrl: ViewController, private translate: TranslateService, public appStorage: AppStorageProvider,
-              public events: Events, public analyticsProvider: AnalyticsProvider, public shapesApiProvider: ShapesApiProvider,
+              public events: Events, public analyticsProvider: AnalyticsProvider,
               private activityCategoryProvider: ActivityCategoryProvider, private activityRatingProvider: ActivityRatingProvider,
               private modalCtrl: ModalController) {
 
@@ -71,11 +69,6 @@ export class ActivityPage {
       return;
     this.setUpInProgress = true;
     this.currentLang = this.translate.currentLang;
-    const robot_api = Helpers.getURLParam("robot_api");
-    if (robot_api)
-      await this.appStorage.set("robot_api", robot_api);
-    if (this.pageOpenedFromDirectLink())
-      this.shapesApiProvider.postAppStateToRobotAPI("started");
     this.activity = await this.getActivity();
     this.allActivities = await this.getActivities();
     this.category = await this.activityCategoryProvider.getCategoryBySlug(this.activity.category);
@@ -230,11 +223,6 @@ export class ActivityPage {
 
   private getRandomActivity() {
     return this.allActivities[Math.floor(Math.random() * this.allActivities.length)];
-  }
-
-  private pageOpenedFromDirectLink() {
-    let activity = this.navParams.get("activity");
-    return activity == null;
   }
 
   openCategoryPage() {

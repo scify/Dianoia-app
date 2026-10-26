@@ -13,7 +13,6 @@ import enTranslations from "./../assets/i18n/en.json";
 import elTranslations from "./../assets/i18n/el.json";
 import esTranslations from "./../assets/i18n/es.json";
 import itTranslations from "./../assets/i18n/it.json";
-import {ShapesApiProvider} from "../providers/shapes-api/shapes-api";
 import {AnalyticsProvider} from "../providers/analytics/analytics";
 import consts from "../consts";
 import {Helpers} from "../helpers";
@@ -28,7 +27,6 @@ export class MyApp {
   rootPage: any = 'HomePage';
   appVersionName: string = consts.APP_VERSION;
   onDemandLang: string;
-  shapesMode: false;
 
   pages: Array<any>;
   languages = [
@@ -55,8 +53,7 @@ export class MyApp {
               private appStorage: AppStorageProvider, private loaderService: LoaderService,
               private analyticsProvider: AnalyticsProvider, private iab: InAppBrowser, private appVersion: AppVersion,
               public translate: TranslateService, public events: Events, private menuController: MenuController,
-              private globalization: Globalization,
-              public shapesApiProvider: ShapesApiProvider) {
+              private globalization: Globalization) {
     translate.setTranslation('en', enTranslations);
     translate.setTranslation('es', esTranslations);
     translate.setTranslation('el', elTranslations);
@@ -73,12 +70,6 @@ export class MyApp {
   async initializeApp(platform, statusBar) {
     this.loaderService.showLoader();
     await this.platform.ready();
-    const authMode = Helpers.getURLParam("auth_mode");
-    if (authMode)
-      await this.appStorage.set("auth_mode", authMode);
-    const robot_api = Helpers.getURLParam("robot_api");
-    if (robot_api)
-      await this.appStorage.set("robot_api", robot_api);
     if (this.platform.is('cordova')) {
       this.initGlitchTip();
       this.appVersion.getVersionNumber().then((version) => this.appVersionName = version);
@@ -97,10 +88,6 @@ export class MyApp {
     }
     await this.setTranslationSettings();
     console.log("DIANOIA_APP_FINISHED_LANG_" + this.translate.currentLang);
-  }
-
-  platformAndroid() {
-    return this.platform.is('android');
   }
 
   async setTranslationSettings() {
@@ -127,22 +114,7 @@ export class MyApp {
     }
     if (!this.onDemandLang)
       this.setLang(langCode);
-    const shouldShowLoginPage = await this.shouldShowLoginPage();
-    if (shouldShowLoginPage) {
-      // await this.appStorage.set('auth_token', null);
-      this.nav.setRoot("SignInPage").then(() => {
-        this.loaderService.hideLoader();
-      });
-    } else {
-      this.loaderService.hideLoader();
-    }
-  }
-
-  login() {
-    this.loaderService.showLoader();
-    this.nav.push("SignInPage").then(() => {
-      this.loaderService.hideLoader();
-    });
+    this.loaderService.hideLoader();
   }
 
   setUpPageElements() {
@@ -172,11 +144,6 @@ export class MyApp {
       this.splashScreen.hide();
       console.log("DIANOIA_APP_STARTED_LANG_" + this.translate.currentLang);
     }
-    this.appStorage.get('auth_mode').then(authMode => {
-      if (JSON.parse(authMode)) {
-        this.shapesMode = JSON.parse(authMode);
-      }
-    })
   }
 
   setLang(langCode) {
@@ -185,33 +152,6 @@ export class MyApp {
       this.appStorage.set('app_lang', langCode).then(() => {
         this.events.publish('lang_ready', langCode);
         this.menuController.close();
-      });
-    });
-  }
-
-  async shouldShowLoginPage(): Promise<any> {
-    return new Promise(async (resolve, reject) => {
-      const authMode = JSON.parse(await this.appStorage.get('auth_mode'));
-      if (!authMode)
-        return resolve(false);
-
-      if (!this.platformAndroid())
-        return resolve(false);
-
-      const tokenParam = Helpers.getURLParam("auth_token");
-      if (tokenParam) {
-        await this.appStorage.set('auth_token', tokenParam);
-        return resolve(false);
-      }
-      const token = JSON.parse(await this.appStorage.get('auth_token'));
-      if (!token) {
-        return resolve(true);
-      }
-      this.shapesApiProvider.getIsTokenValid(token).subscribe(data => {
-        console.log('token valid', data.json());
-        resolve(false);
-      }, error => {
-        resolve(true)
       });
     });
   }
@@ -228,10 +168,6 @@ export class MyApp {
 
   openLink(url) {
     this.iab.create(url);
-  }
-
-  exitApp() {
-    this.shapesApiProvider.postAppStateToRobotAPI("finished");
   }
 
   initGlitchTip() {
